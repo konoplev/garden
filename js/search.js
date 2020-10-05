@@ -203,7 +203,6 @@ let howWordSet = new Set();
 
 let fileWordSet = new Set();
         fileWordSet.add("toc");
-        fileWordSet.add("about_the_digital_garden");
     searchMap.set("file", fileWordSet);
 
 let publicWordSet = new Set();
@@ -255,10 +254,6 @@ let aWordSet = new Set();
         aWordSet.add("toc");
         aWordSet.add("about_the_digital_garden");
     searchMap.set("a", aWordSet);
-
-let bWordSet = new Set();
-        bWordSet.add("about_the_digital_garden");
-    searchMap.set("b", bWordSet);
 
 let processWordSet = new Set();
         processWordSet.add("about_the_digital_garden");
