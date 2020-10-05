@@ -131,7 +131,7 @@
     let secret = pageRequest.searchParams.get("secret");
     let barer = "Basic " +  pageRequest.searchParams.get("token");
 
-    var url = "https://notes.konoplev.me/api";
+    var url = "http://localhost:8080/api";
 
     //auth
     $.ajax({
