@@ -1,28 +1,28 @@
 let filesMap = new Map();
 
-filesMap.set("programming", {
+        filesMap.set("programming", {
 filename: "programming",
 title: "Programming",
 text: `Top level page containing links to programming sub-topics.
 `,
 date: "Mon Oct 05 00:00:00 CEST 2020",
-tags: ["zettelcasten"]
+tags: [ {name: 'toc', fileName: 'toc'}, ]
 });
-filesMap.set("about_the_digital_garden", {
+    filesMap.set("about_the_digital_garden", {
 filename: "about_the_digital_garden",
 title: "About the digital garden",
 text: `This web site is a collection of my notes. At some point I decided to make them public. A few words about how my notes taking process look like and how this site is organaized.
 `,
-date: "Sun Dec 22 00:00:00 CET 65",
-tags: ["zettelcasten"]
+date: "Mon Oct 05 00:00:00 CEST 2020",
+tags: []
 });
-filesMap.set("toc", {
+    filesMap.set("toc", {
 filename: "toc",
 title: "TOC",
 text: `This file is something like a table of contents having links to general subtopics.
 `,
 date: "Mon Oct 05 00:00:00 CEST 2020",
-tags: ["zettelcasten"]
+tags: []
 });
 
 let searchMap = new Map();

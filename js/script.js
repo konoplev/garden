@@ -1,10 +1,10 @@
-import { getSearchResult } from './search.js';
+import {getSearchResult} from './search.js';
 
 var searchvisible = 0;
 
 var searchRequest = "";
 
-$("input").change(function(e){
+$("input").change(function (e) {
     searchRequest = e.target.value;
     $(".search-input").val(searchRequest);
 });
@@ -14,29 +14,26 @@ function closeSearchForm() {
     searchvisible = 0;
 }
 
-$("#search-menu").click(function(e){
+$("#search-menu").click(function (e) {
     //This stops the page scrolling to the top on a # link.
     e.preventDefault();
 
     var val = $('#search-icon');
-    if(val.hasClass('ion-ios-search-strong')){
+    if (val.hasClass('ion-ios-search-strong')) {
         val.addClass('ion-ios-close-empty');
         val.removeClass('ion-ios-search-strong');
-    }
-    else{
+    } else {
         val.removeClass('ion-ios-close-empty');
         val.addClass('ion-ios-search-strong');
     }
 
 
-    if (searchvisible ===0) {
+    if (searchvisible === 0) {
         //Search is currently hidden. Slide down and show it.
         $("#search-form").slideDown(200);
         $("#s").focus(); //Set focus on the search input field.
         searchvisible = 1; //Set search visible flag to visible.
-    }
-
-    else {
+    } else {
         //Search is currently showing. Slide it back up and hide it.
         closeSearchForm();
     }
@@ -62,13 +59,13 @@ $(":submit").click(function (e) {
 /*jshint browser: true, strict: true, undef: true */
 /*global define: false */
 
-( function( window ) {
+(function (window) {
 
     'use strict';
 
 // class helper functions from bonzo https://github.com/ded/bonzo
 
-    function classReg( className ) {
+    function classReg(className) {
         return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
     }
 
@@ -76,34 +73,33 @@ $(":submit").click(function (e) {
 // altho to be fair, the api sucks because it won't accept multiple classes at once
     var hasClass, addClass, removeClass;
 
-    if ( 'classList' in document.documentElement ) {
-        hasClass = function( elem, c ) {
-            return elem.classList.contains( c );
+    if ('classList' in document.documentElement) {
+        hasClass = function (elem, c) {
+            return elem.classList.contains(c);
         };
-        addClass = function( elem, c ) {
-            elem.classList.add( c );
+        addClass = function (elem, c) {
+            elem.classList.add(c);
         };
-        removeClass = function( elem, c ) {
-            elem.classList.remove( c );
+        removeClass = function (elem, c) {
+            elem.classList.remove(c);
         };
-    }
-    else {
-        hasClass = function( elem, c ) {
-            return classReg( c ).test( elem.className );
+    } else {
+        hasClass = function (elem, c) {
+            return classReg(c).test(elem.className);
         };
-        addClass = function( elem, c ) {
-            if ( !hasClass( elem, c ) ) {
+        addClass = function (elem, c) {
+            if (!hasClass(elem, c)) {
                 elem.className = elem.className + ' ' + c;
             }
         };
-        removeClass = function( elem, c ) {
-            elem.className = elem.className.replace( classReg( c ), ' ' );
+        removeClass = function (elem, c) {
+            elem.className = elem.className.replace(classReg(c), ' ');
         };
     }
 
-    function toggleClass( elem, c ) {
-        var fn = hasClass( elem, c ) ? removeClass : addClass;
-        fn( elem, c );
+    function toggleClass(elem, c) {
+        var fn = hasClass(elem, c) ? removeClass : addClass;
+        fn(elem, c);
     }
 
     var classie = {
@@ -120,58 +116,56 @@ $(":submit").click(function (e) {
     };
 
 // transport
-    if ( typeof define === 'function' && define.amd ) {
+    if (typeof define === 'function' && define.amd) {
         // AMD
-        define( classie );
+        define(classie);
     } else {
         // browser global
         window.classie = classie;
     }
 
-})( window );
+})(window);
 
-(function() {
-    var triggerBttn = document.getElementById( 'trigger-overlay' ),
-        overlay = document.querySelector( 'div.overlay' ),
-        closeBttn = overlay.querySelector( 'button.overlay-close' );
+(function () {
+    var triggerBttn = document.getElementById('trigger-overlay'),
+        overlay = document.querySelector('div.overlay'),
+        closeBttn = overlay.querySelector('button.overlay-close');
     var transEndEventNames = {
-        'WebkitTransition': 'webkitTransitionEnd',
-        'MozTransition': 'transitionend',
-        'OTransition': 'oTransitionEnd',
-        'msTransition': 'MSTransitionEnd',
-        'transition': 'transitionend'
-    },
-        transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-        support = { transitions : Modernizr.csstransitions };
+            'WebkitTransition': 'webkitTransitionEnd',
+            'MozTransition': 'transitionend',
+            'OTransition': 'oTransitionEnd',
+            'msTransition': 'MSTransitionEnd',
+            'transition': 'transitionend'
+        },
+        transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+        support = {transitions: Modernizr.csstransitions};
 
     function toggleOverlay() {
-        if( classie.has( overlay, 'open' ) ) {
-            classie.remove( overlay, 'open' );
-            classie.add( overlay, 'close' );
-            var onEndTransitionFn = function( ev ) {
-                if( support.transitions ) {
-                    if( ev.propertyName !== 'visibility' ) return;
-                    this.removeEventListener( transEndEventName, onEndTransitionFn );
+        if (classie.has(overlay, 'open')) {
+            classie.remove(overlay, 'open');
+            classie.add(overlay, 'close');
+            var onEndTransitionFn = function (ev) {
+                if (support.transitions) {
+                    if (ev.propertyName !== 'visibility') return;
+                    this.removeEventListener(transEndEventName, onEndTransitionFn);
                 }
-                classie.remove( overlay, 'close' );
+                classie.remove(overlay, 'close');
             };
-            if( support.transitions ) {
-                overlay.addEventListener( transEndEventName, onEndTransitionFn );
-            }
-            else {
+            if (support.transitions) {
+                overlay.addEventListener(transEndEventName, onEndTransitionFn);
+            } else {
                 onEndTransitionFn();
             }
-        }
-        else if( !classie.has( overlay, 'close' ) ) {
-            classie.add( overlay, 'open' );
+        } else if (!classie.has(overlay, 'close')) {
+            classie.add(overlay, 'open');
         }
     }
 
-    triggerBttn.addEventListener( 'click', toggleOverlay );
-    closeBttn.addEventListener( 'click', toggleOverlay );
+    triggerBttn.addEventListener('click', toggleOverlay);
+    closeBttn.addEventListener('click', toggleOverlay);
 })();
 
-export function getMatchResultTemplate(filename, title, text, date, ...tags) {
+export function getMatchResultTemplate(filename, title, text, date, tags) {
     var template = "<article class='post post-1'>\n" +
         "                    <header class='entry-header'>\n" +
         "                        <h1 class='entry-title'>\n" +
@@ -181,7 +175,7 @@ export function getMatchResultTemplate(filename, title, text, date, ...tags) {
         "                            <span class='post-date'><a href='#'><time class='entry-date'>" + date + "</time></a></span>\n" +
         "\n" +
         "                            <span class='comments-link'>";
-    tags.forEach(tag => template += "<a href='#'>#" + tag + "</a>");
+    tags.forEach(tag => template += "<a href='" + tag.fileName + ".html'>#" + tag.name + "</a>");
     return template + "</span>\n" +
         "                        </div>\n" +
         "                    </header>\n" +
