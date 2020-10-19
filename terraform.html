@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>How to find you career</title>
+    <title>Terraform</title>
 
     <!-- meta -->
     <meta charset="UTF-8">
@@ -67,13 +67,13 @@
                 <div id="content-holder">
                     <article class="post post-1">
                         <header class="entry-header">
-                            <h1 class="entry-title">How to find you career</h1>
+                            <h1 class="entry-title">Terraform</h1>
                             <div class="entry-meta">
                             <span class="post-date"><a href="#"><time class="entry-date"
-                                                                      datetime="2020-10-08T22:00:00Z">Oct 9, 2020</time></a></span>
+                                                                      datetime="2020-10-18T22:00:00Z">Oct 19, 2020</time></a></span>
 
                                 <span class="post-category">
-                                                                        <a href=".html"> #</a>
+                                                                        <a href="devops.html"> #devops</a>
                                                                     </span>
 
                                                             </div>
@@ -82,53 +82,93 @@
                             <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Mistakes, advices and ways to find a business you&#8217;ll like</p>
+<p>Quick intro to terraform</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_crises">Crises</h2>
+<h2 id="_idea">Idea</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="career_crises.html">Career crises</a></p>
+<p>You declare desired configuration (set of resources) &#8594; terraform reads it and create the requested resources.</p>
+</div>
+<div class="paragraph">
+<p>For each resource type (s3 bucket for example) there is a provider (a thing that is able to create a requested resource).</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_choice">Choice</h2>
+<h2 id="_terraform_init">terraform init</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="choice.html">Choice</a></p>
+<p>Command parsing the configuration and loading necessary plugins (providers).</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_interest">Interest</h2>
+<h2 id="_terraform_apply">terraform apply</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="interest.html">Interest</a></p>
+<p>Command reading resources description, creating a dependency tree (how the resources depends on each other) and creating resources starting from the tree&#8217;s root.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_day_dream">Day dream</h2>
+<h2 id="_state">State</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="day_dreams.html">Day dream</a></p>
+<p>To keep state, terraform writes results of the last <code>terraform apply</code> into a file. A file could be kept locally (default) or shared among team members.</p>
+</div>
+<div class="paragraph">
+<p>To share the file, it&#8217;s needed to create a backed. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>locals {
+  local_state = {
+    backend = "local"
+    config = {
+      path = var.local_path
+    }
+  }
+  remote_state = {
+    backend = "s3"
+    config = {
+      key      = var.remote_path
+      region   = var.remote_region
+      bucket   = var.remote_bucket
+      role_arn = var.remote_role_arn
+    }
+  }
+}</pre>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_freedom">Freedom</h2>
+<h2 id="_terraform_plan">terraform plan</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>Same as apply, but it doesn&#8217;t change the state (so it creates nothing). It just informs which changes will be done by <code>terraform apply</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_terrafrom_workspaces">terrafrom workspaces</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>One of the ways to separate environments. You create different workspaces, terraform keep states separately(in <code>env</code> directory)</p>
+</div>
+<div class="paragraph">
+<p>Another way is to keep different environments in different directories.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_links">Links</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="file.html">Parent</a></p>
+<p><a href="devops.html">Parent</a></p>
 </div>
 </div>
 </div>
