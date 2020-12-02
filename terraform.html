@@ -140,7 +140,13 @@
       role_arn = var.remote_role_arn
     }
   }
-}</pre>
+}
+
+There are two important things on backend: storage and a way to lock it.
+Backend needs to store the state (storage) and prevent it from concurrent use (lock). So if one developer runs `terraform apply` another one should wait until first developer's command is done. Storage could be s3, the lock could be a table in DynamoDb.
+
+[NOTE]
+State file could potentially contain passwords in plain text. So always create an encryption for remote state and exclude local state files from git.</pre>
 </div>
 </div>
 </div>

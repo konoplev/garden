@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relational DBs performance</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/pace.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/lc_gif_player.css">
+
+    <!-- js -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+</head>
+
+<body id="single">
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="index.html"><b>Konoplev's</b> garden</a></h1>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="index.html" data-hover="Garden">Garden</a></li>
+                            <li class="cl-effect-11"><a href="http://konoplev.me" data-hover="Blog">Blog</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <input type="search" placeholder="Search" required class="search-input">
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- col-md-8 -->
+        </div>
+    </header>
+</div>
+
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-12">
+                <div id="content-holder">
+                    <article class="post post-1">
+                        <header class="entry-header">
+                            <h1 class="entry-title">Relational DBs performance</h1>
+                            <div class="entry-meta">
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="2020-12-01T23:00:00Z">Dec 2, 2020</time></a></span>
+
+                                <span class="post-category">
+                                                                        <a href=".html"> #</a>
+                                                                    </span>
+
+                                                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Topics related to performance of relational DBs. Based on <a href="https://use-the-index-luke.com" class="bare">https://use-the-index-luke.com</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_query_optimizer">Query Optimizer</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Choose the best way depending on statistics and indexes. Can be customized to disable or enable some features. Most statistics are collected on the column level: the number of distinct values, the smallest and largest values (data range), the number of NULL occurrences and the column histogram (data distribution). The most important statistical value for a table is its size (in rows and blocks).</p>
+</div>
+<div class="paragraph">
+<p>Each database has a command to show which execution plan was created by Query Optimizer. It allows to know which indexes were used and improve performance changing or adding new indexes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_indexes">Indexes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Indexes are used to improve specific queries performance. By default index is created for a primary key, because default way to fetch a record is to query it by primary key.</p>
+</div>
+<div class="paragraph">
+<p>Index is a double linked list. Each item is a column value and a link to the data file. List is ordered, data file is not.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="fig01_01_index_leaf_nodes.en.MMHwYDFb.png" alt="fig01 01 index leaf nodes.en.MMHwYDFb">
+</div>
+</div>
+<div class="paragraph">
+<p>B-Trees (Balanced trees)</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="fig01_02_tree_structure.en.BdEzalqw.png" alt="fig01 02 tree structure.en.BdEzalqw">
+</div>
+</div>
+<div class="paragraph">
+<p>Each branch node entry corresponds to the biggest value in the respective leaf node. Take the first leaf node as an example: the biggest value in this node is 46, which is thus stored in the corresponding branch node entry. The same is true for the other leaf nodes so that in the end the branch node has the values 46, 53, 57 and 83. According to this scheme, a branch layer is built up until all the leaf nodes are covered by a branch node.</p>
+</div>
+<div class="paragraph">
+<p>Pay attention: 57 can be found multiple times. The value is not unique.</p>
+</div>
+<div class="paragraph">
+<p>If the key is not uniqu we should scan and spend time on it.</p>
+</div>
+<div class="paragraph">
+<p>B-Tree Traversal</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="fig01_03_tree_traversal.en.niC7Q5jq.png" alt="fig01 03 tree traversal.en.niC7Q5jq">
+</div>
+</div>
+<div class="paragraph">
+<p>The tree traversal starts at the root node on the left-hand side. Each entry is processed in ascending order until a value is greater than or equal to (&gt;=) the search term (57). In the figure it is the entry 83. The database follows the reference to the corresponding branch node and repeats the procedure until the tree traversal reaches a leaf node.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html">B-Tree simulator</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compound_index">Compound index</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Primary as well as any other key shouldn&#8217;t be unique. You get a range as a result. but it has slower performance of cause.</p>
+</div>
+<div class="paragraph">
+<p>Compound index = Index contains multiple keys.</p>
+</div>
+<div class="paragraph">
+<p>The order of keys is important.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="fig02_01_concatenated_index.en.BiXvZYsh.png" alt="fig02 01 concatenated index.en.BiXvZYsh">
+</div>
+</div>
+<div class="paragraph">
+<p>If you have only SUBSIDIARY_ID in where clause the compound index can&#8217;t be used.</p>
+</div>
+<div class="paragraph">
+<p>But if you revert it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">CREATE UNIQUE INDEX EMPLOYEES_PK
+    ON EMPLOYEES (SUBSIDIARY_ID, EMPLOYEE_ID)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>then the SUBSIDIARY_ID can be used without EMPLOYEE_ID.</p>
+</div>
+<div class="paragraph">
+<p>So the order of compound index is important.</p>
+</div>
+<div class="paragraph">
+<p>To define an optimal index you must understand more than just how indexes work—you must also know how the application queries the data. This means you have to know the column combinations that appear in the where clause.</p>
+</div>
+<div class="paragraph">
+<p>The less indexes you have the fuster insert, delete, update work.</p>
+</div>
+<div class="sect2">
+<h3 id="_sometimes_full_scan_is_faster_than_index">Sometimes full scan is faster than index</h3>
+<div class="paragraph">
+<p>example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT first_name, last_name, subsidiary_id, phone_number
+  FROM employees
+ WHERE last_name  = 'WINAND'
+   AND subsidiary_id = 30</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We have index for <code>subsidiary_id</code>. But don&#8217;t have for <code>last_name</code></p>
+</div>
+<div class="paragraph">
+<p>The <strong>query optimizer</strong>, or query planner, is the database component that transforms an SQL statement into an execution plan. This process is also called compiling or parsing. There are two distinct optimizer types.</p>
+</div>
+<div class="paragraph">
+<p>Cost-based optimizers (CBO) generate many execution plan variations and calculate a cost value for each plan. The cost calculation is based on the operations in use and the estimated row numbers. In the end the cost value serves as the benchmark for picking the “best” execution plan.</p>
+</div>
+<div class="paragraph">
+<p>Rule-based optimizers (RBO) generate the execution plan using a hard-coded rule set. Rule based optimizers are less flexible and are seldom used today.</p>
+</div>
+<div class="paragraph">
+<p>Which path chooses query optimizer? Will it use index or not.</p>
+</div>
+<div class="paragraph">
+<p>It depends on statistics.</p>
+</div>
+<div class="paragraph">
+<p>A cost-based optimizer uses statistics about tables, columns, and indexes. Most statistics are collected on the column level: the number of distinct values, the smallest and largest values (data range), the number of NULL occurrences and the column histogram (data distribution). The most important statistical value for a table is its size (in rows and blocks).</p>
+</div>
+<div class="paragraph">
+<p>The most important index statistics are the tree depth, the number of leaf nodes, the number of distinct keys and the clustering factor</p>
+</div>
+<div class="paragraph">
+<p>So, if there are a lot of records with <code>subsidiary_id = 30</code> than using index makes query slower. You need to find all links to records with <code>subsidiary_id = 30</code> (so, scan B-Tree) and then visit each record. Records are in different locations on the disc, so it could be slower visit them one by one than full scan (check all records one by one to find <code>last_name  = 'WINAND' AND subsidiary_id = 30</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_range_queries_index_for_equality_first_then_for_ranges">Range queries. index for equality first — then for ranges.</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT first_name, last_name, date_of_birth
+  FROM employees
+ WHERE date_of_birth &gt;= TO_DATE(?, 'YYYY-MM-DD')
+   AND date_of_birth &lt;= TO_DATE(?, 'YYYY-MM-DD')
+   AND subsidiary_id  = ?</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Order of index is important. <strong>index for equality first—then for ranges</strong>.</p>
+</div>
+<div class="paragraph">
+<p>We have more different date_of_birth than different subsidiary_id.</p>
+</div>
+<div class="paragraph">
+<p>If we start scanning range (date_of_birth) then we get more results in contrast to start searching by subsidiary_id.</p>
+</div>
+<div class="paragraph">
+<p>So it&#8217;s better to have subsidiary_id, date_of_birth index.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="fig02_02_range_scan.en.H13+02OZ.png" alt="fig02 02 range scan.en.H13+02OZ">
+</div>
+</div>
+<div class="paragraph">
+<p>VS</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="fig02_03_range_scan.en.bsqXV98T.png" alt="fig02 03 range scan.en.bsqXV98T">
+</div>
+</div>
+<div class="paragraph">
+<p>The tree traversal directly leads to the second leaf node. In this case, all where clause conditions limit the scanned index range so that the scan terminates at the very same leaf node.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_like_filters_can_only_use_the_characters_before_the_first_wild_card">LIKE filters can only use the characters before the first wild card</h3>
+<div class="paragraph">
+<p>A single LIKE expression can therefore contain two predicate types: (1) the part before the first wild card as an access predicate; (2) the other characters as a filter predicate.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="fig02_05_like.en.9lgBhBS7.png" alt="fig02 05 like.en.9lgBhBS7">
+</div>
+</div>
+<div class="paragraph">
+<p>MySQL offers the match and against keywords for full-text searching. Starting with MySQL 5.6, you can create full-text indexes for InnoDB tables as well—previously, this was only possible with MyISAM tables.</p>
+</div>
+<div class="paragraph">
+<p>PostgreSQL offers the @@ operator to implement full-text searches. See “Full Text Search” in the PostgreSQL documentation.</p>
+</div>
+<div class="paragraph">
+<p>Another option is to use the WildSpeed extension to optimize LIKE expressions directly. The extension stores the text in all possible rotations so that each character is at the beginning once. That means that the indexed text is not only stored once but instead as many times as there are characters in the string—thus it needs a lot of space.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_index_merge">Index merge</h3>
+<div class="paragraph">
+<p>It is one of the most common question about indexing: is it better to create one index for each column or a single index for all columns of a where clause? The answer is very simple in most cases: one index with multiple columns is better — that is, a concatenated or compound index.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>SELECT first_name, last_name, date_of_birth
+  FROM employees
+ WHERE UPPER(last_name) &lt; ?
+   AND date_of_birth    &lt; ?</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you have two indexes (one for last_name and one for date_of_birth) an engine should grab two subsets and merge them in memory or apply filtering on one of the sets by second criteria. In both cases it&#8217;s less efficeint than one index with two fields.</p>
+</div>
+<div class="paragraph">
+<p>How the merge can be done? Using bitmap indexes for example. First index results have pointer to each row in a column and true/false bit. Second columns result also has pointer to a row and true/false. Interseption of true bits gives us pointers to the rows satisfying both creterias.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_partial_index_postgresql_only">Partial index (PostgreSQL only)</h3>
+<div class="paragraph">
+<p>So far we have only discussed which columns to add to an index. With partial (PostgreSQL) or filtered (SQL Server) indexes you can also specify the rows that are indexed.</p>
+</div>
+<div class="paragraph">
+<p>A partial index is useful for commonly used where conditions that use constant values—like the status code in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>SELECT message
+  FROM messages
+ WHERE processed = 'N'
+   AND receiver  = ?</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The where clause of a partial index can become arbitrarily complex. The only fundamental limitation is about functions: you can only use deterministic functions as is the case everywhere in an index definition.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_left_part_in_where_statement_should_always_be_a_column_name">Left part in WHERE statement should always be a column name</h3>
+<div class="paragraph">
+<p>In opposite case an index can&#8217;t be used</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">select numeric_namber
+from table_name
+where numeric_namber - 1000 &gt; ?</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>even if we have an index on numeric_namber it can&#8217;t be used. because <code>numeric_namber - 1000</code> have to be calculated for each row.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_joins">JOINS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>one thing that is common to all join algorithms: they process only two tables at a time. A SQL query with more tables requires multiple steps: first building an intermediate result set by joining two tables, then joining the result with the next table and so forth.</p>
+</div>
+<div class="paragraph">
+<p>Even though the join order has no impact on the final result, it still affects performance. The optimizer will therefore evaluate all possible join order permutations and select the best one. That means that just optimizing a complex statement might become a performance problem. The more tables to join, the more execution plan variants to evaluate—mathematically speaking: n! (factorial growth), though this is not a problem when using bind parameters.</p>
+</div>
+<div class="sect2">
+<h3 id="_nested_loop_join">Nested loop join</h3>
+<div class="paragraph">
+<p>The default one</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Table   Join Type
+t1      range
+t2      ref
+t3      ALL
+
+for each row in t1 matching range {
+  for each row in t2 matching reference key {
+    for each row in t3 {
+      if row satisfies join conditions, send to client
+    }
+  }
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hash_join_mysql_doesn_t_support_it">Hash Join (MySQL doesn&#8217;t support it)</h3>
+<div class="paragraph">
+<p>it loads the candidate records from one side of the join into a hash table that can be probed very quickly for each row from the other side of the join. Tuning a hash join requires an entirely different indexing approach than the nested loops join. Beyond that, it is also possible to improve hash join performance by selecting fewer columns</p>
+</div>
+<div class="paragraph">
+<p>The indexing strategy for a hash join is very different because there is no need to index the join columns. Only indexes for independent where predicates improve hash join performance. Indexing join predicates doesn&#8217;t improve hash join performance, because we need to full scan both tables anyway.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>SELECT *
+  FROM sales s
+  JOIN employees e ON (s.subsidiary_id = e.subsidiary_id
+                  AND  s.employee_id   = e.employee_id  )
+ WHERE s.sale_date &gt; trunc(sysdate) - INTERVAL '6' MONTH</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The SALE_DATE filter is the only independent where clause—that means it refers to one table only and does not belong to the join predicates.</p>
+</div>
+<div class="paragraph">
+<p>an optimal hash join is only possible if the entire hash table fits into memory. The optimizer will therefore automatically use the smaller side of the join for the hash table.</p>
+</div>
+<div class="paragraph">
+<p>Reduce the hash table size to improve performance; either horizontally (less rows) or vertically (less columns). All tables should feet the memory.</p>
+</div>
+<div class="paragraph">
+<p>Hash joins cannot perform joins that have range conditions in the join predicates.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sort_join">Sort Join</h3>
+<div class="paragraph">
+<p>Suitable for outer joins when both tables indexes are sorted. So this join is like a zipper.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_clustering">Data clustering</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Put same type of data as close as possible to be able to access it fast.</p>
+</div>
+<div class="sect2">
+<h3 id="_second_power_of_indexing">second power of indexing</h3>
+<div class="paragraph">
+<p>The B-tree traversal is the first power of indexing.
+Clustering is the second power of indexing.</p>
+</div>
+<div class="paragraph">
+<p>Table storage is organized based on the values of the primary key columns, to speed up queries and sorts involving the primary key columns. For best performance, choose the primary key columns carefully based on the most performance-critical queries. Because modifying the columns of the clustered index is an expensive operation, choose primary columns that are rarely or never updated.</p>
+</div>
+<div class="paragraph">
+<p>Clustering factor is how close the index order to table&#8217;s order. The closer the orders the more efficient the index. Query optimizer takes it into consideration.</p>
+</div>
+<div class="paragraph">
+<p>For example if you have an index on insert time it always has good clustering factor, because insert time is always growing.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_index_only_scan">Index only scan</h3>
+<div class="paragraph">
+<p>If all parameters of select are in index, the table data can never be touched, which improves performance significantly.</p>
+</div>
+<div class="paragraph">
+<p>Good candidate to improve is agregating queries. They request few fields, but requares a lot of rows.</p>
+</div>
+<div class="paragraph">
+<p>Avoid select * and fetch only necessary fields.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_second_index">Second Index</h3>
+<div class="paragraph">
+<p>Depending on database implementation a second index could have a link to primary key or a direct pointer to database row.</p>
+</div>
+<div class="paragraph">
+<p>First has an advantage, that any update doesn&#8217;t change secondary index (because primary key is not changed), but access to data from secondary index is slower.</p>
+</div>
+<div class="paragraph">
+<p>First aproach is implemented in InnoDB of MySQL, the second approach in Postgress.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="file.html">Parent</a></p>
+</div>
+</div>
+</div>
+                        </div>
+                        <div class="height-40px"></div>
+                        <div>
+                            <div id="remark42" aria-live="polite">
+                                <noscript>Please enable JavaScript to view the comments</noscript>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy; 2020 Konoplev.me</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Garden</a></li>
+            <li><a href="http://konoplev.me">Blog</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script src="js/script.js" type="module"></script>
+<script>
+    var remark_config = {
+        host: "https://comments.konoplev.me",
+        site_id: 'konoplev',
+    };
+
+    (function (c) {
+        for (var i = 0; i < c.length; i++) {
+            var d = document, s = d.createElement('script');
+            s.src = remark_config.host + '/web/' + c[i] + '.js';
+            s.defer = true;
+            (d.head || d.body).appendChild(s);
+        }
+    })(remark_config.components || ['embed']);
+</script>
+
+</body>
+</html>
