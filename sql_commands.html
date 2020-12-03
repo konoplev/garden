@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQL Commands</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/pace.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/lc_gif_player.css">
+
+    <!-- js -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+</head>
+
+<body id="single">
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="index.html"><b>Konoplev's</b> garden</a></h1>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="index.html" data-hover="Garden">Garden</a></li>
+                            <li class="cl-effect-11"><a href="http://konoplev.me" data-hover="Blog">Blog</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <input type="search" placeholder="Search" required class="search-input">
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- col-md-8 -->
+        </div>
+    </header>
+</div>
+
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-12">
+                <div id="content-holder">
+                    <article class="post post-1">
+                        <header class="entry-header">
+                            <h1 class="entry-title">SQL Commands</h1>
+                            <div class="entry-meta">
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="2020-12-01T23:00:00Z">Dec 2, 2020</time></a></span>
+
+                                <span class="post-category">
+                                                                        <a href=".html"> #</a>
+                                                                    </span>
+
+                                                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Main SQL commands</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_commands">Commands</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Are not case sensitive.</p>
+</div>
+<div class="sect2">
+<h3 id="_select_distinct">SELECT DISTINCT</h3>
+<div class="paragraph">
+<p>used to return only distinct (different) values.</p>
+</div>
+<div class="paragraph">
+<p>SELECT DISTINCT Country FROM Customers;</p>
+</div>
+<div class="paragraph">
+<p>DISTINCT is applied to all columns.</p>
+</div>
+<div class="paragraph">
+<p>SELECT DISTINCT Country, City FROM Customers;</p>
+</div>
+<div class="paragraph">
+<p>To count such unique pairs of columns don&#8217;t use distinct:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT Country, City, Count(*) as NumberOfCountries FROM Customers
+	group by Country, City
+	order by NumberOfCountries desc ;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_where">WHERE</h3>
+<div class="paragraph">
+<p>operators:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>=	Equal</p>
+</li>
+<li>
+<p>&lt;&gt;	Not equal. Note: In some versions of SQL this operator may be written as !=</p>
+</li>
+<li>
+<p>&gt;	Greater than</p>
+</li>
+<li>
+<p>&lt;	Less than</p>
+</li>
+<li>
+<p>&gt;=	Greater than or equal</p>
+</li>
+<li>
+<p>&#8656;	Less than or equal</p>
+</li>
+<li>
+<p>BETWEEN	Between an inclusive range</p>
+</li>
+<li>
+<p>LIKE	Search for a pattern</p>
+</li>
+<li>
+<p>IN	To specify multiple possible values for a column</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>AND, OR and NOT Operators</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT * FROM Customers
+WHERE Country='Germany' AND NOT City='Berlin';
+
+equialent
+
+SELECT * FROM Customers
+WHERE Country='Germany' AND City&lt;&gt;'Berlin';</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_order_by">ORDER BY</h3>
+<div class="paragraph">
+<p>syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you have several fields to order by, the second field is used only if there are several records with the same first field.</p>
+</div>
+<div class="paragraph">
+<p>you can use different order for different fields</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT * FROM Customers
+ORDER BY Country ASC, CustomerName DESC;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_insert_into">INSERT INTO</h3>
+<div class="paragraph">
+<p>syntax</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>you can omit column names if you insert all fields to each raw.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_null">NULL</h3>
+<div class="paragraph">
+<p>absence of the value</p>
+</div>
+<div class="paragraph">
+<p>\= operator shouldn&#8217;t be used!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column_names
+FROM table_name
+WHERE column_name IS NULL;
+
+or
+
+SELECT column_names
+FROM table_name
+WHERE column_name IS NOT NULL;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update">UPDATE</h3>
+<div class="paragraph">
+<p>syntax</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you omit the WHERE clause, all records in the table will be updated!</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delete">DELETE</h3>
+<div class="paragraph">
+<p>syntax</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">DELETE FROM table_name
+WHERE condition;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_select_top">SELECT TOP</h3>
+<div class="paragraph">
+<p>SQL Server / MS Access Syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-source" data-lang="source">SELECT TOP number|percent column_name(s)
+FROM table_name
+WHERE condition;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>MySQL/postgresql Syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column_name(s)
+FROM table_name
+WHERE condition
+LIMIT number;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Oracle Syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column_name(s)
+FROM table_name
+WHERE ROWNUM &lt;= number;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functions">Functions</h3>
+<div class="sect3">
+<h4 id="_min_or_max">MIN or MAX</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT MIN(Price) AS SmallestPrice
+FROM Products;
+
+SELECT *
+FROM Products
+where Price = (SELECT MIN(Price) from Products);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_count_avg_and_sum">COUNT(), AVG() and SUM()</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT COUNT/AVG/SUM(column_name)
+FROM table_name
+WHERE condition;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_like">LIKE</h4>
+<div class="paragraph">
+<p>syntax</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column1, column2, ...
+FROM table_name
+WHERE columnN LIKE pattern;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>'%' and '\_' wildcards:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>WHERE CustomerName LIKE 'a%'	Finds any values that start with "a"</p>
+</li>
+<li>
+<p>WHERE CustomerName LIKE '%a'	Finds any values that end with "a"</p>
+</li>
+<li>
+<p>WHERE CustomerName LIKE '%or%'	Finds any values that have "or" in any position</p>
+</li>
+<li>
+<p>WHERE CustomerName LIKE '\_r%'	Finds any values that have "r" in the second position</p>
+</li>
+<li>
+<p>WHERE CustomerName LIKE 'a_%\_%'	Finds any values that start with "a" and are at least 3 characters in length</p>
+</li>
+<li>
+<p>WHERE ContactName LIKE 'a%o'	Finds any values that start with "a" and ends with "o"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>% - The percent sign represents zero, one, or multiple characters</p>
+</div>
+<div class="paragraph">
+<p>_ - The underscore represents a single character</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_in_operator">IN operator</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT * FROM Customers
+WHERE Country IN (SELECT Country FROM Suppliers);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT * FROM Customers
+WHERE Country NOT IN ('Germany', 'France', 'UK');</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_between">BETWEEN</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT * FROM Products
+WHERE (Price BETWEEN 10 AND 20)
+AND NOT CategoryID IN (1,2,3);</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT * FROM Products
+WHERE ProductName BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+ORDER BY ProductName;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT * FROM Customers
+where Country NOT BETWEEN "G" and "K"
+ORDER BY Country;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_alias">Alias</h3>
+<div class="paragraph">
+<p>Alias Column Syntax</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column_name AS alias_name
+FROM table_name;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alias Table Syntax</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column_name(s)
+FROM table_name AS alias_name;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address
+FROM Customers;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT o.OrderID, o.OrderDate, c.CustomerName
+FROM Customers AS c, Orders AS o
+WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_join">JOIN</h3>
+<div class="paragraph">
+<p>combine rows from two or more tables, based on a related column between them.</p>
+</div>
+<div class="paragraph">
+<p>join works in FROM clause</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>(INNER) JOIN: Returns records that have matching values in both tables</p>
+</li>
+<li>
+<p>LEFT (OUTER) JOIN: Return all records from the left table, and the matched records from the right table</p>
+</li>
+<li>
+<p>RIGHT (OUTER) JOIN: Return all records from the right table, and the matched records from the left table</p>
+</li>
+<li>
+<p>FULL (OUTER) JOIN: Return all records when there is a match in either left or right table</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Do remember that left or right always mean the values (so if left then right could be null and vice versa).</p>
+</div>
+<div class="sect3">
+<h4 id="_inner_join">Inner join</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_left_join">Left join</h4>
+<div class="paragraph">
+<p>Could be used to select referals. So we have a table with id, name and referal id pointing to ids of this table.</p>
+</div>
+<div class="paragraph">
+<p>to resolve referal id we can left join the table by id = referal id.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders
+ON Customers.CustomerID=Orders.CustomerID
+ORDER BY Customers.CustomerName;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If ON doesn&#8217;t work (so there are no corresponding rows in left table) then null is inserted.</p>
+</div>
+<div class="paragraph">
+<p>And we can do an inner join by adding WHERE:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders
+ON Customers.CustomerID=Orders.CustomerID
+WHERE OrderId NOT NULL
+ORDER BY Customers.CustomerName;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_right_join">Right join</h4>
+<div class="paragraph">
+<p>obvious</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_full_outer_join">FULL OUTER JOIN</h4>
+<div class="paragraph">
+<p>obvious</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_self_join_or_cross_join">Self JOIN (or cross join)</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column_name(s)
+FROM table1 T1, table1 T2
+WHERE condition;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All combinations of raws of table. So it will return number of raws * number of rows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
+FROM Customers A, Customers B
+WHERE A.CustomerID &lt;&gt; B.CustomerID
+AND A.City = B.City
+ORDER BY A.City;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_union_union_all">UNION, UNION ALL</h3>
+<div class="paragraph">
+<p>The UNION operator is used to combine the result-set of two or more SELECT statements.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We can union several columns, but in both selects the columns should be the same (and there should be the same number of columns)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_group_by">GROUP BY</h3>
+<div class="paragraph">
+<p>used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+ORDER BY COUNT(CustomerID) DESC;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders
+LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID
+GROUP BY ShipperName;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_having">HAVING</h3>
+<div class="paragraph">
+<p>where for result of aggregation function</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders
+FROM Orders
+INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+WHERE LastName = 'Davolio' OR LastName = 'Fuller'
+GROUP BY LastName
+HAVING COUNT(Orders.OrderID) &gt; 25;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exists">EXISTS</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column_name(s)
+FROM table_name
+WHERE EXISTS
+(SELECT column_name FROM table_name WHERE condition);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS (SELECT ProductName FROM Products WHERE SupplierId = Suppliers.supplierId AND Price &lt; 20);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_any_and_all">ANY and ALL</h3>
+<div class="paragraph">
+<p>ANY:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ANY
+(SELECT column_name FROM table_name WHERE condition);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ALL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ALL
+(SELECT column_name FROM table_name WHERE condition);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The operator must be a standard comparison operator (=, &lt;&gt;, !=, &gt;, &gt;=, &lt;, or &#8656;).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT ProductName
+FROM Products
+WHERE ProductID = ANY (SELECT ProductID FROM OrderDetails WHERE Quantity = 10);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_select_into">SELECT INTO</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT *
+INTO newtable [IN externaldb]
+FROM oldtable
+WHERE condition;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>copy just schema</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT * INTO newtable
+FROM oldtable
+WHERE 1 = 0;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_insert_into_select">INSERT INTO SELECT</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">INSERT INTO table2
+SELECT * FROM table1
+WHERE condition;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Copy only some columns from one table into another table:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">INSERT INTO table2 (column1, column2, column3, ...)
+SELECT column1, column2, column3, ...
+FROM table1
+WHERE condition;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_null_functions">Null functions</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT ProductName, UnitPrice * (UnitsInStock + IFNULL(UnitsOnOrder, 0))
+FROM Products</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_case_for_updates">CASE for updates</h3>
+<div class="paragraph">
+<p>Given a table salaries with Id  Name  Sex  Salary</p>
+</div>
+<div class="paragraph">
+<p>Sex is f or m. Change f to m and m to f by one update.</p>
+</div>
+<div class="paragraph">
+<p>UPDATE SALARIES SET sex = CASE sex WHEN 'm' THEN 'f' ELSE 'm' END</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_many_to_many_relations">Many to Many relations</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>trips(trip_id(pk), trip_name(unique), user_id(fk))</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>places(place_id(pk), place_name(unique))</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>trips_places_asc(trip_id(fk), place_id(fk))</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>How to insert</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">START TRANSACTION
+
+DECLARE placeKey int
+
+INSERT INTO places (place_name)
+VALUES ('XYZ')
+
+SET placeKey = LAST_INSERT_ID()
+
+DECLARE tripKey int
+
+INSERT INTO trips (trip_name)
+VALUES ('MyTrip')
+
+SET tripKey = LAST_INSERT_ID()
+
+INSERT INTO trips_places_asc(trip_id, place_id)
+VALUES (tripKey, placeKey)
+
+COMMIT</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="relational_dbs.html">Parent</a></p>
+</div>
+</div>
+</div>
+                        </div>
+                        <div class="height-40px"></div>
+                        <div>
+                            <div id="remark42" aria-live="polite">
+                                <noscript>Please enable JavaScript to view the comments</noscript>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy; 2020 Konoplev.me</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Garden</a></li>
+            <li><a href="http://konoplev.me">Blog</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script src="js/script.js" type="module"></script>
+<script>
+    var remark_config = {
+        host: "https://comments.konoplev.me",
+        site_id: 'konoplev',
+    };
+
+    (function (c) {
+        for (var i = 0; i < c.length; i++) {
+            var d = document, s = d.createElement('script');
+            s.src = remark_config.host + '/web/' + c[i] + '.js';
+            s.defer = true;
+            (d.head || d.body).appendChild(s);
+        }
+    })(remark_config.components || ['embed']);
+</script>
+
+</body>
+</html>

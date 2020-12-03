@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mongo DB</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/pace.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/lc_gif_player.css">
+
+    <!-- js -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+</head>
+
+<body id="single">
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="index.html"><b>Konoplev's</b> garden</a></h1>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="index.html" data-hover="Garden">Garden</a></li>
+                            <li class="cl-effect-11"><a href="http://konoplev.me" data-hover="Blog">Blog</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <input type="search" placeholder="Search" required class="search-input">
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- col-md-8 -->
+        </div>
+    </header>
+</div>
+
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-12">
+                <div id="content-holder">
+                    <article class="post post-1">
+                        <header class="entry-header">
+                            <h1 class="entry-title">Mongo DB</h1>
+                            <div class="entry-meta">
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="2020-12-01T23:00:00Z">Dec 2, 2020</time></a></span>
+
+                                <span class="post-category">
+                                                                        <a href="mongo.html"> #mongo</a>
+                                                                    </span>
+
+                                                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <div class="sect1">
+<h2 id="_mongo">Mongo</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_indexes_compound_indexes_array_indexes_sub_document_indexes_text_indexes">Indexes, Compound indexes, Array indexes, Sub document indexes, Text indexes</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">db.foo.createIndex ({a : 1})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>the same syntax as in</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-javascript" data-lang="javascript">db.foo.find().sort( {a : 1})</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It means that index can have two directions</p>
+</div>
+<div class="paragraph">
+<p>MongoDB can usually only use one index per query, but in some cases, the database can take advantage of more than one index to reply to a query (this is called index intersection)</p>
+</div>
+<div class="paragraph">
+<p>could be sparse for rare fields.</p>
+</div>
+<div class="paragraph">
+<p>TTL index. expired.</p>
+</div>
+<div class="paragraph">
+<p>geo index.</p>
+</div>
+<div class="paragraph">
+<p>Index can be created in backgroud or fg.</p>
+</div>
+<div class="paragraph">
+<p>For a single-field index and sort operations, the sort order (i.e. ascending or descending) of the index key does not matter because MongoDB can traverse the index in either direction.</p>
+</div>
+<div class="paragraph">
+<p>To check how is it used: queryPlanner: db.collection.explain("executionStats")</p>
+</div>
+<div class="sect3">
+<h4 id="_compound_index_prefix">Compound index (Prefix)</h4>
+<div class="paragraph">
+<p>Index on several fields</p>
+</div>
+<div class="paragraph">
+<p>{ "item": 1, "location": 1, "stock": 1 }</p>
+</div>
+<div class="paragraph">
+<p>Can be used for item, item and locaction, and for item and stock (less efficient).</p>
+</div>
+<div class="paragraph">
+<p>But not for location or location and stock.</p>
+</div>
+<div class="paragraph">
+<p>If you also have a separate index for item, it can be removed.</p>
+</div>
+<div class="sect4">
+<h5 id="_intersect_indexes">Intersect indexes</h5>
+<div class="paragraph">
+<p>If you have index for item and an index for location, it can be used for item and location.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_notes_on_index">Notes on index</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Keys can be any type</p>
+</li>
+<li>
+<p>id is automatically created and uniq</p>
+</li>
+<li>
+<p>other that id is explisitly declared</p>
+</li>
+<li>
+<p>indexes are used automatically</p>
+</li>
+<li>
+<p>can index array elements (multiKeys)</p>
+</li>
+<li>
+<p>can idnex subdocuments and subfields</p>
+</li>
+<li>
+<p>fieldnames are not in index (to safe space). its value to document reference mapping</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_index_properties">Index properties</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>"default" - id</p>
+</li>
+<li>
+<p>unique : true</p>
+</li>
+<li>
+<p>sparse : true - for rare fields (most of the documents dont have this field)</p>
+</li>
+<li>
+<p>TTL index (expireAfterSeconds : 3600)</p>
+</li>
+<li>
+<p>Geospecial index ({loc: "2dsphere"}) to use $near or $geoWithing in queries</p>
+<div class="literalblock">
+<div class="content">
+<pre>See also http://geojson.org[GeoJson]</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Text indexes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>{words : "text"} - field (words in this example) should be a string. Also language can be specified. db.collection.createIndex({words : "text"}, {default_language : "english"})</p>
+</li>
+<li>
+<p>query example db.sentences.find( {$text : {$search : "Word"}} ) will find word Word words ect</p>
+</li>
+<li>
+<p>db.sentences.find( {$text : {$search : "some words"}}, {score: {$meta : "textScore"}} ) print out score also</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_creation_index_options">Creation Index Options</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>drop</p>
+</li>
+<li>
+<p>background: true (for large collections)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>bg on primary</p>
+</li>
+<li>
+<p>fg on secondary</p>
+</li>
+<li>
+<p>slower than foreground</p>
+</li>
+<li>
+<p>not done yet. dont expect it immidiatly</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_explain_command">Explain command</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>See which indexes are used in query</p>
+</li>
+<li>
+<p>Look at the following queries:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>aggregate</p>
+</li>
+<li>
+<p>find</p>
+</li>
+<li>
+<p>count</p>
+</li>
+<li>
+<p>remove (not change document with explain)</p>
+</li>
+<li>
+<p>update (not change document with explain)</p>
+</li>
+<li>
+<p>group</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_output_of_explain_queryplanner_vs_executionstats_vs_allplansexecution">Output of explain: queryPlanner vs executionStats vs allPlansExecution</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>queryPlanner is default</p>
+</li>
+<li>
+<p>executionStats (db.collection.explain("executionStats"))</p>
+<div class="ulist">
+<ul>
+<li>
+<p>includes queryPlanner</p>
+</li>
+<li>
+<p>more information</p>
+<div class="ulist">
+<ul>
+<li>
+<p>time to create the query</p>
+</li>
+<li>
+<p>number of documents returned</p>
+</li>
+<li>
+<p>documents examined</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>allPlansExecution (db.collection.explain("allPlansExecution"))</p>
+<div class="ulist">
+<ul>
+<li>
+<p>a lot like executionStats</p>
+</li>
+<li>
+<p>also runs each availiable plan and look at stats</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_covered_queries">Covered Queries</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>in output of db.collection.explain("executionStats") see totalDocsExamined. if it&#8217;s 0 then this is covered query</p>
+</li>
+<li>
+<p>No need to touch documents</p>
+</li>
+<li>
+<p>Just use index</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reads_vs_writes">Reads vs Writes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>generally, more indexes &#8594; fast reads</p>
+</li>
+<li>
+<p>generally, more indexes &#8594; slower writes</p>
+</li>
+<li>
+<p>faster to build index post input than pre input. after data is imported creating an index is a batch operation</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_db_currentop_and_db_killop_opid">db.currentOp and db.killOp(&lt;opid&gt;)</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_replication">Replication</h3>
+<div class="sect3">
+<h4 id="_summary">Summary</h4>
+<div class="paragraph">
+<p>1 Primary. Async replicates to secondaries. But we can wait for it (write concern)</p>
+</div>
+<div class="paragraph">
+<p>Replication is Statement-based.</p>
+</div>
+<div class="paragraph">
+<p>to configure: rs.initiate()/status()/add()/remove()</p>
+</div>
+<div class="paragraph">
+<p>db.oplog.rs.find() - ops log of operations on rs</p>
+</div>
+<div class="paragraph">
+<p>Read preferences: primary (default), primary prefered (can&#8217;t find primary we read from secondary), secondary (always read from secondary), secondary prefered (use secondary first and use primary if you can&#8217;t find secondary), nearest (in terms of network latency (to even read load))</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s important to set connection pool per server to limit number of allowing connections. The many connections you have the bigger timout. To do not be slow we should limit number of connections</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_details">Details</h4>
+<div class="paragraph">
+<p>Data is copied to several machines</p>
+</div>
+<div class="paragraph">
+<p>replicas = copies = backups</p>
+</div>
+<div class="sect4">
+<h5 id="_reasons">Reasons</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>HA (high avaliability). If we loose a server we&#8217;re still up. Failover.</p>
+</li>
+<li>
+<p>Data safety (durability)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Extra copies</p>
+</li>
+<li>
+<p>Disaster recovery (DR)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>We can read from different places. We can use it for different geographical availiablity</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_notes_about_replication">Notes about replication</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Replications are asynchronius (but it&#8217;s possible to gen acknowlegment that write has propagated to 2, 3, or more servers. The relevant concept is 'write concern')</p>
+</li>
+<li>
+<p>There is only one primary at a time (There could be several secondories). So there is no master &lt;&#8594; master replication</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_ways_to_do_replication_generally">Ways to do replication (generally)</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Statement-based (run the same command on master and replica) (this is how it&#8217;s implemented in mongo)</p>
+</li>
+<li>
+<p>Binary (just copy binary data files)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Binary format should be the same. So we have to have the same version of database on primary and replica instances</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_replica_sets">Replica sets</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Automatic failover</p>
+<div class="ulist">
+<ul>
+<li>
+<p>It&#8217;s better to have replication factor (nodes in replica set cluster) = at least to 3. This is becase to determine is master down or it&#8217;s just partitioning the elections are done. So the master is down if it&#8217;s down for most of the nodes.</p>
+</li>
+<li>
+<p>Driver on client side knows how to switch from master which is down to the new master elected in replica set</p>
+</li>
+<li>
+<p>It takes some time to fail over. About 10 seconds.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Recovery</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If some writes are commited to host A (which was a master but failed) and now host B is a new master and host A is back and after check there are a write operation on A which are ahead of the current primary then rollback is done. Rollback means that primary did some writes, but didn&#8217;t receive acknolegment from other hosts, after that it was down, some other host become primary and and when it comes back it (host A) see&#8217;s some data which is not on primrary now. This data is written to ./rollback/ directory and removed from the secondary (host A) to have database consistent. Number of operations availiable for rollback is passed via --oplogSize 50. (see more here <a href="https://docs.mongodb.com/manual/core/replica-set-rollbacks/" class="bare">https://docs.mongodb.com/manual/core/replica-set-rollbacks/</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Oplog is just capped collection where MongoDB tracks all changes in its collections (insert, update, delete). It doesn&#8217;t track read operations. MongoDB uses oplog to spread all changes within all nodes in a replica set. Secondary nodes copy and apply this changes.</p>
+</div>
+<div class="paragraph">
+<p>Journal is a feature of underlying storage engine. Since MongoDB 3.2 default storage engine is WiredTiger and since MongoDB 4.0 you can&#8217;t disable journaling for WiredTiger. All operations are tracked in the journal files. WiredTiger uses checkpoints to recover data in case of crash. Checkpoints are created every 60 secs. In case if a crash happens between checkpoints some data can be lost. To prevent this, WiredTiger uses journal files to apply all the changes after the last checkpoint.</p>
+</div>
+<div class="paragraph">
+<p>In general, write flow in MongoDB looks like that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>High-level - when a customer writes/updates/removes data, MongoDB applies it to proper collection, updates index and inserts the change to oplog. If any of these operations fails then other related operations must be rolled back to prevent inconsistency. For this MongoDB uses WiredTiger transactions:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>begin transaction</p>
+</li>
+<li>
+<p>apply change to collection</p>
+</li>
+<li>
+<p>update index</p>
+</li>
+<li>
+<p>add the change to the oplog</p>
+</li>
+<li>
+<p>commit the transaction</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Low-level - WiredTiger runs the transaction and adds the changes to journal file.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_initiating_replica_set_rs_initiate_cfg">Initiating replica set (rs.initiate(cfg))</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>specify config</p>
+</li>
+<li>
+<p>initial data</p>
+</li>
+</ol>
+</div>
+<div class="sect4">
+<h5 id="_best_practices_for_replica_set_config">Best practices for replica set config</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Don&#8217;t use raw ip address</p>
+</li>
+<li>
+<p>don&#8217;t use names from /etc/hosts</p>
+</li>
+<li>
+<p>use DNS</p>
+<div class="ulist">
+<ul>
+<li>
+<p>take apropriate TTL
+===== RS commands</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>rs.status() - status of each RS member (optime - time of the last operation)</p>
+</li>
+<li>
+<p>db.system.replset.find().pretty() (special collection where we store replica set config)</p>
+</li>
+<li>
+<p>rs.slaveOk() - to be able to read from secondary nodes</p>
+</li>
+<li>
+<p>rs.stepDown() - on primary node makes this node secondary. after that terminate mongod</p>
+</li>
+<li>
+<p>rs.add/remove("macbookpro-0630.local:27001") to add or remove a node to RS</p>
+</li>
+<li>
+<p>rs.initiate() - to initiate RS. Should be run ON ONE NODE ONLY. This will make the node as primary. other nodes can be added via rs.add</p>
+</li>
+<li>
+<p>db.oplog.rs.find() - log of operations on RS</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_read_preference_rs_slaveok_reasons_eventual_consistence_reads">Read preference (rs.slaveOk()) reasons. Eventual consistence reads</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>geography (slave in my datacenter)</p>
+</li>
+<li>
+<p>separate a workload (master is for writes, slaves are for reads)</p>
+</li>
+<li>
+<p>availiability (master goes down we read from slaves)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_read_preferences">Read preferences</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>primary (default)</p>
+</li>
+<li>
+<p>primary prefered (can&#8217;t find primary we read from secondary)</p>
+</li>
+<li>
+<p>secondary (always read from secondary)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>primary is under the high load</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>secondary prefered (use secondary first and use primary if you can&#8217;t find secondary)</p>
+</li>
+<li>
+<p>nearest (in terms of network latency)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>when you&#8217;re remote</p>
+</li>
+<li>
+<p>even read load</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_rs_config">RS config</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>{id: &lt;rs name&gt;
+members: [
+	{id: 0, host: &lt;host name&gt;, &lt;options&gt;},
+	{id: 0, host: &lt;host name&gt;, &lt;options&gt;},
+]
+ }</p>
+</li>
+<li>
+<p>options: arbiterOnly:true. Node doesn&#8217;t have data. It&#8217;s just an arbiter. To solve split brain problem it&#8217;s better to have 3 nodes, not two. Because if there is no link between two nodes, it&#8217;s not possible to decide who&#8217;s master.</p>
+</li>
+<li>
+<p>options: priority:&lt;number &gt; 0&gt;, bious for who should be primary. 1 - is default. 0 - never primary. 0 should be chosen if we have two datacenters. first is main and second is for disaster recovery. Node in second data center should be always 0 and only when something bad happens with first data center we set it non zero.</p>
+</li>
+<li>
+<p>options: hidden: true - hide server from clients. (usually with priority: 0)</p>
+</li>
+<li>
+<p>options: slaveDelay: &lt;seconds&gt;. This is dalay for sync. If we have a node with slaveDelay it&#8217;s something like backup. We always have old data. And if main data has been removed or broken during deploy we always can switch to the node with slaveDelay. Slave&#8217;s priority should be 0 and hidden: true.</p>
+</li>
+<li>
+<p>votes: &lt;number&gt;. As general - "don&#8217;t use votes"</p>
+</li>
+</ul>
+</div>
+<div class="sect5">
+<h6 id="_what_write_mean">What write mean</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>write trully commited upon application and a majority of the set</p>
+</li>
+<li>
+<p>we can get acknolegment of this</p>
+</li>
+<li>
+<p>Write consern: db.getLastError({w: 'majority', wtimout: &lt;some timeout&gt;}), majority could be a number, but it&#8217;s better to use word majority</p>
+</li>
+<li>
+<p>Write can be made but getLastError could report a failure</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_timout">Timout</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>It&#8217;s important to set connection pool per server to limit number of allowing connections. As many connections you have as bigger timout. To do not be slow we should limit number of connections</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect5">
+<h6 id="_write_concerns">Write concerns:</h6>
+<div class="ulist">
+<ul>
+<li>
+<p>no call to GetLastError (write and forget) |  Use case: no user impact. Speed is important. (example: logging, page view counter)</p>
+</li>
+<li>
+<p>w: 1 (master send ack back) |  Use case: not super critical. To get dupKey errors</p>
+</li>
+<li>
+<p>majority (majority of RS send ack back) | Use case: most things important</p>
+</li>
+<li>
+<p>w: 3 (All (in case there are 3 members in RS)). Most aggresive | Use case: flow control</p>
+</li>
+<li>
+<p>w: &lt;tag&gt;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>source: <a href="https://github.com/mongodb/mongo/wiki/Replication-Internals" class="bare">https://github.com/mongodb/mongo/wiki/Replication-Internals</a></p>
+</div>
+<div class="paragraph">
+<p>If a command includes a write concern, the command will just block in its own thread until the oplog entries it generates have been replicated to the requested number of nodes. The primary keeps track of how up-to-date the secondaries are to know when to return. A write concern can specify a number of nodes to wait for, or majority.</p>
+</div>
+<div class="paragraph">
+<p>Write majority is typically used for:</p>
+</div>
+<div class="paragraph">
+<p>Ensuring that the write will not be rolled back in the event of the primary failure.
+Ensuring that the application is not writing so fast that the provisioned hardware of the replica set cannot cope with the traffic; i.e. it can act as a backpressure mechanism.
+In combination with read concern, provide the client with differing levels of consistency guarantees.</p>
+</div>
+<div class="paragraph">
+<p>======= RS in datacenters
+	* RS in a single data center
+		<strong> 3 configurations
+			</strong>* 3 members
+			<strong>* 2 + arbiter
+			</strong>* 2 with manual failover
+	* RS in multiple data centers
+		<strong> possible configurations
+			</strong>* DC n1: Primary + Secondary, DC n2: Secondary (Disaster recovery machine)
+			<strong>* DC n1: Primary, DC n2: Secondary, DC n3: Secondary
+			</strong>* DC n1: Primary, DC n2: Secondary, DC n3: Arbiter
+			<strong>* A lot of DCs
+				</strong><strong> Limits: per set: &#8656; 12 members, &#8656; 7 voters (communications should be limited)
+				</strong>** Non even number of voters (change priority if you have even number of servers or add arbiter)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shard_keys">Shard keys</h3>
+<div class="paragraph">
+<p>Each shard has it&#8217;s own replica set.</p>
+</div>
+<div class="paragraph">
+<p>MongoDB provides no method to deactivate sharding for a collection after calling shardCollection. Additionally, after shardCollection, you cannot change shard keys or modify the value of any field used in your shard key index.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Shard key is a range of document keys stored in this shard. It specifyes which keys (documents) are stored in which shards. So it&#8217;s range-based.</p>
+</li>
+<li>
+<p>The range of documents in one shard is called "chunk". It&#8217;s usually 100 Mb</p>
+</li>
+<li>
+<p>To have even distribution is following operations are run in background automatically</p>
+<div class="ulist">
+<ul>
+<li>
+<p>split - if we get more data, we need to equally split existing key ranges. We had a range from 0-50 we split it into 0-25, 26-50 (only metadata is changed, it&#8217;s cheep)</p>
+</li>
+<li>
+<p>migrate - to balance between differnt shards we copy part of the splited shard into another shard (data is copied fisically, it&#8217;s expensive). While copying the data is availiable.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>To have everything working there are 3 processes are running</p>
+<div class="ulist">
+<ul>
+<li>
+<p>mongod - with shard&#8217;s data</p>
+</li>
+<li>
+<p>mongos - to serve client connections</p>
+</li>
+<li>
+<p>config servers - to keep shard&#8217;s metadata</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We have to have a shard key.</p>
+</div>
+<div class="paragraph">
+<p>Unless the collection is empty, the index must exist prior to the shardCollection command. If the collection is empty, MongoDB creates the index prior to sharding the collection if the index that can support the shard key does not already exist.</p>
+</div>
+<div class="paragraph">
+<p>sh.shardCollection("&lt;database&gt;.&lt;collection&gt;", { shardCollection: "&lt;database&gt;.&lt;collection&gt;", key: &lt;shardkey&gt;, unique: &lt;boolean&gt;, numInitialChunks: &lt; integer&gt;, collation: { locale: "simple" } } )</p>
+</div>
+<div class="sect3">
+<h4 id="_partition_keys">Partition keys</h4>
+<div class="paragraph">
+<p>Importnatn terms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Shard Key Cardinality (maximum number of chunks the balancer can create):  how many different values in the set of keys</p>
+</li>
+<li>
+<p>Shard Key Frequency: Imaging all possible keys. How oftern this paticular key is present in the set of all keys</p>
+</li>
+<li>
+<p>Monotonic: is monotonically increasing or decreasing (if yes - then only hash key is ok)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_hashed_keys">Hashed Keys</h4>
+<div class="paragraph">
+<p>a key should have a good cardinality, or large number of different values. Hashed keys are ideal for shard keys with fields that change monotonically like ObjectId values or timestamps. If such key is ranged, most of the keys will be in the same chunk which is &lt;some value&gt; &lt; key &lt; &lt;max value&gt;</p>
+</div>
+<div class="paragraph">
+<p>Hashed shard keys may not be compound indexes.</p>
+</div>
+<div class="paragraph">
+<p>Problem with hashed - if you do repartition, and you calculate a shard by hash mod &lt;number of hosts&gt; and number of hosts is changed. We have to move a lot of partitions. The better way to reserve number of partitions of shards. And you use a range to choose a shard where partition is located. When you have one more shard, it takes some partitions. The variable is <code>numInitialChunks</code>.</p>
+</div>
+<div class="paragraph">
+<p>One more problem - to query by range you should touch all chunks.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_range_keys">Range Keys</h4>
+<div class="paragraph">
+<p>This is <strong>default</strong> in Mongo.</p>
+</div>
+<div class="paragraph">
+<p>Range key - mostly for range queries.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Large Shard Key Cardinality</p>
+</li>
+<li>
+<p>Low Shard Key Frequency</p>
+</li>
+<li>
+<p>Non-Monotonically Changing Shard Keys</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_creating_keys">Creating Keys</h4>
+<div class="paragraph">
+<p>Mongo uses Dynamic partitioning. As soons as partition is big, it&#8217;s split into two and one of the partition goes to another shard. A database is started with a single partition per shard.</p>
+</div>
+<div class="paragraph">
+<p>ranged :</p>
+</div>
+<div class="paragraph">
+<p>sh.shardCollection("&lt;database&gt;.&lt;collection&gt;", { &lt;shard key&gt; : &lt;direction&gt; } )</p>
+</div>
+<div class="paragraph">
+<p>hashed:</p>
+</div>
+<div class="paragraph">
+<p>sh.shardCollection("&lt;database&gt;.&lt;collection&gt;", { &lt;shard key&gt; : "hashed", "sortOrder": 1 } )</p>
+</div>
+<div class="paragraph">
+<p>Mongo uses dynamic partitions for both key range and hashed.</p>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t expect that sharding will split the load equally across the shards. Even if the key is ok, and data spread evenly, some of the keys could be used more intensively than others. So only one shard could have 90% of load.</p>
+</div>
+<div class="paragraph">
+<p>Secondary indexes: 2 options</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>each partition maintains its own secondary indexes, covering only the documents in that partition. If secondary key is color, each partition has red and each partition has green. to find all documents by secondary key you need to search on all shards. This is how it&#8217;s implemented in MongoDB.</p>
+</li>
+<li>
+<p>index is global. but it also should be sharded because keeping index on one shard only is a bottleneck. Usually each shard has part of a secondary key referencing to other shards. So if the secondary key is a color, a one shard has red and another shard has green. red has references to entities stored in this and other shards. Search is faster (you need to know only one host) but writes are slower (you should store and find a shard with secondary index). This how it&#8217;s implemented in DynamoDB and Riak.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_security">Security</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Options</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"trusted enviroment" - lock down @ network layer - related tcp ports. only clients have access</p>
+</li>
+<li>
+<p>mongodb authentication (can be also SSL a top optionally: compile mongo with --ssl : <a href="https://docs.mongodb.com/manual/tutorial/configure-ssl/" class="bare">https://docs.mongodb.com/manual/tutorial/configure-ssl/</a>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>basic auth</p>
+</li>
+<li>
+<p>keyFile</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By deafult security is disabled. To enable add --auth to comman line or file.</p>
+</div>
+<div class="paragraph">
+<p>After mongo is run with --auth it allows to connect via mongo but until the first user is created.
+To create a user</p>
+</div>
+<div class="paragraph">
+<p>use admin</p>
+</div>
+<div class="paragraph">
+<p>var me = {user : "someAdminUserName", pwd: "somePassword", roles : ["userAdminAnyDatabase"]}</p>
+</div>
+<div class="paragraph">
+<p>db.createUser(me)</p>
+</div>
+<div class="paragraph">
+<p>right after that you can do nothing because you&#8217;re not admin user.</p>
+</div>
+<div class="paragraph">
+<p>someAdminUserName user can&#8217;t read or write collection, to create such user you need to</p>
+</div>
+<div class="paragraph">
+<p>db.createUser(user : "someReadWriteUser", pwd: "somePassword", roles : ["readWriteAnyDatabase"])</p>
+</div>
+<div class="paragraph">
+<p>to create readWrite user for specific collection use</p>
+</div>
+<div class="paragraph">
+<p>use collectionName</p>
+</div>
+<div class="paragraph">
+<p>and create user in this collection</p>
+</div>
+<div class="paragraph">
+<p>to auth on database use
+db.</p>
+</div>
+<div class="sect2">
+<h3 id="_roles">Roles</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>read - readAnyDatabase</p>
+</li>
+<li>
+<p>readWrite - readWriteAndDatabase</p>
+</li>
+<li>
+<p>dbAdmin - dbAdminAnyDatabase</p>
+</li>
+<li>
+<p>userAdmin - userAdminAnyDatabse</p>
+</li>
+<li>
+<p>clusterAdmin - adding a shard, rs, etc</p>
+</li>
+<li>
+<p>you can create your custom role</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_type_of_users">Type of users</h3>
+<div class="paragraph">
+<p>To find users: db.system.users.find().pretty()</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>admin users</p>
+<div class="ulist">
+<ul>
+<li>
+<p>can do administration</p>
+</li>
+<li>
+<p>it&#8217;s created in the 'admin' database</p>
+</li>
+<li>
+<p>can access all databases</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>regular users</p>
+<div class="ulist">
+<ul>
+<li>
+<p>access a specific database</p>
+</li>
+<li>
+<p>read/write or read only</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We can add the same user with differet priviliges to different databases</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_security_flags">Security flags</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>--auth - autorisation of client. client can access some data</p>
+</li>
+<li>
+<p>--keyFile - authentication of mongod claster, ie makes sure that the servers authenticate one another using the keyfile (the database content is send between mongod nodes unencripted, only keyFile is encrypted)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_intra_cluster_security_keyfile">Intra-cluster Security (--keyFile)</h3>
+<div class="paragraph">
+<p>keyFile is any file with secret password. Password can be any you want.</p>
+</div>
+<div class="paragraph">
+<p>For example it can be generated <code>openssl rand -base64 60 &gt;&gt; keyfile</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_backup_restore">Backup &amp; Restore</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ways_for_an_individual_set_server">Ways for an individual set/server</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>mongodump/mongorestore</p>
+</li>
+<li>
+<p>filesystem snapshot</p>
+</li>
+<li>
+<p>backup from secondary</p>
+<div class="ulist">
+<ul>
+<li>
+<p>shutdown, copy files, start</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_mongodump">Mongodump</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>use --oplog to have real time dump of replica set. and use mongorestore --oplogReplay</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filesnapshot">Filesnapshot</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>use journaling enabled, because it&#8217;s possible that at the moment of snapshot write opertation is in progress and database is in inconsistent state</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_backing_up_a_sharder_claster">Backing Up a Sharder Claster</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>turn off balancer. to avoid data migration from one shard to another during backup. if you have a lot of inserts some shard can be overloaded during this period, so do it quickly</p>
+<div class="ulist">
+<ul>
+<li>
+<p>sh.stopBalancer()</p>
+</li>
+<li>
+<p>backup config database. for example <code>mongodump --db config</code></p>
+</li>
+<li>
+<p>backup each shard&#8217;s replica set (see mongodump above)</p>
+</li>
+<li>
+<p>sh.startBalancer()</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>to restor we need to stop whole claster, restore each shard and run it again</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So the way is</p>
+</div>
+<div class="paragraph">
+<p>mongo --eval "sh.stopBalancer()"</p>
+</div>
+<div class="paragraph">
+<p>mongodump --host some_mongos_or_some_config_server --db config /backups/cluster1/configdb</p>
+</div>
+<div class="paragraph">
+<p>mongodump --host shard1_svr1 --oplog /backups/cluster1/shard1
+mongodump --host shard2_svr1 --oplog /backups/cluster1/shard2
+&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>mongo --eval "sh.startBalancer()"</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additional_features">Additional features</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_capped_collections_circle_queue">Capped collections - circle queue</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>circular gorvers</p>
+</li>
+<li>
+<p>least-recently-inserted order</p>
+</li>
+<li>
+<p>preallocated max size</p>
+</li>
+<li>
+<p>can&#8217;t delete documents in this collection or grow them</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ttl_collections_v_2_2">TTL collections (v 2.2+)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>auto age-out off old documents</p>
+</li>
+<li>
+<p>creating special index</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gridfs_collection_collection_to_store_huge_files_large_blob_storage">GridFS collection - collection to store huge files (large blob storage)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>BSON file limit is 16 Mb. if you need more - use GridFS</p>
+</li>
+<li>
+<p>use mongofiles to put documents into collection</p>
+</li>
+<li>
+<p>really big file can be stored on several hosts (it&#8217;s splited into chankes to be able to do it)</p>
+</li>
+<li>
+<p>mongo drivers support this feature</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hardware_tips">Hardware Tips</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://docs.mongodb.com/manual/administration/production-notes/" class="bare">https://docs.mongodb.com/manual/administration/production-notes/</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_create_a_cluster">How to create a cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>crete db dirs
+/data/my_cluster/s1_1
+/data/my_cluster/s1_2
+/data/my_cluster/s1_3</p>
+</div>
+<div class="paragraph">
+<p>/data/my_cluster/s2_1
+/data/my_cluster/s2_2
+/data/my_cluster/s2_3</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"> #create 2 shards and 3 member replica set for them
+ mongod --shardsvr --smallfiles --oplogSize 50 --port 27001 --dbpath /data/my_cluster/s1_1 --replSet s1&amp;; mongod --shardsvr --smallfiles --oplogSize 50 --port 27002 --dbpath /data/my_cluster/s1_2 --replSet s1&amp;; mongod --shardsvr --smallfiles --oplogSize 50 --port 27003 --dbpath /data/my_cluster/s1_3 --replSet s1&amp;; mongod --shardsvr --smallfiles --oplogSize 50 --port 27011 --dbpath /data/my_cluster/s2_1 --replSet s2&amp;; mongod --shardsvr --smallfiles --oplogSize 50 --port 27012 --dbpath /data/my_cluster/s2_2 --replSet s2&amp;; mongod --shardsvr --smallfiles --oplogSize 50 --port 27013 --dbpath /data/my_cluster/s2_3 --replSet s2&amp;;
+
+mongo --host localhost:27001
+rs.initialize()
+rs.add() //add two hosts
+
+the same for 2 RS
+mongo --host localhost:27011
+
+#create config server
+mongod --configsvr --dbpath /data/my_cluster/metadata/ --port 27019
+
+#create load balancer
+mongos --configdb macbookpro-0630.local:27019
+
+#connect to mongos
+mongo
+
+#add shards
+sh.addShard("s1/macbookpro-0630.local:27001,macbookpro-0630.local:27002,macbookpro-0630.local:27003")
+sh.addShard("s2/macbookpro-0630.local:27011,macbookpro-0630.local:27012,macbookpro-0630.local:27013")</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="programming.html">Parent</a></p>
+</div>
+</div>
+</div>
+                        </div>
+                        <div class="height-40px"></div>
+                        <div>
+                            <div id="remark42" aria-live="polite">
+                                <noscript>Please enable JavaScript to view the comments</noscript>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy; 2020 Konoplev.me</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Garden</a></li>
+            <li><a href="http://konoplev.me">Blog</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script src="js/script.js" type="module"></script>
+<script>
+    var remark_config = {
+        host: "https://comments.konoplev.me",
+        site_id: 'konoplev',
+    };
+
+    (function (c) {
+        for (var i = 0; i < c.length; i++) {
+            var d = document, s = d.createElement('script');
+            s.src = remark_config.host + '/web/' + c[i] + '.js';
+            s.defer = true;
+            (d.head || d.body).appendChild(s);
+        }
+    })(remark_config.components || ['embed']);
+</script>
+
+</body>
+</html>

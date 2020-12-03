@@ -87,6 +87,125 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="_summary">Summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To improve SQL query performance indexes are used.</p>
+</div>
+<div class="paragraph">
+<p>Also there is a query planner. It knows about indexes and has statistics (mostly collected on the column level: the number of distinct values, the smallest and largest values (data range), the number of NULL occurrences the column histogram (data distribution) and most important - table size). It generates many execution plan variations and calculate a cost value for each plan. The cost calculation is based on the operations in use and the estimated row numbers. In the end the cost value serves as the benchmark for picking the “best” execution plan.</p>
+</div>
+<div class="sect2">
+<h3 id="_index">Index</h3>
+<div class="paragraph">
+<p>Index is a B-Tree. (TODO: add an article about B-Trees to algorithms and try code <a href="https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BTree.java.html" class="bare">https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BTree.java.html</a>)</p>
+</div>
+<div class="paragraph">
+<p>Index and data could have different order. So say we have two conditions <code>WHERE last_name  = 'WINAND' AND subsidiary_id = 30</code> and only <code>subsidiary_id</code> index. You need to find all links to records with subsidiary_id = 30 (so, scan B-Tree) and then visit each record. Records are in different locations on the disc, so it could be slower visit them one by one than full scan (check all records one by one to find last_name = 'WINAND' AND subsidiary_id = 30). So index should have distinct values and depends on queries. We create index to improve query.</p>
+</div>
+<div class="paragraph">
+<p>The more indexes we have the slower insert and, may be, update (if update change some indexed field).</p>
+</div>
+<div class="sect3">
+<h4 id="_data_clustering">Data clustering</h4>
+<div class="paragraph">
+<p>Clustering factor is how close the index order to table’s order. The closer the orders the more efficient the index. Query optimizer takes it into consideration.</p>
+</div>
+<div class="paragraph">
+<p>For example if you have an index on insert time it always has good clustering factor, because insert time is always growing.</p>
+</div>
+<div class="paragraph">
+<p>Table storage is organized based on the values of the primary key columns, to speed up queries and sorts involving the primary key columns.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_compound_index_index_for_equality_first_then_for_ranges">Compound index. index for equality first—then for ranges.</h4>
+<div class="paragraph">
+<p>Order of fields in compound index is important. If we have range first then we get more results than if we have equality first.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_index_merge_is_it_better_to_create_one_index_for_each_column_or_a_single_index_for_all_columns_of_a_where_clause">Index merge: is it better to create one index for each column or a single index for all columns of a where clause?</h4>
+<div class="paragraph">
+<p>one index with multiple columns is better.</p>
+</div>
+<div class="paragraph">
+<p>If you have two indexes (one for last_name and one for date_of_birth) an engine should grab two subsets and merge them in memory or apply filtering on one of the sets by second criteria. bitmap indexes is used for the merge, but anyway it&#8217;s less efficient.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_partial_index_postgresql_only">Partial index (PostgreSQL only)</h4>
+<div class="paragraph">
+<p>Index rows instead of columns. If you have few number of raws with some value and you have a filter in <code>where</code> clouse to get them by this value, it&#8217;s better to have index for them to filter quickly.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_query">Query</h3>
+<div class="sect3">
+<h4 id="_like">LIKE</h4>
+<div class="paragraph">
+<p>LIKE filters can only use the characters before the first wild card. So it uses index for characters before the first wild card (because B-Tree is ordered we can do that), get results and then full scan the results to filter.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_left_part_in_where_statement_should_always_be_a_column_name">Left part in WHERE statement should always be a column name</h4>
+<div class="paragraph">
+<p><code>where numeric_namber - 1000 &gt; ?</code> is bad.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_select_only_what_you_need">Select only what you need</h4>
+<div class="paragraph">
+<p>If you select only fields which are in index it could be index only scan. So the scan doesn&#8217;t touch real data and uses B-Tree only.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_joins">JOINS</h3>
+<div class="paragraph">
+<p>one thing that is common to all join algorithms: they process only two tables at a time. A SQL query with more tables requires multiple steps: first building an intermediate result set by joining two tables, then joining the result with the next table and so forth.</p>
+</div>
+<div class="paragraph">
+<p>The optimizer will therefore evaluate all possible join order permutations and select the best one.</p>
+</div>
+<div class="sect3">
+<h4 id="_nested_loop_join">Nested loop join</h4>
+<div class="paragraph">
+<p>The default one. Loop inside another loop. numberOfRowsInLeftTable*numberOfRowsInRightTable operations.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_hash_join_mysql_doesn_t_support_it">Hash Join (MySQL doesn’t support it)</h4>
+<div class="paragraph">
+<p>The indexing strategy for a hash join is very different because there is no need to index the join columns. Only indexes for independent where predicates improve hash join performance.</p>
+</div>
+<div class="paragraph">
+<p>an optimal hash join is only possible if the entire hash table fits into memory. The optimizer will therefore automatically use the smaller side of the join for the hash table.</p>
+</div>
+<div class="paragraph">
+<p>Reduce the hash table size to improve performance; either horizontally (less rows) or vertically (less columns). All tables should feet the memory.</p>
+</div>
+<div class="paragraph">
+<p>Hash joins cannot perform joins that have range conditions in the join predicates.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sort_join">Sort Join</h4>
+<div class="paragraph">
+<p>Suitable for outer joins when both tables indexes are sorted. So this join is like a zipper.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_details">Details</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
 <h2 id="_query_optimizer">Query Optimizer</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -307,7 +426,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_partial_index_postgresql_only">Partial index (PostgreSQL only)</h3>
+<h3 id="_partial_index_postgresql_only_2">Partial index (PostgreSQL only)</h3>
 <div class="paragraph">
 <p>So far we have only discussed which columns to add to an index. With partial (PostgreSQL) or filtered (SQL Server) indexes you can also specify the rows that are indexed.</p>
 </div>
@@ -327,7 +446,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_left_part_in_where_statement_should_always_be_a_column_name">Left part in WHERE statement should always be a column name</h3>
+<h3 id="_left_part_in_where_statement_should_always_be_a_column_name_2">Left part in WHERE statement should always be a column name</h3>
 <div class="paragraph">
 <p>In opposite case an index can&#8217;t be used</p>
 </div>
@@ -345,7 +464,7 @@ where numeric_namber - 1000 &gt; ?</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_joins">JOINS</h2>
+<h2 id="_joins_2">JOINS</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>one thing that is common to all join algorithms: they process only two tables at a time. A SQL query with more tables requires multiple steps: first building an intermediate result set by joining two tables, then joining the result with the next table and so forth.</p>
@@ -354,7 +473,7 @@ where numeric_namber - 1000 &gt; ?</code></pre>
 <p>Even though the join order has no impact on the final result, it still affects performance. The optimizer will therefore evaluate all possible join order permutations and select the best one. That means that just optimizing a complex statement might become a performance problem. The more tables to join, the more execution plan variants to evaluate—mathematically speaking: n! (factorial growth), though this is not a problem when using bind parameters.</p>
 </div>
 <div class="sect2">
-<h3 id="_nested_loop_join">Nested loop join</h3>
+<h3 id="_nested_loop_join_2">Nested loop join</h3>
 <div class="paragraph">
 <p>The default one</p>
 </div>
@@ -376,7 +495,7 @@ for each row in t1 matching range {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_hash_join_mysql_doesn_t_support_it">Hash Join (MySQL doesn&#8217;t support it)</h3>
+<h3 id="_hash_join_mysql_doesn_t_support_it_2">Hash Join (MySQL doesn&#8217;t support it)</h3>
 <div class="paragraph">
 <p>it loads the candidate records from one side of the join into a hash table that can be probed very quickly for each row from the other side of the join. Tuning a hash join requires an entirely different indexing approach than the nested loops join. Beyond that, it is also possible to improve hash join performance by selecting fewer columns</p>
 </div>
@@ -406,7 +525,7 @@ for each row in t1 matching range {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_sort_join">Sort Join</h3>
+<h3 id="_sort_join_2">Sort Join</h3>
 <div class="paragraph">
 <p>Suitable for outer joins when both tables indexes are sorted. So this join is like a zipper.</p>
 </div>
@@ -414,7 +533,7 @@ for each row in t1 matching range {
 </div>
 </div>
 <div class="sect1">
-<h2 id="_data_clustering">Data clustering</h2>
+<h2 id="_data_clustering_2">Data clustering</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Put same type of data as close as possible to be able to access it fast.</p>
@@ -465,7 +584,7 @@ Clustering is the second power of indexing.</p>
 <h2 id="_links">Links</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="file.html">Parent</a></p>
+<p><a href="relational_dbs.html">Parent</a></p>
 </div>
 </div>
 </div>
