@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MySQL vs Postgres</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/pace.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/lc_gif_player.css">
+
+    <!-- js -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+</head>
+
+<body id="single">
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="index.html"><b>Konoplev's</b> garden</a></h1>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="index.html" data-hover="Garden">Garden</a></li>
+                            <li class="cl-effect-11"><a href="http://konoplev.me" data-hover="Blog">Blog</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <input type="search" placeholder="Search" required class="search-input">
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- col-md-8 -->
+        </div>
+    </header>
+</div>
+
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-12">
+                <div id="content-holder">
+                    <article class="post post-1">
+                        <header class="entry-header">
+                            <h1 class="entry-title">MySQL vs Postgres</h1>
+                            <div class="entry-meta">
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="2020-12-01T23:00:00Z">Dec 2, 2020</time></a></span>
+
+                                <span class="post-category">
+                                                                        <a href=".html"> #</a>
+                                                                    </span>
+
+                                                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Based on <a href="https://eng.uber.com/mysql-migration/" class="bare">https://eng.uber.com/mysql-migration/</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_postgress">Postgress</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <strong>ctid</strong> conceptually represents the on-disk location (i.e., physical disk offset) for a tuple.</p>
+</div>
+<div class="paragraph">
+<p>Every index (primary or secondary) has a ctid.</p>
+</div>
+<div class="paragraph">
+<p>primary key index maps ids to ctids.</p>
+</div>
+<div class="paragraph">
+<p>secondary index maps fields (sorted lexicographically) to ctids.</p>
+</div>
+<div class="paragraph">
+<p>Tuples with ctid are immutable. So if you update a record a new tuple with new ctid is created.</p>
+</div>
+<div class="paragraph">
+<p>The previous one doesn&#8217;t changed but his ctid is added to the new tuple (each tuple has prvious ctid field).</p>
+</div>
+<div class="paragraph">
+<p>With Postgres, the primary index and secondary indexes all point directly to the on-disk tuple offsets. When a tuple location changes, all indexes must be updated.</p>
+</div>
+<div class="sect2">
+<h3 id="_replication">Replication</h3>
+<div class="paragraph">
+<p>For crash recovery purposes, the database already maintains a write-ahead log (WAL) and uses it to implement two-phase commit.</p>
+</div>
+<div class="paragraph">
+<p>The WAL represents a ledger of the changes the database plans to make to the on-disk contents of tables and indexes. When the Postgres daemon first starts up, the process compares the data in this ledger with the actual data on disk. If the ledger contains data that isn’t reflected on disk, the database corrects any tuple or index data to reflect the data indicated by the WAL. It then rolls back any data that appears in the WAL but is from a partially applied transaction (meaning that the transaction was never committed).</p>
+</div>
+<div class="paragraph">
+<p>Each replica database effectively acts as if it’s in crash recovery, constantly applying WAL updates just as it would if it were starting up after a crash. The only difference between streaming replication and actual crash recovery is that replicas in “hot standby” mode serve read queries while applying the streaming WAL, whereas a Postgres database that’s actually in crash recovery mode typically refuses to serve any queries until the database instance finishes the crash recovery process.</p>
+</div>
+<div class="paragraph">
+<p>Because the WAL is actually designed for crash recovery purposes, it contains low-level information about the on-disk updates. The content of the WAL is at the level of the actual on-disk representation of row tuples and their disk offsets (i.e., the row ctids). If you pause a Postgres master and replica when the replica is fully caught up, the actual on-disk content on the replica exactly matches what’s on the master byte for byte. Therefore, tools like rsync can fix a corrupted replica if it gets out of date with the master.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_problems">Problems</h3>
+<div class="sect3">
+<h4 id="_write_amplification">Write Amplification</h4>
+<div class="paragraph">
+<p><a href="https://en.wikipedia.org/wiki/Write_amplification" class="bare">https://en.wikipedia.org/wiki/Write_amplification</a></p>
+</div>
+<div class="paragraph">
+<p>small logical update leads to at least four physical updates:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Write the new row tuple to the tablespace</p>
+</li>
+<li>
+<p>Update the primary key index to add a record for the new tuple</p>
+</li>
+<li>
+<p>Update the (first, last) index to add a record for the new tuple</p>
+</li>
+<li>
+<p>Update the birth_year index to add a record for the new tuple</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You don&#8217;t change secondary indexes, but because of postgres architecture them will be changed.</p>
+</div>
+<div class="sect4">
+<h5 id="_replication_2">Replication</h5>
+<div class="paragraph">
+<p>Instead of replicating a small logical record, such as “Change the birth year for ctid D to now be 770,” the database instead writes out WAL entries for all four of the writes we just described, and all four of these WAL entries propagate over the network. Thus, the write amplification problem also translates into a replication amplification problem, and the Postgres replication data stream quickly becomes extremely verbose, potentially occupying a large amount of bandwidth.</p>
+</div>
+<div class="paragraph">
+<p>when replication must happen between data centers, issues can quickly escalate.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_data_corruption">Data Corruption</h5>
+<div class="paragraph">
+<p>Because of a bug WAL was applied in wrong order and previous field has not been set.</p>
+</div>
+<div class="paragraph">
+<p>So, you can get</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-SQL" data-lang="SQL">SELECT * FROM users WHERE id = 4;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>two records in a response.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_replica_mvcc">Replica MVCC</h5>
+<div class="paragraph">
+<p>Postgres does not have true replica MVCC support. The fact that replicas apply WAL updates results in them having a copy of on-disk data identical to the master at any given point in time.</p>
+</div>
+<div class="paragraph">
+<p>Postgres needs to maintain a copy of old row versions for MVCC. If a streaming replica has an open transaction, updates to the database are blocked if they affect rows held open by the transaction. In this situation, Postgres pauses the WAL application thread until the transaction has ended. This is problematic if the transaction takes a long amount of time, since the replica can severely lag behind the master. Therefore, Postgres applies a timeout in such situations: if a transaction blocks the WAL application for a set amount of time, Postgres kills that transaction.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_upgrade">Upgrade</h5>
+<div class="paragraph">
+<p>Is a pain. It&#8217;s not possible to replicate if master and replica has different versions.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mysql">MySQL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Difference. The most important architectural difference is that while Postgres directly maps index records to on-disk locations, InnoDB maintains a secondary structure. Instead of holding a pointer to the on-disk row location (like the ctid does in Postgres), InnoDB secondary index records hold a pointer to the primary key value. Thus, a secondary index in MySQL associates index keys with primary keys</p>
+</div>
+<div class="paragraph">
+<p>In order to perform an index lookup on the (first, last) index, we actually need to do two lookups. The first lookup searches the table and finds the primary key for a record. Once the primary key is found, a second lookup searches the primary key index to find the on-disk location for the row.</p>
+</div>
+<div class="paragraph">
+<p>This design means that InnoDB is at a slight disadvantage to Postgres when doing a secondary key lookup, since two indexes must be searched with InnoDB compared to just one for Postgres. However, because the data is normalized, row updates only need to update index records that are actually changed by the row update. Additionally, InnoDB typically does row updates in place. If old transactions need to reference a row for the purposes of MVCC MySQL copies the old row into a special area called the rollback segment.</p>
+</div>
+<div class="paragraph">
+<p>This design also makes vacuuming and compaction more efficient. All of the rows that are eligible to be vacuumed are available directly in the rollback segment. By comparison, the Postgres autovacuum process has to do full table scans to identify deleted rows.</p>
+</div>
+<div class="sect2">
+<h3 id="_replication_3">Replication</h3>
+<div class="paragraph">
+<p>MySQL supports multiple different replication modes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Statement-based replication replicates logical SQL statements (e.g., it would literally replicate literal statements such as: UPDATE users SET birth_year=770 WHERE id = 4)</p>
+</li>
+<li>
+<p>Row-based replication replicates altered row records</p>
+</li>
+<li>
+<p>Mixed replication mixes these two modes</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are various tradeoffs to these modes. Statement-based replication is usually the most compact but can require replicas to apply expensive statements to update small amounts of data. On the other hand, row-based replication, akin to the Postgres WAL replication, is more verbose but results in more predictable and efficient updates on the replicas.</p>
+</div>
+<div class="paragraph">
+<p>Because of indexes structure, The MySQL replication stream only needs to contain information about logical updates to rows. The replication updates are of the variety “Change the timestamp for row X from T_1 to T_2.” Replicas automatically infer any index changes that need to be made as the result of these statements.</p>
+</div>
+<div class="paragraph">
+<p>By contrast, the Postgres replication stream contains physical changes, such as “At disk offset 8,382,491, write bytes XYZ.” With Postgres, every physical change made to the disk needs to be included in the WAL stream. Small logical changes (such as updating a timestamp) necessitate many on-disk changes: Postgres must insert the new tuple and update all indexes to point to that tuple. Thus, many changes will be put into the WAL stream. This design difference means that the MySQL replication binary log is significantly more compact than the PostgreSQL WAL stream.</p>
+</div>
+<div class="paragraph">
+<p>How each replication stream works also has an important consequence on how MVCC works with replicas. Since the MySQL replication stream has logical updates, replicas can have true MVCC semantics; therefore read queries on replicas won’t block the replication stream. By contrast, the Postgres WAL stream contains physical on-disk changes, so Postgres replicas cannot apply replication updates that conflict with read queries, so they can’t implement MVCC.</p>
+</div>
+<div class="paragraph">
+<p>MySQL’s replication architecture makes it trivial to replicate between different MySQL releases. MySQL only increments its version if the replication format changes, which is unusual between various MySQL releases. MySQL’s logical replication format also means that on-disk changes in the storage engine layer do not affect the replication format. The typical way to do a MySQL upgrade is to apply the update to one replica at a time, and once you update all replicas, you promote one of them to become the new master. This can be done with almost zero downtime, and it simplifies keeping MySQL up to date.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_architecutre_differencies_between_postgres_and_mysql">Other architecutre differencies between Postgres and MySQL</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_buffer_pool">The Buffer Pool</h3>
+<div class="paragraph">
+<p>Postgres uses page cache.</p>
+</div>
+<div class="paragraph">
+<p>InnoDB implements its own LRU <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-buffer-pool.html" class="bare">https://dev.mysql.com/doc/refman/5.7/en/innodb-buffer-pool.html</a></p>
+</div>
+<div class="paragraph">
+<p>This is logically similar to the Linux page cache but implemented in userspace. While significantly more complicated than Postgres’s design, the InnoDB buffer pool design has some huge upsides:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It makes it possible to implement a custom LRU design. For instance, it’s possible to detect pathological access patterns that would blow out the LRU and prevent them from doing too much damage.</p>
+</li>
+<li>
+<p>It results in fewer context switches. Data accessed via the InnoDB buffer pool doesn’t require any user/kernel context switches. The worst case behavior is the occurrence of a <a href="https://en.wikipedia.org/wiki/Translation_lookaside_buffer">TLB miss</a>, which is relatively cheap and can be minimized by using huge pages.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_connection_handling">Connection Handling</h3>
+<div class="paragraph">
+<p>MySQL implements concurrent connections by spawning a thread-per-connection.</p>
+</div>
+<div class="paragraph">
+<p>Postgres, however, uses a process-per-connection design. This is significantly more expensive than a thread-per-connection design for a number of reasons.</p>
+</div>
+<div class="paragraph">
+<p>IPC is much more expensive between processes than between threads.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="relational_dbs.html">Parent</a></p>
+</div>
+</div>
+</div>
+                        </div>
+                        <div class="height-40px"></div>
+                        <div>
+                            <div id="remark42" aria-live="polite">
+                                <noscript>Please enable JavaScript to view the comments</noscript>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy; 2020 Konoplev.me</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Garden</a></li>
+            <li><a href="http://konoplev.me">Blog</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script src="js/script.js" type="module"></script>
+<script>
+    var remark_config = {
+        host: "https://comments.konoplev.me",
+        site_id: 'konoplev',
+    };
+
+    (function (c) {
+        for (var i = 0; i < c.length; i++) {
+            var d = document, s = d.createElement('script');
+            s.src = remark_config.host + '/web/' + c[i] + '.js';
+            s.defer = true;
+            (d.head || d.body).appendChild(s);
+        }
+    })(remark_config.components || ['embed']);
+</script>
+
+</body>
+</html>

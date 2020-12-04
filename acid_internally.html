@@ -206,7 +206,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Possible</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Repeatable read (snapshot isolation)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Repeatable read (snapshot isolation, i.e. MVCC)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Not possible</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Not possible</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Possible</p></td>
@@ -229,13 +229,29 @@
 <p><em>Dirty read</em>: One transaction tranfer money from Account A to B. Another transaction reads after money are gone from Account A, but has not been yet received by account B. Solution: keep both values and allow transaction to see only commited values.</p>
 </div>
 <div class="paragraph">
-<p><em>Dirty write (Repeatable read)</em>: Two same transaction. First read how much money on Account A after that second transaction transfers the money, then first transaction reads money from account B. It sees inconsisten ammount of money. Solution: snapshot isolation (MVCC). Each transaction has id. It sees only values with this id or lower.</p>
+<p><em>Dirty write (Non Repeatable read)</em>: There are two of the same transactions. First read how much money on Account A after that second transaction transfers the money, then first transaction reads money from account B. It sees inconsisten ammount of money. Solution: snapshot isolation (MVCC). Each transaction has id. It sees only values with this id or lower.</p>
 </div>
 <div class="paragraph">
 <p><em>Lost update</em>: <code>UPDATE counters SET value = value + 1 WHERE key = 'foo';</code> second transaction rewrites first value. MySql <code>SELECT …​ FOR UPDATE</code> to have exclusive lock. Postgress MVCC with detection that both transactions saw same value and tries to update it.</p>
 </div>
 <div class="paragraph">
 <p><em>Write scew (Serializable)</em>: Two transactions read same values but updates different fields of this value and make data inconsistent. 2PL or serializable snapshot isolation (optimistic locking).</p>
+</div>
+<div class="sect3">
+<h4 id="_how_to_set_isolation_level">How to set isolation level</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>SET TRANSACTION transaction_mode [, ...]
+SET TRANSACTION SNAPSHOT snapshot_id
+SET SESSION CHARACTERISTICS AS TRANSACTION transaction_mode [, ...]
+
+where transaction_mode is one of:
+
+    ISOLATION LEVEL { SERIALIZABLE | REPEATABLE READ | READ COMMITTED | READ UNCOMMITTED }
+    READ WRITE | READ ONLY
+    [ NOT ] DEFERRABLE</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -327,7 +343,7 @@
 <h2 id="_links">Links</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="file.html">Parent</a></p>
+<p><a href="relational_dbs.html">Parent</a></p>
 </div>
 </div>
 </div>

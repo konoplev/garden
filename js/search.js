@@ -47,6 +47,14 @@ text: `Topics related to Relational DBs
 date: "Wed Dec 02 00:00:00 CET 2020",
 tags: [ {name: 'relational_dbs', fileName: 'relational_dbs'}, ]
 });
+        filesMap.set("mysql_vs_postgres", {
+filename: "mysql_vs_postgres",
+title: "MySQL vs Postgres",
+text: `Based on https://eng.uber.com/mysql-migration/
+`,
+date: "Wed Dec 02 00:00:00 CET 2020",
+tags: [ {name: '', fileName: ''}, ]
+});
         filesMap.set("acid_internally", {
 filename: "acid_internally",
 title: "ACID internally",
@@ -233,8 +241,13 @@ let withoutWordSet = new Set();
 let theseWordSet = new Set();
         theseWordSet.add("thinking_fast_and_slow");
         theseWordSet.add("mongo_db");
+        theseWordSet.add("mysql_vs_postgres");
         theseWordSet.add("acid_internally");
     searchMap.set("these", theseWordSet);
+
+let wouldWordSet = new Set();
+        wouldWordSet.add("mysql_vs_postgres");
+    searchMap.set("would", wouldWordSet);
 
 let calculateWordSet = new Set();
         calculateWordSet.add("mongo_db");
@@ -263,13 +276,14 @@ let shipperidWordSet = new Set();
         shipperidWordSet.add("sql_commands");
     searchMap.set("shipperid", shipperidWordSet);
 
-let thusWordSet = new Set();
-        thusWordSet.add("relational_dbs_performance");
-    searchMap.set("thus", thusWordSet);
-
 let countersWordSet = new Set();
         countersWordSet.add("acid_internally");
     searchMap.set("counters", countersWordSet);
+
+let thusWordSet = new Set();
+        thusWordSet.add("relational_dbs_performance");
+        thusWordSet.add("mysql_vs_postgres");
+    searchMap.set("thus", thusWordSet);
 
 let circularWordSet = new Set();
         circularWordSet.add("mongo_db");
@@ -277,17 +291,19 @@ let circularWordSet = new Set();
 
 let requireWordSet = new Set();
         requireWordSet.add("interest");
+        requireWordSet.add("mysql_vs_postgres");
         requireWordSet.add("acid_internally");
     searchMap.set("require", requireWordSet);
-
-let appliesWordSet = new Set();
-        appliesWordSet.add("mongo_db");
-    searchMap.set("applies", appliesWordSet);
 
 let sizeWordSet = new Set();
         sizeWordSet.add("mongo_db");
         sizeWordSet.add("relational_dbs_performance");
     searchMap.set("size", sizeWordSet);
+
+let appliesWordSet = new Set();
+        appliesWordSet.add("mongo_db");
+        appliesWordSet.add("mysql_vs_postgres");
+    searchMap.set("applies", appliesWordSet);
 
 let leftWordSet = new Set();
         leftWordSet.add("relational_dbs_performance");
@@ -303,6 +319,7 @@ let requaresWordSet = new Set();
     searchMap.set("requares", requaresWordSet);
 
 let muchWordSet = new Set();
+        muchWordSet.add("mysql_vs_postgres");
         muchWordSet.add("acid_internally");
     searchMap.set("much", muchWordSet);
 
@@ -334,13 +351,14 @@ let independentWordSet = new Set();
         independentWordSet.add("relational_dbs_performance");
     searchMap.set("independent", independentWordSet);
 
-let aheadWordSet = new Set();
-        aheadWordSet.add("mongo_db");
-    searchMap.set("ahead", aheadWordSet);
-
 let achieveWordSet = new Set();
         achieveWordSet.add("choice");
     searchMap.set("achieve", achieveWordSet);
+
+let aheadWordSet = new Set();
+        aheadWordSet.add("mongo_db");
+        aheadWordSet.add("mysql_vs_postgres");
+    searchMap.set("ahead", aheadWordSet);
 
 let talkingWordSet = new Set();
         talkingWordSet.add("thinking_fast_and_slow");
@@ -353,6 +371,7 @@ let turnWordSet = new Set();
 
 let replicatesWordSet = new Set();
         replicatesWordSet.add("mongo_db");
+        replicatesWordSet.add("mysql_vs_postgres");
     searchMap.set("replicates", replicatesWordSet);
 
 let balancedWordSet = new Set();
@@ -371,6 +390,7 @@ let exampleWordSet = new Set();
 let resultWordSet = new Set();
         resultWordSet.add("thinking_fast_and_slow");
         resultWordSet.add("relational_dbs_performance");
+        resultWordSet.add("mysql_vs_postgres");
         resultWordSet.add("sql_commands");
     searchMap.set("result", resultWordSet);
 
@@ -401,6 +421,7 @@ let quietWordSet = new Set();
 let afterWordSet = new Set();
         afterWordSet.add("thinking_fast_and_slow");
         afterWordSet.add("mongo_db");
+        afterWordSet.add("mysql_vs_postgres");
         afterWordSet.add("acid_internally");
     searchMap.set("after", afterWordSet);
 
@@ -414,6 +435,7 @@ let connectWordSet = new Set();
 
 let handWordSet = new Set();
         handWordSet.add("relational_dbs_performance");
+        handWordSet.add("mysql_vs_postgres");
     searchMap.set("hand", handWordSet);
 
 let orderedWordSet = new Set();
@@ -434,6 +456,7 @@ let aWordSet = new Set();
         aWordSet.add("interest");
         aWordSet.add("leadership");
         aWordSet.add("relational_dbs_performance");
+        aWordSet.add("mysql_vs_postgres");
         aWordSet.add("terraform");
         aWordSet.add("choice");
         aWordSet.add("acid_internally");
@@ -448,6 +471,7 @@ let bWordSet = new Set();
     searchMap.set("b", bWordSet);
 
 let committedWordSet = new Set();
+        committedWordSet.add("mysql_vs_postgres");
         committedWordSet.add("acid_internally");
     searchMap.set("committed", committedWordSet);
 
@@ -474,6 +498,10 @@ let organaizedWordSet = new Set();
         organaizedWordSet.add("about_the_digital_garden");
     searchMap.set("organaized", organaizedWordSet);
 
+let dWordSet = new Set();
+        dWordSet.add("mysql_vs_postgres");
+    searchMap.set("d", dWordSet);
+
 let cfgWordSet = new Set();
         cfgWordSet.add("mongo_db");
     searchMap.set("cfg", cfgWordSet);
@@ -481,6 +509,7 @@ let cfgWordSet = new Set();
 let eWordSet = new Set();
         eWordSet.add("mongo_db");
         eWordSet.add("relational_dbs_performance");
+        eWordSet.add("mysql_vs_postgres");
         eWordSet.add("acid_internally");
     searchMap.set("e", eWordSet);
 
@@ -488,7 +517,12 @@ let fWordSet = new Set();
         fWordSet.add("sql_commands");
     searchMap.set("f", fWordSet);
 
+let kernelWordSet = new Set();
+        kernelWordSet.add("mysql_vs_postgres");
+    searchMap.set("kernel", kernelWordSet);
+
 let gWordSet = new Set();
+        gWordSet.add("mysql_vs_postgres");
         gWordSet.add("sql_commands");
     searchMap.set("g", gWordSet);
 
@@ -499,6 +533,7 @@ let hWordSet = new Set();
 let iWordSet = new Set();
         iWordSet.add("persuasion");
         iWordSet.add("mongo_db");
+        iWordSet.add("mysql_vs_postgres");
         iWordSet.add("about_the_digital_garden");
         iWordSet.add("choice");
         iWordSet.add("acid_internally");
@@ -513,16 +548,17 @@ let kWordSet = new Set();
         kWordSet.add("sql_commands");
     searchMap.set("k", kWordSet);
 
-let queriesWordSet = new Set();
-        queriesWordSet.add("mongo_db");
-        queriesWordSet.add("relational_dbs_performance");
-    searchMap.set("queries", queriesWordSet);
-
 let mWordSet = new Set();
         mWordSet.add("how_to_create_a_python_project");
         mWordSet.add("choice");
         mWordSet.add("sql_commands");
     searchMap.set("m", mWordSet);
+
+let queriesWordSet = new Set();
+        queriesWordSet.add("mongo_db");
+        queriesWordSet.add("relational_dbs_performance");
+        queriesWordSet.add("mysql_vs_postgres");
+    searchMap.set("queries", queriesWordSet);
 
 let nWordSet = new Set();
         nWordSet.add("mongo_db");
@@ -535,17 +571,18 @@ let oWordSet = new Set();
 
 let theWordSet = new Set();
         theWordSet.add("thinking_fast_and_slow");
-        theWordSet.add("persuasion");
         theWordSet.add("career_crises");
         theWordSet.add("mongo_db");
-        theWordSet.add("interest");
         theWordSet.add("day_dreams");
-        theWordSet.add("relational_dbs_performance");
-        theWordSet.add("terraform");
         theWordSet.add("about_the_digital_garden");
+        theWordSet.add("sql_commands");
+        theWordSet.add("persuasion");
+        theWordSet.add("interest");
+        theWordSet.add("relational_dbs_performance");
+        theWordSet.add("mysql_vs_postgres");
+        theWordSet.add("terraform");
         theWordSet.add("choice");
         theWordSet.add("acid_internally");
-        theWordSet.add("sql_commands");
     searchMap.set("the", theWordSet);
 
 let qWordSet = new Set();
@@ -573,6 +610,7 @@ let sWordSet = new Set();
         sWordSet.add("day_dreams");
         sWordSet.add("leadership");
         sWordSet.add("relational_dbs_performance");
+        sWordSet.add("mysql_vs_postgres");
         sWordSet.add("terraform");
         sWordSet.add("acid_internally");
         sWordSet.add("sql_commands");
@@ -584,6 +622,7 @@ let tWordSet = new Set();
         tWordSet.add("career_crises");
         tWordSet.add("mongo_db");
         tWordSet.add("relational_dbs_performance");
+        tWordSet.add("mysql_vs_postgres");
         tWordSet.add("terraform");
         tWordSet.add("choice");
         tWordSet.add("acid_internally");
@@ -591,30 +630,31 @@ let tWordSet = new Set();
     searchMap.set("t", tWordSet);
 
 let vWordSet = new Set();
-        vWordSet.add("thinking_fast_and_slow");
         vWordSet.add("relational_dbs");
         vWordSet.add("career_crises");
-        vWordSet.add("mongo_db");
         vWordSet.add("how_to_find_you_career");
         vWordSet.add("day_dreams");
         vWordSet.add("toc");
         vWordSet.add("about_the_digital_garden");
+        vWordSet.add("soft_skills");
+        vWordSet.add("interest");
+        vWordSet.add("devops");
+        vWordSet.add("leadership");
+        vWordSet.add("tech_books");
+        vWordSet.add("acid_internally");
+        vWordSet.add("non-fiction_books");
+        vWordSet.add("programming");
+        vWordSet.add("thinking_fast_and_slow");
+        vWordSet.add("mongo_db");
         vWordSet.add("how_to_create_a_python_project");
         vWordSet.add("name_me");
         vWordSet.add("sql_commands");
         vWordSet.add("persuasion");
         vWordSet.add("performance");
-        vWordSet.add("soft_skills");
-        vWordSet.add("interest");
-        vWordSet.add("devops");
-        vWordSet.add("leadership");
         vWordSet.add("relational_dbs_performance");
-        vWordSet.add("tech_books");
+        vWordSet.add("mysql_vs_postgres");
         vWordSet.add("terraform");
         vWordSet.add("choice");
-        vWordSet.add("acid_internally");
-        vWordSet.add("non-fiction_books");
-        vWordSet.add("programming");
     searchMap.set("v", vWordSet);
 
 let wWordSet = new Set();
@@ -625,6 +665,10 @@ let excitingWordSet = new Set();
         excitingWordSet.add("interest");
     searchMap.set("exciting", excitingWordSet);
 
+let xWordSet = new Set();
+        xWordSet.add("mysql_vs_postgres");
+    searchMap.set("x", xWordSet);
+
 let obviousWordSet = new Set();
         obviousWordSet.add("sql_commands");
     searchMap.set("obvious", obviousWordSet);
@@ -632,6 +676,7 @@ let obviousWordSet = new Set();
 let informationWordSet = new Set();
         informationWordSet.add("mongo_db");
         informationWordSet.add("leadership");
+        informationWordSet.add("mysql_vs_postgres");
     searchMap.set("information", informationWordSet);
 
 let returnedWordSet = new Set();
@@ -683,6 +728,10 @@ let emptyWordSet = new Set();
         emptyWordSet.add("acid_internally");
     searchMap.set("empty", emptyWordSet);
 
+let amountsWordSet = new Set();
+        amountsWordSet.add("mysql_vs_postgres");
+    searchMap.set("amounts", amountsWordSet);
+
 let intersectionWordSet = new Set();
         intersectionWordSet.add("mongo_db");
     searchMap.set("intersection", intersectionWordSet);
@@ -693,6 +742,7 @@ let copyingWordSet = new Set();
 
 let implementWordSet = new Set();
         implementWordSet.add("relational_dbs_performance");
+        implementWordSet.add("mysql_vs_postgres");
         implementWordSet.add("how_to_create_a_python_project");
         implementWordSet.add("acid_internally");
     searchMap.set("implement", implementWordSet);
@@ -710,6 +760,10 @@ let othersWordSet = new Set();
 let barmanWordSet = new Set();
         barmanWordSet.add("day_dreams");
     searchMap.set("barman", barmanWordSet);
+
+let areaWordSet = new Set();
+        areaWordSet.add("mysql_vs_postgres");
+    searchMap.set("area", areaWordSet);
 
 let visibilityWordSet = new Set();
         visibilityWordSet.add("acid_internally");
@@ -760,6 +814,7 @@ let sparseWordSet = new Set();
 
 let appliedWordSet = new Set();
         appliedWordSet.add("career_crises");
+        appliedWordSet.add("mysql_vs_postgres");
         appliedWordSet.add("sql_commands");
     searchMap.set("applied", appliedWordSet);
 
@@ -774,6 +829,10 @@ let localeWordSet = new Set();
 let writtingWordSet = new Set();
         writtingWordSet.add("acid_internally");
     searchMap.set("writting", writtingWordSet);
+
+let representationWordSet = new Set();
+        representationWordSet.add("mysql_vs_postgres");
+    searchMap.set("representation", representationWordSet);
 
 let removeWordSet = new Set();
         removeWordSet.add("mongo_db");
@@ -842,34 +901,38 @@ let orderidWordSet = new Set();
         orderidWordSet.add("sql_commands");
     searchMap.set("orderid", orderidWordSet);
 
-let replicasWordSet = new Set();
-        replicasWordSet.add("mongo_db");
-    searchMap.set("replicas", replicasWordSet);
-
-let blocksWordSet = new Set();
-        blocksWordSet.add("relational_dbs_performance");
-    searchMap.set("blocks", blocksWordSet);
-
 let approvalWordSet = new Set();
         approvalWordSet.add("interest");
     searchMap.set("approval", approvalWordSet);
+
+let blocksWordSet = new Set();
+        blocksWordSet.add("relational_dbs_performance");
+        blocksWordSet.add("mysql_vs_postgres");
+    searchMap.set("blocks", blocksWordSet);
+
+let replicasWordSet = new Set();
+        replicasWordSet.add("mongo_db");
+        replicasWordSet.add("mysql_vs_postgres");
+    searchMap.set("replicas", replicasWordSet);
 
 let cheepWordSet = new Set();
         cheepWordSet.add("mongo_db");
         cheepWordSet.add("choice");
     searchMap.set("cheep", cheepWordSet);
 
-let performWordSet = new Set();
-        performWordSet.add("relational_dbs_performance");
-        performWordSet.add("acid_internally");
-    searchMap.set("perform", performWordSet);
-
 let multipleWordSet = new Set();
         multipleWordSet.add("mongo_db");
         multipleWordSet.add("relational_dbs_performance");
+        multipleWordSet.add("mysql_vs_postgres");
         multipleWordSet.add("acid_internally");
         multipleWordSet.add("sql_commands");
     searchMap.set("multiple", multipleWordSet);
+
+let performWordSet = new Set();
+        performWordSet.add("relational_dbs_performance");
+        performWordSet.add("mysql_vs_postgres");
+        performWordSet.add("acid_internally");
+    searchMap.set("perform", performWordSet);
 
 let paticularWordSet = new Set();
         paticularWordSet.add("mongo_db");
@@ -878,6 +941,10 @@ let paticularWordSet = new Set();
 let realizedWordSet = new Set();
         realizedWordSet.add("thinking_fast_and_slow");
     searchMap.set("realized", realizedWordSet);
+
+let tlbWordSet = new Set();
+        tlbWordSet.add("mysql_vs_postgres");
+    searchMap.set("tlb", tlbWordSet);
 
 let shardingWordSet = new Set();
         shardingWordSet.add("mongo_db");
@@ -903,6 +970,7 @@ let withWordSet = new Set();
         withWordSet.add("mongo_db");
         withWordSet.add("day_dreams");
         withWordSet.add("relational_dbs_performance");
+        withWordSet.add("mysql_vs_postgres");
         withWordSet.add("acid_internally");
         withWordSet.add("sql_commands");
     searchMap.set("with", withWordSet);
@@ -916,10 +984,15 @@ let thereWordSet = new Set();
         thereWordSet.add("career_crises");
         thereWordSet.add("mongo_db");
         thereWordSet.add("relational_dbs_performance");
+        thereWordSet.add("mysql_vs_postgres");
         thereWordSet.add("terraform");
         thereWordSet.add("acid_internally");
         thereWordSet.add("sql_commands");
     searchMap.set("there", thereWordSet);
+
+let translationWordSet = new Set();
+        translationWordSet.add("mysql_vs_postgres");
+    searchMap.set("translation", translationWordSet);
 
 let syntaxWordSet = new Set();
         syntaxWordSet.add("mongo_db");
@@ -934,6 +1007,10 @@ let wellWordSet = new Set();
 let suitableWordSet = new Set();
         suitableWordSet.add("relational_dbs_performance");
     searchMap.set("suitable", suitableWordSet);
+
+let handlingWordSet = new Set();
+        handlingWordSet.add("mysql_vs_postgres");
+    searchMap.set("handling", handlingWordSet);
 
 let localsWordSet = new Set();
         localsWordSet.add("terraform");
@@ -988,16 +1065,19 @@ let unitsonorderWordSet = new Set();
 
 let blockWordSet = new Set();
         blockWordSet.add("mongo_db");
+        blockWordSet.add("mysql_vs_postgres");
     searchMap.set("block", blockWordSet);
 
 let perWordSet = new Set();
         perWordSet.add("thinking_fast_and_slow");
         perWordSet.add("mongo_db");
+        perWordSet.add("mysql_vs_postgres");
     searchMap.set("per", perWordSet);
 
 let writeWordSet = new Set();
         writeWordSet.add("mongo_db");
         writeWordSet.add("interest");
+        writeWordSet.add("mysql_vs_postgres");
         writeWordSet.add("acid_internally");
     searchMap.set("write", writeWordSet);
 
@@ -1010,6 +1090,7 @@ let orderWordSet = new Set();
         orderWordSet.add("thinking_fast_and_slow");
         orderWordSet.add("mongo_db");
         orderWordSet.add("relational_dbs_performance");
+        orderWordSet.add("mysql_vs_postgres");
         orderWordSet.add("sql_commands");
     searchMap.set("order", orderWordSet);
 
@@ -1021,6 +1102,10 @@ let periodWordSet = new Set();
         periodWordSet.add("mongo_db");
     searchMap.set("period", periodWordSet);
 
+let byteWordSet = new Set();
+        byteWordSet.add("mysql_vs_postgres");
+    searchMap.set("byte", byteWordSet);
+
 let understandWordSet = new Set();
         understandWordSet.add("thinking_fast_and_slow");
         understandWordSet.add("persuasion");
@@ -1030,6 +1115,7 @@ let understandWordSet = new Set();
 
 let birthWordSet = new Set();
         birthWordSet.add("relational_dbs_performance");
+        birthWordSet.add("mysql_vs_postgres");
         birthWordSet.add("acid_internally");
     searchMap.set("birth", birthWordSet);
 
@@ -1051,6 +1137,7 @@ let evenWordSet = new Set();
 
 let binaryWordSet = new Set();
         binaryWordSet.add("mongo_db");
+        binaryWordSet.add("mysql_vs_postgres");
     searchMap.set("binary", binaryWordSet);
 
 let transparencyWordSet = new Set();
@@ -1091,11 +1178,19 @@ let matterWordSet = new Set();
         matterWordSet.add("mongo_db");
     searchMap.set("matter", matterWordSet);
 
+let tupleWordSet = new Set();
+        tupleWordSet.add("mysql_vs_postgres");
+    searchMap.set("tuple", tupleWordSet);
+
 let topWordSet = new Set();
         topWordSet.add("mongo_db");
         topWordSet.add("programming");
         topWordSet.add("sql_commands");
     searchMap.set("top", topWordSet);
+
+let tooWordSet = new Set();
+        tooWordSet.add("mysql_vs_postgres");
+    searchMap.set("too", tooWordSet);
 
 let haveWordSet = new Set();
         haveWordSet.add("thinking_fast_and_slow");
@@ -1105,10 +1200,19 @@ let haveWordSet = new Set();
         haveWordSet.add("day_dreams");
         haveWordSet.add("leadership");
         haveWordSet.add("relational_dbs_performance");
+        haveWordSet.add("mysql_vs_postgres");
         haveWordSet.add("choice");
         haveWordSet.add("acid_internally");
         haveWordSet.add("sql_commands");
     searchMap.set("have", haveWordSet);
+
+let consequenceWordSet = new Set();
+        consequenceWordSet.add("mysql_vs_postgres");
+    searchMap.set("consequence", consequenceWordSet);
+
+let ctidWordSet = new Set();
+        ctidWordSet.add("mysql_vs_postgres");
+    searchMap.set("ctid", ctidWordSet);
 
 let questionWordSet = new Set();
         questionWordSet.add("relational_dbs_performance");
@@ -1122,6 +1226,10 @@ let ascendingWordSet = new Set();
         ascendingWordSet.add("mongo_db");
         ascendingWordSet.add("relational_dbs_performance");
     searchMap.set("ascending", ascendingWordSet);
+
+let cheapWordSet = new Set();
+        cheapWordSet.add("mysql_vs_postgres");
+    searchMap.set("cheap", cheapWordSet);
 
 let inconsistentWordSet = new Set();
         inconsistentWordSet.add("mongo_db");
@@ -1147,6 +1255,7 @@ let disableWordSet = new Set();
 let comWordSet = new Set();
         comWordSet.add("mongo_db");
         comWordSet.add("relational_dbs_performance");
+        comWordSet.add("mysql_vs_postgres");
     searchMap.set("com", comWordSet);
 
 let useradminanydatabseWordSet = new Set();
@@ -1155,6 +1264,7 @@ let useradminanydatabseWordSet = new Set();
 
 let replicaWordSet = new Set();
         replicaWordSet.add("mongo_db");
+        replicaWordSet.add("mysql_vs_postgres");
     searchMap.set("replica", replicaWordSet);
 
 let environmentsWordSet = new Set();
@@ -1163,6 +1273,7 @@ let environmentsWordSet = new Set();
 
 let almostWordSet = new Set();
         almostWordSet.add("thinking_fast_and_slow");
+        almostWordSet.add("mysql_vs_postgres");
         almostWordSet.add("acid_internally");
     searchMap.set("almost", almostWordSet);
 
@@ -1177,6 +1288,10 @@ let preventsWordSet = new Set();
 let deadlockWordSet = new Set();
         deadlockWordSet.add("acid_internally");
     searchMap.set("deadlock", deadlockWordSet);
+
+let simplifiesWordSet = new Set();
+        simplifiesWordSet.add("mysql_vs_postgres");
+    searchMap.set("simplifies", simplifiesWordSet);
 
 let overloadedWordSet = new Set();
         overloadedWordSet.add("mongo_db");
@@ -1197,6 +1312,14 @@ let nestedWordSet = new Set();
 let associateWordSet = new Set();
         associateWordSet.add("thinking_fast_and_slow");
     searchMap.set("associate", associateWordSet);
+
+let identicalWordSet = new Set();
+        identicalWordSet.add("mysql_vs_postgres");
+    searchMap.set("identical", identicalWordSet);
+
+let lagWordSet = new Set();
+        lagWordSet.add("mysql_vs_postgres");
+    searchMap.set("lag", lagWordSet);
 
 let biggestWordSet = new Set();
         biggestWordSet.add("relational_dbs_performance");
@@ -1229,6 +1352,7 @@ let membersWordSet = new Set();
     searchMap.set("members", membersWordSet);
 
 let xyzWordSet = new Set();
+        xyzWordSet.add("mysql_vs_postgres");
         xyzWordSet.add("sql_commands");
     searchMap.set("xyz", xyzWordSet);
 
@@ -1258,6 +1382,7 @@ let fieldnamesWordSet = new Set();
     searchMap.set("fieldnames", fieldnamesWordSet);
 
 let comparisonWordSet = new Set();
+        comparisonWordSet.add("mysql_vs_postgres");
         comparisonWordSet.add("sql_commands");
     searchMap.set("comparison", comparisonWordSet);
 
@@ -1276,6 +1401,10 @@ let lessWordSet = new Set();
         lessWordSet.add("sql_commands");
     searchMap.set("less", lessWordSet);
 
+let correctsWordSet = new Set();
+        correctsWordSet.add("mysql_vs_postgres");
+    searchMap.set("corrects", correctsWordSet);
+
 let uniquWordSet = new Set();
         uniquWordSet.add("relational_dbs_performance");
     searchMap.set("uniqu", uniquWordSet);
@@ -1291,7 +1420,12 @@ let improveWordSet = new Set();
 let wereWordSet = new Set();
         wereWordSet.add("thinking_fast_and_slow");
         wereWordSet.add("relational_dbs_performance");
+        wereWordSet.add("mysql_vs_postgres");
     searchMap.set("were", wereWordSet);
+
+let translatesWordSet = new Set();
+        translatesWordSet.add("mysql_vs_postgres");
+    searchMap.set("translates", translatesWordSet);
 
 let tryWordSet = new Set();
         tryWordSet.add("thinking_fast_and_slow");
@@ -1329,6 +1463,7 @@ let unwrittenWordSet = new Set();
     searchMap.set("unwritten", unwrittenWordSet);
 
 let representsWordSet = new Set();
+        representsWordSet.add("mysql_vs_postgres");
         representsWordSet.add("sql_commands");
     searchMap.set("represents", representsWordSet);
 
@@ -1347,6 +1482,10 @@ let extraWordSet = new Set();
 let attendingWordSet = new Set();
         attendingWordSet.add("persuasion");
     searchMap.set("attending", attendingWordSet);
+
+let designWordSet = new Set();
+        designWordSet.add("mysql_vs_postgres");
+    searchMap.set("design", designWordSet);
 
 let workingWordSet = new Set();
         workingWordSet.add("thinking_fast_and_slow");
@@ -1370,6 +1509,7 @@ let satisfyingWordSet = new Set();
 
 let rowsWordSet = new Set();
         rowsWordSet.add("relational_dbs_performance");
+        rowsWordSet.add("mysql_vs_postgres");
         rowsWordSet.add("acid_internally");
         rowsWordSet.add("sql_commands");
     searchMap.set("rows", rowsWordSet);
@@ -1413,6 +1553,7 @@ let clusterWordSet = new Set();
 
 let caughtWordSet = new Set();
         caughtWordSet.add("persuasion");
+        caughtWordSet.add("mysql_vs_postgres");
     searchMap.set("caught", caughtWordSet);
 
 let concernWordSet = new Set();
@@ -1504,6 +1645,7 @@ let eachWordSet = new Set();
         eachWordSet.add("mongo_db");
         eachWordSet.add("day_dreams");
         eachWordSet.add("relational_dbs_performance");
+        eachWordSet.add("mysql_vs_postgres");
         eachWordSet.add("terraform");
         eachWordSet.add("about_the_digital_garden");
         eachWordSet.add("acid_internally");
@@ -1519,9 +1661,14 @@ let creatingWordSet = new Set();
         creatingWordSet.add("terraform");
     searchMap.set("creating", creatingWordSet);
 
+let differenceWordSet = new Set();
+        differenceWordSet.add("mysql_vs_postgres");
+    searchMap.set("difference", differenceWordSet);
+
 let mustWordSet = new Set();
         mustWordSet.add("mongo_db");
         mustWordSet.add("relational_dbs_performance");
+        mustWordSet.add("mysql_vs_postgres");
         mustWordSet.add("acid_internally");
         mustWordSet.add("sql_commands");
     searchMap.set("must", mustWordSet);
@@ -1547,6 +1694,7 @@ let deterministicWordSet = new Set();
     searchMap.set("deterministic", deterministicWordSet);
 
 let concurrentWordSet = new Set();
+        concurrentWordSet.add("mysql_vs_postgres");
         concurrentWordSet.add("terraform");
     searchMap.set("concurrent", concurrentWordSet);
 
@@ -1555,6 +1703,7 @@ let twoWordSet = new Set();
         twoWordSet.add("mongo_db");
         twoWordSet.add("interest");
         twoWordSet.add("relational_dbs_performance");
+        twoWordSet.add("mysql_vs_postgres");
         twoWordSet.add("terraform");
         twoWordSet.add("acid_internally");
         twoWordSet.add("sql_commands");
@@ -1574,10 +1723,15 @@ let anywayWordSet = new Set();
         anywayWordSet.add("acid_internally");
     searchMap.set("anyway", anywayWordSet);
 
+let promoteWordSet = new Set();
+        promoteWordSet.add("mysql_vs_postgres");
+    searchMap.set("promote", promoteWordSet);
+
 let foundWordSet = new Set();
         foundWordSet.add("thinking_fast_and_slow");
         foundWordSet.add("career_crises");
         foundWordSet.add("relational_dbs_performance");
+        foundWordSet.add("mysql_vs_postgres");
     searchMap.set("found", foundWordSet);
 
 let desiredWordSet = new Set();
@@ -1591,6 +1745,7 @@ let freesWordSet = new Set();
 let doesWordSet = new Set();
         doesWordSet.add("mongo_db");
         doesWordSet.add("relational_dbs_performance");
+        doesWordSet.add("mysql_vs_postgres");
         doesWordSet.add("acid_internally");
     searchMap.set("does", doesWordSet);
 
@@ -1609,6 +1764,7 @@ let givesWordSet = new Set();
 let situationWordSet = new Set();
         situationWordSet.add("thinking_fast_and_slow");
         situationWordSet.add("career_crises");
+        situationWordSet.add("mysql_vs_postgres");
         situationWordSet.add("acid_internally");
     searchMap.set("situation", situationWordSet);
 
@@ -1628,6 +1784,10 @@ let receiveWordSet = new Set();
 let thinkWordSet = new Set();
         thinkWordSet.add("thinking_fast_and_slow");
     searchMap.set("think", thinkWordSet);
+
+let refusesWordSet = new Set();
+        refusesWordSet.add("mysql_vs_postgres");
+    searchMap.set("refuses", refusesWordSet);
 
 let teamWordSet = new Set();
         teamWordSet.add("leadership");
@@ -1669,13 +1829,19 @@ let sourceWordSet = new Set();
         sourceWordSet.add("persuasion");
         sourceWordSet.add("mongo_db");
         sourceWordSet.add("relational_dbs_performance");
+        sourceWordSet.add("mysql_vs_postgres");
         sourceWordSet.add("how_to_create_a_python_project");
+        sourceWordSet.add("acid_internally");
         sourceWordSet.add("sql_commands");
     searchMap.set("source", sourceWordSet);
 
 let initiateWordSet = new Set();
         initiateWordSet.add("mongo_db");
     searchMap.set("initiate", initiateWordSet);
+
+let tablespaceWordSet = new Set();
+        tablespaceWordSet.add("mysql_vs_postgres");
+    searchMap.set("tablespace", tablespaceWordSet);
 
 let compileWordSet = new Set();
         compileWordSet.add("mongo_db");
@@ -1711,11 +1877,13 @@ let hasWordSet = new Set();
         hasWordSet.add("mongo_db");
         hasWordSet.add("day_dreams");
         hasWordSet.add("relational_dbs_performance");
+        hasWordSet.add("mysql_vs_postgres");
         hasWordSet.add("acid_internally");
     searchMap.set("has", hasWordSet);
 
 let startsWordSet = new Set();
         startsWordSet.add("relational_dbs_performance");
+        startsWordSet.add("mysql_vs_postgres");
     searchMap.set("starts", startsWordSet);
 
 let acquiredWordSet = new Set();
@@ -1740,9 +1908,14 @@ let techWordSet = new Set();
     searchMap.set("tech", techWordSet);
 
 let givenWordSet = new Set();
+        givenWordSet.add("mysql_vs_postgres");
         givenWordSet.add("acid_internally");
         givenWordSet.add("sql_commands");
     searchMap.set("given", givenWordSet);
+
+let actualWordSet = new Set();
+        actualWordSet.add("mysql_vs_postgres");
+    searchMap.set("actual", actualWordSet);
 
 let preWordSet = new Set();
         preWordSet.add("mongo_db");
@@ -1755,6 +1928,7 @@ let chessWordSet = new Set();
 let lastWordSet = new Set();
         lastWordSet.add("mongo_db");
         lastWordSet.add("relational_dbs_performance");
+        lastWordSet.add("mysql_vs_postgres");
         lastWordSet.add("terraform");
         lastWordSet.add("sql_commands");
     searchMap.set("last", lastWordSet);
@@ -1774,6 +1948,7 @@ let checksWordSet = new Set();
 let pageWordSet = new Set();
         pageWordSet.add("mongo_db");
         pageWordSet.add("performance");
+        pageWordSet.add("mysql_vs_postgres");
         pageWordSet.add("acid_internally");
         pageWordSet.add("non-fiction_books");
         pageWordSet.add("programming");
@@ -1786,6 +1961,7 @@ let employeesWordSet = new Set();
 
 let updatedWordSet = new Set();
         updatedWordSet.add("relational_dbs_performance");
+        updatedWordSet.add("mysql_vs_postgres");
         updatedWordSet.add("acid_internally");
         updatedWordSet.add("sql_commands");
     searchMap.set("updated", updatedWordSet);
@@ -1796,6 +1972,7 @@ let mathematicallyWordSet = new Set();
 
 let fullWordSet = new Set();
         fullWordSet.add("relational_dbs_performance");
+        fullWordSet.add("mysql_vs_postgres");
         fullWordSet.add("sql_commands");
     searchMap.set("full", fullWordSet);
 
@@ -1826,6 +2003,7 @@ let discurdedWordSet = new Set();
 
 let updatesWordSet = new Set();
         updatesWordSet.add("mongo_db");
+        updatesWordSet.add("mysql_vs_postgres");
         updatesWordSet.add("acid_internally");
         updatesWordSet.add("sql_commands");
     searchMap.set("updates", updatesWordSet);
@@ -1845,6 +2023,14 @@ let endsWordSet = new Set();
 let bonusesWordSet = new Set();
         bonusesWordSet.add("interest");
     searchMap.set("bonuses", bonusesWordSet);
+
+let lookupsWordSet = new Set();
+        lookupsWordSet.add("mysql_vs_postgres");
+    searchMap.set("lookups", lookupsWordSet);
+
+let painWordSet = new Set();
+        painWordSet.add("mysql_vs_postgres");
+    searchMap.set("pain", painWordSet);
 
 let yesWordSet = new Set();
         yesWordSet.add("mongo_db");
@@ -1891,6 +2077,10 @@ let laudWordSet = new Set();
         laudWordSet.add("thinking_fast_and_slow");
     searchMap.set("laud", laudWordSet);
 
+let typicalWordSet = new Set();
+        typicalWordSet.add("mysql_vs_postgres");
+    searchMap.set("typical", typicalWordSet);
+
 let shortWordSet = new Set();
         shortWordSet.add("thinking_fast_and_slow");
     searchMap.set("short", shortWordSet);
@@ -1909,6 +2099,7 @@ let timeWordSet = new Set();
         timeWordSet.add("career_crises");
         timeWordSet.add("mongo_db");
         timeWordSet.add("relational_dbs_performance");
+        timeWordSet.add("mysql_vs_postgres");
         timeWordSet.add("acid_internally");
     searchMap.set("time", timeWordSet);
 
@@ -1928,6 +2119,10 @@ let programWordSet = new Set();
         programWordSet.add("how_to_create_a_python_project");
     searchMap.set("program", programWordSet);
 
+let semanticsWordSet = new Set();
+        semanticsWordSet.add("mysql_vs_postgres");
+    searchMap.set("semantics", semanticsWordSet);
+
 let consistencyWordSet = new Set();
         consistencyWordSet.add("mongo_db");
         consistencyWordSet.add("acid_internally");
@@ -1940,6 +2135,7 @@ let tipsWordSet = new Set();
 let putWordSet = new Set();
         putWordSet.add("mongo_db");
         putWordSet.add("relational_dbs_performance");
+        putWordSet.add("mysql_vs_postgres");
     searchMap.set("put", putWordSet);
 
 let multiWordSet = new Set();
@@ -1994,6 +2190,7 @@ let slavesWordSet = new Set();
 let havingWordSet = new Set();
         havingWordSet.add("career_crises");
         havingWordSet.add("toc");
+        havingWordSet.add("mysql_vs_postgres");
         havingWordSet.add("sql_commands");
     searchMap.set("having", havingWordSet);
 
@@ -2037,6 +2234,7 @@ let requiresWordSet = new Set();
 let primaryWordSet = new Set();
         primaryWordSet.add("mongo_db");
         primaryWordSet.add("relational_dbs_performance");
+        primaryWordSet.add("mysql_vs_postgres");
     searchMap.set("primary", primaryWordSet);
 
 let locWordSet = new Set();
@@ -2045,11 +2243,13 @@ let locWordSet = new Set();
 
 let logWordSet = new Set();
         logWordSet.add("mongo_db");
+        logWordSet.add("mysql_vs_postgres");
     searchMap.set("log", logWordSet);
 
 let layerWordSet = new Set();
         layerWordSet.add("mongo_db");
         layerWordSet.add("relational_dbs_performance");
+        layerWordSet.add("mysql_vs_postgres");
     searchMap.set("layer", layerWordSet);
 
 let lotWordSet = new Set();
@@ -2068,15 +2268,21 @@ let waysWordSet = new Set();
 
 let lowWordSet = new Set();
         lowWordSet.add("mongo_db");
+        lowWordSet.add("mysql_vs_postgres");
     searchMap.set("low", lowWordSet);
 
 let plannerWordSet = new Set();
         plannerWordSet.add("relational_dbs_performance");
     searchMap.set("planner", plannerWordSet);
 
+let ledgerWordSet = new Set();
+        ledgerWordSet.add("mysql_vs_postgres");
+    searchMap.set("ledger", ledgerWordSet);
+
 let meansWordSet = new Set();
         meansWordSet.add("mongo_db");
         meansWordSet.add("relational_dbs_performance");
+        meansWordSet.add("mysql_vs_postgres");
         meansWordSet.add("acid_internally");
     searchMap.set("means", meansWordSet);
 
@@ -2092,12 +2298,17 @@ let efficientWordSet = new Set();
         efficientWordSet.add("mongo_db");
         efficientWordSet.add("leadership");
         efficientWordSet.add("relational_dbs_performance");
+        efficientWordSet.add("mysql_vs_postgres");
     searchMap.set("efficient", efficientWordSet);
 
 let consistentWordSet = new Set();
         consistentWordSet.add("mongo_db");
         consistentWordSet.add("acid_internally");
     searchMap.set("consistent", consistentWordSet);
+
+let downtimeWordSet = new Set();
+        downtimeWordSet.add("mysql_vs_postgres");
+    searchMap.set("downtime", downtimeWordSet);
 
 let fetchWordSet = new Set();
         fetchWordSet.add("relational_dbs_performance");
@@ -2118,6 +2329,7 @@ let choiceWordSet = new Set();
 
 let smallWordSet = new Set();
         smallWordSet.add("day_dreams");
+        smallWordSet.add("mysql_vs_postgres");
         smallWordSet.add("choice");
     searchMap.set("small", smallWordSet);
 
@@ -2126,6 +2338,10 @@ let quickWordSet = new Set();
         quickWordSet.add("terraform");
         quickWordSet.add("how_to_create_a_python_project");
     searchMap.set("quick", quickWordSet);
+
+let compactWordSet = new Set();
+        compactWordSet.add("mysql_vs_postgres");
+    searchMap.set("compact", compactWordSet);
 
 let beforeWordSet = new Set();
         beforeWordSet.add("thinking_fast_and_slow");
@@ -2149,36 +2365,49 @@ let showsWordSet = new Set();
         showsWordSet.add("acid_internally");
     searchMap.set("shows", showsWordSet);
 
+let hisWordSet = new Set();
+        hisWordSet.add("mysql_vs_postgres");
+    searchMap.set("his", hisWordSet);
+
 let introWordSet = new Set();
-        introWordSet.add("thinking_fast_and_slow");
         introWordSet.add("relational_dbs");
         introWordSet.add("career_crises");
-        introWordSet.add("mongo_db");
         introWordSet.add("how_to_find_you_career");
         introWordSet.add("day_dreams");
         introWordSet.add("toc");
         introWordSet.add("about_the_digital_garden");
+        introWordSet.add("soft_skills");
+        introWordSet.add("interest");
+        introWordSet.add("devops");
+        introWordSet.add("leadership");
+        introWordSet.add("tech_books");
+        introWordSet.add("acid_internally");
+        introWordSet.add("non-fiction_books");
+        introWordSet.add("programming");
+        introWordSet.add("thinking_fast_and_slow");
+        introWordSet.add("mongo_db");
         introWordSet.add("how_to_create_a_python_project");
         introWordSet.add("name_me");
         introWordSet.add("sql_commands");
         introWordSet.add("persuasion");
         introWordSet.add("performance");
-        introWordSet.add("soft_skills");
-        introWordSet.add("interest");
-        introWordSet.add("devops");
-        introWordSet.add("leadership");
         introWordSet.add("relational_dbs_performance");
-        introWordSet.add("tech_books");
+        introWordSet.add("mysql_vs_postgres");
         introWordSet.add("terraform");
         introWordSet.add("choice");
-        introWordSet.add("acid_internally");
-        introWordSet.add("non-fiction_books");
-        introWordSet.add("programming");
     searchMap.set("intro", introWordSet);
 
 let beatWordSet = new Set();
         beatWordSet.add("thinking_fast_and_slow");
     searchMap.set("beat", beatWordSet);
+
+let propagateWordSet = new Set();
+        propagateWordSet.add("mysql_vs_postgres");
+    searchMap.set("propagate", propagateWordSet);
+
+let mysqlvspostgresWordSet = new Set();
+        mysqlvspostgresWordSet.add("relational_dbs");
+    searchMap.set("mysqlvspostgres", mysqlvspostgresWordSet);
 
 let pointingWordSet = new Set();
         pointingWordSet.add("sql_commands");
@@ -2193,6 +2422,10 @@ let potentialWordSet = new Set();
         potentialWordSet.add("day_dreams");
         potentialWordSet.add("acid_internally");
     searchMap.set("potential", potentialWordSet);
+
+let necessitateWordSet = new Set();
+        necessitateWordSet.add("mysql_vs_postgres");
+    searchMap.set("necessitate", necessitateWordSet);
 
 let dayWordSet = new Set();
         dayWordSet.add("how_to_find_you_career");
@@ -2216,21 +2449,27 @@ let intraWordSet = new Set();
         intraWordSet.add("mongo_db");
     searchMap.set("intra", intraWordSet);
 
+let logicallyWordSet = new Set();
+        logicallyWordSet.add("mysql_vs_postgres");
+    searchMap.set("logically", logicallyWordSet);
+
 let createdWordSet = new Set();
         createdWordSet.add("mongo_db");
         createdWordSet.add("relational_dbs_performance");
+        createdWordSet.add("mysql_vs_postgres");
         createdWordSet.add("acid_internally");
     searchMap.set("created", createdWordSet);
-
-let formatWordSet = new Set();
-        formatWordSet.add("mongo_db");
-    searchMap.set("format", formatWordSet);
 
 let treeWordSet = new Set();
         treeWordSet.add("relational_dbs_performance");
         treeWordSet.add("terraform");
         treeWordSet.add("acid_internally");
     searchMap.set("tree", treeWordSet);
+
+let formatWordSet = new Set();
+        formatWordSet.add("mongo_db");
+        formatWordSet.add("mysql_vs_postgres");
+    searchMap.set("format", formatWordSet);
 
 let particularWordSet = new Set();
         particularWordSet.add("thinking_fast_and_slow");
@@ -2239,9 +2478,18 @@ let particularWordSet = new Set();
 let doneWordSet = new Set();
         doneWordSet.add("mongo_db");
         doneWordSet.add("relational_dbs_performance");
+        doneWordSet.add("mysql_vs_postgres");
         doneWordSet.add("terraform");
         doneWordSet.add("acid_internally");
     searchMap.set("done", doneWordSet);
+
+let lruWordSet = new Set();
+        lruWordSet.add("mysql_vs_postgres");
+    searchMap.set("lru", lruWordSet);
+
+let pauseWordSet = new Set();
+        pauseWordSet.add("mysql_vs_postgres");
+    searchMap.set("pause", pauseWordSet);
 
 let rownumWordSet = new Set();
         rownumWordSet.add("sql_commands");
@@ -2254,6 +2502,7 @@ let opositeWordSet = new Set();
 let dbsWordSet = new Set();
         dbsWordSet.add("relational_dbs");
         dbsWordSet.add("relational_dbs_performance");
+        dbsWordSet.add("mysql_vs_postgres");
         dbsWordSet.add("acid_internally");
         dbsWordSet.add("programming");
         dbsWordSet.add("sql_commands");
@@ -2311,6 +2560,7 @@ let numericWordSet = new Set();
     searchMap.set("numeric", numericWordSet);
 
 let theirWordSet = new Set();
+        theirWordSet.add("mysql_vs_postgres");
         theirWordSet.add("acid_internally");
     searchMap.set("their", theirWordSet);
 
@@ -2327,6 +2577,7 @@ let stereotypicWordSet = new Set();
     searchMap.set("stereotypic", stereotypicWordSet);
 
 let pointWordSet = new Set();
+        pointWordSet.add("mysql_vs_postgres");
         pointWordSet.add("about_the_digital_garden");
         pointWordSet.add("acid_internally");
     searchMap.set("point", pointWordSet);
@@ -2349,9 +2600,14 @@ let parkWordSet = new Set();
         parkWordSet.add("thinking_fast_and_slow");
     searchMap.set("park", parkWordSet);
 
+let applyingWordSet = new Set();
+        applyingWordSet.add("mysql_vs_postgres");
+    searchMap.set("applying", applyingWordSet);
+
 let processWordSet = new Set();
         processWordSet.add("thinking_fast_and_slow");
         processWordSet.add("relational_dbs_performance");
+        processWordSet.add("mysql_vs_postgres");
         processWordSet.add("about_the_digital_garden");
         processWordSet.add("acid_internally");
     searchMap.set("process", processWordSet);
@@ -2363,6 +2619,10 @@ let restoreWordSet = new Set();
 let builtWordSet = new Set();
         builtWordSet.add("relational_dbs_performance");
     searchMap.set("built", builtWordSet);
+
+let threadsWordSet = new Set();
+        threadsWordSet.add("mysql_vs_postgres");
+    searchMap.set("threads", threadsWordSet);
 
 let someoneWordSet = new Set();
         someoneWordSet.add("thinking_fast_and_slow");
@@ -2385,6 +2645,7 @@ let interactionWordSet = new Set();
     searchMap.set("interaction", interactionWordSet);
 
 let mvccWordSet = new Set();
+        mvccWordSet.add("mysql_vs_postgres");
         mvccWordSet.add("acid_internally");
     searchMap.set("mvcc", mvccWordSet);
 
@@ -2399,6 +2660,7 @@ let mostlyWordSet = new Set();
 
 let beenWordSet = new Set();
         beenWordSet.add("mongo_db");
+        beenWordSet.add("mysql_vs_postgres");
         beenWordSet.add("acid_internally");
     searchMap.set("been", beenWordSet);
 
@@ -2439,13 +2701,22 @@ let bindWordSet = new Set();
         bindWordSet.add("relational_dbs_performance");
     searchMap.set("bind", bindWordSet);
 
-let findsWordSet = new Set();
-        findsWordSet.add("sql_commands");
-    searchMap.set("finds", findsWordSet);
-
 let dependingWordSet = new Set();
         dependingWordSet.add("relational_dbs_performance");
     searchMap.set("depending", dependingWordSet);
+
+let devWordSet = new Set();
+        devWordSet.add("mysql_vs_postgres");
+    searchMap.set("dev", devWordSet);
+
+let findsWordSet = new Set();
+        findsWordSet.add("mysql_vs_postgres");
+        findsWordSet.add("sql_commands");
+    searchMap.set("finds", findsWordSet);
+
+let predictableWordSet = new Set();
+        predictableWordSet.add("mysql_vs_postgres");
+    searchMap.set("predictable", predictableWordSet);
 
 let scannedWordSet = new Set();
         scannedWordSet.add("relational_dbs_performance");
@@ -2453,6 +2724,7 @@ let scannedWordSet = new Set();
 
 let recordWordSet = new Set();
         recordWordSet.add("relational_dbs_performance");
+        recordWordSet.add("mysql_vs_postgres");
     searchMap.set("record", recordWordSet);
 
 let smallestpriceWordSet = new Set();
@@ -2468,6 +2740,7 @@ let youWordSet = new Set();
         youWordSet.add("interest");
         youWordSet.add("day_dreams");
         youWordSet.add("relational_dbs_performance");
+        youWordSet.add("mysql_vs_postgres");
         youWordSet.add("terraform");
         youWordSet.add("choice");
         youWordSet.add("sql_commands");
@@ -2486,6 +2759,7 @@ let databasesWordSet = new Set();
     searchMap.set("databases", databasesWordSet);
 
 let happenWordSet = new Set();
+        happenWordSet.add("mysql_vs_postgres");
         happenWordSet.add("acid_internally");
     searchMap.set("happen", happenWordSet);
 
@@ -2532,6 +2806,7 @@ let tagsWordSet = new Set();
         tagsWordSet.add("leadership");
         tagsWordSet.add("relational_dbs_performance");
         tagsWordSet.add("tech_books");
+        tagsWordSet.add("mysql_vs_postgres");
         tagsWordSet.add("terraform");
         tagsWordSet.add("choice");
         tagsWordSet.add("acid_internally");
@@ -2580,6 +2855,10 @@ let choosingWordSet = new Set();
         choosingWordSet.add("choice");
     searchMap.set("choosing", choosingWordSet);
 
+let hotWordSet = new Set();
+        hotWordSet.add("mysql_vs_postgres");
+    searchMap.set("hot", hotWordSet);
+
 let existedWordSet = new Set();
         existedWordSet.add("persuasion");
     searchMap.set("existed", existedWordSet);
@@ -2596,6 +2875,7 @@ let howWordSet = new Set();
         howWordSet.add("interest");
         howWordSet.add("leadership");
         howWordSet.add("relational_dbs_performance");
+        howWordSet.add("mysql_vs_postgres");
         howWordSet.add("terraform");
         howWordSet.add("choice");
         howWordSet.add("acid_internally");
@@ -2621,6 +2901,10 @@ let mindWordSet = new Set();
         mindWordSet.add("thinking_fast_and_slow");
     searchMap.set("mind", mindWordSet);
 
+let replicateWordSet = new Set();
+        replicateWordSet.add("mysql_vs_postgres");
+    searchMap.set("replicate", replicateWordSet);
+
 let businessWordSet = new Set();
         businessWordSet.add("how_to_find_you_career");
     searchMap.set("business", businessWordSet);
@@ -2641,10 +2925,15 @@ let possibleWordSet = new Set();
         possibleWordSet.add("mongo_db");
         possibleWordSet.add("day_dreams");
         possibleWordSet.add("relational_dbs_performance");
+        possibleWordSet.add("mysql_vs_postgres");
         possibleWordSet.add("choice");
         possibleWordSet.add("acid_internally");
         possibleWordSet.add("sql_commands");
     searchMap.set("possible", possibleWordSet);
+
+let rsyncWordSet = new Set();
+        rsyncWordSet.add("mysql_vs_postgres");
+    searchMap.set("rsync", rsyncWordSet);
 
 let answerWordSet = new Set();
         answerWordSet.add("relational_dbs_performance");
@@ -2653,6 +2942,10 @@ let answerWordSet = new Set();
 let underscoreWordSet = new Set();
         underscoreWordSet.add("sql_commands");
     searchMap.set("underscore", underscoreWordSet);
+
+let complicatedWordSet = new Set();
+        complicatedWordSet.add("mysql_vs_postgres");
+    searchMap.set("complicated", complicatedWordSet);
 
 let maximumWordSet = new Set();
         maximumWordSet.add("mongo_db");
@@ -2673,6 +2966,7 @@ let digWordSet = new Set();
 
 let addedWordSet = new Set();
         addedWordSet.add("mongo_db");
+        addedWordSet.add("mysql_vs_postgres");
     searchMap.set("added", addedWordSet);
 
 let sometimesWordSet = new Set();
@@ -2686,6 +2980,7 @@ let downWordSet = new Set();
     searchMap.set("down", downWordSet);
 
 let holdWordSet = new Set();
+        holdWordSet.add("mysql_vs_postgres");
         holdWordSet.add("acid_internally");
     searchMap.set("hold", holdWordSet);
 
@@ -2768,11 +3063,16 @@ let finalWordSet = new Set();
         finalWordSet.add("relational_dbs_performance");
     searchMap.set("final", finalWordSet);
 
+let relativelyWordSet = new Set();
+        relativelyWordSet.add("mysql_vs_postgres");
+    searchMap.set("relatively", relativelyWordSet);
+
 let someWordSet = new Set();
         someWordSet.add("thinking_fast_and_slow");
         someWordSet.add("mongo_db");
         someWordSet.add("day_dreams");
         someWordSet.add("relational_dbs_performance");
+        someWordSet.add("mysql_vs_postgres");
         someWordSet.add("about_the_digital_garden");
         someWordSet.add("acid_internally");
         someWordSet.add("sql_commands");
@@ -2794,6 +3094,10 @@ let waitingWordSet = new Set();
         waitingWordSet.add("acid_internally");
     searchMap.set("waiting", waitingWordSet);
 
+let sessionWordSet = new Set();
+        sessionWordSet.add("acid_internally");
+    searchMap.set("session", sessionWordSet);
+
 let additionalWordSet = new Set();
         additionalWordSet.add("mongo_db");
         additionalWordSet.add("acid_internally");
@@ -2801,6 +3105,7 @@ let additionalWordSet = new Set();
 
 let backWordSet = new Set();
         backWordSet.add("mongo_db");
+        backWordSet.add("mysql_vs_postgres");
     searchMap.set("back", backWordSet);
 
 let aggregationWordSet = new Set();
@@ -2811,13 +3116,14 @@ let numinitialchunksWordSet = new Set();
         numinitialchunksWordSet.add("mongo_db");
     searchMap.set("numinitialchunks", numinitialchunksWordSet);
 
-let missWordSet = new Set();
-        missWordSet.add("day_dreams");
-    searchMap.set("miss", missWordSet);
-
 let statesWordSet = new Set();
         statesWordSet.add("terraform");
     searchMap.set("states", statesWordSet);
+
+let missWordSet = new Set();
+        missWordSet.add("day_dreams");
+        missWordSet.add("mysql_vs_postgres");
+    searchMap.set("miss", missWordSet);
 
 let optimizerWordSet = new Set();
         optimizerWordSet.add("relational_dbs_performance");
@@ -2855,12 +3161,14 @@ let justWordSet = new Set();
         justWordSet.add("interest");
         justWordSet.add("day_dreams");
         justWordSet.add("relational_dbs_performance");
+        justWordSet.add("mysql_vs_postgres");
         justWordSet.add("terraform");
         justWordSet.add("sql_commands");
     searchMap.set("just", justWordSet);
 
 let customWordSet = new Set();
         customWordSet.add("mongo_db");
+        customWordSet.add("mysql_vs_postgres");
     searchMap.set("custom", customWordSet);
 
 let lengthWordSet = new Set();
@@ -2943,6 +3251,7 @@ let collaborateWordSet = new Set();
 
 let tablesWordSet = new Set();
         tablesWordSet.add("relational_dbs_performance");
+        tablesWordSet.add("mysql_vs_postgres");
         tablesWordSet.add("acid_internally");
         tablesWordSet.add("sql_commands");
     searchMap.set("tables", tablesWordSet);
@@ -2961,16 +3270,21 @@ let lockWordSet = new Set();
         lockWordSet.add("acid_internally");
     searchMap.set("lock", lockWordSet);
 
-let usuallyWordSet = new Set();
-        usuallyWordSet.add("mongo_db");
-    searchMap.set("usually", usuallyWordSet);
-
 let textWordSet = new Set();
         textWordSet.add("thinking_fast_and_slow");
         textWordSet.add("mongo_db");
         textWordSet.add("relational_dbs_performance");
         textWordSet.add("terraform");
     searchMap.set("text", textWordSet);
+
+let usuallyWordSet = new Set();
+        usuallyWordSet.add("mongo_db");
+        usuallyWordSet.add("mysql_vs_postgres");
+    searchMap.set("usually", usuallyWordSet);
+
+let whereasWordSet = new Set();
+        whereasWordSet.add("mysql_vs_postgres");
+    searchMap.set("whereas", whereasWordSet);
 
 let fearWordSet = new Set();
         fearWordSet.add("choice");
@@ -2986,6 +3300,7 @@ let pythonWordSet = new Set();
 
 let madeWordSet = new Set();
         madeWordSet.add("mongo_db");
+        madeWordSet.add("mysql_vs_postgres");
         madeWordSet.add("acid_internally");
     searchMap.set("made", madeWordSet);
 
@@ -3017,20 +3332,30 @@ let killopWordSet = new Set();
         killopWordSet.add("mongo_db");
     searchMap.set("killop", killopWordSet);
 
+let alteredWordSet = new Set();
+        alteredWordSet.add("mysql_vs_postgres");
+    searchMap.set("altered", alteredWordSet);
+
 let fieldWordSet = new Set();
         fieldWordSet.add("mongo_db");
         fieldWordSet.add("relational_dbs_performance");
+        fieldWordSet.add("mysql_vs_postgres");
         fieldWordSet.add("acid_internally");
         fieldWordSet.add("sql_commands");
     searchMap.set("field", fieldWordSet);
 
 let contentsWordSet = new Set();
         contentsWordSet.add("toc");
+        contentsWordSet.add("mysql_vs_postgres");
     searchMap.set("contents", contentsWordSet);
 
 let messagesWordSet = new Set();
         messagesWordSet.add("relational_dbs_performance");
     searchMap.set("messages", messagesWordSet);
+
+let docWordSet = new Set();
+        docWordSet.add("mysql_vs_postgres");
+    searchMap.set("doc", docWordSet);
 
 let opensWordSet = new Set();
         opensWordSet.add("leadership");
@@ -3075,6 +3400,7 @@ let donWordSet = new Set();
         donWordSet.add("career_crises");
         donWordSet.add("mongo_db");
         donWordSet.add("relational_dbs_performance");
+        donWordSet.add("mysql_vs_postgres");
         donWordSet.add("choice");
         donWordSet.add("sql_commands");
     searchMap.set("don", donWordSet);
@@ -3104,6 +3430,10 @@ let productsWordSet = new Set();
         productsWordSet.add("sql_commands");
     searchMap.set("products", productsWordSet);
 
+let streamingWordSet = new Set();
+        streamingWordSet.add("mysql_vs_postgres");
+    searchMap.set("streaming", streamingWordSet);
+
 let insertedWordSet = new Set();
         insertedWordSet.add("mongo_db");
         insertedWordSet.add("acid_internally");
@@ -3116,13 +3446,16 @@ let fileWordSet = new Set();
         fileWordSet.add("relational_dbs_performance");
         fileWordSet.add("toc");
         fileWordSet.add("terraform");
-        fileWordSet.add("acid_internally");
         fileWordSet.add("name_me");
     searchMap.set("file", fileWordSet);
 
 let knownWordSet = new Set();
         knownWordSet.add("acid_internally");
     searchMap.set("known", knownWordSet);
+
+let streamWordSet = new Set();
+        streamWordSet.add("mysql_vs_postgres");
+    searchMap.set("stream", streamWordSet);
 
 let memberWordSet = new Set();
         memberWordSet.add("mongo_db");
@@ -3206,6 +3539,10 @@ let feetWordSet = new Set();
         feetWordSet.add("relational_dbs_performance");
     searchMap.set("feet", feetWordSet);
 
+let instanceWordSet = new Set();
+        instanceWordSet.add("mysql_vs_postgres");
+    searchMap.set("instance", instanceWordSet);
+
 let subjectWordSet = new Set();
         subjectWordSet.add("interest");
     searchMap.set("subject", subjectWordSet);
@@ -3237,6 +3574,7 @@ let integerWordSet = new Set();
 
 let serveWordSet = new Set();
         serveWordSet.add("mongo_db");
+        serveWordSet.add("mysql_vs_postgres");
     searchMap.set("serve", serveWordSet);
 
 let solutionWordSet = new Set();
@@ -3251,6 +3589,7 @@ let findWordSet = new Set();
         findWordSet.add("day_dreams");
         findWordSet.add("leadership");
         findWordSet.add("relational_dbs_performance");
+        findWordSet.add("mysql_vs_postgres");
         findWordSet.add("choice");
     searchMap.set("find", findWordSet);
 
@@ -3265,6 +3604,10 @@ let calculatedWordSet = new Set();
 let combineWordSet = new Set();
         combineWordSet.add("sql_commands");
     searchMap.set("combine", combineWordSet);
+
+let spawningWordSet = new Set();
+        spawningWordSet.add("mysql_vs_postgres");
+    searchMap.set("spawning", spawningWordSet);
 
 let idealWordSet = new Set();
         idealWordSet.add("career_crises");
@@ -3301,17 +3644,22 @@ let pickingWordSet = new Set();
         pickingWordSet.add("relational_dbs_performance");
     searchMap.set("picking", pickingWordSet);
 
+let becomesWordSet = new Set();
+        becomesWordSet.add("mysql_vs_postgres");
+    searchMap.set("becomes", becomesWordSet);
+
 let codedWordSet = new Set();
         codedWordSet.add("relational_dbs_performance");
     searchMap.set("coded", codedWordSet);
 
-let entriesWordSet = new Set();
-        entriesWordSet.add("mongo_db");
-    searchMap.set("entries", entriesWordSet);
-
 let forgetWordSet = new Set();
         forgetWordSet.add("mongo_db");
     searchMap.set("forget", forgetWordSet);
+
+let entriesWordSet = new Set();
+        entriesWordSet.add("mongo_db");
+        entriesWordSet.add("mysql_vs_postgres");
+    searchMap.set("entries", entriesWordSet);
 
 let hornWordSet = new Set();
         hornWordSet.add("sql_commands");
@@ -3338,6 +3686,10 @@ let nullWordSet = new Set();
         nullWordSet.add("sql_commands");
     searchMap.set("null", nullWordSet);
 
+let inferWordSet = new Set();
+        inferWordSet.add("mysql_vs_postgres");
+    searchMap.set("infer", inferWordSet);
+
 let backgroundWordSet = new Set();
         backgroundWordSet.add("mongo_db");
     searchMap.set("background", backgroundWordSet);
@@ -3345,6 +3697,7 @@ let backgroundWordSet = new Set();
 let trueWordSet = new Set();
         trueWordSet.add("mongo_db");
         trueWordSet.add("relational_dbs_performance");
+        trueWordSet.add("mysql_vs_postgres");
         trueWordSet.add("acid_internally");
     searchMap.set("true", trueWordSet);
 
@@ -3366,12 +3719,14 @@ let presentWordSet = new Set();
 
 let sinceWordSet = new Set();
         sinceWordSet.add("mongo_db");
+        sinceWordSet.add("mysql_vs_postgres");
         sinceWordSet.add("acid_internally");
     searchMap.set("since", sinceWordSet);
 
 let problemsWordSet = new Set();
         problemsWordSet.add("career_crises");
         problemsWordSet.add("interest");
+        problemsWordSet.add("mysql_vs_postgres");
         problemsWordSet.add("acid_internally");
     searchMap.set("problems", problemsWordSet);
 
@@ -3383,6 +3738,10 @@ let dangerousWordSet = new Set();
         dangerousWordSet.add("thinking_fast_and_slow");
         dangerousWordSet.add("acid_internally");
     searchMap.set("dangerous", dangerousWordSet);
+
+let appearsWordSet = new Set();
+        appearsWordSet.add("mysql_vs_postgres");
+    searchMap.set("appears", appearsWordSet);
 
 let bestWordSet = new Set();
         bestWordSet.add("mongo_db");
@@ -3398,6 +3757,7 @@ let deleteWordSet = new Set();
 
 let postgresqlWordSet = new Set();
         postgresqlWordSet.add("relational_dbs_performance");
+        postgresqlWordSet.add("mysql_vs_postgres");
         postgresqlWordSet.add("acid_internally");
         postgresqlWordSet.add("sql_commands");
     searchMap.set("postgresql", postgresqlWordSet);
@@ -3415,9 +3775,18 @@ let methronomWordSet = new Set();
         methronomWordSet.add("thinking_fast_and_slow");
     searchMap.set("methronom", methronomWordSet);
 
+let physicalWordSet = new Set();
+        physicalWordSet.add("mysql_vs_postgres");
+    searchMap.set("physical", physicalWordSet);
+
+let includedWordSet = new Set();
+        includedWordSet.add("mysql_vs_postgres");
+    searchMap.set("included", includedWordSet);
+
 let makeWordSet = new Set();
         makeWordSet.add("persuasion");
         makeWordSet.add("mongo_db");
+        makeWordSet.add("mysql_vs_postgres");
         makeWordSet.add("about_the_digital_garden");
         makeWordSet.add("choice");
         makeWordSet.add("acid_internally");
@@ -3434,16 +3803,22 @@ let executionWordSet = new Set();
 let processesWordSet = new Set();
         processesWordSet.add("mongo_db");
         processesWordSet.add("leadership");
+        processesWordSet.add("mysql_vs_postgres");
     searchMap.set("processes", processesWordSet);
-
-let threadWordSet = new Set();
-        threadWordSet.add("mongo_db");
-    searchMap.set("thread", threadWordSet);
 
 let availiableWordSet = new Set();
         availiableWordSet.add("mongo_db");
         availiableWordSet.add("acid_internally");
     searchMap.set("availiable", availiableWordSet);
+
+let threadWordSet = new Set();
+        threadWordSet.add("mongo_db");
+        threadWordSet.add("mysql_vs_postgres");
+    searchMap.set("thread", threadWordSet);
+
+let exactlyWordSet = new Set();
+        exactlyWordSet.add("mysql_vs_postgres");
+    searchMap.set("exactly", exactlyWordSet);
 
 let compoundWordSet = new Set();
         compoundWordSet.add("mongo_db");
@@ -3452,11 +3827,13 @@ let compoundWordSet = new Set();
 
 let structureWordSet = new Set();
         structureWordSet.add("relational_dbs_performance");
+        structureWordSet.add("mysql_vs_postgres");
     searchMap.set("structure", structureWordSet);
 
 let masterWordSet = new Set();
         masterWordSet.add("thinking_fast_and_slow");
         masterWordSet.add("mongo_db");
+        masterWordSet.add("mysql_vs_postgres");
     searchMap.set("master", masterWordSet);
 
 let processedWordSet = new Set();
@@ -3475,6 +3852,10 @@ let dueWordSet = new Set();
         dueWordSet.add("acid_internally");
     searchMap.set("due", dueWordSet);
 
+let bytesWordSet = new Set();
+        bytesWordSet.add("mysql_vs_postgres");
+    searchMap.set("bytes", bytesWordSet);
+
 let clusteringWordSet = new Set();
         clusteringWordSet.add("relational_dbs_performance");
     searchMap.set("clustering", clusteringWordSet);
@@ -3483,8 +3864,13 @@ let writerWordSet = new Set();
         writerWordSet.add("acid_internally");
     searchMap.set("writer", writerWordSet);
 
+let autovacuumWordSet = new Set();
+        autovacuumWordSet.add("mysql_vs_postgres");
+    searchMap.set("autovacuum", autovacuumWordSet);
+
 let writesWordSet = new Set();
         writesWordSet.add("mongo_db");
+        writesWordSet.add("mysql_vs_postgres");
         writesWordSet.add("terraform");
         writesWordSet.add("acid_internally");
     searchMap.set("writes", writesWordSet);
@@ -3498,11 +3884,13 @@ let aboutWordSet = new Set();
         aboutWordSet.add("career_crises");
         aboutWordSet.add("mongo_db");
         aboutWordSet.add("relational_dbs_performance");
+        aboutWordSet.add("mysql_vs_postgres");
         aboutWordSet.add("about_the_digital_garden");
     searchMap.set("about", aboutWordSet);
 
 let commitWordSet = new Set();
         commitWordSet.add("mongo_db");
+        commitWordSet.add("mysql_vs_postgres");
         commitWordSet.add("acid_internally");
         commitWordSet.add("sql_commands");
     searchMap.set("commit", commitWordSet);
@@ -3527,6 +3915,7 @@ let constraintsWordSet = new Set();
 
 let crashWordSet = new Set();
         crashWordSet.add("mongo_db");
+        crashWordSet.add("mysql_vs_postgres");
     searchMap.set("crash", crashWordSet);
 
 let predicateWordSet = new Set();
@@ -3537,6 +3926,14 @@ let characterWordSet = new Set();
         characterWordSet.add("relational_dbs_performance");
         characterWordSet.add("sql_commands");
     searchMap.set("character", characterWordSet);
+
+let reflectWordSet = new Set();
+        reflectWordSet.add("mysql_vs_postgres");
+    searchMap.set("reflect", reflectWordSet);
+
+let meaningWordSet = new Set();
+        meaningWordSet.add("mysql_vs_postgres");
+    searchMap.set("meaning", meaningWordSet);
 
 let devopsWordSet = new Set();
         devopsWordSet.add("devops");
@@ -3563,12 +3960,14 @@ let goalsWordSet = new Set();
 let basedWordSet = new Set();
         basedWordSet.add("mongo_db");
         basedWordSet.add("relational_dbs_performance");
+        basedWordSet.add("mysql_vs_postgres");
         basedWordSet.add("acid_internally");
         basedWordSet.add("sql_commands");
     searchMap.set("based", basedWordSet);
 
 let pointerWordSet = new Set();
         pointerWordSet.add("relational_dbs_performance");
+        pointerWordSet.add("mysql_vs_postgres");
     searchMap.set("pointer", pointerWordSet);
 
 let supplieridWordSet = new Set();
@@ -3634,6 +4033,10 @@ let sharedWordSet = new Set();
         sharedWordSet.add("acid_internally");
     searchMap.set("shared", sharedWordSet);
 
+let factWordSet = new Set();
+        factWordSet.add("mysql_vs_postgres");
+    searchMap.set("fact", factWordSet);
+
 let factorialWordSet = new Set();
         factorialWordSet.add("relational_dbs_performance");
     searchMap.set("factorial", factorialWordSet);
@@ -3666,6 +4069,14 @@ let permutationsWordSet = new Set();
         permutationsWordSet.add("relational_dbs_performance");
     searchMap.set("permutations", permutationsWordSet);
 
+let incrementsWordSet = new Set();
+        incrementsWordSet.add("mysql_vs_postgres");
+    searchMap.set("increments", incrementsWordSet);
+
+let longWordSet = new Set();
+        longWordSet.add("mysql_vs_postgres");
+    searchMap.set("long", longWordSet);
+
 let rememberWordSet = new Set();
         rememberWordSet.add("about_the_digital_garden");
         rememberWordSet.add("sql_commands");
@@ -3676,6 +4087,7 @@ let intoWordSet = new Set();
         intoWordSet.add("mongo_db");
         intoWordSet.add("leadership");
         intoWordSet.add("relational_dbs_performance");
+        intoWordSet.add("mysql_vs_postgres");
         intoWordSet.add("terraform");
         intoWordSet.add("acid_internally");
         intoWordSet.add("sql_commands");
@@ -3692,6 +4104,10 @@ let minWordSet = new Set();
 let unlessWordSet = new Set();
         unlessWordSet.add("mongo_db");
     searchMap.set("unless", unlessWordSet);
+
+let supportsWordSet = new Set();
+        supportsWordSet.add("mysql_vs_postgres");
+    searchMap.set("supports", supportsWordSet);
 
 let examinedWordSet = new Set();
         examinedWordSet.add("mongo_db");
@@ -3721,6 +4137,10 @@ let thoughWordSet = new Set();
         thoughWordSet.add("relational_dbs_performance");
     searchMap.set("though", thoughWordSet);
 
+let associatesWordSet = new Set();
+        associatesWordSet.add("mysql_vs_postgres");
+    searchMap.set("associates", associatesWordSet);
+
 let subtopicsWordSet = new Set();
         subtopicsWordSet.add("toc");
     searchMap.set("subtopics", subtopicsWordSet);
@@ -3728,6 +4148,7 @@ let subtopicsWordSet = new Set();
 let manyWordSet = new Set();
         manyWordSet.add("mongo_db");
         manyWordSet.add("relational_dbs_performance");
+        manyWordSet.add("mysql_vs_postgres");
         manyWordSet.add("acid_internally");
         manyWordSet.add("sql_commands");
     searchMap.set("many", manyWordSet);
@@ -3737,9 +4158,14 @@ let peopleWordSet = new Set();
         peopleWordSet.add("leadership");
     searchMap.set("people", peopleWordSet);
 
+let releasesWordSet = new Set();
+        releasesWordSet.add("mysql_vs_postgres");
+    searchMap.set("releases", releasesWordSet);
+
 let actuallyWordSet = new Set();
         actuallyWordSet.add("persuasion");
         actuallyWordSet.add("day_dreams");
+        actuallyWordSet.add("mysql_vs_postgres");
         actuallyWordSet.add("choice");
         actuallyWordSet.add("acid_internally");
     searchMap.set("actually", actuallyWordSet);
@@ -3787,6 +4213,10 @@ let operationWordSet = new Set();
 let infrequentWordSet = new Set();
         infrequentWordSet.add("thinking_fast_and_slow");
     searchMap.set("infrequent", infrequentWordSet);
+
+let openWordSet = new Set();
+        openWordSet.add("mysql_vs_postgres");
+    searchMap.set("open", openWordSet);
 
 let ratioWordSet = new Set();
         ratioWordSet.add("thinking_fast_and_slow");
@@ -3837,7 +4267,9 @@ let loopWordSet = new Set();
     searchMap.set("loop", loopWordSet);
 
 let mysqlWordSet = new Set();
+        mysqlWordSet.add("relational_dbs");
         mysqlWordSet.add("relational_dbs_performance");
+        mysqlWordSet.add("mysql_vs_postgres");
         mysqlWordSet.add("acid_internally");
         mysqlWordSet.add("sql_commands");
     searchMap.set("mysql", mysqlWordSet);
@@ -3855,6 +4287,10 @@ let commandsWordSet = new Set();
         commandsWordSet.add("mongo_db");
         commandsWordSet.add("sql_commands");
     searchMap.set("commands", commandsWordSet);
+
+let mapsWordSet = new Set();
+        mapsWordSet.add("mysql_vs_postgres");
+    searchMap.set("maps", mapsWordSet);
 
 let solutionsWordSet = new Set();
         solutionsWordSet.add("acid_internally");
@@ -3881,9 +4317,17 @@ let lookWordSet = new Set();
         lookWordSet.add("about_the_digital_garden");
     searchMap.set("look", lookWordSet);
 
+let daemonWordSet = new Set();
+        daemonWordSet.add("mysql_vs_postgres");
+    searchMap.set("daemon", daemonWordSet);
+
 let electedWordSet = new Set();
         electedWordSet.add("mongo_db");
     searchMap.set("elected", electedWordSet);
+
+let immutableWordSet = new Set();
+        immutableWordSet.add("mysql_vs_postgres");
+    searchMap.set("immutable", immutableWordSet);
 
 let multikeysWordSet = new Set();
         multikeysWordSet.add("mongo_db");
@@ -3894,11 +4338,13 @@ let abortWordSet = new Set();
     searchMap.set("abort", abortWordSet);
 
 let idsWordSet = new Set();
+        idsWordSet.add("mysql_vs_postgres");
         idsWordSet.add("sql_commands");
     searchMap.set("ids", idsWordSet);
 
 let conflictWordSet = new Set();
         conflictWordSet.add("leadership");
+        conflictWordSet.add("mysql_vs_postgres");
     searchMap.set("conflict", conflictWordSet);
 
 let mongoWordSet = new Set();
@@ -3910,6 +4356,10 @@ let allowWordSet = new Set();
         allowWordSet.add("acid_internally");
     searchMap.set("allow", allowWordSet);
 
+let killsWordSet = new Set();
+        killsWordSet.add("mysql_vs_postgres");
+    searchMap.set("kills", killsWordSet);
+
 let interseptionWordSet = new Set();
         interseptionWordSet.add("relational_dbs_performance");
     searchMap.set("interseption", interseptionWordSet);
@@ -3917,6 +4367,7 @@ let interseptionWordSet = new Set();
 let reasonsWordSet = new Set();
         reasonsWordSet.add("career_crises");
         reasonsWordSet.add("mongo_db");
+        reasonsWordSet.add("mysql_vs_postgres");
     searchMap.set("reasons", reasonsWordSet);
 
 let rangesWordSet = new Set();
@@ -3941,9 +4392,14 @@ let ruleWordSet = new Set();
         ruleWordSet.add("relational_dbs_performance");
     searchMap.set("rule", ruleWordSet);
 
+let detectWordSet = new Set();
+        detectWordSet.add("mysql_vs_postgres");
+    searchMap.set("detect", detectWordSet);
+
 let updateWordSet = new Set();
         updateWordSet.add("mongo_db");
         updateWordSet.add("relational_dbs_performance");
+        updateWordSet.add("mysql_vs_postgres");
         updateWordSet.add("acid_internally");
         updateWordSet.add("sql_commands");
     searchMap.set("update", updateWordSet);
@@ -3975,6 +4431,10 @@ let interestWordSet = new Set();
         interestWordSet.add("interest");
     searchMap.set("interest", interestWordSet);
 
+let linuxWordSet = new Set();
+        linuxWordSet.add("mysql_vs_postgres");
+    searchMap.set("linux", linuxWordSet);
+
 let wantsWordSet = new Set();
         wantsWordSet.add("acid_internally");
     searchMap.set("wants", wantsWordSet);
@@ -3985,6 +4445,7 @@ let definitionWordSet = new Set();
 
 let everyWordSet = new Set();
         everyWordSet.add("mongo_db");
+        everyWordSet.add("mysql_vs_postgres");
     searchMap.set("every", everyWordSet);
 
 let readwriteanddatabaseWordSet = new Set();
@@ -3997,9 +4458,18 @@ let summaryWordSet = new Set();
         summaryWordSet.add("non-fiction_books");
     searchMap.set("summary", summaryWordSet);
 
+let characteristicsWordSet = new Set();
+        characteristicsWordSet.add("acid_internally");
+    searchMap.set("characteristics", characteristicsWordSet);
+
+let akinWordSet = new Set();
+        akinWordSet.add("mysql_vs_postgres");
+    searchMap.set("akin", akinWordSet);
+
 let applyWordSet = new Set();
         applyWordSet.add("mongo_db");
         applyWordSet.add("relational_dbs_performance");
+        applyWordSet.add("mysql_vs_postgres");
         applyWordSet.add("terraform");
     searchMap.set("apply", applyWordSet);
 
@@ -4043,6 +4513,7 @@ let bashWordSet = new Set();
 let relationalWordSet = new Set();
         relationalWordSet.add("relational_dbs");
         relationalWordSet.add("relational_dbs_performance");
+        relationalWordSet.add("mysql_vs_postgres");
         relationalWordSet.add("acid_internally");
         relationalWordSet.add("programming");
         relationalWordSet.add("sql_commands");
@@ -4079,6 +4550,10 @@ let reasoningWordSet = new Set();
 let wholeWordSet = new Set();
         wholeWordSet.add("mongo_db");
     searchMap.set("whole", wholeWordSet);
+
+let replicatingWordSet = new Set();
+        replicatingWordSet.add("mysql_vs_postgres");
+    searchMap.set("replicating", replicatingWordSet);
 
 let duringWordSet = new Set();
         duringWordSet.add("thinking_fast_and_slow");
@@ -4137,6 +4612,10 @@ let failWordSet = new Set();
         failWordSet.add("choice");
     searchMap.set("fail", failWordSet);
 
+let lexicographicallyWordSet = new Set();
+        lexicographicallyWordSet.add("mysql_vs_postgres");
+    searchMap.set("lexicographically", lexicographicallyWordSet);
+
 let booksWordSet = new Set();
         booksWordSet.add("thinking_fast_and_slow");
         booksWordSet.add("tech_books");
@@ -4145,6 +4624,7 @@ let booksWordSet = new Set();
     searchMap.set("books", booksWordSet);
 
 let versionsWordSet = new Set();
+        versionsWordSet.add("mysql_vs_postgres");
         versionsWordSet.add("acid_internally");
         versionsWordSet.add("sql_commands");
     searchMap.set("versions", versionsWordSet);
@@ -4218,6 +4698,10 @@ let writingWordSet = new Set();
         writingWordSet.add("acid_internally");
     searchMap.set("writing", writingWordSet);
 
+let finishesWordSet = new Set();
+        finishesWordSet.add("mysql_vs_postgres");
+    searchMap.set("finishes", finishesWordSet);
+
 let eventWordSet = new Set();
         eventWordSet.add("mongo_db");
     searchMap.set("event", eventWordSet);
@@ -4228,6 +4712,7 @@ let loudWordSet = new Set();
 
 let replicationWordSet = new Set();
         replicationWordSet.add("mongo_db");
+        replicationWordSet.add("mysql_vs_postgres");
         replicationWordSet.add("acid_internally");
     searchMap.set("replication", replicationWordSet);
 
@@ -4236,30 +4721,31 @@ let creteWordSet = new Set();
     searchMap.set("crete", creteWordSet);
 
 let alexanderWordSet = new Set();
-        alexanderWordSet.add("thinking_fast_and_slow");
         alexanderWordSet.add("relational_dbs");
         alexanderWordSet.add("career_crises");
-        alexanderWordSet.add("mongo_db");
         alexanderWordSet.add("how_to_find_you_career");
         alexanderWordSet.add("day_dreams");
         alexanderWordSet.add("toc");
         alexanderWordSet.add("about_the_digital_garden");
+        alexanderWordSet.add("soft_skills");
+        alexanderWordSet.add("interest");
+        alexanderWordSet.add("devops");
+        alexanderWordSet.add("leadership");
+        alexanderWordSet.add("tech_books");
+        alexanderWordSet.add("acid_internally");
+        alexanderWordSet.add("non-fiction_books");
+        alexanderWordSet.add("programming");
+        alexanderWordSet.add("thinking_fast_and_slow");
+        alexanderWordSet.add("mongo_db");
         alexanderWordSet.add("how_to_create_a_python_project");
         alexanderWordSet.add("name_me");
         alexanderWordSet.add("sql_commands");
         alexanderWordSet.add("persuasion");
         alexanderWordSet.add("performance");
-        alexanderWordSet.add("soft_skills");
-        alexanderWordSet.add("interest");
-        alexanderWordSet.add("devops");
-        alexanderWordSet.add("leadership");
         alexanderWordSet.add("relational_dbs_performance");
-        alexanderWordSet.add("tech_books");
+        alexanderWordSet.add("mysql_vs_postgres");
         alexanderWordSet.add("terraform");
         alexanderWordSet.add("choice");
-        alexanderWordSet.add("acid_internally");
-        alexanderWordSet.add("non-fiction_books");
-        alexanderWordSet.add("programming");
     searchMap.set("alexander", alexanderWordSet);
 
 let cultureWordSet = new Set();
@@ -4273,6 +4759,7 @@ let existsWordSet = new Set();
 let cannotWordSet = new Set();
         cannotWordSet.add("mongo_db");
         cannotWordSet.add("relational_dbs_performance");
+        cannotWordSet.add("mysql_vs_postgres");
     searchMap.set("cannot", cannotWordSet);
 
 let sharderWordSet = new Set();
@@ -4287,6 +4774,7 @@ let runsWordSet = new Set();
 let firstWordSet = new Set();
         firstWordSet.add("mongo_db");
         firstWordSet.add("relational_dbs_performance");
+        firstWordSet.add("mysql_vs_postgres");
         firstWordSet.add("terraform");
         firstWordSet.add("choice");
         firstWordSet.add("acid_internally");
@@ -4303,7 +4791,12 @@ let perfectWordSet = new Set();
 
 let fewerWordSet = new Set();
         fewerWordSet.add("relational_dbs_performance");
+        fewerWordSet.add("mysql_vs_postgres");
     searchMap.set("fewer", fewerWordSet);
+
+let vacuumedWordSet = new Set();
+        vacuumedWordSet.add("mysql_vs_postgres");
+    searchMap.set("vacuumed", vacuumedWordSet);
 
 let tightWordSet = new Set();
         tightWordSet.add("thinking_fast_and_slow");
@@ -4323,6 +4816,7 @@ let spaceWordSet = new Set();
 let referenceWordSet = new Set();
         referenceWordSet.add("mongo_db");
         referenceWordSet.add("relational_dbs_performance");
+        referenceWordSet.add("mysql_vs_postgres");
     searchMap.set("reference", referenceWordSet);
 
 let sysdateWordSet = new Set();
@@ -4335,6 +4829,7 @@ let ectWordSet = new Set();
 
 let htmlWordSet = new Set();
         htmlWordSet.add("relational_dbs_performance");
+        htmlWordSet.add("mysql_vs_postgres");
     searchMap.set("html", htmlWordSet);
 
 let fromWordSet = new Set();
@@ -4344,10 +4839,23 @@ let fromWordSet = new Set();
         fromWordSet.add("interest");
         fromWordSet.add("day_dreams");
         fromWordSet.add("relational_dbs_performance");
+        fromWordSet.add("mysql_vs_postgres");
         fromWordSet.add("terraform");
         fromWordSet.add("acid_internally");
         fromWordSet.add("sql_commands");
     searchMap.set("from", fromWordSet);
+
+let refmanWordSet = new Set();
+        refmanWordSet.add("mysql_vs_postgres");
+    searchMap.set("refman", refmanWordSet);
+
+let deferrableWordSet = new Set();
+        deferrableWordSet.add("acid_internally");
+    searchMap.set("deferrable", deferrableWordSet);
+
+let offsetWordSet = new Set();
+        offsetWordSet.add("mysql_vs_postgres");
+    searchMap.set("offset", offsetWordSet);
 
 let failedWordSet = new Set();
         failedWordSet.add("mongo_db");
@@ -4387,6 +4895,10 @@ let configurationWordSet = new Set();
         configurationWordSet.add("terraform");
     searchMap.set("configuration", configurationWordSet);
 
+let normalizedWordSet = new Set();
+        normalizedWordSet.add("mysql_vs_postgres");
+    searchMap.set("normalized", normalizedWordSet);
+
 let accordingWordSet = new Set();
         accordingWordSet.add("relational_dbs_performance");
     searchMap.set("according", accordingWordSet);
@@ -4400,17 +4912,23 @@ let chunkWordSet = new Set();
     searchMap.set("chunk", chunkWordSet);
 
 let statementsWordSet = new Set();
+        statementsWordSet.add("mysql_vs_postgres");
         statementsWordSet.add("sql_commands");
     searchMap.set("statements", statementsWordSet);
-
-let networkWordSet = new Set();
-        networkWordSet.add("mongo_db");
-    searchMap.set("network", networkWordSet);
 
 let aggregateWordSet = new Set();
         aggregateWordSet.add("mongo_db");
         aggregateWordSet.add("sql_commands");
     searchMap.set("aggregate", aggregateWordSet);
+
+let networkWordSet = new Set();
+        networkWordSet.add("mongo_db");
+        networkWordSet.add("mysql_vs_postgres");
+    searchMap.set("network", networkWordSet);
+
+let holdingWordSet = new Set();
+        holdingWordSet.add("mysql_vs_postgres");
+    searchMap.set("holding", holdingWordSet);
 
 let operationsWordSet = new Set();
         operationsWordSet.add("mongo_db");
@@ -4446,6 +4964,7 @@ let trackWordSet = new Set();
 let valueWordSet = new Set();
         valueWordSet.add("mongo_db");
         valueWordSet.add("relational_dbs_performance");
+        valueWordSet.add("mysql_vs_postgres");
         valueWordSet.add("acid_internally");
         valueWordSet.add("sql_commands");
     searchMap.set("value", valueWordSet);
@@ -4453,6 +4972,10 @@ let valueWordSet = new Set();
 let listeningWordSet = new Set();
         listeningWordSet.add("persuasion");
     searchMap.set("listening", listeningWordSet);
+
+let lookupWordSet = new Set();
+        lookupWordSet.add("mysql_vs_postgres");
+    searchMap.set("lookup", lookupWordSet);
 
 let quantityWordSet = new Set();
         quantityWordSet.add("sql_commands");
@@ -4481,6 +5004,7 @@ let mongorestoreWordSet = new Set();
 
 let insteadWordSet = new Set();
         insteadWordSet.add("relational_dbs_performance");
+        insteadWordSet.add("mysql_vs_postgres");
         insteadWordSet.add("acid_internally");
     searchMap.set("instead", insteadWordSet);
 
@@ -4497,6 +5021,7 @@ let commandWordSet = new Set();
 let expensiveWordSet = new Set();
         expensiveWordSet.add("mongo_db");
         expensiveWordSet.add("relational_dbs_performance");
+        expensiveWordSet.add("mysql_vs_postgres");
     searchMap.set("expensive", expensiveWordSet);
 
 let datacentersWordSet = new Set();
@@ -4543,6 +5068,7 @@ let optimalWordSet = new Set();
     searchMap.set("optimal", optimalWordSet);
 
 let yearWordSet = new Set();
+        yearWordSet.add("mysql_vs_postgres");
         yearWordSet.add("acid_internally");
     searchMap.set("year", yearWordSet);
 
@@ -4570,10 +5096,6 @@ let buildingWordSet = new Set();
         buildingWordSet.add("relational_dbs_performance");
     searchMap.set("building", buildingWordSet);
 
-let viaWordSet = new Set();
-        viaWordSet.add("mongo_db");
-    searchMap.set("via", viaWordSet);
-
 let settingWordSet = new Set();
         settingWordSet.add("thinking_fast_and_slow");
         settingWordSet.add("acid_internally");
@@ -4583,6 +5105,11 @@ let commitedWordSet = new Set();
         commitedWordSet.add("mongo_db");
         commitedWordSet.add("acid_internally");
     searchMap.set("commited", commitedWordSet);
+
+let viaWordSet = new Set();
+        viaWordSet.add("mongo_db");
+        viaWordSet.add("mysql_vs_postgres");
+    searchMap.set("via", viaWordSet);
 
 let scoreWordSet = new Set();
         scoreWordSet.add("mongo_db");
@@ -4605,6 +5132,7 @@ let becauseWordSet = new Set();
         becauseWordSet.add("persuasion");
         becauseWordSet.add("mongo_db");
         becauseWordSet.add("relational_dbs_performance");
+        becauseWordSet.add("mysql_vs_postgres");
         becauseWordSet.add("choice");
         becauseWordSet.add("acid_internally");
     searchMap.set("because", becauseWordSet);
@@ -4613,12 +5141,17 @@ let sortsWordSet = new Set();
         sortsWordSet.add("relational_dbs_performance");
     searchMap.set("sorts", sortsWordSet);
 
+let ipcWordSet = new Set();
+        ipcWordSet.add("mysql_vs_postgres");
+    searchMap.set("ipc", ipcWordSet);
+
 let internallyWordSet = new Set();
         internallyWordSet.add("relational_dbs");
         internallyWordSet.add("acid_internally");
     searchMap.set("internally", internallyWordSet);
 
 let upgradeWordSet = new Set();
+        upgradeWordSet.add("mysql_vs_postgres");
         upgradeWordSet.add("acid_internally");
     searchMap.set("upgrade", upgradeWordSet);
 
@@ -4628,6 +5161,7 @@ let consernWordSet = new Set();
 
 let poolWordSet = new Set();
         poolWordSet.add("mongo_db");
+        poolWordSet.add("mysql_vs_postgres");
     searchMap.set("pool", poolWordSet);
 
 let rawWordSet = new Set();
@@ -4637,6 +5171,7 @@ let rawWordSet = new Set();
 
 let versionWordSet = new Set();
         versionWordSet.add("mongo_db");
+        versionWordSet.add("mysql_vs_postgres");
         versionWordSet.add("acid_internally");
     searchMap.set("version", versionWordSet);
 
@@ -4646,11 +5181,13 @@ let personsWordSet = new Set();
 
 let sortedWordSet = new Set();
         sortedWordSet.add("relational_dbs_performance");
+        sortedWordSet.add("mysql_vs_postgres");
     searchMap.set("sorted", sortedWordSet);
 
 let containsWordSet = new Set();
         containsWordSet.add("performance");
         containsWordSet.add("relational_dbs_performance");
+        containsWordSet.add("mysql_vs_postgres");
         containsWordSet.add("non-fiction_books");
     searchMap.set("contains", containsWordSet);
 
@@ -4680,6 +5217,7 @@ let criterionWordSet = new Set();
 
 let leastWordSet = new Set();
         leastWordSet.add("mongo_db");
+        leastWordSet.add("mysql_vs_postgres");
         leastWordSet.add("sql_commands");
     searchMap.set("least", leastWordSet);
 
@@ -4703,9 +5241,9 @@ let repeatableWordSet = new Set();
         repeatableWordSet.add("acid_internally");
     searchMap.set("repeatable", repeatableWordSet);
 
-let behaviorWordSet = new Set();
-        behaviorWordSet.add("thinking_fast_and_slow");
-    searchMap.set("behavior", behaviorWordSet);
+let wikipediaWordSet = new Set();
+        wikipediaWordSet.add("mysql_vs_postgres");
+    searchMap.set("wikipedia", wikipediaWordSet);
 
 let decicionWordSet = new Set();
         decicionWordSet.add("acid_internally");
@@ -4714,6 +5252,11 @@ let decicionWordSet = new Set();
 let abortsWordSet = new Set();
         abortsWordSet.add("acid_internally");
     searchMap.set("aborts", abortsWordSet);
+
+let behaviorWordSet = new Set();
+        behaviorWordSet.add("thinking_fast_and_slow");
+        behaviorWordSet.add("mysql_vs_postgres");
+    searchMap.set("behavior", behaviorWordSet);
 
 let closeWordSet = new Set();
         closeWordSet.add("relational_dbs_performance");
@@ -4735,6 +5278,7 @@ let loopsWordSet = new Set();
 
 let logicalWordSet = new Set();
         logicalWordSet.add("thinking_fast_and_slow");
+        logicalWordSet.add("mysql_vs_postgres");
     searchMap.set("logical", logicalWordSet);
 
 let concurrencyWordSet = new Set();
@@ -4785,6 +5329,7 @@ let generatesWordSet = new Set();
     searchMap.set("generates", generatesWordSet);
 
 let isnWordSet = new Set();
+        isnWordSet.add("mysql_vs_postgres");
         isnWordSet.add("acid_internally");
     searchMap.set("isn", isnWordSet);
 
@@ -4844,12 +5389,14 @@ let partitionsWordSet = new Set();
 let addWordSet = new Set();
         addWordSet.add("mongo_db");
         addWordSet.add("relational_dbs_performance");
+        addWordSet.add("mysql_vs_postgres");
     searchMap.set("add", addWordSet);
 
 let doesnWordSet = new Set();
         doesnWordSet.add("thinking_fast_and_slow");
         doesnWordSet.add("mongo_db");
         doesnWordSet.add("relational_dbs_performance");
+        doesnWordSet.add("mysql_vs_postgres");
         doesnWordSet.add("terraform");
         doesnWordSet.add("acid_internally");
         doesnWordSet.add("sql_commands");
@@ -4864,6 +5411,7 @@ let needWordSet = new Set();
         needWordSet.add("mongo_db");
         needWordSet.add("leadership");
         needWordSet.add("relational_dbs_performance");
+        needWordSet.add("mysql_vs_postgres");
     searchMap.set("need", needWordSet);
 
 let gridfsWordSet = new Set();
@@ -4874,6 +5422,7 @@ let itsWordSet = new Set();
         itsWordSet.add("mongo_db");
         itsWordSet.add("interest");
         itsWordSet.add("relational_dbs_performance");
+        itsWordSet.add("mysql_vs_postgres");
         itsWordSet.add("acid_internally");
     searchMap.set("its", itsWordSet);
 
@@ -4892,6 +5441,7 @@ let dynamodbWordSet = new Set();
 
 let usersWordSet = new Set();
         usersWordSet.add("mongo_db");
+        usersWordSet.add("mysql_vs_postgres");
         usersWordSet.add("acid_internally");
     searchMap.set("users", usersWordSet);
 
@@ -4917,6 +5467,7 @@ let httpWordSet = new Set();
 
 let thereforeWordSet = new Set();
         thereforeWordSet.add("relational_dbs_performance");
+        thereforeWordSet.add("mysql_vs_postgres");
     searchMap.set("therefore", thereforeWordSet);
 
 let collectionnameWordSet = new Set();
@@ -4961,6 +5512,7 @@ let directoryWordSet = new Set();
 
 let preventWordSet = new Set();
         preventWordSet.add("mongo_db");
+        preventWordSet.add("mysql_vs_postgres");
         preventWordSet.add("terraform");
         preventWordSet.add("acid_internally");
     searchMap.set("prevent", preventWordSet);
@@ -4980,6 +5532,7 @@ let terrafromWordSet = new Set();
 let engineWordSet = new Set();
         engineWordSet.add("mongo_db");
         engineWordSet.add("relational_dbs_performance");
+        engineWordSet.add("mysql_vs_postgres");
     searchMap.set("engine", engineWordSet);
 
 let serializabilityWordSet = new Set();
@@ -5008,6 +5561,10 @@ let selectingWordSet = new Set();
         selectingWordSet.add("relational_dbs_performance");
     searchMap.set("selecting", selectingWordSet);
 
+let engWordSet = new Set();
+        engWordSet.add("mysql_vs_postgres");
+    searchMap.set("eng", engWordSet);
+
 let mistakeWordSet = new Set();
         mistakeWordSet.add("choice");
     searchMap.set("mistake", mistakeWordSet);
@@ -5015,6 +5572,10 @@ let mistakeWordSet = new Set();
 let intersectWordSet = new Set();
         intersectWordSet.add("mongo_db");
     searchMap.set("intersect", intersectWordSet);
+
+let identifyWordSet = new Set();
+        identifyWordSet.add("mysql_vs_postgres");
+    searchMap.set("identify", identifyWordSet);
 
 let messageWordSet = new Set();
         messageWordSet.add("relational_dbs_performance");
@@ -5035,6 +5596,7 @@ let filesystemWordSet = new Set();
 
 let specialWordSet = new Set();
         specialWordSet.add("mongo_db");
+        specialWordSet.add("mysql_vs_postgres");
     searchMap.set("special", specialWordSet);
 
 let modifyWordSet = new Set();
@@ -5091,6 +5653,7 @@ let careerWordSet = new Set();
 let calledWordSet = new Set();
         calledWordSet.add("mongo_db");
         calledWordSet.add("relational_dbs_performance");
+        calledWordSet.add("mysql_vs_postgres");
         calledWordSet.add("acid_internally");
     searchMap.set("called", calledWordSet);
 
@@ -5110,6 +5673,10 @@ let rolledWordSet = new Set();
         rolledWordSet.add("mongo_db");
     searchMap.set("rolled", rolledWordSet);
 
+let accessedWordSet = new Set();
+        accessedWordSet.add("mysql_vs_postgres");
+    searchMap.set("accessed", accessedWordSet);
+
 let turnsWordSet = new Set();
         turnsWordSet.add("thinking_fast_and_slow");
     searchMap.set("turns", turnsWordSet);
@@ -5118,6 +5685,7 @@ let numberWordSet = new Set();
         numberWordSet.add("thinking_fast_and_slow");
         numberWordSet.add("mongo_db");
         numberWordSet.add("relational_dbs_performance");
+        numberWordSet.add("mysql_vs_postgres");
         numberWordSet.add("sql_commands");
     searchMap.set("number", numberWordSet);
 
@@ -5127,7 +5695,12 @@ let bottleneckWordSet = new Set();
 
 let centersWordSet = new Set();
         centersWordSet.add("mongo_db");
+        centersWordSet.add("mysql_vs_postgres");
     searchMap.set("centers", centersWordSet);
+
+let similarWordSet = new Set();
+        similarWordSet.add("mysql_vs_postgres");
+    searchMap.set("similar", similarWordSet);
 
 let mappingWordSet = new Set();
         mappingWordSet.add("mongo_db");
@@ -5198,6 +5771,7 @@ let otherWordSet = new Set();
         otherWordSet.add("persuasion");
         otherWordSet.add("mongo_db");
         otherWordSet.add("relational_dbs_performance");
+        otherWordSet.add("mysql_vs_postgres");
         otherWordSet.add("terraform");
         otherWordSet.add("about_the_digital_garden");
         otherWordSet.add("acid_internally");
@@ -5208,6 +5782,7 @@ let apropriateWordSet = new Set();
     searchMap.set("apropriate", apropriateWordSet);
 
 let indicatedWordSet = new Set();
+        indicatedWordSet.add("mysql_vs_postgres");
         indicatedWordSet.add("acid_internally");
     searchMap.set("indicated", indicatedWordSet);
 
@@ -5227,6 +5802,10 @@ let localWordSet = new Set();
         localWordSet.add("mongo_db");
         localWordSet.add("terraform");
     searchMap.set("local", localWordSet);
+
+let userspaceWordSet = new Set();
+        userspaceWordSet.add("mysql_vs_postgres");
+    searchMap.set("userspace", userspaceWordSet);
 
 let vacationWordSet = new Set();
         vacationWordSet.add("day_dreams");
@@ -5296,20 +5875,24 @@ let mongofilesWordSet = new Set();
     searchMap.set("mongofiles", mongofilesWordSet);
 
 let modeWordSet = new Set();
+        modeWordSet.add("mysql_vs_postgres");
         modeWordSet.add("acid_internally");
     searchMap.set("mode", modeWordSet);
 
-let copiesWordSet = new Set();
-        copiesWordSet.add("mongo_db");
-    searchMap.set("copies", copiesWordSet);
-
 let pagesWordSet = new Set();
+        pagesWordSet.add("mysql_vs_postgres");
         pagesWordSet.add("acid_internally");
     searchMap.set("pages", pagesWordSet);
 
 let updatingWordSet = new Set();
+        updatingWordSet.add("mysql_vs_postgres");
         updatingWordSet.add("acid_internally");
     searchMap.set("updating", updatingWordSet);
+
+let copiesWordSet = new Set();
+        copiesWordSet.add("mongo_db");
+        copiesWordSet.add("mysql_vs_postgres");
+    searchMap.set("copies", copiesWordSet);
 
 let optimizeWordSet = new Set();
         optimizeWordSet.add("relational_dbs_performance");
@@ -5322,6 +5905,7 @@ let etcWordSet = new Set();
 let implementedWordSet = new Set();
         implementedWordSet.add("mongo_db");
         implementedWordSet.add("relational_dbs_performance");
+        implementedWordSet.add("mysql_vs_postgres");
         implementedWordSet.add("acid_internally");
     searchMap.set("implemented", implementedWordSet);
 
@@ -5351,12 +5935,17 @@ let linksWordSet = new Set();
         linksWordSet.add("leadership");
         linksWordSet.add("relational_dbs_performance");
         linksWordSet.add("tech_books");
+        linksWordSet.add("mysql_vs_postgres");
         linksWordSet.add("terraform");
         linksWordSet.add("choice");
         linksWordSet.add("acid_internally");
         linksWordSet.add("non-fiction_books");
         linksWordSet.add("programming");
     searchMap.set("links", linksWordSet);
+
+let bufferWordSet = new Set();
+        bufferWordSet.add("mysql_vs_postgres");
+    searchMap.set("buffer", bufferWordSet);
 
 let differetWordSet = new Set();
         differetWordSet.add("mongo_db");
@@ -5382,6 +5971,7 @@ let allWordSet = new Set();
         allWordSet.add("mongo_db");
         allWordSet.add("soft_skills");
         allWordSet.add("relational_dbs_performance");
+        allWordSet.add("mysql_vs_postgres");
         allWordSet.add("acid_internally");
         allWordSet.add("sql_commands");
     searchMap.set("all", allWordSet);
@@ -5391,25 +5981,28 @@ let newWordSet = new Set();
         newWordSet.add("day_dreams");
         newWordSet.add("leadership");
         newWordSet.add("relational_dbs_performance");
+        newWordSet.add("mysql_vs_postgres");
         newWordSet.add("acid_internally");
     searchMap.set("new", newWordSet);
 
 let readWordSet = new Set();
         readWordSet.add("thinking_fast_and_slow");
         readWordSet.add("mongo_db");
+        readWordSet.add("mysql_vs_postgres");
         readWordSet.add("acid_internally");
         readWordSet.add("non-fiction_books");
     searchMap.set("read", readWordSet);
 
-let alreadyWordSet = new Set();
-        alreadyWordSet.add("mongo_db");
-        alreadyWordSet.add("interest");
-        alreadyWordSet.add("acid_internally");
-    searchMap.set("already", alreadyWordSet);
-
 let belowWordSet = new Set();
         belowWordSet.add("acid_internally");
     searchMap.set("below", belowWordSet);
+
+let alreadyWordSet = new Set();
+        alreadyWordSet.add("mongo_db");
+        alreadyWordSet.add("interest");
+        alreadyWordSet.add("mysql_vs_postgres");
+        alreadyWordSet.add("acid_internally");
+    searchMap.set("already", alreadyWordSet);
 
 let touchWordSet = new Set();
         touchWordSet.add("mongo_db");
@@ -5464,6 +6057,7 @@ let respectiveWordSet = new Set();
 
 let innodbWordSet = new Set();
         innodbWordSet.add("relational_dbs_performance");
+        innodbWordSet.add("mysql_vs_postgres");
         innodbWordSet.add("acid_internally");
     searchMap.set("innodb", innodbWordSet);
 
@@ -5493,6 +6087,7 @@ let andWordSet = new Set();
         andWordSet.add("interest");
         andWordSet.add("leadership");
         andWordSet.add("relational_dbs_performance");
+        andWordSet.add("mysql_vs_postgres");
         andWordSet.add("terraform");
         andWordSet.add("choice");
         andWordSet.add("acid_internally");
@@ -5514,6 +6109,7 @@ let dumpWordSet = new Set();
 
 let rowWordSet = new Set();
         rowWordSet.add("relational_dbs_performance");
+        rowWordSet.add("mysql_vs_postgres");
         rowWordSet.add("acid_internally");
     searchMap.set("row", rowWordSet);
 
@@ -5543,10 +6139,15 @@ let specificWordSet = new Set();
         specificWordSet.add("relational_dbs_performance");
     searchMap.set("specific", specificWordSet);
 
+let rollsWordSet = new Set();
+        rollsWordSet.add("mysql_vs_postgres");
+    searchMap.set("rolls", rollsWordSet);
+
 let anyWordSet = new Set();
         anyWordSet.add("mongo_db");
         anyWordSet.add("interest");
         anyWordSet.add("relational_dbs_performance");
+        anyWordSet.add("mysql_vs_postgres");
         anyWordSet.add("acid_internally");
         anyWordSet.add("sql_commands");
     searchMap.set("any", anyWordSet);
@@ -5566,6 +6167,7 @@ let encryptedWordSet = new Set();
 let applicationWordSet = new Set();
         applicationWordSet.add("mongo_db");
         applicationWordSet.add("relational_dbs_performance");
+        applicationWordSet.add("mysql_vs_postgres");
         applicationWordSet.add("acid_internally");
     searchMap.set("application", applicationWordSet);
 
@@ -5581,6 +6183,7 @@ let untilWordSet = new Set();
         untilWordSet.add("thinking_fast_and_slow");
         untilWordSet.add("mongo_db");
         untilWordSet.add("relational_dbs_performance");
+        untilWordSet.add("mysql_vs_postgres");
         untilWordSet.add("terraform");
         untilWordSet.add("acid_internally");
     searchMap.set("until", untilWordSet);
@@ -5601,6 +6204,10 @@ let reasonWordSet = new Set();
         reasonWordSet.add("acid_internally");
     searchMap.set("reason", reasonWordSet);
 
+let maintainWordSet = new Set();
+        maintainWordSet.add("mysql_vs_postgres");
+    searchMap.set("maintain", maintainWordSet);
+
 let tasteWordSet = new Set();
         tasteWordSet.add("day_dreams");
     searchMap.set("taste", tasteWordSet);
@@ -5612,6 +6219,10 @@ let compilingWordSet = new Set();
 let nicWordSet = new Set();
         nicWordSet.add("relational_dbs_performance");
     searchMap.set("nic", nicWordSet);
+
+let actsWordSet = new Set();
+        actsWordSet.add("mysql_vs_postgres");
+    searchMap.set("acts", actsWordSet);
 
 let defenetlyWordSet = new Set();
         defenetlyWordSet.add("choice");
@@ -5656,10 +6267,19 @@ let exclusiveWordSet = new Set();
         exclusiveWordSet.add("acid_internally");
     searchMap.set("exclusive", exclusiveWordSet);
 
+let fullyWordSet = new Set();
+        fullyWordSet.add("mysql_vs_postgres");
+    searchMap.set("fully", fullyWordSet);
+
 let usingWordSet = new Set();
         usingWordSet.add("mongo_db");
         usingWordSet.add("relational_dbs_performance");
+        usingWordSet.add("mysql_vs_postgres");
     searchMap.set("using", usingWordSet);
+
+let cacheWordSet = new Set();
+        cacheWordSet.add("mysql_vs_postgres");
+    searchMap.set("cache", cacheWordSet);
 
 let hostsWordSet = new Set();
         hostsWordSet.add("mongo_db");
@@ -5688,6 +6308,10 @@ let eyeWordSet = new Set();
         eyeWordSet.add("persuasion");
     searchMap.set("eye", eyeWordSet);
 
+let amplificationWordSet = new Set();
+        amplificationWordSet.add("mysql_vs_postgres");
+    searchMap.set("amplification", amplificationWordSet);
+
 let slowWordSet = new Set();
         slowWordSet.add("thinking_fast_and_slow");
         slowWordSet.add("mongo_db");
@@ -5706,6 +6330,14 @@ let calculationsWordSet = new Set();
         calculationsWordSet.add("thinking_fast_and_slow");
     searchMap.set("calculations", calculationsWordSet);
 
+let mixesWordSet = new Set();
+        mixesWordSet.add("mysql_vs_postgres");
+    searchMap.set("mixes", mixesWordSet);
+
+let corruptionWordSet = new Set();
+        corruptionWordSet.add("mysql_vs_postgres");
+    searchMap.set("corruption", corruptionWordSet);
+
 let referencingWordSet = new Set();
         referencingWordSet.add("mongo_db");
     searchMap.set("referencing", referencingWordSet);
@@ -5718,12 +6350,6 @@ let serializablyWordSet = new Set();
         serializablyWordSet.add("acid_internally");
     searchMap.set("serializably", serializablyWordSet);
 
-let automaticallyWordSet = new Set();
-        automaticallyWordSet.add("mongo_db");
-        automaticallyWordSet.add("relational_dbs_performance");
-        automaticallyWordSet.add("acid_internally");
-    searchMap.set("automatically", automaticallyWordSet);
-
 let anotherWordSet = new Set();
         anotherWordSet.add("thinking_fast_and_slow");
         anotherWordSet.add("mongo_db");
@@ -5732,6 +6358,13 @@ let anotherWordSet = new Set();
         anotherWordSet.add("acid_internally");
         anotherWordSet.add("sql_commands");
     searchMap.set("another", anotherWordSet);
+
+let automaticallyWordSet = new Set();
+        automaticallyWordSet.add("mongo_db");
+        automaticallyWordSet.add("relational_dbs_performance");
+        automaticallyWordSet.add("mysql_vs_postgres");
+        automaticallyWordSet.add("acid_internally");
+    searchMap.set("automatically", automaticallyWordSet);
 
 let guaranteeWordSet = new Set();
         guaranteeWordSet.add("acid_internally");
@@ -5753,6 +6386,10 @@ let matchingWordSet = new Set();
         matchingWordSet.add("relational_dbs_performance");
         matchingWordSet.add("sql_commands");
     searchMap.set("matching", matchingWordSet);
+
+let literalWordSet = new Set();
+        literalWordSet.add("mysql_vs_postgres");
+    searchMap.set("literal", literalWordSet);
 
 let defaultWordSet = new Set();
         defaultWordSet.add("mongo_db");
@@ -5780,6 +6417,7 @@ let areWordSet = new Set();
         areWordSet.add("interest");
         areWordSet.add("leadership");
         areWordSet.add("relational_dbs_performance");
+        areWordSet.add("mysql_vs_postgres");
         areWordSet.add("terraform");
         areWordSet.add("acid_internally");
     searchMap.set("are", areWordSet);
@@ -5795,6 +6433,7 @@ let disabledWordSet = new Set();
 let whereWordSet = new Set();
         whereWordSet.add("mongo_db");
         whereWordSet.add("relational_dbs_performance");
+        whereWordSet.add("mysql_vs_postgres");
         whereWordSet.add("acid_internally");
         whereWordSet.add("sql_commands");
     searchMap.set("where", whereWordSet);
@@ -5802,11 +6441,6 @@ let whereWordSet = new Set();
 let expectationsWordSet = new Set();
         expectationsWordSet.add("career_crises");
     searchMap.set("expectations", expectationsWordSet);
-
-let takesWordSet = new Set();
-        takesWordSet.add("mongo_db");
-        takesWordSet.add("relational_dbs_performance");
-    searchMap.set("takes", takesWordSet);
 
 let arnWordSet = new Set();
         arnWordSet.add("terraform");
@@ -5816,6 +6450,16 @@ let mechanismWordSet = new Set();
         mechanismWordSet.add("mongo_db");
         mechanismWordSet.add("acid_internally");
     searchMap.set("mechanism", mechanismWordSet);
+
+let takesWordSet = new Set();
+        takesWordSet.add("mongo_db");
+        takesWordSet.add("relational_dbs_performance");
+        takesWordSet.add("mysql_vs_postgres");
+    searchMap.set("takes", takesWordSet);
+
+let timestampWordSet = new Set();
+        timestampWordSet.add("mysql_vs_postgres");
+    searchMap.set("timestamp", timestampWordSet);
 
 let brokenWordSet = new Set();
         brokenWordSet.add("mongo_db");
@@ -5829,6 +6473,10 @@ let viceWordSet = new Set();
 let detectionWordSet = new Set();
         detectionWordSet.add("acid_internally");
     searchMap.set("detection", detectionWordSet);
+
+let bandwidthWordSet = new Set();
+        bandwidthWordSet.add("mysql_vs_postgres");
+    searchMap.set("bandwidth", bandwidthWordSet);
 
 let structuresWordSet = new Set();
         structuresWordSet.add("acid_internally");
@@ -5851,15 +6499,16 @@ let callWordSet = new Set();
         callWordSet.add("acid_internally");
     searchMap.set("call", callWordSet);
 
-let suchWordSet = new Set();
-        suchWordSet.add("mongo_db");
-        suchWordSet.add("sql_commands");
-    searchMap.set("such", suchWordSet);
-
 let boringWordSet = new Set();
         boringWordSet.add("persuasion");
         boringWordSet.add("interest");
     searchMap.set("boring", boringWordSet);
+
+let suchWordSet = new Set();
+        suchWordSet.add("mongo_db");
+        suchWordSet.add("mysql_vs_postgres");
+        suchWordSet.add("sql_commands");
+    searchMap.set("such", suchWordSet);
 
 let algsWordSet = new Set();
         algsWordSet.add("relational_dbs_performance");
@@ -5880,6 +6529,10 @@ let grabWordSet = new Set();
 let throughWordSet = new Set();
         throughWordSet.add("day_dreams");
     searchMap.set("through", throughWordSet);
+
+let lookasideWordSet = new Set();
+        lookasideWordSet.add("mysql_vs_postgres");
+    searchMap.set("lookaside", lookasideWordSet);
 
 let documentsWordSet = new Set();
         documentsWordSet.add("mongo_db");
@@ -5915,21 +6568,31 @@ let eitherWordSet = new Set();
         eitherWordSet.add("sql_commands");
     searchMap.set("either", eitherWordSet);
 
-let hugeWordSet = new Set();
-        hugeWordSet.add("mongo_db");
-    searchMap.set("huge", hugeWordSet);
+let segmentWordSet = new Set();
+        segmentWordSet.add("mysql_vs_postgres");
+    searchMap.set("segment", segmentWordSet);
 
 let yourselfWordSet = new Set();
         yourselfWordSet.add("thinking_fast_and_slow");
         yourselfWordSet.add("interest");
     searchMap.set("yourself", yourselfWordSet);
 
+let hugeWordSet = new Set();
+        hugeWordSet.add("mongo_db");
+        hugeWordSet.add("mysql_vs_postgres");
+    searchMap.set("huge", hugeWordSet);
+
 let throughputWordSet = new Set();
         throughputWordSet.add("acid_internally");
     searchMap.set("throughput", throughputWordSet);
 
+let upsidesWordSet = new Set();
+        upsidesWordSet.add("mysql_vs_postgres");
+    searchMap.set("upsides", upsidesWordSet);
+
 let resultsWordSet = new Set();
         resultsWordSet.add("relational_dbs_performance");
+        resultsWordSet.add("mysql_vs_postgres");
         resultsWordSet.add("terraform");
         resultsWordSet.add("acid_internally");
     searchMap.set("results", resultsWordSet);
@@ -5978,6 +6641,7 @@ let everywhereWordSet = new Set();
 
 let leadsWordSet = new Set();
         leadsWordSet.add("relational_dbs_performance");
+        leadsWordSet.add("mysql_vs_postgres");
         leadsWordSet.add("acid_internally");
     searchMap.set("leads", leadsWordSet);
 
@@ -5994,9 +6658,14 @@ let carnarvonWordSet = new Set();
         carnarvonWordSet.add("sql_commands");
     searchMap.set("carnarvon", carnarvonWordSet);
 
+let worstWordSet = new Set();
+        worstWordSet.add("mysql_vs_postgres");
+    searchMap.set("worst", worstWordSet);
+
 let fieldsWordSet = new Set();
         fieldsWordSet.add("mongo_db");
         fieldsWordSet.add("relational_dbs_performance");
+        fieldsWordSet.add("mysql_vs_postgres");
         fieldsWordSet.add("acid_internally");
         fieldsWordSet.add("sql_commands");
     searchMap.set("fields", fieldsWordSet);
@@ -6076,6 +6745,7 @@ let notWordSet = new Set();
         notWordSet.add("interest");
         notWordSet.add("day_dreams");
         notWordSet.add("relational_dbs_performance");
+        notWordSet.add("mysql_vs_postgres");
         notWordSet.add("choice");
         notWordSet.add("acid_internally");
         notWordSet.add("sql_commands");
@@ -6088,6 +6758,7 @@ let avgWordSet = new Set();
 let indexesWordSet = new Set();
         indexesWordSet.add("mongo_db");
         indexesWordSet.add("relational_dbs_performance");
+        indexesWordSet.add("mysql_vs_postgres");
         indexesWordSet.add("acid_internally");
     searchMap.set("indexes", indexesWordSet);
 
@@ -6097,13 +6768,19 @@ let postalcodeWordSet = new Set();
 
 let nowWordSet = new Set();
         nowWordSet.add("mongo_db");
+        nowWordSet.add("mysql_vs_postgres");
         nowWordSet.add("acid_internally");
     searchMap.set("now", nowWordSet);
 
 let statementWordSet = new Set();
         statementWordSet.add("mongo_db");
         statementWordSet.add("relational_dbs_performance");
+        statementWordSet.add("mysql_vs_postgres");
     searchMap.set("statement", statementWordSet);
+
+let compactionWordSet = new Set();
+        compactionWordSet.add("mysql_vs_postgres");
+    searchMap.set("compaction", compactionWordSet);
 
 let livedWordSet = new Set();
         livedWordSet.add("career_crises");
@@ -6122,6 +6799,14 @@ let greenWordSet = new Set();
         greenWordSet.add("mongo_db");
     searchMap.set("green", greenWordSet);
 
+let walWordSet = new Set();
+        walWordSet.add("mysql_vs_postgres");
+    searchMap.set("wal", walWordSet);
+
+let effectivelyWordSet = new Set();
+        effectivelyWordSet.add("mysql_vs_postgres");
+    searchMap.set("effectively", effectivelyWordSet);
+
 let lockingWordSet = new Set();
         lockingWordSet.add("acid_internally");
     searchMap.set("locking", lockingWordSet);
@@ -6133,6 +6818,7 @@ let estimatedWordSet = new Set();
 let wasWordSet = new Set();
         wasWordSet.add("mongo_db");
         wasWordSet.add("relational_dbs_performance");
+        wasWordSet.add("mysql_vs_postgres");
         wasWordSet.add("acid_internally");
     searchMap.set("was", wasWordSet);
 
@@ -6145,6 +6831,7 @@ let wayWordSet = new Set();
         wayWordSet.add("career_crises");
         wayWordSet.add("mongo_db");
         wayWordSet.add("relational_dbs_performance");
+        wayWordSet.add("mysql_vs_postgres");
         wayWordSet.add("terraform");
         wayWordSet.add("about_the_digital_garden");
         wayWordSet.add("choice");
@@ -6161,6 +6848,7 @@ let whatWordSet = new Set();
         whatWordSet.add("interest");
         whatWordSet.add("day_dreams");
         whatWordSet.add("relational_dbs_performance");
+        whatWordSet.add("mysql_vs_postgres");
         whatWordSet.add("choice");
         whatWordSet.add("acid_internally");
     searchMap.set("what", whatWordSet);
@@ -6188,6 +6876,7 @@ let abortedWordSet = new Set();
 let quicklyWordSet = new Set();
         quicklyWordSet.add("mongo_db");
         quicklyWordSet.add("relational_dbs_performance");
+        quicklyWordSet.add("mysql_vs_postgres");
     searchMap.set("quickly", quicklyWordSet);
 
 let decideWordSet = new Set();
@@ -6199,12 +6888,17 @@ let collectedWordSet = new Set();
         collectedWordSet.add("relational_dbs_performance");
     searchMap.set("collected", collectedWordSet);
 
+let issuesWordSet = new Set();
+        issuesWordSet.add("mysql_vs_postgres");
+    searchMap.set("issues", issuesWordSet);
+
 let whenWordSet = new Set();
         whenWordSet.add("thinking_fast_and_slow");
         whenWordSet.add("persuasion");
         whenWordSet.add("career_crises");
         whenWordSet.add("mongo_db");
         whenWordSet.add("relational_dbs_performance");
+        whenWordSet.add("mysql_vs_postgres");
         whenWordSet.add("acid_internally");
         whenWordSet.add("sql_commands");
     searchMap.set("when", whenWordSet);
@@ -6225,6 +6919,10 @@ let stuckWordSet = new Set();
         stuckWordSet.add("acid_internally");
     searchMap.set("stuck", stuckWordSet);
 
+let severelyWordSet = new Set();
+        severelyWordSet.add("mysql_vs_postgres");
+    searchMap.set("severely", severelyWordSet);
+
 let greaterWordSet = new Set();
         greaterWordSet.add("thinking_fast_and_slow");
         greaterWordSet.add("relational_dbs_performance");
@@ -6241,6 +6939,7 @@ let planWordSet = new Set();
 let caseWordSet = new Set();
         caseWordSet.add("mongo_db");
         caseWordSet.add("relational_dbs_performance");
+        caseWordSet.add("mysql_vs_postgres");
         caseWordSet.add("acid_internally");
         caseWordSet.add("sql_commands");
     searchMap.set("case", caseWordSet);
@@ -6280,6 +6979,10 @@ let probedWordSet = new Set();
         probedWordSet.add("relational_dbs_performance");
     searchMap.set("probed", probedWordSet);
 
+let matchesWordSet = new Set();
+        matchesWordSet.add("mysql_vs_postgres");
+    searchMap.set("matches", matchesWordSet);
+
 let lastnameWordSet = new Set();
         lastnameWordSet.add("sql_commands");
     searchMap.set("lastname", lastnameWordSet);
@@ -6304,6 +7007,10 @@ let cardWordSet = new Set();
         cardWordSet.add("thinking_fast_and_slow");
         cardWordSet.add("relational_dbs_performance");
     searchMap.set("card", cardWordSet);
+
+let damageWordSet = new Set();
+        damageWordSet.add("mysql_vs_postgres");
+    searchMap.set("damage", damageWordSet);
 
 let sentencesWordSet = new Set();
         sentencesWordSet.add("thinking_fast_and_slow");
@@ -6355,12 +7062,17 @@ let insidesWordSet = new Set();
         insidesWordSet.add("persuasion");
     searchMap.set("insides", insidesWordSet);
 
+let architectureWordSet = new Set();
+        architectureWordSet.add("mysql_vs_postgres");
+    searchMap.set("architecture", architectureWordSet);
+
 let moreWordSet = new Set();
         moreWordSet.add("persuasion");
         moreWordSet.add("mongo_db");
         moreWordSet.add("interest");
         moreWordSet.add("leadership");
         moreWordSet.add("relational_dbs_performance");
+        moreWordSet.add("mysql_vs_postgres");
         moreWordSet.add("choice");
         moreWordSet.add("sql_commands");
     searchMap.set("more", moreWordSet);
@@ -6380,6 +7092,7 @@ let happenedWordSet = new Set();
 
 let wrongWordSet = new Set();
         wrongWordSet.add("thinking_fast_and_slow");
+        wrongWordSet.add("mysql_vs_postgres");
         wrongWordSet.add("choice");
         wrongWordSet.add("acid_internally");
     searchMap.set("wrong", wrongWordSet);
@@ -6402,6 +7115,10 @@ let stuffWordSet = new Set();
         stuffWordSet.add("acid_internally");
     searchMap.set("stuff", stuffWordSet);
 
+let conceptuallyWordSet = new Set();
+        conceptuallyWordSet.add("mysql_vs_postgres");
+    searchMap.set("conceptually", conceptuallyWordSet);
+
 let transformsWordSet = new Set();
         transformsWordSet.add("relational_dbs_performance");
     searchMap.set("transforms", transformsWordSet);
@@ -6420,6 +7137,10 @@ let usedWordSet = new Set();
         usedWordSet.add("sql_commands");
     searchMap.set("used", usedWordSet);
 
+let constantlyWordSet = new Set();
+        constantlyWordSet.add("mysql_vs_postgres");
+    searchMap.set("constantly", constantlyWordSet);
+
 let looksWordSet = new Set();
         looksWordSet.add("mongo_db");
     searchMap.set("looks", looksWordSet);
@@ -6436,11 +7157,24 @@ let fewWordSet = new Set();
 
 let connectionsWordSet = new Set();
         connectionsWordSet.add("mongo_db");
+        connectionsWordSet.add("mysql_vs_postgres");
     searchMap.set("connections", connectionsWordSet);
+
+let describedWordSet = new Set();
+        describedWordSet.add("mysql_vs_postgres");
+    searchMap.set("described", describedWordSet);
 
 let markedWordSet = new Set();
         markedWordSet.add("acid_internally");
     searchMap.set("marked", markedWordSet);
+
+let pathologicalWordSet = new Set();
+        pathologicalWordSet.add("mysql_vs_postgres");
+    searchMap.set("pathological", pathologicalWordSet);
+
+let corruptedWordSet = new Set();
+        corruptedWordSet.add("mysql_vs_postgres");
+    searchMap.set("corrupted", corruptedWordSet);
 
 let visibleWordSet = new Set();
         visibleWordSet.add("acid_internally");
@@ -6485,6 +7219,7 @@ let mostWordSet = new Set();
         mostWordSet.add("mongo_db");
         mostWordSet.add("interest");
         mostWordSet.add("relational_dbs_performance");
+        mostWordSet.add("mysql_vs_postgres");
         mostWordSet.add("acid_internally");
     searchMap.set("most", mostWordSet);
 
@@ -6495,6 +7230,7 @@ let importantWordSet = new Set();
         importantWordSet.add("day_dreams");
         importantWordSet.add("leadership");
         importantWordSet.add("relational_dbs_performance");
+        importantWordSet.add("mysql_vs_postgres");
         importantWordSet.add("terraform");
     searchMap.set("important", importantWordSet);
 
@@ -6552,12 +7288,14 @@ let largestWordSet = new Set();
 
 let postgressWordSet = new Set();
         postgressWordSet.add("relational_dbs_performance");
+        postgressWordSet.add("mysql_vs_postgres");
         postgressWordSet.add("acid_internally");
     searchMap.set("postgress", postgressWordSet);
 
 let insertWordSet = new Set();
         insertWordSet.add("mongo_db");
         insertWordSet.add("relational_dbs_performance");
+        insertWordSet.add("mysql_vs_postgres");
         insertWordSet.add("sql_commands");
     searchMap.set("insert", insertWordSet);
 
@@ -6569,6 +7307,10 @@ let whyWordSet = new Set();
         whyWordSet.add("about_the_digital_garden");
     searchMap.set("why", whyWordSet);
 
+let uberWordSet = new Set();
+        uberWordSet.add("mysql_vs_postgres");
+    searchMap.set("uber", uberWordSet);
+
 let candidateWordSet = new Set();
         candidateWordSet.add("relational_dbs_performance");
     searchMap.set("candidate", candidateWordSet);
@@ -6576,12 +7318,17 @@ let candidateWordSet = new Set();
 let databaseWordSet = new Set();
         databaseWordSet.add("mongo_db");
         databaseWordSet.add("relational_dbs_performance");
+        databaseWordSet.add("mysql_vs_postgres");
         databaseWordSet.add("acid_internally");
     searchMap.set("database", databaseWordSet);
 
 let parallelWordSet = new Set();
         parallelWordSet.add("acid_internally");
     searchMap.set("parallel", parallelWordSet);
+
+let designedWordSet = new Set();
+        designedWordSet.add("mysql_vs_postgres");
+    searchMap.set("designed", designedWordSet);
 
 let authenticationWordSet = new Set();
         authenticationWordSet.add("mongo_db");
@@ -6604,6 +7351,10 @@ let moveWordSet = new Set();
         moveWordSet.add("mongo_db");
     searchMap.set("move", moveWordSet);
 
+let amountWordSet = new Set();
+        amountWordSet.add("mysql_vs_postgres");
+    searchMap.set("amount", amountWordSet);
+
 let optimeWordSet = new Set();
         optimeWordSet.add("mongo_db");
     searchMap.set("optime", optimeWordSet);
@@ -6625,8 +7376,13 @@ let alsoWordSet = new Set();
         alsoWordSet.add("thinking_fast_and_slow");
         alsoWordSet.add("mongo_db");
         alsoWordSet.add("relational_dbs_performance");
+        alsoWordSet.add("mysql_vs_postgres");
         alsoWordSet.add("acid_internally");
     searchMap.set("also", alsoWordSet);
+
+let getsWordSet = new Set();
+        getsWordSet.add("mysql_vs_postgres");
+    searchMap.set("gets", getsWordSet);
 
 let spreadWordSet = new Set();
         spreadWordSet.add("mongo_db");
@@ -6635,6 +7391,10 @@ let spreadWordSet = new Set();
 let intensivelyWordSet = new Set();
         intensivelyWordSet.add("mongo_db");
     searchMap.set("intensively", intensivelyWordSet);
+
+let variousWordSet = new Set();
+        variousWordSet.add("mysql_vs_postgres");
+    searchMap.set("various", variousWordSet);
 
 let attentionWordSet = new Set();
         attentionWordSet.add("thinking_fast_and_slow");
@@ -6646,6 +7406,7 @@ let attentionWordSet = new Set();
 let usesWordSet = new Set();
         usesWordSet.add("mongo_db");
         usesWordSet.add("relational_dbs_performance");
+        usesWordSet.add("mysql_vs_postgres");
     searchMap.set("uses", usesWordSet);
 
 let visitWordSet = new Set();
@@ -6654,8 +7415,13 @@ let visitWordSet = new Set();
 
 let userWordSet = new Set();
         userWordSet.add("mongo_db");
+        userWordSet.add("mysql_vs_postgres");
         userWordSet.add("sql_commands");
     searchMap.set("user", userWordSet);
+
+let architecutreWordSet = new Set();
+        architecutreWordSet.add("mysql_vs_postgres");
+    searchMap.set("architecutre", architecutreWordSet);
 
 let simplyWordSet = new Set();
         simplyWordSet.add("acid_internally");
@@ -6680,6 +7446,7 @@ let parentWordSet = new Set();
         parentWordSet.add("devops");
         parentWordSet.add("leadership");
         parentWordSet.add("relational_dbs_performance");
+        parentWordSet.add("mysql_vs_postgres");
         parentWordSet.add("terraform");
         parentWordSet.add("choice");
         parentWordSet.add("acid_internally");
@@ -6703,6 +7470,14 @@ let bringWordSet = new Set();
         bringWordSet.add("day_dreams");
     searchMap.set("bring", bringWordSet);
 
+let switchesWordSet = new Set();
+        switchesWordSet.add("mysql_vs_postgres");
+    searchMap.set("switches", switchesWordSet);
+
+let reflectedWordSet = new Set();
+        reflectedWordSet.add("mysql_vs_postgres");
+    searchMap.set("reflected", reflectedWordSet);
+
 let randWordSet = new Set();
         randWordSet.add("mongo_db");
     searchMap.set("rand", randWordSet);
@@ -6710,6 +7485,10 @@ let randWordSet = new Set();
 let barWordSet = new Set();
         barWordSet.add("day_dreams");
     searchMap.set("bar", barWordSet);
+
+let fixWordSet = new Set();
+        fixWordSet.add("mysql_vs_postgres");
+    searchMap.set("fix", fixWordSet);
 
 let bitmapWordSet = new Set();
         bitmapWordSet.add("relational_dbs_performance");
@@ -6766,6 +7545,7 @@ let anWordSet = new Set();
         anWordSet.add("thinking_fast_and_slow");
         anWordSet.add("mongo_db");
         anWordSet.add("relational_dbs_performance");
+        anWordSet.add("mysql_vs_postgres");
         anWordSet.add("terraform");
         anWordSet.add("acid_internally");
         anWordSet.add("sql_commands");
@@ -6780,6 +7560,7 @@ let asWordSet = new Set();
         asWordSet.add("career_crises");
         asWordSet.add("mongo_db");
         asWordSet.add("relational_dbs_performance");
+        asWordSet.add("mysql_vs_postgres");
         asWordSet.add("terraform");
         asWordSet.add("choice");
         asWordSet.add("acid_internally");
@@ -6791,10 +7572,15 @@ let atWordSet = new Set();
         atWordSet.add("persuasion");
         atWordSet.add("mongo_db");
         atWordSet.add("relational_dbs_performance");
+        atWordSet.add("mysql_vs_postgres");
         atWordSet.add("about_the_digital_garden");
         atWordSet.add("acid_internally");
         atWordSet.add("sql_commands");
     searchMap.set("at", atWordSet);
+
+let plansWordSet = new Set();
+        plansWordSet.add("mysql_vs_postgres");
+    searchMap.set("plans", plansWordSet);
 
 let intermediateWordSet = new Set();
         intermediateWordSet.add("relational_dbs_performance");
@@ -6833,6 +7619,7 @@ let beWordSet = new Set();
         beWordSet.add("mongo_db");
         beWordSet.add("leadership");
         beWordSet.add("relational_dbs_performance");
+        beWordSet.add("mysql_vs_postgres");
         beWordSet.add("terraform");
         beWordSet.add("choice");
         beWordSet.add("acid_internally");
@@ -6843,9 +7630,17 @@ let schemeWordSet = new Set();
         schemeWordSet.add("relational_dbs_performance");
     searchMap.set("scheme", schemeWordSet);
 
+let standbyWordSet = new Set();
+        standbyWordSet.add("mysql_vs_postgres");
+    searchMap.set("standby", standbyWordSet);
+
 let bgWordSet = new Set();
         bgWordSet.add("mongo_db");
     searchMap.set("bg", bgWordSet);
+
+let affectWordSet = new Set();
+        affectWordSet.add("mysql_vs_postgres");
+    searchMap.set("affect", affectWordSet);
 
 let communicationsWordSet = new Set();
         communicationsWordSet.add("mongo_db");
@@ -6879,6 +7674,7 @@ let responsibilityWordSet = new Set();
 let byWordSet = new Set();
         byWordSet.add("mongo_db");
         byWordSet.add("relational_dbs_performance");
+        byWordSet.add("mysql_vs_postgres");
         byWordSet.add("terraform");
         byWordSet.add("acid_internally");
         byWordSet.add("sql_commands");
@@ -6896,18 +7692,24 @@ let customersWordSet = new Set();
         customersWordSet.add("sql_commands");
     searchMap.set("customers", customersWordSet);
 
+let comparedWordSet = new Set();
+        comparedWordSet.add("mysql_vs_postgres");
+    searchMap.set("compared", comparedWordSet);
+
 let cdWordSet = new Set();
         cdWordSet.add("how_to_create_a_python_project");
     searchMap.set("cd", cdWordSet);
 
 let containWordSet = new Set();
         containWordSet.add("relational_dbs_performance");
+        containWordSet.add("mysql_vs_postgres");
         containWordSet.add("terraform");
     searchMap.set("contain", containWordSet);
 
 let setWordSet = new Set();
         setWordSet.add("mongo_db");
         setWordSet.add("relational_dbs_performance");
+        setWordSet.add("mysql_vs_postgres");
         setWordSet.add("terraform");
         setWordSet.add("choice");
         setWordSet.add("acid_internally");
@@ -6916,6 +7718,7 @@ let setWordSet = new Set();
 
 let keepingWordSet = new Set();
         keepingWordSet.add("mongo_db");
+        keepingWordSet.add("mysql_vs_postgres");
     searchMap.set("keeping", keepingWordSet);
 
 let sexWordSet = new Set();
@@ -6943,11 +7746,16 @@ let practicesWordSet = new Set();
         practicesWordSet.add("mongo_db");
     searchMap.set("practices", practicesWordSet);
 
+let comparesWordSet = new Set();
+        comparesWordSet.add("mysql_vs_postgres");
+    searchMap.set("compares", comparesWordSet);
+
 let csWordSet = new Set();
         csWordSet.add("relational_dbs_performance");
     searchMap.set("cs", csWordSet);
 
 let deletedWordSet = new Set();
+        deletedWordSet.add("mysql_vs_postgres");
         deletedWordSet.add("acid_internally");
     searchMap.set("deleted", deletedWordSet);
 
@@ -7020,6 +7828,7 @@ let doWordSet = new Set();
         doWordSet.add("persuasion");
         doWordSet.add("mongo_db");
         doWordSet.add("relational_dbs_performance");
+        doWordSet.add("mysql_vs_postgres");
         doWordSet.add("choice");
         doWordSet.add("acid_internally");
         doWordSet.add("sql_commands");
@@ -7053,6 +7862,10 @@ let contactWordSet = new Set();
         contactWordSet.add("persuasion");
     searchMap.set("contact", contactWordSet);
 
+let wonWordSet = new Set();
+        wonWordSet.add("mysql_vs_postgres");
+    searchMap.set("won", wonWordSet);
+
 let franceWordSet = new Set();
         franceWordSet.add("sql_commands");
     searchMap.set("france", franceWordSet);
@@ -7079,55 +7892,74 @@ let whichWordSet = new Set();
         whichWordSet.add("thinking_fast_and_slow");
         whichWordSet.add("mongo_db");
         whichWordSet.add("relational_dbs_performance");
+        whichWordSet.add("mysql_vs_postgres");
         whichWordSet.add("terraform");
         whichWordSet.add("acid_internally");
     searchMap.set("which", whichWordSet);
 
+let disadvantageWordSet = new Set();
+        disadvantageWordSet.add("mysql_vs_postgres");
+    searchMap.set("disadvantage", disadvantageWordSet);
+
 let needsWordSet = new Set();
         needsWordSet.add("thinking_fast_and_slow");
         needsWordSet.add("relational_dbs_performance");
+        needsWordSet.add("mysql_vs_postgres");
         needsWordSet.add("terraform");
         needsWordSet.add("acid_internally");
     searchMap.set("needs", needsWordSet);
-
-let searchesWordSet = new Set();
-        searchesWordSet.add("relational_dbs_performance");
-    searchMap.set("searches", searchesWordSet);
 
 let imageWordSet = new Set();
         imageWordSet.add("thinking_fast_and_slow");
         imageWordSet.add("relational_dbs_performance");
     searchMap.set("image", imageWordSet);
 
+let searchesWordSet = new Set();
+        searchesWordSet.add("relational_dbs_performance");
+        searchesWordSet.add("mysql_vs_postgres");
+    searchMap.set("searches", searchesWordSet);
+
+let tradeoffsWordSet = new Set();
+        tradeoffsWordSet.add("mysql_vs_postgres");
+    searchMap.set("tradeoffs", tradeoffsWordSet);
+
 let typicallyWordSet = new Set();
         typicallyWordSet.add("mongo_db");
+        typicallyWordSet.add("mysql_vs_postgres");
     searchMap.set("typically", typicallyWordSet);
 
 let patternsWordSet = new Set();
         patternsWordSet.add("thinking_fast_and_slow");
+        patternsWordSet.add("mysql_vs_postgres");
     searchMap.set("patterns", patternsWordSet);
-
-let enWordSet = new Set();
-        enWordSet.add("relational_dbs_performance");
-    searchMap.set("en", enWordSet);
 
 let garbageWordSet = new Set();
         garbageWordSet.add("acid_internally");
     searchMap.set("garbage", garbageWordSet);
 
+let enWordSet = new Set();
+        enWordSet.add("relational_dbs_performance");
+        enWordSet.add("mysql_vs_postgres");
+    searchMap.set("en", enWordSet);
+
 let internalsWordSet = new Set();
         internalsWordSet.add("mongo_db");
     searchMap.set("internals", internalsWordSet);
+
+let searchedWordSet = new Set();
+        searchedWordSet.add("mysql_vs_postgres");
+    searchMap.set("searched", searchedWordSet);
+
+let phantomWordSet = new Set();
+        phantomWordSet.add("acid_internally");
+    searchMap.set("phantom", phantomWordSet);
 
 let neverWordSet = new Set();
         neverWordSet.add("persuasion");
         neverWordSet.add("mongo_db");
         neverWordSet.add("relational_dbs_performance");
+        neverWordSet.add("mysql_vs_postgres");
     searchMap.set("never", neverWordSet);
-
-let phantomWordSet = new Set();
-        phantomWordSet.add("acid_internally");
-    searchMap.set("phantom", phantomWordSet);
 
 let failoverWordSet = new Set();
         failoverWordSet.add("mongo_db");
@@ -7155,6 +7987,7 @@ let partyWordSet = new Set();
     searchMap.set("party", partyWordSet);
 
 let howeverWordSet = new Set();
+        howeverWordSet.add("mysql_vs_postgres");
         howeverWordSet.add("acid_internally");
     searchMap.set("however", howeverWordSet);
 
@@ -7173,17 +8006,18 @@ let fooWordSet = new Set();
 
 let forWordSet = new Set();
         forWordSet.add("thinking_fast_and_slow");
-        forWordSet.add("persuasion");
         forWordSet.add("career_crises");
         forWordSet.add("mongo_db");
-        forWordSet.add("interest");
         forWordSet.add("day_dreams");
+        forWordSet.add("sql_commands");
+        forWordSet.add("persuasion");
+        forWordSet.add("interest");
         forWordSet.add("devops");
         forWordSet.add("leadership");
         forWordSet.add("relational_dbs_performance");
+        forWordSet.add("mysql_vs_postgres");
         forWordSet.add("terraform");
         forWordSet.add("acid_internally");
-        forWordSet.add("sql_commands");
     searchMap.set("for", forWordSet);
 
 let mistakesWordSet = new Set();
@@ -7196,13 +8030,15 @@ let tripkeyWordSet = new Set();
         tripkeyWordSet.add("sql_commands");
     searchMap.set("tripkey", tripkeyWordSet);
 
-let contentWordSet = new Set();
-        contentWordSet.add("mongo_db");
-    searchMap.set("content", contentWordSet);
-
 let timeoutWordSet = new Set();
         timeoutWordSet.add("mongo_db");
+        timeoutWordSet.add("mysql_vs_postgres");
     searchMap.set("timeout", timeoutWordSet);
+
+let contentWordSet = new Set();
+        contentWordSet.add("mongo_db");
+        contentWordSet.add("mysql_vs_postgres");
+    searchMap.set("content", contentWordSet);
 
 let contactnameWordSet = new Set();
         contactnameWordSet.add("sql_commands");
@@ -7240,13 +8076,14 @@ let clientWordSet = new Set();
         clientWordSet.add("acid_internally");
     searchMap.set("client", clientWordSet);
 
-let overWordSet = new Set();
-        overWordSet.add("mongo_db");
-    searchMap.set("over", overWordSet);
-
 let digitalWordSet = new Set();
         digitalWordSet.add("about_the_digital_garden");
     searchMap.set("digital", digitalWordSet);
+
+let overWordSet = new Set();
+        overWordSet.add("mongo_db");
+        overWordSet.add("mysql_vs_postgres");
+    searchMap.set("over", overWordSet);
 
 let falseWordSet = new Set();
         falseWordSet.add("relational_dbs_performance");
@@ -7287,6 +8124,7 @@ let avoidWordSet = new Set();
 
 let significantlyWordSet = new Set();
         significantlyWordSet.add("relational_dbs_performance");
+        significantlyWordSet.add("mysql_vs_postgres");
     searchMap.set("significantly", significantlyWordSet);
 
 let subsetWordSet = new Set();
@@ -7313,8 +8151,17 @@ let veryWordSet = new Set();
         veryWordSet.add("relational_dbs_performance");
     searchMap.set("very", veryWordSet);
 
+let differenciesWordSet = new Set();
+        differenciesWordSet.add("mysql_vs_postgres");
+    searchMap.set("differencies", differenciesWordSet);
+
+let modesWordSet = new Set();
+        modesWordSet.add("mysql_vs_postgres");
+    searchMap.set("modes", modesWordSet);
+
 let selectWordSet = new Set();
         selectWordSet.add("relational_dbs_performance");
+        selectWordSet.add("mysql_vs_postgres");
         selectWordSet.add("acid_internally");
         selectWordSet.add("sql_commands");
     searchMap.set("select", selectWordSet);
@@ -7335,6 +8182,10 @@ let bitWordSet = new Set();
         bitWordSet.add("relational_dbs_performance");
     searchMap.set("bit", bitWordSet);
 
+let ctidsWordSet = new Set();
+        ctidsWordSet.add("mysql_vs_postgres");
+    searchMap.set("ctids", ctidsWordSet);
+
 let outputWordSet = new Set();
         outputWordSet.add("mongo_db");
     searchMap.set("output", outputWordSet);
@@ -7343,7 +8194,12 @@ let elseWordSet = new Set();
         elseWordSet.add("sql_commands");
     searchMap.set("else", elseWordSet);
 
+let fourWordSet = new Set();
+        fourWordSet.add("mysql_vs_postgres");
+    searchMap.set("four", fourWordSet);
+
 let contextWordSet = new Set();
+        contextWordSet.add("mysql_vs_postgres");
         contextWordSet.add("acid_internally");
     searchMap.set("context", contextWordSet);
 
@@ -7382,6 +8238,7 @@ let adocWordSet = new Set();
         adocWordSet.add("leadership");
         adocWordSet.add("relational_dbs_performance");
         adocWordSet.add("tech_books");
+        adocWordSet.add("mysql_vs_postgres");
         adocWordSet.add("terraform");
         adocWordSet.add("choice");
         adocWordSet.add("acid_internally");
@@ -7394,17 +8251,19 @@ let joinWordSet = new Set();
         joinWordSet.add("sql_commands");
     searchMap.set("join", joinWordSet);
 
-let httpsWordSet = new Set();
-        httpsWordSet.add("mongo_db");
-        httpsWordSet.add("relational_dbs_performance");
-    searchMap.set("https", httpsWordSet);
-
 let idWordSet = new Set();
         idWordSet.add("mongo_db");
         idWordSet.add("relational_dbs_performance");
+        idWordSet.add("mysql_vs_postgres");
         idWordSet.add("acid_internally");
         idWordSet.add("sql_commands");
     searchMap.set("id", idWordSet);
+
+let httpsWordSet = new Set();
+        httpsWordSet.add("mongo_db");
+        httpsWordSet.add("relational_dbs_performance");
+        httpsWordSet.add("mysql_vs_postgres");
+    searchMap.set("https", httpsWordSet);
 
 let ieWordSet = new Set();
         ieWordSet.add("mongo_db");
@@ -7417,6 +8276,7 @@ let ifWordSet = new Set();
         ifWordSet.add("interest");
         ifWordSet.add("day_dreams");
         ifWordSet.add("relational_dbs_performance");
+        ifWordSet.add("mysql_vs_postgres");
         ifWordSet.add("terraform");
         ifWordSet.add("choice");
         ifWordSet.add("acid_internally");
@@ -7433,6 +8293,7 @@ let reduceWordSet = new Set();
 
 let largeWordSet = new Set();
         largeWordSet.add("mongo_db");
+        largeWordSet.add("mysql_vs_postgres");
     searchMap.set("large", largeWordSet);
 
 let dependencyWordSet = new Set();
@@ -7446,11 +8307,16 @@ let inWordSet = new Set();
         inWordSet.add("mongo_db");
         inWordSet.add("interest");
         inWordSet.add("relational_dbs_performance");
+        inWordSet.add("mysql_vs_postgres");
         inWordSet.add("terraform");
         inWordSet.add("choice");
         inWordSet.add("acid_internally");
         inWordSet.add("sql_commands");
     searchMap.set("in", inWordSet);
+
+let literallyWordSet = new Set();
+        literallyWordSet.add("mysql_vs_postgres");
+    searchMap.set("literally", literallyWordSet);
 
 let ipWordSet = new Set();
         ipWordSet.add("mongo_db");
@@ -7463,6 +8329,7 @@ let lowerWordSet = new Set();
 let indexWordSet = new Set();
         indexWordSet.add("mongo_db");
         indexWordSet.add("relational_dbs_performance");
+        indexWordSet.add("mysql_vs_postgres");
         indexWordSet.add("about_the_digital_garden");
         indexWordSet.add("acid_internally");
     searchMap.set("index", indexWordSet);
@@ -7479,6 +8346,7 @@ let isWordSet = new Set();
         isWordSet.add("interest");
         isWordSet.add("leadership");
         isWordSet.add("relational_dbs_performance");
+        isWordSet.add("mysql_vs_postgres");
         isWordSet.add("terraform");
         isWordSet.add("choice");
         isWordSet.add("acid_internally");
@@ -7492,6 +8360,7 @@ let itWordSet = new Set();
         itWordSet.add("interest");
         itWordSet.add("day_dreams");
         itWordSet.add("relational_dbs_performance");
+        itWordSet.add("mysql_vs_postgres");
         itWordSet.add("terraform");
         itWordSet.add("choice");
         itWordSet.add("acid_internally");
@@ -7500,6 +8369,7 @@ let itWordSet = new Set();
 
 let transactionsWordSet = new Set();
         transactionsWordSet.add("mongo_db");
+        transactionsWordSet.add("mysql_vs_postgres");
         transactionsWordSet.add("acid_internally");
     searchMap.set("transactions", transactionsWordSet);
 
@@ -7509,7 +8379,12 @@ let placekeyWordSet = new Set();
 
 let contrastWordSet = new Set();
         contrastWordSet.add("relational_dbs_performance");
+        contrastWordSet.add("mysql_vs_postgres");
     searchMap.set("contrast", contrastWordSet);
+
+let tuplesWordSet = new Set();
+        tuplesWordSet.add("mysql_vs_postgres");
+    searchMap.set("tuples", tuplesWordSet);
 
 let beginWordSet = new Set();
         beginWordSet.add("mongo_db");
@@ -7522,6 +8397,7 @@ let becomeWordSet = new Set();
         becomeWordSet.add("interest");
         becomeWordSet.add("day_dreams");
         becomeWordSet.add("relational_dbs_performance");
+        becomeWordSet.add("mysql_vs_postgres");
         becomeWordSet.add("choice");
     searchMap.set("become", becomeWordSet);
 
@@ -7531,6 +8407,7 @@ let customizedWordSet = new Set();
 
 let worksWordSet = new Set();
         worksWordSet.add("persuasion");
+        worksWordSet.add("mysql_vs_postgres");
         worksWordSet.add("acid_internally");
         worksWordSet.add("sql_commands");
     searchMap.set("works", worksWordSet);
@@ -7546,6 +8423,14 @@ let jqWordSet = new Set();
 let wildcardsWordSet = new Set();
         wildcardsWordSet.add("sql_commands");
     searchMap.set("wildcards", wildcardsWordSet);
+
+let occurrenceWordSet = new Set();
+        occurrenceWordSet.add("mysql_vs_postgres");
+    searchMap.set("occurrence", occurrenceWordSet);
+
+let minimizedWordSet = new Set();
+        minimizedWordSet.add("mysql_vs_postgres");
+    searchMap.set("minimized", minimizedWordSet);
 
 let cycleWordSet = new Set();
         cycleWordSet.add("acid_internally");
@@ -7586,6 +8471,7 @@ let implementationsWordSet = new Set();
 let tableWordSet = new Set();
         tableWordSet.add("relational_dbs_performance");
         tableWordSet.add("toc");
+        tableWordSet.add("mysql_vs_postgres");
         tableWordSet.add("terraform");
         tableWordSet.add("acid_internally");
         tableWordSet.add("sql_commands");
@@ -7604,6 +8490,7 @@ let implementingWordSet = new Set();
 let changeWordSet = new Set();
         changeWordSet.add("mongo_db");
         changeWordSet.add("relational_dbs_performance");
+        changeWordSet.add("mysql_vs_postgres");
         changeWordSet.add("terraform");
         changeWordSet.add("sql_commands");
     searchMap.set("change", changeWordSet);
@@ -7619,6 +8506,10 @@ let offWordSet = new Set();
 let generallyWordSet = new Set();
         generallyWordSet.add("mongo_db");
     searchMap.set("generally", generallyWordSet);
+
+let verboseWordSet = new Set();
+        verboseWordSet.add("mysql_vs_postgres");
+    searchMap.set("verbose", verboseWordSet);
 
 let hideWordSet = new Set();
         hideWordSet.add("mongo_db");
@@ -7648,6 +8539,7 @@ let consciousWordSet = new Set();
 
 let transactionWordSet = new Set();
         transactionWordSet.add("mongo_db");
+        transactionWordSet.add("mysql_vs_postgres");
         transactionWordSet.add("acid_internally");
         transactionWordSet.add("sql_commands");
     searchMap.set("transaction", transactionWordSet);
@@ -7685,6 +8577,7 @@ let severalWordSet = new Set();
 
 let whileWordSet = new Set();
         whileWordSet.add("mongo_db");
+        whileWordSet.add("mysql_vs_postgres");
         whileWordSet.add("acid_internally");
     searchMap.set("while", whileWordSet);
 
@@ -7700,23 +8593,29 @@ let secondWordSet = new Set();
         secondWordSet.add("thinking_fast_and_slow");
         secondWordSet.add("mongo_db");
         secondWordSet.add("relational_dbs_performance");
+        secondWordSet.add("mysql_vs_postgres");
         secondWordSet.add("acid_internally");
         secondWordSet.add("sql_commands");
     searchMap.set("second", secondWordSet);
 
+let pausesWordSet = new Set();
+        pausesWordSet.add("mysql_vs_postgres");
+    searchMap.set("pauses", pausesWordSet);
+
 let thatWordSet = new Set();
         thatWordSet.add("thinking_fast_and_slow");
-        thatWordSet.add("persuasion");
         thatWordSet.add("career_crises");
         thatWordSet.add("mongo_db");
-        thatWordSet.add("interest");
         thatWordSet.add("day_dreams");
+        thatWordSet.add("sql_commands");
+        thatWordSet.add("persuasion");
+        thatWordSet.add("interest");
         thatWordSet.add("leadership");
         thatWordSet.add("relational_dbs_performance");
+        thatWordSet.add("mysql_vs_postgres");
         thatWordSet.add("terraform");
         thatWordSet.add("choice");
         thatWordSet.add("acid_internally");
-        thatWordSet.add("sql_commands");
     searchMap.set("that", thatWordSet);
 
 let fasterWordSet = new Set();
@@ -7754,6 +8653,7 @@ let thanWordSet = new Set();
         thanWordSet.add("persuasion");
         thanWordSet.add("mongo_db");
         thanWordSet.add("relational_dbs_performance");
+        thanWordSet.add("mysql_vs_postgres");
         thanWordSet.add("sql_commands");
     searchMap.set("than", thanWordSet);
 
@@ -7769,19 +8669,21 @@ let meWordSet = new Set();
         meWordSet.add("name_me");
     searchMap.set("me", meWordSet);
 
-let directlyWordSet = new Set();
-        directlyWordSet.add("relational_dbs_performance");
-        directlyWordSet.add("acid_internally");
-    searchMap.set("directly", directlyWordSet);
-
 let differentWordSet = new Set();
         differentWordSet.add("career_crises");
         differentWordSet.add("mongo_db");
         differentWordSet.add("relational_dbs_performance");
+        differentWordSet.add("mysql_vs_postgres");
         differentWordSet.add("terraform");
         differentWordSet.add("acid_internally");
         differentWordSet.add("sql_commands");
     searchMap.set("different", differentWordSet);
+
+let directlyWordSet = new Set();
+        directlyWordSet.add("relational_dbs_performance");
+        directlyWordSet.add("mysql_vs_postgres");
+        directlyWordSet.add("acid_internally");
+    searchMap.set("directly", directlyWordSet);
 
 let communicationWordSet = new Set();
         communicationWordSet.add("leadership");
@@ -7798,6 +8700,7 @@ let mmWordSet = new Set();
 let levelWordSet = new Set();
         levelWordSet.add("mongo_db");
         levelWordSet.add("relational_dbs_performance");
+        levelWordSet.add("mysql_vs_postgres");
         levelWordSet.add("acid_internally");
         levelWordSet.add("programming");
     searchMap.set("level", levelWordSet);
@@ -7845,6 +8748,10 @@ let entryWordSet = new Set();
         entryWordSet.add("relational_dbs_performance");
     searchMap.set("entry", entryWordSet);
 
+let diskWordSet = new Set();
+        diskWordSet.add("mysql_vs_postgres");
+    searchMap.set("disk", diskWordSet);
+
 let dreamWordSet = new Set();
         dreamWordSet.add("how_to_find_you_career");
         dreamWordSet.add("day_dreams");
@@ -7879,6 +8786,10 @@ let noWordSet = new Set();
         noWordSet.add("sql_commands");
     searchMap.set("no", noWordSet);
 
+let behindWordSet = new Set();
+        behindWordSet.add("mysql_vs_postgres");
+    searchMap.set("behind", behindWordSet);
+
 let codeWordSet = new Set();
         codeWordSet.add("relational_dbs_performance");
     searchMap.set("code", codeWordSet);
@@ -7886,11 +8797,17 @@ let codeWordSet = new Set();
 let keysWordSet = new Set();
         keysWordSet.add("mongo_db");
         keysWordSet.add("relational_dbs_performance");
+        keysWordSet.add("mysql_vs_postgres");
     searchMap.set("keys", keysWordSet);
+
+let mixedWordSet = new Set();
+        mixedWordSet.add("mysql_vs_postgres");
+    searchMap.set("mixed", mixedWordSet);
 
 let storageWordSet = new Set();
         storageWordSet.add("mongo_db");
         storageWordSet.add("relational_dbs_performance");
+        storageWordSet.add("mysql_vs_postgres");
         storageWordSet.add("terraform");
     searchMap.set("storage", storageWordSet);
 
@@ -7906,6 +8823,7 @@ let switchWordSet = new Set();
 let sqlWordSet = new Set();
         sqlWordSet.add("relational_dbs");
         sqlWordSet.add("relational_dbs_performance");
+        sqlWordSet.add("mysql_vs_postgres");
         sqlWordSet.add("acid_internally");
         sqlWordSet.add("programming");
         sqlWordSet.add("sql_commands");
@@ -7926,6 +8844,7 @@ let ofWordSet = new Set();
         ofWordSet.add("persuasion");
         ofWordSet.add("interest");
         ofWordSet.add("relational_dbs_performance");
+        ofWordSet.add("mysql_vs_postgres");
         ofWordSet.add("terraform");
         ofWordSet.add("choice");
         ofWordSet.add("acid_internally");
@@ -7958,6 +8877,7 @@ let onWordSet = new Set();
         onWordSet.add("mongo_db");
         onWordSet.add("interest");
         onWordSet.add("relational_dbs_performance");
+        onWordSet.add("mysql_vs_postgres");
         onWordSet.add("terraform");
         onWordSet.add("acid_internally");
         onWordSet.add("sql_commands");
@@ -7986,6 +8906,7 @@ let orWordSet = new Set();
         orWordSet.add("mongo_db");
         orWordSet.add("day_dreams");
         orWordSet.add("relational_dbs_performance");
+        orWordSet.add("mysql_vs_postgres");
         orWordSet.add("terraform");
         orWordSet.add("choice");
         orWordSet.add("acid_internally");
@@ -8000,6 +8921,10 @@ let determineWordSet = new Set();
 let socialWordSet = new Set();
         socialWordSet.add("thinking_fast_and_slow");
     searchMap.set("social", socialWordSet);
+
+let problematicWordSet = new Set();
+        problematicWordSet.add("mysql_vs_postgres");
+    searchMap.set("problematic", problematicWordSet);
 
 let interestingWordSet = new Set();
         interestingWordSet.add("interest");
@@ -8025,6 +8950,10 @@ let ozWordSet = new Set();
 let immidiatlyWordSet = new Set();
         immidiatlyWordSet.add("mongo_db");
     searchMap.set("immidiatly", immidiatlyWordSet);
+
+let offsetsWordSet = new Set();
+        offsetsWordSet.add("mysql_vs_postgres");
+    searchMap.set("offsets", offsetsWordSet);
 
 let ofternWordSet = new Set();
         ofternWordSet.add("mongo_db");
@@ -8083,6 +9012,10 @@ let speakingWordSet = new Set();
         speakingWordSet.add("relational_dbs_performance");
     searchMap.set("speaking", speakingWordSet);
 
+let extremelyWordSet = new Set();
+        extremelyWordSet.add("mysql_vs_postgres");
+    searchMap.set("extremely", extremelyWordSet);
+
 let rollbacksWordSet = new Set();
         rollbacksWordSet.add("mongo_db");
     searchMap.set("rollbacks", rollbacksWordSet);
@@ -8097,6 +9030,7 @@ let availiablityWordSet = new Set();
 
 let theyWordSet = new Set();
         theyWordSet.add("relational_dbs_performance");
+        theyWordSet.add("mysql_vs_postgres");
         theyWordSet.add("acid_internally");
     searchMap.set("they", theyWordSet);
 
@@ -8106,6 +9040,7 @@ let githubWordSet = new Set();
 
 let oldWordSet = new Set();
         oldWordSet.add("mongo_db");
+        oldWordSet.add("mysql_vs_postgres");
         oldWordSet.add("acid_internally");
     searchMap.set("old", oldWordSet);
 
@@ -8114,6 +9049,7 @@ let themWordSet = new Set();
         themWordSet.add("persuasion");
         themWordSet.add("mongo_db");
         themWordSet.add("relational_dbs_performance");
+        themWordSet.add("mysql_vs_postgres");
         themWordSet.add("about_the_digital_garden");
         themWordSet.add("acid_internally");
         themWordSet.add("sql_commands");
@@ -8123,18 +9059,20 @@ let thenWordSet = new Set();
         thenWordSet.add("persuasion");
         thenWordSet.add("mongo_db");
         thenWordSet.add("relational_dbs_performance");
+        thenWordSet.add("mysql_vs_postgres");
         thenWordSet.add("acid_internally");
         thenWordSet.add("sql_commands");
     searchMap.set("then", thenWordSet);
 
-let secondaryWordSet = new Set();
-        secondaryWordSet.add("mongo_db");
-        secondaryWordSet.add("relational_dbs_performance");
-    searchMap.set("secondary", secondaryWordSet);
-
 let uncommittedWordSet = new Set();
         uncommittedWordSet.add("acid_internally");
     searchMap.set("uncommitted", uncommittedWordSet);
+
+let secondaryWordSet = new Set();
+        secondaryWordSet.add("mongo_db");
+        secondaryWordSet.add("relational_dbs_performance");
+        secondaryWordSet.add("mysql_vs_postgres");
+    searchMap.set("secondary", secondaryWordSet);
 
 let nodeWordSet = new Set();
         nodeWordSet.add("mongo_db");
@@ -8154,15 +9092,16 @@ let reWordSet = new Set();
         reWordSet.add("choice");
     searchMap.set("re", reWordSet);
 
-let startingWordSet = new Set();
-        startingWordSet.add("relational_dbs_performance");
-        startingWordSet.add("terraform");
-    searchMap.set("starting", startingWordSet);
-
 let conditionsWordSet = new Set();
         conditionsWordSet.add("relational_dbs_performance");
         conditionsWordSet.add("acid_internally");
     searchMap.set("conditions", conditionsWordSet);
+
+let startingWordSet = new Set();
+        startingWordSet.add("relational_dbs_performance");
+        startingWordSet.add("mysql_vs_postgres");
+        startingWordSet.add("terraform");
+    searchMap.set("starting", startingWordSet);
 
 let subsetsWordSet = new Set();
         subsetsWordSet.add("relational_dbs_performance");
@@ -8180,6 +9119,7 @@ let subWordSet = new Set();
 let accessWordSet = new Set();
         accessWordSet.add("mongo_db");
         accessWordSet.add("relational_dbs_performance");
+        accessWordSet.add("mysql_vs_postgres");
         accessWordSet.add("acid_internally");
         accessWordSet.add("sql_commands");
     searchMap.set("access", accessWordSet);
@@ -8221,6 +9161,10 @@ let shWordSet = new Set();
         shWordSet.add("mongo_db");
     searchMap.set("sh", shWordSet);
 
+let varietyWordSet = new Set();
+        varietyWordSet.add("mysql_vs_postgres");
+    searchMap.set("variety", varietyWordSet);
+
 let myisamWordSet = new Set();
         myisamWordSet.add("relational_dbs_performance");
     searchMap.set("myisam", myisamWordSet);
@@ -8232,28 +9176,38 @@ let soWordSet = new Set();
         soWordSet.add("mongo_db");
         soWordSet.add("interest");
         soWordSet.add("relational_dbs_performance");
+        soWordSet.add("mysql_vs_postgres");
         soWordSet.add("terraform");
         soWordSet.add("acid_internally");
         soWordSet.add("sql_commands");
     searchMap.set("so", soWordSet);
 
-let postgresWordSet = new Set();
-        postgresWordSet.add("acid_internally");
-    searchMap.set("postgres", postgresWordSet);
-
 let keyWordSet = new Set();
         keyWordSet.add("mongo_db");
         keyWordSet.add("relational_dbs_performance");
+        keyWordSet.add("mysql_vs_postgres");
         keyWordSet.add("terraform");
         keyWordSet.add("acid_internally");
     searchMap.set("key", keyWordSet);
 
+let postgresWordSet = new Set();
+        postgresWordSet.add("relational_dbs");
+        postgresWordSet.add("mysql_vs_postgres");
+        postgresWordSet.add("acid_internally");
+    searchMap.set("postgres", postgresWordSet);
+
+let situationsWordSet = new Set();
+        situationsWordSet.add("mysql_vs_postgres");
+    searchMap.set("situations", situationsWordSet);
+
 let rollbackWordSet = new Set();
         rollbackWordSet.add("mongo_db");
+        rollbackWordSet.add("mysql_vs_postgres");
     searchMap.set("rollback", rollbackWordSet);
 
 let maintainsWordSet = new Set();
         maintainsWordSet.add("mongo_db");
+        maintainsWordSet.add("mysql_vs_postgres");
         maintainsWordSet.add("acid_internally");
     searchMap.set("maintains", maintainsWordSet);
 
@@ -8276,6 +9230,7 @@ let readanydatabaseWordSet = new Set();
 let oneWordSet = new Set();
         oneWordSet.add("mongo_db");
         oneWordSet.add("relational_dbs_performance");
+        oneWordSet.add("mysql_vs_postgres");
         oneWordSet.add("terraform");
         oneWordSet.add("acid_internally");
         oneWordSet.add("sql_commands");
@@ -8289,6 +9244,7 @@ let makesWordSet = new Set();
         makesWordSet.add("mongo_db");
         makesWordSet.add("interest");
         makesWordSet.add("relational_dbs_performance");
+        makesWordSet.add("mysql_vs_postgres");
         makesWordSet.add("acid_internally");
     searchMap.set("makes", makesWordSet);
 
@@ -8316,6 +9272,10 @@ let singleWordSet = new Set();
         singleWordSet.add("sql_commands");
     searchMap.set("single", singleWordSet);
 
+let bugWordSet = new Set();
+        bugWordSet.add("mysql_vs_postgres");
+    searchMap.set("bug", bugWordSet);
+
 let secsWordSet = new Set();
         secsWordSet.add("mongo_db");
     searchMap.set("secs", secsWordSet);
@@ -8337,12 +9297,17 @@ let toWordSet = new Set();
         toWordSet.add("interest");
         toWordSet.add("leadership");
         toWordSet.add("relational_dbs_performance");
+        toWordSet.add("mysql_vs_postgres");
         toWordSet.add("terraform");
         toWordSet.add("choice");
         toWordSet.add("acid_internally");
         toWordSet.add("non-fiction_books");
         toWordSet.add("programming");
     searchMap.set("to", toWordSet);
+
+let partiallyWordSet = new Set();
+        partiallyWordSet.add("mysql_vs_postgres");
+    searchMap.set("partially", partiallyWordSet);
 
 let joinsWordSet = new Set();
         joinsWordSet.add("relational_dbs_performance");
@@ -8354,6 +9319,7 @@ let butWordSet = new Set();
         butWordSet.add("mongo_db");
         butWordSet.add("day_dreams");
         butWordSet.add("relational_dbs_performance");
+        butWordSet.add("mysql_vs_postgres");
         butWordSet.add("terraform");
         butWordSet.add("choice");
         butWordSet.add("acid_internally");
@@ -8390,6 +9356,10 @@ let differntWordSet = new Set();
         differntWordSet.add("mongo_db");
     searchMap.set("differnt", differntWordSet);
 
+let availableWordSet = new Set();
+        availableWordSet.add("mysql_vs_postgres");
+    searchMap.set("available", availableWordSet);
+
 let rulesWordSet = new Set();
         rulesWordSet.add("acid_internally");
     searchMap.set("rules", rulesWordSet);
@@ -8410,18 +9380,23 @@ let aproachWordSet = new Set();
         aproachWordSet.add("relational_dbs_performance");
     searchMap.set("aproach", aproachWordSet);
 
-let zeroWordSet = new Set();
-        zeroWordSet.add("mongo_db");
-        zeroWordSet.add("sql_commands");
-    searchMap.set("zero", zeroWordSet);
-
 let advertismentWordSet = new Set();
         advertismentWordSet.add("career_crises");
     searchMap.set("advertisment", advertismentWordSet);
 
+let zeroWordSet = new Set();
+        zeroWordSet.add("mongo_db");
+        zeroWordSet.add("mysql_vs_postgres");
+        zeroWordSet.add("sql_commands");
+    searchMap.set("zero", zeroWordSet);
+
 let secondoriesWordSet = new Set();
         secondoriesWordSet.add("mongo_db");
     searchMap.set("secondories", secondoriesWordSet);
+
+let trivialWordSet = new Set();
+        trivialWordSet.add("mysql_vs_postgres");
+    searchMap.set("trivial", trivialWordSet);
 
 let ukWordSet = new Set();
         ukWordSet.add("sql_commands");
@@ -8441,20 +9416,25 @@ let detailsWordSet = new Set();
         detailsWordSet.add("relational_dbs_performance");
     searchMap.set("details", detailsWordSet);
 
-let upWordSet = new Set();
-        upWordSet.add("mongo_db");
-        upWordSet.add("relational_dbs_performance");
-    searchMap.set("up", upWordSet);
-
 let writtenWordSet = new Set();
         writtenWordSet.add("mongo_db");
         writtenWordSet.add("acid_internally");
         writtenWordSet.add("sql_commands");
     searchMap.set("written", writtenWordSet);
 
+let upWordSet = new Set();
+        upWordSet.add("mongo_db");
+        upWordSet.add("relational_dbs_performance");
+        upWordSet.add("mysql_vs_postgres");
+    searchMap.set("up", upWordSet);
+
 let generateWordSet = new Set();
         generateWordSet.add("relational_dbs_performance");
     searchMap.set("generate", generateWordSet);
+
+let unusualWordSet = new Set();
+        unusualWordSet.add("mysql_vs_postgres");
+    searchMap.set("unusual", unusualWordSet);
 
 let somereadwriteuserWordSet = new Set();
         somereadwriteuserWordSet.add("mongo_db");
@@ -8485,15 +9465,16 @@ let thisWordSet = new Set();
         thisWordSet.add("thinking_fast_and_slow");
         thisWordSet.add("career_crises");
         thisWordSet.add("mongo_db");
+        thisWordSet.add("toc");
+        thisWordSet.add("about_the_digital_garden");
+        thisWordSet.add("sql_commands");
         thisWordSet.add("performance");
         thisWordSet.add("interest");
         thisWordSet.add("relational_dbs_performance");
-        thisWordSet.add("toc");
-        thisWordSet.add("about_the_digital_garden");
+        thisWordSet.add("mysql_vs_postgres");
         thisWordSet.add("choice");
         thisWordSet.add("acid_internally");
         thisWordSet.add("non-fiction_books");
-        thisWordSet.add("sql_commands");
     searchMap.set("this", thisWordSet);
 
 let modulesWordSet = new Set();
@@ -8518,6 +9499,7 @@ let seesWordSet = new Set();
 
 let onceWordSet = new Set();
         onceWordSet.add("relational_dbs_performance");
+        onceWordSet.add("mysql_vs_postgres");
         onceWordSet.add("acid_internally");
     searchMap.set("once", onceWordSet);
 
@@ -8546,15 +9528,18 @@ let regionWordSet = new Set();
         regionWordSet.add("terraform");
     searchMap.set("region", regionWordSet);
 
-let vsWordSet = new Set();
-        vsWordSet.add("mongo_db");
-        vsWordSet.add("relational_dbs_performance");
-    searchMap.set("vs", vsWordSet);
-
 let supportWordSet = new Set();
         supportWordSet.add("mongo_db");
         supportWordSet.add("relational_dbs_performance");
+        supportWordSet.add("mysql_vs_postgres");
     searchMap.set("support", supportWordSet);
+
+let vsWordSet = new Set();
+        vsWordSet.add("relational_dbs");
+        vsWordSet.add("mongo_db");
+        vsWordSet.add("relational_dbs_performance");
+        vsWordSet.add("mysql_vs_postgres");
+    searchMap.set("vs", vsWordSet);
 
 let textscoreWordSet = new Set();
         textscoreWordSet.add("mongo_db");
@@ -8568,6 +9553,7 @@ let changedWordSet = new Set();
         changedWordSet.add("career_crises");
         changedWordSet.add("mongo_db");
         changedWordSet.add("relational_dbs_performance");
+        changedWordSet.add("mysql_vs_postgres");
         changedWordSet.add("choice");
         changedWordSet.add("acid_internally");
     searchMap.set("changed", changedWordSet);
@@ -8576,17 +9562,23 @@ let dropWordSet = new Set();
         dropWordSet.add("mongo_db");
     searchMap.set("drop", dropWordSet);
 
+let implementsWordSet = new Set();
+        implementsWordSet.add("mysql_vs_postgres");
+    searchMap.set("implements", implementsWordSet);
+
 let survivorshipWordSet = new Set();
         survivorshipWordSet.add("career_crises");
     searchMap.set("survivorship", survivorshipWordSet);
 
 let doingWordSet = new Set();
+        doingWordSet.add("mysql_vs_postgres");
         doingWordSet.add("choice");
         doingWordSet.add("acid_internally");
     searchMap.set("doing", doingWordSet);
 
 let recordsWordSet = new Set();
         recordsWordSet.add("relational_dbs_performance");
+        recordsWordSet.add("mysql_vs_postgres");
         recordsWordSet.add("sql_commands");
     searchMap.set("records", recordsWordSet);
 
@@ -8604,6 +9596,7 @@ let ideaWordSet = new Set();
 let changesWordSet = new Set();
         changesWordSet.add("career_crises");
         changesWordSet.add("mongo_db");
+        changesWordSet.add("mysql_vs_postgres");
         changesWordSet.add("terraform");
         changesWordSet.add("acid_internally");
     searchMap.set("changes", changesWordSet);
@@ -8622,6 +9615,7 @@ let weWordSet = new Set();
         weWordSet.add("career_crises");
         weWordSet.add("mongo_db");
         weWordSet.add("relational_dbs_performance");
+        weWordSet.add("mysql_vs_postgres");
         weWordSet.add("acid_internally");
         weWordSet.add("sql_commands");
     searchMap.set("we", weWordSet);
@@ -8667,12 +9661,18 @@ let casesWordSet = new Set();
         casesWordSet.add("acid_internally");
     searchMap.set("cases", casesWordSet);
 
+let slightWordSet = new Set();
+        slightWordSet.add("mysql_vs_postgres");
+    searchMap.set("slight", slightWordSet);
+
 let previousWordSet = new Set();
+        previousWordSet.add("mysql_vs_postgres");
         previousWordSet.add("acid_internally");
     searchMap.set("previous", previousWordSet);
 
 let orgWordSet = new Set();
         orgWordSet.add("mongo_db");
+        orgWordSet.add("mysql_vs_postgres");
     searchMap.set("org", orgWordSet);
 
 let readingWordSet = new Set();
@@ -8694,6 +9694,7 @@ let succeedWordSet = new Set();
 
 let migrationWordSet = new Set();
         migrationWordSet.add("mongo_db");
+        migrationWordSet.add("mysql_vs_postgres");
     searchMap.set("migration", migrationWordSet);
 
 let initiatingWordSet = new Set();
@@ -8702,6 +9703,7 @@ let initiatingWordSet = new Set();
 
 let locationWordSet = new Set();
         locationWordSet.add("mongo_db");
+        locationWordSet.add("mysql_vs_postgres");
     searchMap.set("location", locationWordSet);
 
 let clusteradminWordSet = new Set();
@@ -8709,12 +9711,17 @@ let clusteradminWordSet = new Set();
     searchMap.set("clusteradmin", clusteradminWordSet);
 
 let heldWordSet = new Set();
+        heldWordSet.add("mysql_vs_postgres");
         heldWordSet.add("acid_internally");
     searchMap.set("held", heldWordSet);
 
 let backedWordSet = new Set();
         backedWordSet.add("terraform");
     searchMap.set("backed", backedWordSet);
+
+let prviousWordSet = new Set();
+        prviousWordSet.add("mysql_vs_postgres");
+    searchMap.set("prvious", prviousWordSet);
 
 let foregroundWordSet = new Set();
         foregroundWordSet.add("mongo_db");
@@ -8749,6 +9756,7 @@ let secondsWordSet = new Set();
 let problemWordSet = new Set();
         problemWordSet.add("mongo_db");
         problemWordSet.add("relational_dbs_performance");
+        problemWordSet.add("mysql_vs_postgres");
         problemWordSet.add("acid_internally");
     searchMap.set("problem", problemWordSet);
 
@@ -8768,8 +9776,13 @@ let roadWordSet = new Set();
         roadWordSet.add("thinking_fast_and_slow");
     searchMap.set("road", roadWordSet);
 
+let scansWordSet = new Set();
+        scansWordSet.add("mysql_vs_postgres");
+    searchMap.set("scans", scansWordSet);
+
 let connectionWordSet = new Set();
         connectionWordSet.add("mongo_db");
+        connectionWordSet.add("mysql_vs_postgres");
     searchMap.set("connection", connectionWordSet);
 
 let nobodyWordSet = new Set();
@@ -8778,6 +9791,7 @@ let nobodyWordSet = new Set();
 
 let betweenWordSet = new Set();
         betweenWordSet.add("mongo_db");
+        betweenWordSet.add("mysql_vs_postgres");
         betweenWordSet.add("acid_internally");
         betweenWordSet.add("sql_commands");
     searchMap.set("between", betweenWordSet);
@@ -8787,6 +9801,7 @@ let geowithingWordSet = new Set();
     searchMap.set("geowithing", geowithingWordSet);
 
 let phaseWordSet = new Set();
+        phaseWordSet.add("mysql_vs_postgres");
         phaseWordSet.add("acid_internally");
     searchMap.set("phase", phaseWordSet);
 
@@ -8850,6 +9865,10 @@ let driversWordSet = new Set();
         driversWordSet.add("mongo_db");
     searchMap.set("drivers", driversWordSet);
 
+let vacuumingWordSet = new Set();
+        vacuumingWordSet.add("mysql_vs_postgres");
+    searchMap.set("vacuuming", vacuumingWordSet);
+
 let localizeWordSet = new Set();
         localizeWordSet.add("thinking_fast_and_slow");
     searchMap.set("localize", localizeWordSet);
@@ -8887,6 +9906,10 @@ let ourWordSet = new Set();
         ourWordSet.add("persuasion");
     searchMap.set("our", ourWordSet);
 
+let toolsWordSet = new Set();
+        toolsWordSet.add("mysql_vs_postgres");
+    searchMap.set("tools", toolsWordSet);
+
 let copeWordSet = new Set();
         copeWordSet.add("mongo_db");
     searchMap.set("cope", copeWordSet);
@@ -8894,6 +9917,7 @@ let copeWordSet = new Set();
 let outWordSet = new Set();
         outWordSet.add("thinking_fast_and_slow");
         outWordSet.add("mongo_db");
+        outWordSet.add("mysql_vs_postgres");
         outWordSet.add("choice");
         outWordSet.add("acid_internally");
     searchMap.set("out", outWordSet);
@@ -8914,6 +9938,10 @@ let featureWordSet = new Set();
         featureWordSet.add("mongo_db");
     searchMap.set("feature", featureWordSet);
 
+let blockedWordSet = new Set();
+        blockedWordSet.add("mysql_vs_postgres");
+    searchMap.set("blocked", blockedWordSet);
+
 let operatorsWordSet = new Set();
         operatorsWordSet.add("sql_commands");
     searchMap.set("operators", operatorsWordSet);
@@ -8923,20 +9951,23 @@ let getWordSet = new Set();
         getWordSet.add("persuasion");
         getWordSet.add("mongo_db");
         getWordSet.add("relational_dbs_performance");
+        getWordSet.add("mysql_vs_postgres");
     searchMap.set("get", getWordSet);
-
-let placeWordSet = new Set();
-        placeWordSet.add("choice");
-        placeWordSet.add("sql_commands");
-    searchMap.set("place", placeWordSet);
 
 let powerWordSet = new Set();
         powerWordSet.add("persuasion");
         powerWordSet.add("relational_dbs_performance");
     searchMap.set("power", powerWordSet);
 
+let placeWordSet = new Set();
+        placeWordSet.add("mysql_vs_postgres");
+        placeWordSet.add("choice");
+        placeWordSet.add("sql_commands");
+    searchMap.set("place", placeWordSet);
+
 let copyWordSet = new Set();
         copyWordSet.add("mongo_db");
+        copyWordSet.add("mysql_vs_postgres");
         copyWordSet.add("acid_internally");
         copyWordSet.add("sql_commands");
     searchMap.set("copy", copyWordSet);
@@ -8944,6 +9975,10 @@ let copyWordSet = new Set();
 let regularWordSet = new Set();
         regularWordSet.add("mongo_db");
     searchMap.set("regular", regularWordSet);
+
+let occupyingWordSet = new Set();
+        occupyingWordSet.add("mysql_vs_postgres");
+    searchMap.set("occupying", occupyingWordSet);
 
 let biggerWordSet = new Set();
         biggerWordSet.add("mongo_db");
@@ -8983,13 +10018,18 @@ let depthWordSet = new Set();
         depthWordSet.add("relational_dbs_performance");
     searchMap.set("depth", depthWordSet);
 
-let additionallyWordSet = new Set();
-        additionallyWordSet.add("mongo_db");
-    searchMap.set("additionally", additionallyWordSet);
-
 let elementsWordSet = new Set();
         elementsWordSet.add("mongo_db");
     searchMap.set("elements", elementsWordSet);
+
+let additionallyWordSet = new Set();
+        additionallyWordSet.add("mongo_db");
+        additionallyWordSet.add("mysql_vs_postgres");
+    searchMap.set("additionally", additionallyWordSet);
+
+let endedWordSet = new Set();
+        endedWordSet.add("mysql_vs_postgres");
+    searchMap.set("ended", endedWordSet);
 
 let locatedWordSet = new Set();
         locatedWordSet.add("mongo_db");
@@ -8999,6 +10039,10 @@ let selfWordSet = new Set();
         selfWordSet.add("sql_commands");
     searchMap.set("self", selfWordSet);
 
+let architecturalWordSet = new Set();
+        architecturalWordSet.add("mysql_vs_postgres");
+    searchMap.set("architectural", architecturalWordSet);
+
 let queueWordSet = new Set();
         queueWordSet.add("mongo_db");
     searchMap.set("queue", queueWordSet);
@@ -9006,6 +10050,7 @@ let queueWordSet = new Set();
 let dateWordSet = new Set();
         dateWordSet.add("mongo_db");
         dateWordSet.add("relational_dbs_performance");
+        dateWordSet.add("mysql_vs_postgres");
     searchMap.set("date", dateWordSet);
 
 let dbadminanydatabaseWordSet = new Set();
@@ -9019,6 +10064,7 @@ let totaldocsexaminedWordSet = new Set();
 let dataWordSet = new Set();
         dataWordSet.add("mongo_db");
         dataWordSet.add("relational_dbs_performance");
+        dataWordSet.add("mysql_vs_postgres");
         dataWordSet.add("acid_internally");
     searchMap.set("data", dataWordSet);
 
@@ -9026,21 +10072,27 @@ let startbalancerWordSet = new Set();
         startbalancerWordSet.add("mongo_db");
     searchMap.set("startbalancer", startbalancerWordSet);
 
-let ownWordSet = new Set();
-        ownWordSet.add("mongo_db");
-    searchMap.set("own", ownWordSet);
-
-let wikiWordSet = new Set();
-        wikiWordSet.add("mongo_db");
-    searchMap.set("wiki", wikiWordSet);
-
 let soundWordSet = new Set();
         soundWordSet.add("thinking_fast_and_slow");
     searchMap.set("sound", soundWordSet);
 
+let ownWordSet = new Set();
+        ownWordSet.add("mongo_db");
+        ownWordSet.add("mysql_vs_postgres");
+    searchMap.set("own", ownWordSet);
+
+let wikiWordSet = new Set();
+        wikiWordSet.add("mongo_db");
+        wikiWordSet.add("mysql_vs_postgres");
+    searchMap.set("wiki", wikiWordSet);
+
 let salesWordSet = new Set();
         salesWordSet.add("relational_dbs_performance");
     searchMap.set("sales", salesWordSet);
+
+let escalateWordSet = new Set();
+        escalateWordSet.add("mysql_vs_postgres");
+    searchMap.set("escalate", escalateWordSet);
 
 let growingWordSet = new Set();
         growingWordSet.add("relational_dbs_performance");
@@ -9049,16 +10101,6 @@ let growingWordSet = new Set();
 let plainWordSet = new Set();
         plainWordSet.add("terraform");
     searchMap.set("plain", plainWordSet);
-
-let onlyWordSet = new Set();
-        onlyWordSet.add("thinking_fast_and_slow");
-        onlyWordSet.add("mongo_db");
-        onlyWordSet.add("relational_dbs_performance");
-        onlyWordSet.add("about_the_digital_garden");
-        onlyWordSet.add("choice");
-        onlyWordSet.add("acid_internally");
-        onlyWordSet.add("sql_commands");
-    searchMap.set("only", onlyWordSet);
 
 let shouldWordSet = new Set();
         shouldWordSet.add("thinking_fast_and_slow");
@@ -9071,6 +10113,17 @@ let shouldWordSet = new Set();
         shouldWordSet.add("acid_internally");
         shouldWordSet.add("sql_commands");
     searchMap.set("should", shouldWordSet);
+
+let onlyWordSet = new Set();
+        onlyWordSet.add("thinking_fast_and_slow");
+        onlyWordSet.add("mongo_db");
+        onlyWordSet.add("relational_dbs_performance");
+        onlyWordSet.add("mysql_vs_postgres");
+        onlyWordSet.add("about_the_digital_garden");
+        onlyWordSet.add("choice");
+        onlyWordSet.add("acid_internally");
+        onlyWordSet.add("sql_commands");
+    searchMap.set("only", onlyWordSet);
 
 let createWordSet = new Set();
         createWordSet.add("mongo_db");
@@ -9086,6 +10139,10 @@ let collationWordSet = new Set();
 let tagWordSet = new Set();
         tagWordSet.add("mongo_db");
     searchMap.set("tag", tagWordSet);
+
+let blowWordSet = new Set();
+        blowWordSet.add("mysql_vs_postgres");
+    searchMap.set("blow", blowWordSet);
 
 let versaWordSet = new Set();
         versaWordSet.add("acid_internally");
@@ -9114,6 +10171,7 @@ let likeWordSet = new Set();
         likeWordSet.add("day_dreams");
         likeWordSet.add("relational_dbs_performance");
         likeWordSet.add("toc");
+        likeWordSet.add("mysql_vs_postgres");
         likeWordSet.add("about_the_digital_garden");
         likeWordSet.add("choice");
         likeWordSet.add("acid_internally");
@@ -9121,30 +10179,31 @@ let likeWordSet = new Set();
     searchMap.set("like", likeWordSet);
 
 let konoplevWordSet = new Set();
-        konoplevWordSet.add("thinking_fast_and_slow");
         konoplevWordSet.add("relational_dbs");
         konoplevWordSet.add("career_crises");
-        konoplevWordSet.add("mongo_db");
         konoplevWordSet.add("how_to_find_you_career");
         konoplevWordSet.add("day_dreams");
         konoplevWordSet.add("toc");
         konoplevWordSet.add("about_the_digital_garden");
+        konoplevWordSet.add("soft_skills");
+        konoplevWordSet.add("interest");
+        konoplevWordSet.add("devops");
+        konoplevWordSet.add("leadership");
+        konoplevWordSet.add("tech_books");
+        konoplevWordSet.add("acid_internally");
+        konoplevWordSet.add("non-fiction_books");
+        konoplevWordSet.add("programming");
+        konoplevWordSet.add("thinking_fast_and_slow");
+        konoplevWordSet.add("mongo_db");
         konoplevWordSet.add("how_to_create_a_python_project");
         konoplevWordSet.add("name_me");
         konoplevWordSet.add("sql_commands");
         konoplevWordSet.add("persuasion");
         konoplevWordSet.add("performance");
-        konoplevWordSet.add("soft_skills");
-        konoplevWordSet.add("interest");
-        konoplevWordSet.add("devops");
-        konoplevWordSet.add("leadership");
         konoplevWordSet.add("relational_dbs_performance");
-        konoplevWordSet.add("tech_books");
+        konoplevWordSet.add("mysql_vs_postgres");
         konoplevWordSet.add("terraform");
         konoplevWordSet.add("choice");
-        konoplevWordSet.add("acid_internally");
-        konoplevWordSet.add("non-fiction_books");
-        konoplevWordSet.add("programming");
     searchMap.set("konoplev", konoplevWordSet);
 
 let goesWordSet = new Set();
@@ -9173,6 +10232,10 @@ let personWordSet = new Set();
         personWordSet.add("choice");
     searchMap.set("person", personWordSet);
 
+let purposesWordSet = new Set();
+        purposesWordSet.add("mysql_vs_postgres");
+    searchMap.set("purposes", purposesWordSet);
+
 let safeWordSet = new Set();
         safeWordSet.add("mongo_db");
         safeWordSet.add("acid_internally");
@@ -9194,6 +10257,7 @@ let sendWordSet = new Set();
     searchMap.set("send", sendWordSet);
 
 let potentiallyWordSet = new Set();
+        potentiallyWordSet.add("mysql_vs_postgres");
         potentiallyWordSet.add("terraform");
         potentiallyWordSet.add("acid_internally");
     searchMap.set("potentially", potentiallyWordSet);
@@ -9236,6 +10300,7 @@ let distinctWordSet = new Set();
 
 let recoveryWordSet = new Set();
         recoveryWordSet.add("mongo_db");
+        recoveryWordSet.add("mysql_vs_postgres");
     searchMap.set("recovery", recoveryWordSet);
 
 let terminatesWordSet = new Set();
@@ -9250,6 +10315,7 @@ let canWordSet = new Set();
         canWordSet.add("interest");
         canWordSet.add("day_dreams");
         canWordSet.add("relational_dbs_performance");
+        canWordSet.add("mysql_vs_postgres");
         canWordSet.add("choice");
         canWordSet.add("acid_internally");
         canWordSet.add("sql_commands");
@@ -9274,6 +10340,10 @@ let gitWordSet = new Set();
 let carWordSet = new Set();
         carWordSet.add("thinking_fast_and_slow");
     searchMap.set("car", carWordSet);
+
+let eligibleWordSet = new Set();
+        eligibleWordSet.add("mysql_vs_postgres");
+    searchMap.set("eligible", eligibleWordSet);
 
 let saidWordSet = new Set();
         saidWordSet.add("persuasion");
@@ -9302,6 +10372,7 @@ let limitedWordSet = new Set();
 let willWordSet = new Set();
         willWordSet.add("mongo_db");
         willWordSet.add("relational_dbs_performance");
+        willWordSet.add("mysql_vs_postgres");
         willWordSet.add("terraform");
         willWordSet.add("acid_internally");
         willWordSet.add("sql_commands");
@@ -9359,8 +10430,13 @@ let correspondingWordSet = new Set();
         correspondingWordSet.add("sql_commands");
     searchMap.set("corresponding", correspondingWordSet);
 
+let responseWordSet = new Set();
+        responseWordSet.add("mysql_vs_postgres");
+    searchMap.set("response", responseWordSet);
+
 let locationsWordSet = new Set();
         locationsWordSet.add("relational_dbs_performance");
+        locationsWordSet.add("mysql_vs_postgres");
     searchMap.set("locations", locationsWordSet);
 
 let wildWordSet = new Set();
