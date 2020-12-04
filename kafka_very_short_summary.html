@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kafka very short summary</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/pace.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/lc_gif_player.css">
+
+    <!-- js -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+</head>
+
+<body id="single">
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="index.html"><b>Konoplev's</b> garden</a></h1>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="index.html" data-hover="Garden">Garden</a></li>
+                            <li class="cl-effect-11"><a href="http://konoplev.me" data-hover="Blog">Blog</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <input type="search" placeholder="Search" required class="search-input">
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- col-md-8 -->
+        </div>
+    </header>
+</div>
+
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-12">
+                <div id="content-holder">
+                    <article class="post post-1">
+                        <header class="entry-header">
+                            <h1 class="entry-title">Kafka very short summary</h1>
+                            <div class="entry-meta">
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="2020-12-03T23:00:00Z">Dec 4, 2020</time></a></span>
+
+                                <span class="post-category">
+                                                                        <a href="queues.html"> #queues</a>
+                                                                        <a href="programming.html"> #programming</a>
+                                                                    </span>
+
+                                                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>As short as possible description</p>
+</div>
+<div class="paragraph">
+<p>This is pub/sub mechanism.</p>
+</div>
+<div class="paragraph">
+<p>Producers write to topics, consumers read from topics.</p>
+</div>
+<div class="paragraph">
+<p>Topics are split to partitions. Each partition has a leader</p>
+</div>
+<div class="paragraph">
+<p>Producer produces a batch of messages to topic. Any message could have a key. Body of the message is binary.
+Topics can be on different brockers, because each topic is broken into partitions. Partition can be chosen by key.
+Kafka is just a transport. Which partition to choose decides producer. If key is absent the partition is random. You can implement your own decision (see Partitioner interface)</p>
+</div>
+<div class="paragraph">
+<p>Consumers are grouped into consumer group. Each consumer reads from its own set of topics.
+Each consumer commits current offset to \__consumer_offsets topic. The partitions assigned to consumers according to Range or RoundRobin algorithm (could be custom also). It&#8217;s configured on client side. On server side there is a brocker which controles the whole group. And there is a main consumer on client side which controls the whole group. If some consumer doesn&#8217;t send hard beats for a long time it considered as dead and repartitioning is happened.</p>
+</div>
+<div class="paragraph">
+<p>Different consumer groups allows to read the same messages by different consumers.</p>
+</div>
+<div class="paragraph">
+<p>For each topic it’s own retention policy can be chosen. It can be by time or size. Also topic could have a log compaction (We have only last message of each key. Older messages are removed)</p>
+</div>
+<div class="paragraph">
+<p>To remove some key completely a producer sends a key with null value. It’s called tomb stone. All other messages with this key are removed and this message is kept for configurable amount of time to let consumers know that the key is removed.
+MirrorMaker - producer and consumer. Read from one data center and send to another</p>
+</div>
+<div class="paragraph">
+<p>Cluster configuration. Each broker at startup tries to become a controller. Only one can. The first one is a controller. All other creates a watch on path /controller. Controller is responsible for electing partition leaders. Partition leader is the broker that writes messages to partition, all other brokers with this partition are replicas. Each controller has its own epoch number through Zookeper conditional increment operation. Each broker knows the epoch number. So if epoch number in controllers command is lower then broker ignore it.</p>
+</div>
+<div class="paragraph">
+<p>Each broker register ephemeral node on path /brokers/ID. The can’t be two brokers with the same id. Different Kafka components subscribe to this path, so the can be notified if some broker is out. Even broker is out its id is used in other places. In topic replicas for example. If some broker is down and another one with the same id is up, it’s assigned to the topics.</p>
+</div>
+<div class="paragraph">
+<p>Replication. Each replica send exactly the same commands to master as consumer send.</p>
+</div>
+<div class="paragraph">
+<p>If master doesn’t receive Fetch request from one of the replicas its marked out of sync. It can’be elected for a new leader.</p>
+</div>
+<div class="paragraph">
+<p>Preferred leader - oldest insync replica!</p>
+</div>
+<div class="paragraph">
+<p>Producer and consumer communicates only with a replica leader. If leader is unavailable client blocks and requests metadata of the cluster to know a new leader.</p>
+</div>
+<div class="paragraph">
+<p>Wire consent - ack 0, 1 or all (in sync replicas). All messages are stored in Linux cache. So nobody waits until the cache is purged to disk. If consern only 1 or 0 broker responded imidiatly. If not waiting until replicas send acks. The messages are in purgatory until all acks received and ack is sent back to client.</p>
+</div>
+<div class="paragraph">
+<p>Fetch. Consumer request size of the messages it can process. If offset requested by client doesn’t exists (too old and removed for example) a broker respond with fail.</p>
+</div>
+<div class="paragraph">
+<p>Broker respond to consumer with zero copy - ie simply copy data from file system or Linux cache to network without additional buffers.
+Brocker never sends messages which are not copied to enough in sync replicas. It doesn’t allow consumers to read messages which can be lost because of broker failure. Lag in replication is a lag in consuming.</p>
+</div>
+<div class="paragraph">
+<p>Partition management:
+Controller tries to split partitions evenly between brockers (leader/replica) and racks within brockers.</p>
+</div>
+<div class="paragraph">
+<p>Each partition is a directory with segments (1Gb by default). After a segment is full a new segment is created. Active segment is never removed even if retention policy says it. Kafka writes in append only which is very fast. Offset is kept as a separate index.
+Brocker keep a file descriptor for each segment (even old) opened. It could lead to too many open files error.</p>
+</div>
+<div class="paragraph">
+<p>Each message has a metadata. Most important is compression method. Broker never decompress messages it sent them to consumer as is.
+Client usually send a batch. In this case the whole batch is compressed. And it is sent to consumer as is. On consumer side it’s decompressed and consumer has all messages with there time stamps and offsets. It’s called wrapper message. Wrapper message has its own offset.
+That’s why it’s recommended to use compression on producers side.
+WHAT IF CONSUMER REQUESTED SMALLER AMMOUNT OF MESSAGES THAN THE SIZE OF A WRAPPER MESSAGE?
+Indexes are also split into segments. If index is corrupted or lost it can be created by simply reading a file</p>
+</div>
+<div class="paragraph">
+<p>By default it’s allowed out of sync replica to become a leader if the are no other in sync replicas. If it happens we lose messages which were not replicated from failed leader to out of sync replica.</p>
+</div>
+<div class="paragraph">
+<p>We can set minimum in sync replicas. If there less in sync replicas than this value leader can’t process any requests.</p>
+</div>
+<div class="paragraph">
+<p>To don’t lose a message a producer should send messages with write consern 3 and be able to handle Leader Not Availiable.</p>
+</div>
+<div class="paragraph">
+<p>Ack 3 doesn’t guarantee exactly once. It guarantees at least once. Brocker could be able to write and replicate the message, but was not able to send ack back because producer become unavailable (network partitioning for example)
+READ ABOUT EXACTLY ONCE DELIVERY IN KAFKA</p>
+</div>
+<div class="paragraph">
+<p>Auto.offset.reset It could lead to reading messages twice or lose messages. If we don’t know the offset we could read from beginning or from the end. Both are bad.
+To be consistent the consumer should commit offset only when the messages are really processed, not just read.</p>
+</div>
+<div class="paragraph">
+<p>If you failed to process message 30 but processed 31 don’t commit 31. You will never read message 30 again. What you can do is to retry message 30, or store to buffer or a separate topic for retries.</p>
+</div>
+<div class="paragraph">
+<p>Kafka Connect write data to Kafka from external databases or from Kafka to external databases.
+Works in standalone or distributed mode. In distributed mode a worker has connectors and tasks.
+Connector - read configuration from worker, determine how many tasks it needed, decided how to split data-copying work between tasks.</p>
+</div>
+<div class="paragraph">
+<p>Multi cluster
+Hub and spokes. Main data center has all data mirrored from other data centers</p>
+</div>
+<div class="paragraph">
+<p>Active-Active
+It’s better to create a topic per data center. Events-Us and Events-Eu. In this case messages are not mixed by MirrorMaker</p>
+</div>
+<div class="paragraph">
+<p>Active-Standby
+Only for disaster</p>
+</div>
+<div class="paragraph">
+<p>Kafka stream. Allows to manage a state.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="queues.html">Parent</a></p>
+</div>
+</div>
+</div>
+                        </div>
+                        <div class="height-40px"></div>
+                        <div>
+                            <div id="remark42" aria-live="polite">
+                                <noscript>Please enable JavaScript to view the comments</noscript>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy; 2020 Konoplev.me</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Garden</a></li>
+            <li><a href="http://konoplev.me">Blog</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script src="js/script.js" type="module"></script>
+<script>
+    var remark_config = {
+        host: "https://comments.konoplev.me",
+        site_id: 'konoplev',
+    };
+
+    (function (c) {
+        for (var i = 0; i < c.length; i++) {
+            var d = document, s = d.createElement('script');
+            s.src = remark_config.host + '/web/' + c[i] + '.js';
+            s.defer = true;
+            (d.head || d.body).appendChild(s);
+        }
+    })(remark_config.components || ['embed']);
+</script>
+
+</body>
+</html>
