@@ -8,6 +8,14 @@ text: `Mistakes, advices and ways to find a business you'll like
 date: "Fri Oct 09 00:00:00 CEST 2020",
 tags: [ {name: '', fileName: ''}, ]
 });
+            filesMap.set("kafka_in_action_summary", {
+filename: "kafka_in_action_summary",
+title: "Kafka in action summary",
+text: `Summary of Kafka in action book
+`,
+date: "Fri Dec 04 00:00:00 CET 2020",
+tags: [ {name: 'queues', fileName: 'queues'},  {name: 'programming', fileName: 'programming'}, ]
+});
         filesMap.set("name_me", {
 filename: "name_me",
 title: "Name me",
@@ -159,14 +167,6 @@ text: `The only mistake is to postpone the choice because you're not sure.
 date: "Fri Oct 09 00:00:00 CEST 2020",
 tags: [ {name: '', fileName: ''}, ]
 });
-            filesMap.set("kafka_in_action_summary", {
-filename: "kafka_in_action_summary",
-title: "Kafka in action summary",
-text: `Summary of Kafka in action book
-`,
-date: "Fri Dec 04 00:00:00 CET 2020",
-tags: [ {name: 'queues', fileName: 'queues'},  {name: 'programming', fileName: 'programming'}, ]
-});
         filesMap.set("interest", {
 filename: "interest",
 title: "Interest",
@@ -296,15 +296,15 @@ let salaryWordSet = new Set();
         salaryWordSet.add("sql_commands");
     searchMap.set("salary", salaryWordSet);
 
-let explanationWordSet = new Set();
-        explanationWordSet.add("kafka_in_action_summary");
-    searchMap.set("explanation", explanationWordSet);
-
 let remoteWordSet = new Set();
         remoteWordSet.add("mongo_db");
         remoteWordSet.add("kafka_in_action_summary");
         remoteWordSet.add("terraform");
     searchMap.set("remote", remoteWordSet);
+
+let explanationWordSet = new Set();
+        explanationWordSet.add("kafka_in_action_summary");
+    searchMap.set("explanation", explanationWordSet);
 
 let slowerWordSet = new Set();
         slowerWordSet.add("mongo_db");
@@ -389,6 +389,13 @@ let circularWordSet = new Set();
         circularWordSet.add("mongo_db");
     searchMap.set("circular", circularWordSet);
 
+let requireWordSet = new Set();
+        requireWordSet.add("kafka_in_action_summary");
+        requireWordSet.add("interest");
+        requireWordSet.add("mysql_vs_postgres");
+        requireWordSet.add("acid_internally");
+    searchMap.set("require", requireWordSet);
+
 let requaredWordSet = new Set();
         requaredWordSet.add("kafka_in_action_summary");
     searchMap.set("requared", requaredWordSet);
@@ -397,12 +404,10 @@ let optionalWordSet = new Set();
         optionalWordSet.add("kafka_in_action_summary");
     searchMap.set("optional", optionalWordSet);
 
-let requireWordSet = new Set();
-        requireWordSet.add("kafka_in_action_summary");
-        requireWordSet.add("interest");
-        requireWordSet.add("mysql_vs_postgres");
-        requireWordSet.add("acid_internally");
-    searchMap.set("require", requireWordSet);
+let appliesWordSet = new Set();
+        appliesWordSet.add("mongo_db");
+        appliesWordSet.add("mysql_vs_postgres");
+    searchMap.set("applies", appliesWordSet);
 
 let repliesWordSet = new Set();
         repliesWordSet.add("kafka_in_action_summary");
@@ -419,21 +424,16 @@ let sizeWordSet = new Set();
         sizeWordSet.add("kafka_very_short_summary");
     searchMap.set("size", sizeWordSet);
 
-let appliesWordSet = new Set();
-        appliesWordSet.add("mongo_db");
-        appliesWordSet.add("mysql_vs_postgres");
-    searchMap.set("applies", appliesWordSet);
-
-let senderWordSet = new Set();
-        senderWordSet.add("kafka_in_action_summary");
-    searchMap.set("sender", senderWordSet);
-
 let leftWordSet = new Set();
         leftWordSet.add("kafka_in_action_summary");
         leftWordSet.add("relational_dbs_performance");
         leftWordSet.add("comparing_different_queues");
         leftWordSet.add("sql_commands");
     searchMap.set("left", leftWordSet);
+
+let senderWordSet = new Set();
+        senderWordSet.add("kafka_in_action_summary");
+    searchMap.set("sender", senderWordSet);
 
 let externallyWordSet = new Set();
         externallyWordSet.add("kafka_in_action_summary");
@@ -602,16 +602,16 @@ let connectWordSet = new Set();
         connectWordSet.add("kafka_very_short_summary");
     searchMap.set("connect", connectWordSet);
 
-let policyWordSet = new Set();
-        policyWordSet.add("kafka_in_action_summary");
-        policyWordSet.add("kafka_very_short_summary");
-    searchMap.set("policy", policyWordSet);
-
 let handWordSet = new Set();
         handWordSet.add("kafka_in_action_summary");
         handWordSet.add("relational_dbs_performance");
         handWordSet.add("mysql_vs_postgres");
     searchMap.set("hand", handWordSet);
+
+let policyWordSet = new Set();
+        policyWordSet.add("kafka_in_action_summary");
+        policyWordSet.add("kafka_very_short_summary");
+    searchMap.set("policy", policyWordSet);
 
 let resumeWordSet = new Set();
         resumeWordSet.add("kafka_in_action_summary");
@@ -645,6 +645,10 @@ let aWordSet = new Set();
         aWordSet.add("kafka_very_short_summary");
     searchMap.set("a", aWordSet);
 
+let queueusWordSet = new Set();
+        queueusWordSet.add("comparing_different_queues");
+    searchMap.set("queueus", queueusWordSet);
+
 let bWordSet = new Set();
         bWordSet.add("persuasion");
         bWordSet.add("mongo_db");
@@ -653,10 +657,6 @@ let bWordSet = new Set();
         bWordSet.add("acid_internally");
         bWordSet.add("sql_commands");
     searchMap.set("b", bWordSet);
-
-let queueusWordSet = new Set();
-        queueusWordSet.add("comparing_different_queues");
-    searchMap.set("queueus", queueusWordSet);
 
 let committedWordSet = new Set();
         committedWordSet.add("kafka_in_action_summary");
@@ -706,14 +706,14 @@ let eWordSet = new Set();
         eWordSet.add("acid_internally");
     searchMap.set("e", eWordSet);
 
+let kernelWordSet = new Set();
+        kernelWordSet.add("mysql_vs_postgres");
+    searchMap.set("kernel", kernelWordSet);
+
 let fWordSet = new Set();
         fWordSet.add("kafka_in_action_summary");
         fWordSet.add("sql_commands");
     searchMap.set("f", fWordSet);
-
-let kernelWordSet = new Set();
-        kernelWordSet.add("mysql_vs_postgres");
-    searchMap.set("kernel", kernelWordSet);
 
 let gWordSet = new Set();
         gWordSet.add("kafka_in_action_summary");
@@ -745,19 +745,19 @@ let kWordSet = new Set();
         kWordSet.add("sql_commands");
     searchMap.set("k", kWordSet);
 
-let mWordSet = new Set();
-        mWordSet.add("kafka_in_action_summary");
-        mWordSet.add("how_to_create_a_python_project");
-        mWordSet.add("choice");
-        mWordSet.add("sql_commands");
-    searchMap.set("m", mWordSet);
-
 let queriesWordSet = new Set();
         queriesWordSet.add("mongo_db");
         queriesWordSet.add("relational_dbs_performance");
         queriesWordSet.add("comparing_different_queues");
         queriesWordSet.add("mysql_vs_postgres");
     searchMap.set("queries", queriesWordSet);
+
+let mWordSet = new Set();
+        mWordSet.add("kafka_in_action_summary");
+        mWordSet.add("how_to_create_a_python_project");
+        mWordSet.add("choice");
+        mWordSet.add("sql_commands");
+    searchMap.set("m", mWordSet);
 
 let nWordSet = new Set();
         nWordSet.add("mongo_db");
@@ -905,17 +905,13 @@ let obviousWordSet = new Set();
         obviousWordSet.add("sql_commands");
     searchMap.set("obvious", obviousWordSet);
 
-let daysWordSet = new Set();
-        daysWordSet.add("kafka_in_action_summary");
-    searchMap.set("days", daysWordSet);
-
 let persistenceWordSet = new Set();
         persistenceWordSet.add("comparing_different_queues");
     searchMap.set("persistence", persistenceWordSet);
 
-let zWordSet = new Set();
-        zWordSet.add("kafka_in_action_summary");
-    searchMap.set("z", zWordSet);
+let daysWordSet = new Set();
+        daysWordSet.add("kafka_in_action_summary");
+    searchMap.set("days", daysWordSet);
 
 let informationWordSet = new Set();
         informationWordSet.add("mongo_db");
@@ -923,6 +919,10 @@ let informationWordSet = new Set();
         informationWordSet.add("leadership");
         informationWordSet.add("mysql_vs_postgres");
     searchMap.set("information", informationWordSet);
+
+let zWordSet = new Set();
+        zWordSet.add("kafka_in_action_summary");
+    searchMap.set("z", zWordSet);
 
 let returnedWordSet = new Set();
         returnedWordSet.add("mongo_db");
@@ -956,14 +956,14 @@ let keywordsWordSet = new Set();
         keywordsWordSet.add("relational_dbs_performance");
     searchMap.set("keywords", keywordsWordSet);
 
-let correctWordSet = new Set();
-        correctWordSet.add("kafka_in_action_summary");
-    searchMap.set("correct", correctWordSet);
-
 let resolveWordSet = new Set();
         resolveWordSet.add("acid_internally");
         resolveWordSet.add("sql_commands");
     searchMap.set("resolve", resolveWordSet);
+
+let correctWordSet = new Set();
+        correctWordSet.add("kafka_in_action_summary");
+    searchMap.set("correct", correctWordSet);
 
 let readerWordSet = new Set();
         readerWordSet.add("acid_internally");
@@ -973,10 +973,6 @@ let journalingWordSet = new Set();
         journalingWordSet.add("mongo_db");
     searchMap.set("journaling", journalingWordSet);
 
-let gotWordSet = new Set();
-        gotWordSet.add("kafka_in_action_summary");
-    searchMap.set("got", gotWordSet);
-
 let goodWordSet = new Set();
         goodWordSet.add("thinking_fast_and_slow");
         goodWordSet.add("mongo_db");
@@ -984,16 +980,20 @@ let goodWordSet = new Set();
         goodWordSet.add("relational_dbs_performance");
     searchMap.set("good", goodWordSet);
 
-let deployWordSet = new Set();
-        deployWordSet.add("mongo_db");
-        deployWordSet.add("kafka_in_action_summary");
-    searchMap.set("deploy", deployWordSet);
+let gotWordSet = new Set();
+        gotWordSet.add("kafka_in_action_summary");
+    searchMap.set("got", gotWordSet);
 
 let emptyWordSet = new Set();
         emptyWordSet.add("thinking_fast_and_slow");
         emptyWordSet.add("mongo_db");
         emptyWordSet.add("acid_internally");
     searchMap.set("empty", emptyWordSet);
+
+let deployWordSet = new Set();
+        deployWordSet.add("mongo_db");
+        deployWordSet.add("kafka_in_action_summary");
+    searchMap.set("deploy", deployWordSet);
 
 let wishWordSet = new Set();
         wishWordSet.add("kafka_in_action_summary");
@@ -1027,13 +1027,13 @@ let implementWordSet = new Set();
         implementWordSet.add("kafka_very_short_summary");
     searchMap.set("implement", implementWordSet);
 
-let skippingWordSet = new Set();
-        skippingWordSet.add("kafka_in_action_summary");
-    searchMap.set("skipping", skippingWordSet);
-
 let lremWordSet = new Set();
         lremWordSet.add("comparing_different_queues");
     searchMap.set("lrem", lremWordSet);
+
+let skippingWordSet = new Set();
+        skippingWordSet.add("kafka_in_action_summary");
+    searchMap.set("skipping", skippingWordSet);
 
 let allplansexecutionWordSet = new Set();
         allplansexecutionWordSet.add("mongo_db");
@@ -1141,15 +1141,15 @@ let formatsWordSet = new Set();
         formatsWordSet.add("kafka_in_action_summary");
     searchMap.set("formats", formatsWordSet);
 
-let regionalWordSet = new Set();
-        regionalWordSet.add("kafka_in_action_summary");
-    searchMap.set("regional", regionalWordSet);
-
 let appliedWordSet = new Set();
         appliedWordSet.add("career_crises");
         appliedWordSet.add("mysql_vs_postgres");
         appliedWordSet.add("sql_commands");
     searchMap.set("applied", appliedWordSet);
+
+let regionalWordSet = new Set();
+        regionalWordSet.add("kafka_in_action_summary");
+    searchMap.set("regional", regionalWordSet);
 
 let germanyWordSet = new Set();
         germanyWordSet.add("sql_commands");
@@ -1301,8 +1301,8 @@ let performWordSet = new Set();
 
 let multipleWordSet = new Set();
         multipleWordSet.add("mongo_db");
-        multipleWordSet.add("dynamo_db");
         multipleWordSet.add("kafka_in_action_summary");
+        multipleWordSet.add("dynamo_db");
         multipleWordSet.add("relational_dbs_performance");
         multipleWordSet.add("comparing_different_queues");
         multipleWordSet.add("mysql_vs_postgres");
@@ -1322,10 +1322,6 @@ let tlbWordSet = new Set();
         tlbWordSet.add("mysql_vs_postgres");
     searchMap.set("tlb", tlbWordSet);
 
-let versusWordSet = new Set();
-        versusWordSet.add("kafka_in_action_summary");
-    searchMap.set("versus", versusWordSet);
-
 let roomWordSet = new Set();
         roomWordSet.add("thinking_fast_and_slow");
     searchMap.set("room", roomWordSet);
@@ -1335,17 +1331,21 @@ let shardingWordSet = new Set();
         shardingWordSet.add("comparing_different_queues");
     searchMap.set("sharding", shardingWordSet);
 
+let versusWordSet = new Set();
+        versusWordSet.add("kafka_in_action_summary");
+    searchMap.set("versus", versusWordSet);
+
 let geojsonWordSet = new Set();
         geojsonWordSet.add("mongo_db");
     searchMap.set("geojson", geojsonWordSet);
 
+let standartWordSet = new Set();
+        standartWordSet.add("comparing_different_queues");
+    searchMap.set("standart", standartWordSet);
+
 let avroconverterWordSet = new Set();
         avroconverterWordSet.add("kafka_in_action_summary");
     searchMap.set("avroconverter", avroconverterWordSet);
-
-let pdeWordSet = new Set();
-        pdeWordSet.add("kafka_in_action_summary");
-    searchMap.set("pde", pdeWordSet);
 
 let betterWordSet = new Set();
         betterWordSet.add("persuasion");
@@ -1356,9 +1356,9 @@ let betterWordSet = new Set();
         betterWordSet.add("kafka_very_short_summary");
     searchMap.set("better", betterWordSet);
 
-let standartWordSet = new Set();
-        standartWordSet.add("comparing_different_queues");
-    searchMap.set("standart", standartWordSet);
+let pdeWordSet = new Set();
+        pdeWordSet.add("kafka_in_action_summary");
+    searchMap.set("pde", pdeWordSet);
 
 let withWordSet = new Set();
         withWordSet.add("thinking_fast_and_slow");
@@ -1431,13 +1431,13 @@ let takingWordSet = new Set();
         takingWordSet.add("about_the_digital_garden");
     searchMap.set("taking", takingWordSet);
 
-let structWordSet = new Set();
-        structWordSet.add("kafka_in_action_summary");
-    searchMap.set("struct", structWordSet);
-
 let inconsistenWordSet = new Set();
         inconsistenWordSet.add("acid_internally");
     searchMap.set("inconsisten", inconsistenWordSet);
+
+let structWordSet = new Set();
+        structWordSet.add("kafka_in_action_summary");
+    searchMap.set("struct", structWordSet);
 
 let pupilsWordSet = new Set();
         pupilsWordSet.add("thinking_fast_and_slow");
@@ -1519,8 +1519,8 @@ let blockWordSet = new Set();
 let perWordSet = new Set();
         perWordSet.add("thinking_fast_and_slow");
         perWordSet.add("mongo_db");
-        perWordSet.add("dynamo_db");
         perWordSet.add("kafka_in_action_summary");
+        perWordSet.add("dynamo_db");
         perWordSet.add("comparing_different_queues");
         perWordSet.add("mysql_vs_postgres");
         perWordSet.add("kafka_very_short_summary");
@@ -1528,8 +1528,8 @@ let perWordSet = new Set();
 
 let writeWordSet = new Set();
         writeWordSet.add("mongo_db");
-        writeWordSet.add("dynamo_db");
         writeWordSet.add("kafka_in_action_summary");
+        writeWordSet.add("dynamo_db");
         writeWordSet.add("interest");
         writeWordSet.add("comparing_different_queues");
         writeWordSet.add("mysql_vs_postgres");
@@ -1541,6 +1541,10 @@ let flowWordSet = new Set();
         flowWordSet.add("mongo_db");
         flowWordSet.add("interest");
     searchMap.set("flow", flowWordSet);
+
+let cooperationWordSet = new Set();
+        cooperationWordSet.add("leadership");
+    searchMap.set("cooperation", cooperationWordSet);
 
 let avroWordSet = new Set();
         avroWordSet.add("kafka_in_action_summary");
@@ -1555,10 +1559,6 @@ let orderWordSet = new Set();
         orderWordSet.add("mysql_vs_postgres");
         orderWordSet.add("sql_commands");
     searchMap.set("order", orderWordSet);
-
-let cooperationWordSet = new Set();
-        cooperationWordSet.add("leadership");
-    searchMap.set("cooperation", cooperationWordSet);
 
 let periodWordSet = new Set();
         periodWordSet.add("mongo_db");
@@ -1611,13 +1611,6 @@ let evenWordSet = new Set();
         evenWordSet.add("kafka_very_short_summary");
     searchMap.set("even", evenWordSet);
 
-let kafkaWordSet = new Set();
-        kafkaWordSet.add("kafka_in_action_summary");
-        kafkaWordSet.add("queues");
-        kafkaWordSet.add("comparing_different_queues");
-        kafkaWordSet.add("kafka_very_short_summary");
-    searchMap.set("kafka", kafkaWordSet);
-
 let binaryWordSet = new Set();
         binaryWordSet.add("mongo_db");
         binaryWordSet.add("mysql_vs_postgres");
@@ -1627,6 +1620,13 @@ let binaryWordSet = new Set();
 let transparencyWordSet = new Set();
         transparencyWordSet.add("leadership");
     searchMap.set("transparency", transparencyWordSet);
+
+let kafkaWordSet = new Set();
+        kafkaWordSet.add("kafka_in_action_summary");
+        kafkaWordSet.add("queues");
+        kafkaWordSet.add("comparing_different_queues");
+        kafkaWordSet.add("kafka_very_short_summary");
+    searchMap.set("kafka", kafkaWordSet);
 
 let ordersWordSet = new Set();
         ordersWordSet.add("relational_dbs_performance");
@@ -1691,6 +1691,10 @@ let matterWordSet = new Set();
         matterWordSet.add("mongo_db");
     searchMap.set("matter", matterWordSet);
 
+let tupleWordSet = new Set();
+        tupleWordSet.add("mysql_vs_postgres");
+    searchMap.set("tuple", tupleWordSet);
+
 let indicatingWordSet = new Set();
         indicatingWordSet.add("kafka_in_action_summary");
     searchMap.set("indicating", indicatingWordSet);
@@ -1698,10 +1702,6 @@ let indicatingWordSet = new Set();
 let batchesWordSet = new Set();
         batchesWordSet.add("kafka_in_action_summary");
     searchMap.set("batches", batchesWordSet);
-
-let tupleWordSet = new Set();
-        tupleWordSet.add("mysql_vs_postgres");
-    searchMap.set("tuple", tupleWordSet);
 
 let topWordSet = new Set();
         topWordSet.add("mongo_db");
@@ -1766,15 +1766,15 @@ let cheapWordSet = new Set();
         cheapWordSet.add("mysql_vs_postgres");
     searchMap.set("cheap", cheapWordSet);
 
-let produceWordSet = new Set();
-        produceWordSet.add("kafka_in_action_summary");
-    searchMap.set("produce", produceWordSet);
-
 let inconsistentWordSet = new Set();
         inconsistentWordSet.add("mongo_db");
         inconsistentWordSet.add("kafka_in_action_summary");
         inconsistentWordSet.add("acid_internally");
     searchMap.set("inconsistent", inconsistentWordSet);
+
+let produceWordSet = new Set();
+        produceWordSet.add("kafka_in_action_summary");
+    searchMap.set("produce", produceWordSet);
 
 let winandWordSet = new Set();
         winandWordSet.add("relational_dbs_performance");
@@ -1843,10 +1843,6 @@ let preventsWordSet = new Set();
         preventsWordSet.add("acid_internally");
     searchMap.set("prevents", preventsWordSet);
 
-let mannerWordSet = new Set();
-        mannerWordSet.add("kafka_in_action_summary");
-    searchMap.set("manner", mannerWordSet);
-
 let deadlockWordSet = new Set();
         deadlockWordSet.add("acid_internally");
     searchMap.set("deadlock", deadlockWordSet);
@@ -1854,6 +1850,10 @@ let deadlockWordSet = new Set();
 let simplifiesWordSet = new Set();
         simplifiesWordSet.add("mysql_vs_postgres");
     searchMap.set("simplifies", simplifiesWordSet);
+
+let mannerWordSet = new Set();
+        mannerWordSet.add("kafka_in_action_summary");
+    searchMap.set("manner", mannerWordSet);
 
 let overloadedWordSet = new Set();
         overloadedWordSet.add("mongo_db");
@@ -1907,17 +1907,17 @@ let splitedWordSet = new Set();
         splitedWordSet.add("mongo_db");
     searchMap.set("splited", splitedWordSet);
 
-let functionWordSet = new Set();
-        functionWordSet.add("kafka_in_action_summary");
-        functionWordSet.add("sql_commands");
-    searchMap.set("function", functionWordSet);
-
 let membersWordSet = new Set();
         membersWordSet.add("mongo_db");
         membersWordSet.add("kafka_in_action_summary");
         membersWordSet.add("leadership");
         membersWordSet.add("terraform");
     searchMap.set("members", membersWordSet);
+
+let functionWordSet = new Set();
+        functionWordSet.add("kafka_in_action_summary");
+        functionWordSet.add("sql_commands");
+    searchMap.set("function", functionWordSet);
 
 let xyzWordSet = new Set();
         xyzWordSet.add("mysql_vs_postgres");
@@ -1961,10 +1961,6 @@ let fieldnamesWordSet = new Set();
         fieldnamesWordSet.add("mongo_db");
     searchMap.set("fieldnames", fieldnamesWordSet);
 
-let includingWordSet = new Set();
-        includingWordSet.add("kafka_in_action_summary");
-    searchMap.set("including", includingWordSet);
-
 let voidWordSet = new Set();
         voidWordSet.add("comparing_different_queues");
     searchMap.set("void", voidWordSet);
@@ -1974,15 +1970,19 @@ let comparisonWordSet = new Set();
         comparisonWordSet.add("sql_commands");
     searchMap.set("comparison", comparisonWordSet);
 
-let swapWordSet = new Set();
-        swapWordSet.add("kafka_in_action_summary");
-    searchMap.set("swap", swapWordSet);
+let includingWordSet = new Set();
+        includingWordSet.add("kafka_in_action_summary");
+    searchMap.set("including", includingWordSet);
 
 let everyoneWordSet = new Set();
         everyoneWordSet.add("career_crises");
         everyoneWordSet.add("kafka_in_action_summary");
         everyoneWordSet.add("choice");
     searchMap.set("everyone", everyoneWordSet);
+
+let swapWordSet = new Set();
+        swapWordSet.add("kafka_in_action_summary");
+    searchMap.set("swap", swapWordSet);
 
 let cpuWordSet = new Set();
         cpuWordSet.add("kafka_in_action_summary");
@@ -2095,15 +2095,15 @@ let reassignWordSet = new Set();
         reassignWordSet.add("kafka_in_action_summary");
     searchMap.set("reassign", reassignWordSet);
 
-let causeWordSet = new Set();
-        causeWordSet.add("kafka_in_action_summary");
-        causeWordSet.add("relational_dbs_performance");
-    searchMap.set("cause", causeWordSet);
-
 let techniqueWordSet = new Set();
         techniqueWordSet.add("kafka_in_action_summary");
         techniqueWordSet.add("acid_internally");
     searchMap.set("technique", techniqueWordSet);
+
+let causeWordSet = new Set();
+        causeWordSet.add("kafka_in_action_summary");
+        causeWordSet.add("relational_dbs_performance");
+    searchMap.set("cause", causeWordSet);
 
 let unwrittenWordSet = new Set();
         unwrittenWordSet.add("acid_internally");
@@ -2128,6 +2128,10 @@ let subdocumentsWordSet = new Set();
         subdocumentsWordSet.add("mongo_db");
     searchMap.set("subdocuments", subdocumentsWordSet);
 
+let attendingWordSet = new Set();
+        attendingWordSet.add("persuasion");
+    searchMap.set("attending", attendingWordSet);
+
 let extraWordSet = new Set();
         extraWordSet.add("mongo_db");
         extraWordSet.add("kafka_in_action_summary");
@@ -2136,10 +2140,6 @@ let extraWordSet = new Set();
 let busyWordSet = new Set();
         busyWordSet.add("kafka_in_action_summary");
     searchMap.set("busy", busyWordSet);
-
-let attendingWordSet = new Set();
-        attendingWordSet.add("persuasion");
-    searchMap.set("attending", attendingWordSet);
 
 let designWordSet = new Set();
         designWordSet.add("kafka_in_action_summary");
@@ -2230,15 +2230,15 @@ let fisicallyWordSet = new Set();
         fisicallyWordSet.add("mongo_db");
     searchMap.set("fisically", fisicallyWordSet);
 
-let interestedWordSet = new Set();
-        interestedWordSet.add("persuasion");
-        interestedWordSet.add("kafka_in_action_summary");
-    searchMap.set("interested", interestedWordSet);
-
 let machinesWordSet = new Set();
         machinesWordSet.add("thinking_fast_and_slow");
         machinesWordSet.add("mongo_db");
     searchMap.set("machines", machinesWordSet);
+
+let interestedWordSet = new Set();
+        interestedWordSet.add("persuasion");
+        interestedWordSet.add("kafka_in_action_summary");
+    searchMap.set("interested", interestedWordSet);
 
 let spokesWordSet = new Set();
         spokesWordSet.add("kafka_in_action_summary");
@@ -2254,18 +2254,18 @@ let maintenanceWordSet = new Set();
         maintenanceWordSet.add("kafka_in_action_summary");
     searchMap.set("maintenance", maintenanceWordSet);
 
+let caughtWordSet = new Set();
+        caughtWordSet.add("persuasion");
+        caughtWordSet.add("kafka_in_action_summary");
+        caughtWordSet.add("mysql_vs_postgres");
+    searchMap.set("caught", caughtWordSet);
+
 let clusterWordSet = new Set();
         clusterWordSet.add("mongo_db");
         clusterWordSet.add("kafka_in_action_summary");
         clusterWordSet.add("cassandra");
         clusterWordSet.add("kafka_very_short_summary");
     searchMap.set("cluster", clusterWordSet);
-
-let caughtWordSet = new Set();
-        caughtWordSet.add("persuasion");
-        caughtWordSet.add("kafka_in_action_summary");
-        caughtWordSet.add("mysql_vs_postgres");
-    searchMap.set("caught", caughtWordSet);
 
 let concernWordSet = new Set();
         concernWordSet.add("mongo_db");
@@ -2494,16 +2494,16 @@ let autorisationWordSet = new Set();
         autorisationWordSet.add("mongo_db");
     searchMap.set("autorisation", autorisationWordSet);
 
+let anywayWordSet = new Set();
+        anywayWordSet.add("relational_dbs_performance");
+        anywayWordSet.add("acid_internally");
+    searchMap.set("anyway", anywayWordSet);
+
 let momentWordSet = new Set();
         momentWordSet.add("thinking_fast_and_slow");
         momentWordSet.add("mongo_db");
         momentWordSet.add("kafka_in_action_summary");
     searchMap.set("moment", momentWordSet);
-
-let anywayWordSet = new Set();
-        anywayWordSet.add("relational_dbs_performance");
-        anywayWordSet.add("acid_internally");
-    searchMap.set("anyway", anywayWordSet);
 
 let popWordSet = new Set();
         popWordSet.add("comparing_different_queues");
@@ -2528,13 +2528,13 @@ let desiredWordSet = new Set();
         desiredWordSet.add("terraform");
     searchMap.set("desired", desiredWordSet);
 
-let scenarioWordSet = new Set();
-        scenarioWordSet.add("kafka_in_action_summary");
-    searchMap.set("scenario", scenarioWordSet);
-
 let freesWordSet = new Set();
         freesWordSet.add("acid_internally");
     searchMap.set("frees", freesWordSet);
+
+let scenarioWordSet = new Set();
+        scenarioWordSet.add("kafka_in_action_summary");
+    searchMap.set("scenario", scenarioWordSet);
 
 let encryptWordSet = new Set();
         encryptWordSet.add("kafka_in_action_summary");
@@ -2561,6 +2561,14 @@ let givesWordSet = new Set();
         givesWordSet.add("relational_dbs_performance");
     searchMap.set("gives", givesWordSet);
 
+let situationWordSet = new Set();
+        situationWordSet.add("thinking_fast_and_slow");
+        situationWordSet.add("career_crises");
+        situationWordSet.add("kafka_in_action_summary");
+        situationWordSet.add("mysql_vs_postgres");
+        situationWordSet.add("acid_internally");
+    searchMap.set("situation", situationWordSet);
+
 let limitsWordSet = new Set();
         limitsWordSet.add("mongo_db");
         limitsWordSet.add("kafka_in_action_summary");
@@ -2570,14 +2578,6 @@ let retentionWordSet = new Set();
         retentionWordSet.add("kafka_in_action_summary");
         retentionWordSet.add("kafka_very_short_summary");
     searchMap.set("retention", retentionWordSet);
-
-let situationWordSet = new Set();
-        situationWordSet.add("thinking_fast_and_slow");
-        situationWordSet.add("career_crises");
-        situationWordSet.add("kafka_in_action_summary");
-        situationWordSet.add("mysql_vs_postgres");
-        situationWordSet.add("acid_internally");
-    searchMap.set("situation", situationWordSet);
 
 let modifyingWordSet = new Set();
         modifyingWordSet.add("relational_dbs_performance");
@@ -2609,10 +2609,6 @@ let refreshWordSet = new Set();
         refreshWordSet.add("kafka_in_action_summary");
     searchMap.set("refresh", refreshWordSet);
 
-let servicesWordSet = new Set();
-        servicesWordSet.add("kafka_in_action_summary");
-    searchMap.set("services", servicesWordSet);
-
 let refusesWordSet = new Set();
         refusesWordSet.add("mysql_vs_postgres");
     searchMap.set("refuses", refusesWordSet);
@@ -2621,6 +2617,10 @@ let teamWordSet = new Set();
         teamWordSet.add("leadership");
         teamWordSet.add("terraform");
     searchMap.set("team", teamWordSet);
+
+let servicesWordSet = new Set();
+        servicesWordSet.add("kafka_in_action_summary");
+    searchMap.set("services", servicesWordSet);
 
 let giovanniWordSet = new Set();
         giovanniWordSet.add("sql_commands");
@@ -2654,13 +2654,13 @@ let fashionWordSet = new Set();
         fashionWordSet.add("kafka_in_action_summary");
     searchMap.set("fashion", fashionWordSet);
 
-let privilegesWordSet = new Set();
-        privilegesWordSet.add("kafka_in_action_summary");
-    searchMap.set("privileges", privilegesWordSet);
-
 let sendmessageWordSet = new Set();
         sendmessageWordSet.add("comparing_different_queues");
     searchMap.set("sendmessage", sendmessageWordSet);
+
+let privilegesWordSet = new Set();
+        privilegesWordSet.add("kafka_in_action_summary");
+    searchMap.set("privileges", privilegesWordSet);
 
 let principleWordSet = new Set();
         principleWordSet.add("kafka_in_action_summary");
@@ -2759,8 +2759,8 @@ let thingsWordSet = new Set();
         thingsWordSet.add("thinking_fast_and_slow");
         thingsWordSet.add("persuasion");
         thingsWordSet.add("mongo_db");
-        thingsWordSet.add("dynamo_db");
         thingsWordSet.add("kafka_in_action_summary");
+        thingsWordSet.add("dynamo_db");
         thingsWordSet.add("interest");
         thingsWordSet.add("terraform");
         thingsWordSet.add("about_the_digital_garden");
@@ -2792,11 +2792,6 @@ let acquiredWordSet = new Set();
         acquiredWordSet.add("acid_internally");
     searchMap.set("acquired", acquiredWordSet);
 
-let realizeWordSet = new Set();
-        realizeWordSet.add("kafka_in_action_summary");
-        realizeWordSet.add("choice");
-    searchMap.set("realize", realizeWordSet);
-
 let budgetWordSet = new Set();
         budgetWordSet.add("thinking_fast_and_slow");
     searchMap.set("budget", budgetWordSet);
@@ -2805,18 +2800,27 @@ let newhazelcastinstanceWordSet = new Set();
         newhazelcastinstanceWordSet.add("comparing_different_queues");
     searchMap.set("newhazelcastinstance", newhazelcastinstanceWordSet);
 
+let realizeWordSet = new Set();
+        realizeWordSet.add("kafka_in_action_summary");
+        realizeWordSet.add("choice");
+    searchMap.set("realize", realizeWordSet);
+
 let offersWordSet = new Set();
         offersWordSet.add("relational_dbs_performance");
     searchMap.set("offers", offersWordSet);
-
-let advantageousWordSet = new Set();
-        advantageousWordSet.add("kafka_in_action_summary");
-    searchMap.set("advantageous", advantageousWordSet);
 
 let techWordSet = new Set();
         techWordSet.add("tech_books");
         techWordSet.add("toc");
     searchMap.set("tech", techWordSet);
+
+let advantageousWordSet = new Set();
+        advantageousWordSet.add("kafka_in_action_summary");
+    searchMap.set("advantageous", advantageousWordSet);
+
+let actualWordSet = new Set();
+        actualWordSet.add("mysql_vs_postgres");
+    searchMap.set("actual", actualWordSet);
 
 let givenWordSet = new Set();
         givenWordSet.add("kafka_in_action_summary");
@@ -2825,10 +2829,6 @@ let givenWordSet = new Set();
         givenWordSet.add("sql_commands");
     searchMap.set("given", givenWordSet);
 
-let actualWordSet = new Set();
-        actualWordSet.add("mysql_vs_postgres");
-    searchMap.set("actual", actualWordSet);
-
 let preWordSet = new Set();
         preWordSet.add("mongo_db");
     searchMap.set("pre", preWordSet);
@@ -2836,6 +2836,10 @@ let preWordSet = new Set();
 let chessWordSet = new Set();
         chessWordSet.add("thinking_fast_and_slow");
     searchMap.set("chess", chessWordSet);
+
+let intersubjectivityWordSet = new Set();
+        intersubjectivityWordSet.add("leadership");
+    searchMap.set("intersubjectivity", intersubjectivityWordSet);
 
 let lastWordSet = new Set();
         lastWordSet.add("mongo_db");
@@ -2847,10 +2851,6 @@ let lastWordSet = new Set();
         lastWordSet.add("sql_commands");
         lastWordSet.add("kafka_very_short_summary");
     searchMap.set("last", lastWordSet);
-
-let intersubjectivityWordSet = new Set();
-        intersubjectivityWordSet.add("leadership");
-    searchMap.set("intersubjectivity", intersubjectivityWordSet);
 
 let batchWordSet = new Set();
         batchWordSet.add("mongo_db");
@@ -2923,12 +2923,6 @@ let lamportWordSet = new Set();
         lamportWordSet.add("kafka_in_action_summary");
     searchMap.set("lamport", lamportWordSet);
 
-let memoryWordSet = new Set();
-        memoryWordSet.add("thinking_fast_and_slow");
-        memoryWordSet.add("kafka_in_action_summary");
-        memoryWordSet.add("relational_dbs_performance");
-    searchMap.set("memory", memoryWordSet);
-
 let cardsWordSet = new Set();
         cardsWordSet.add("thinking_fast_and_slow");
     searchMap.set("cards", cardsWordSet);
@@ -2936,6 +2930,12 @@ let cardsWordSet = new Set();
 let rewritesWordSet = new Set();
         rewritesWordSet.add("acid_internally");
     searchMap.set("rewrites", rewritesWordSet);
+
+let memoryWordSet = new Set();
+        memoryWordSet.add("thinking_fast_and_slow");
+        memoryWordSet.add("kafka_in_action_summary");
+        memoryWordSet.add("relational_dbs_performance");
+    searchMap.set("memory", memoryWordSet);
 
 let askingWordSet = new Set();
         askingWordSet.add("kafka_in_action_summary");
@@ -2980,16 +2980,16 @@ let mirroredWordSet = new Set();
         mirroredWordSet.add("kafka_very_short_summary");
     searchMap.set("mirrored", mirroredWordSet);
 
+let anythingWordSet = new Set();
+        anythingWordSet.add("kafka_in_action_summary");
+        anythingWordSet.add("acid_internally");
+    searchMap.set("anything", anythingWordSet);
+
 let disasterWordSet = new Set();
         disasterWordSet.add("mongo_db");
         disasterWordSet.add("kafka_in_action_summary");
         disasterWordSet.add("kafka_very_short_summary");
     searchMap.set("disaster", disasterWordSet);
-
-let anythingWordSet = new Set();
-        anythingWordSet.add("kafka_in_action_summary");
-        anythingWordSet.add("acid_internally");
-    searchMap.set("anything", anythingWordSet);
 
 let minimalWordSet = new Set();
         minimalWordSet.add("kafka_in_action_summary");
@@ -3007,13 +3007,13 @@ let lookupsWordSet = new Set();
         lookupsWordSet.add("mysql_vs_postgres");
     searchMap.set("lookups", lookupsWordSet);
 
-let hoursWordSet = new Set();
-        hoursWordSet.add("kafka_in_action_summary");
-    searchMap.set("hours", hoursWordSet);
-
 let painWordSet = new Set();
         painWordSet.add("mysql_vs_postgres");
     searchMap.set("pain", painWordSet);
+
+let hoursWordSet = new Set();
+        hoursWordSet.add("kafka_in_action_summary");
+    searchMap.set("hours", hoursWordSet);
 
 let yesWordSet = new Set();
         yesWordSet.add("mongo_db");
@@ -3048,11 +3048,6 @@ let yetWordSet = new Set();
         yetWordSet.add("acid_internally");
     searchMap.set("yet", yetWordSet);
 
-let datacenterWordSet = new Set();
-        datacenterWordSet.add("mongo_db");
-        datacenterWordSet.add("kafka_in_action_summary");
-    searchMap.set("datacenter", datacenterWordSet);
-
 let detectsWordSet = new Set();
         detectsWordSet.add("acid_internally");
     searchMap.set("detects", detectsWordSet);
@@ -3060,6 +3055,11 @@ let detectsWordSet = new Set();
 let volatileWordSet = new Set();
         volatileWordSet.add("comparing_different_queues");
     searchMap.set("volatile", volatileWordSet);
+
+let datacenterWordSet = new Set();
+        datacenterWordSet.add("mongo_db");
+        datacenterWordSet.add("kafka_in_action_summary");
+    searchMap.set("datacenter", datacenterWordSet);
 
 let configureWordSet = new Set();
         configureWordSet.add("mongo_db");
@@ -3100,16 +3100,16 @@ let typicalWordSet = new Set();
         typicalWordSet.add("mysql_vs_postgres");
     searchMap.set("typical", typicalWordSet);
 
+let initiallyWordSet = new Set();
+        initiallyWordSet.add("acid_internally");
+    searchMap.set("initially", initiallyWordSet);
+
 let shortWordSet = new Set();
         shortWordSet.add("thinking_fast_and_slow");
         shortWordSet.add("kafka_in_action_summary");
         shortWordSet.add("queues");
         shortWordSet.add("kafka_very_short_summary");
     searchMap.set("short", shortWordSet);
-
-let initiallyWordSet = new Set();
-        initiallyWordSet.add("acid_internally");
-    searchMap.set("initially", initiallyWordSet);
 
 let readwriteWordSet = new Set();
         readwriteWordSet.add("mongo_db");
@@ -3179,14 +3179,6 @@ let revokedWordSet = new Set();
         revokedWordSet.add("kafka_in_action_summary");
     searchMap.set("revoked", revokedWordSet);
 
-let threeWordSet = new Set();
-        threeWordSet.add("kafka_in_action_summary");
-    searchMap.set("three", threeWordSet);
-
-let continuallyWordSet = new Set();
-        continuallyWordSet.add("kafka_in_action_summary");
-    searchMap.set("continually", continuallyWordSet);
-
 let gigabitsWordSet = new Set();
         gigabitsWordSet.add("comparing_different_queues");
     searchMap.set("gigabits", gigabitsWordSet);
@@ -3198,13 +3190,22 @@ let consistencyWordSet = new Set();
         consistencyWordSet.add("acid_internally");
     searchMap.set("consistency", consistencyWordSet);
 
+let threeWordSet = new Set();
+        threeWordSet.add("kafka_in_action_summary");
+    searchMap.set("three", threeWordSet);
+
+let continuallyWordSet = new Set();
+        continuallyWordSet.add("kafka_in_action_summary");
+    searchMap.set("continually", continuallyWordSet);
+
 let tipsWordSet = new Set();
         tipsWordSet.add("mongo_db");
     searchMap.set("tips", tipsWordSet);
 
-let requiredWordSet = new Set();
-        requiredWordSet.add("kafka_in_action_summary");
-    searchMap.set("required", requiredWordSet);
+let redisWordSet = new Set();
+        redisWordSet.add("dynamo_db");
+        redisWordSet.add("comparing_different_queues");
+    searchMap.set("redis", redisWordSet);
 
 let putWordSet = new Set();
         putWordSet.add("mongo_db");
@@ -3214,10 +3215,9 @@ let putWordSet = new Set();
         putWordSet.add("mysql_vs_postgres");
     searchMap.set("put", putWordSet);
 
-let redisWordSet = new Set();
-        redisWordSet.add("dynamo_db");
-        redisWordSet.add("comparing_different_queues");
-    searchMap.set("redis", redisWordSet);
+let requiredWordSet = new Set();
+        requiredWordSet.add("kafka_in_action_summary");
+    searchMap.set("required", requiredWordSet);
 
 let multiWordSet = new Set();
         multiWordSet.add("kafka_in_action_summary");
@@ -3462,13 +3462,13 @@ let consistentWordSet = new Set();
         consistentWordSet.add("kafka_very_short_summary");
     searchMap.set("consistent", consistentWordSet);
 
-let reverseWordSet = new Set();
-        reverseWordSet.add("kafka_in_action_summary");
-    searchMap.set("reverse", reverseWordSet);
-
 let reliablityWordSet = new Set();
         reliablityWordSet.add("comparing_different_queues");
     searchMap.set("reliablity", reliablityWordSet);
+
+let reverseWordSet = new Set();
+        reverseWordSet.add("kafka_in_action_summary");
+    searchMap.set("reverse", reverseWordSet);
 
 let performedWordSet = new Set();
         performedWordSet.add("kafka_in_action_summary");
@@ -3525,6 +3525,12 @@ let compactWordSet = new Set();
         compactWordSet.add("mysql_vs_postgres");
     searchMap.set("compact", compactWordSet);
 
+let fictionWordSet = new Set();
+        fictionWordSet.add("thinking_fast_and_slow");
+        fictionWordSet.add("toc");
+        fictionWordSet.add("non-fiction_books");
+    searchMap.set("fiction", fictionWordSet);
+
 let beforeWordSet = new Set();
         beforeWordSet.add("thinking_fast_and_slow");
         beforeWordSet.add("persuasion");
@@ -3534,12 +3540,6 @@ let beforeWordSet = new Set();
         beforeWordSet.add("acid_internally");
     searchMap.set("before", beforeWordSet);
 
-let fictionWordSet = new Set();
-        fictionWordSet.add("thinking_fast_and_slow");
-        fictionWordSet.add("toc");
-        fictionWordSet.add("non-fiction_books");
-    searchMap.set("fiction", fictionWordSet);
-
 let tellWordSet = new Set();
         tellWordSet.add("kafka_in_action_summary");
     searchMap.set("tell", tellWordSet);
@@ -3548,14 +3548,14 @@ let pessimisticWordSet = new Set();
         pessimisticWordSet.add("acid_internally");
     searchMap.set("pessimistic", pessimisticWordSet);
 
+let hisWordSet = new Set();
+        hisWordSet.add("mysql_vs_postgres");
+    searchMap.set("his", hisWordSet);
+
 let showsWordSet = new Set();
         showsWordSet.add("kafka_in_action_summary");
         showsWordSet.add("acid_internally");
     searchMap.set("shows", showsWordSet);
-
-let hisWordSet = new Set();
-        hisWordSet.add("mysql_vs_postgres");
-    searchMap.set("his", hisWordSet);
 
 let introWordSet = new Set();
         introWordSet.add("relational_dbs");
@@ -3608,11 +3608,6 @@ let considerWordSet = new Set();
         considerWordSet.add("kafka_in_action_summary");
     searchMap.set("consider", considerWordSet);
 
-let keepsWordSet = new Set();
-        keepsWordSet.add("mongo_db");
-        keepsWordSet.add("kafka_in_action_summary");
-    searchMap.set("keeps", keepsWordSet);
-
 let potentialWordSet = new Set();
         potentialWordSet.add("career_crises");
         potentialWordSet.add("day_dreams");
@@ -3622,6 +3617,11 @@ let potentialWordSet = new Set();
 let necessitateWordSet = new Set();
         necessitateWordSet.add("mysql_vs_postgres");
     searchMap.set("necessitate", necessitateWordSet);
+
+let keepsWordSet = new Set();
+        keepsWordSet.add("mongo_db");
+        keepsWordSet.add("kafka_in_action_summary");
+    searchMap.set("keeps", keepsWordSet);
 
 let dayWordSet = new Set();
         dayWordSet.add("kafka_in_action_summary");
@@ -3652,6 +3652,11 @@ let logicallyWordSet = new Set();
         logicallyWordSet.add("mysql_vs_postgres");
     searchMap.set("logically", logicallyWordSet);
 
+let minutesWordSet = new Set();
+        minutesWordSet.add("kafka_in_action_summary");
+        minutesWordSet.add("dynamo_db");
+    searchMap.set("minutes", minutesWordSet);
+
 let createdWordSet = new Set();
         createdWordSet.add("mongo_db");
         createdWordSet.add("kafka_in_action_summary");
@@ -3660,11 +3665,6 @@ let createdWordSet = new Set();
         createdWordSet.add("acid_internally");
         createdWordSet.add("kafka_very_short_summary");
     searchMap.set("created", createdWordSet);
-
-let minutesWordSet = new Set();
-        minutesWordSet.add("dynamo_db");
-        minutesWordSet.add("kafka_in_action_summary");
-    searchMap.set("minutes", minutesWordSet);
 
 let treeWordSet = new Set();
         treeWordSet.add("relational_dbs_performance");
@@ -3748,13 +3748,13 @@ let createsWordSet = new Set();
         createsWordSet.add("kafka_very_short_summary");
     searchMap.set("creates", createsWordSet);
 
-let managingWordSet = new Set();
-        managingWordSet.add("kafka_in_action_summary");
-    searchMap.set("managing", managingWordSet);
-
 let jedispubsubWordSet = new Set();
         jedispubsubWordSet.add("comparing_different_queues");
     searchMap.set("jedispubsub", jedispubsubWordSet);
+
+let managingWordSet = new Set();
+        managingWordSet.add("kafka_in_action_summary");
+    searchMap.set("managing", managingWordSet);
 
 let sustainWordSet = new Set();
         sustainWordSet.add("thinking_fast_and_slow");
@@ -3793,12 +3793,6 @@ let criticalWordSet = new Set();
         criticalWordSet.add("comparing_different_queues");
     searchMap.set("critical", criticalWordSet);
 
-let partWordSet = new Set();
-        partWordSet.add("mongo_db");
-        partWordSet.add("kafka_in_action_summary");
-        partWordSet.add("relational_dbs_performance");
-    searchMap.set("part", partWordSet);
-
 let valuesWordSet = new Set();
         valuesWordSet.add("mongo_db");
         valuesWordSet.add("kafka_in_action_summary");
@@ -3806,6 +3800,12 @@ let valuesWordSet = new Set();
         valuesWordSet.add("acid_internally");
         valuesWordSet.add("sql_commands");
     searchMap.set("values", valuesWordSet);
+
+let partWordSet = new Set();
+        partWordSet.add("mongo_db");
+        partWordSet.add("kafka_in_action_summary");
+        partWordSet.add("relational_dbs_performance");
+    searchMap.set("part", partWordSet);
 
 let numericWordSet = new Set();
         numericWordSet.add("relational_dbs_performance");
@@ -3866,13 +3866,13 @@ let aliasWordSet = new Set();
         aliasWordSet.add("sql_commands");
     searchMap.set("alias", aliasWordSet);
 
-let introductionWordSet = new Set();
-        introductionWordSet.add("kafka_in_action_summary");
-    searchMap.set("introduction", introductionWordSet);
-
 let parkWordSet = new Set();
         parkWordSet.add("thinking_fast_and_slow");
     searchMap.set("park", parkWordSet);
+
+let introductionWordSet = new Set();
+        introductionWordSet.add("kafka_in_action_summary");
+    searchMap.set("introduction", introductionWordSet);
 
 let applyingWordSet = new Set();
         applyingWordSet.add("kafka_in_action_summary");
@@ -3923,15 +3923,15 @@ let cleanWordSet = new Set();
         cleanWordSet.add("kafka_in_action_summary");
     searchMap.set("clean", cleanWordSet);
 
-let thirdWordSet = new Set();
-        thirdWordSet.add("kafka_in_action_summary");
-    searchMap.set("third", thirdWordSet);
-
 let someoneWordSet = new Set();
         someoneWordSet.add("thinking_fast_and_slow");
         someoneWordSet.add("career_crises");
         someoneWordSet.add("leadership");
     searchMap.set("someone", someoneWordSet);
+
+let thirdWordSet = new Set();
+        thirdWordSet.add("kafka_in_action_summary");
+    searchMap.set("third", thirdWordSet);
 
 let buildWordSet = new Set();
         buildWordSet.add("mongo_db");
@@ -3947,14 +3947,14 @@ let interactionWordSet = new Set();
         interactionWordSet.add("thinking_fast_and_slow");
     searchMap.set("interaction", interactionWordSet);
 
-let determiningWordSet = new Set();
-        determiningWordSet.add("kafka_in_action_summary");
-    searchMap.set("determining", determiningWordSet);
-
 let mvccWordSet = new Set();
         mvccWordSet.add("mysql_vs_postgres");
         mvccWordSet.add("acid_internally");
     searchMap.set("mvcc", mvccWordSet);
+
+let determiningWordSet = new Set();
+        determiningWordSet.add("kafka_in_action_summary");
+    searchMap.set("determining", determiningWordSet);
 
 let persistedWordSet = new Set();
         persistedWordSet.add("kafka_in_action_summary");
@@ -3970,6 +3970,12 @@ let shardingsWordSet = new Set();
         shardingsWordSet.add("comparing_different_queues");
     searchMap.set("shardings", shardingsWordSet);
 
+let beenWordSet = new Set();
+        beenWordSet.add("mongo_db");
+        beenWordSet.add("mysql_vs_postgres");
+        beenWordSet.add("acid_internally");
+    searchMap.set("been", beenWordSet);
+
 let connectorsWordSet = new Set();
         connectorsWordSet.add("kafka_in_action_summary");
         connectorsWordSet.add("kafka_very_short_summary");
@@ -3980,12 +3986,6 @@ let mostlyWordSet = new Set();
         mostlyWordSet.add("kafka_in_action_summary");
         mostlyWordSet.add("relational_dbs_performance");
     searchMap.set("mostly", mostlyWordSet);
-
-let beenWordSet = new Set();
-        beenWordSet.add("mongo_db");
-        beenWordSet.add("mysql_vs_postgres");
-        beenWordSet.add("acid_internally");
-    searchMap.set("been", beenWordSet);
 
 let arbiteronlyWordSet = new Set();
         arbiteronlyWordSet.add("mongo_db");
@@ -4035,11 +4035,6 @@ let bindWordSet = new Set();
         bindWordSet.add("relational_dbs_performance");
     searchMap.set("bind", bindWordSet);
 
-let dependingWordSet = new Set();
-        dependingWordSet.add("kafka_in_action_summary");
-        dependingWordSet.add("relational_dbs_performance");
-    searchMap.set("depending", dependingWordSet);
-
 let devWordSet = new Set();
         devWordSet.add("mysql_vs_postgres");
     searchMap.set("dev", devWordSet);
@@ -4049,6 +4044,11 @@ let findsWordSet = new Set();
         findsWordSet.add("mysql_vs_postgres");
         findsWordSet.add("sql_commands");
     searchMap.set("finds", findsWordSet);
+
+let dependingWordSet = new Set();
+        dependingWordSet.add("kafka_in_action_summary");
+        dependingWordSet.add("relational_dbs_performance");
+    searchMap.set("depending", dependingWordSet);
 
 let predictableWordSet = new Set();
         predictableWordSet.add("mysql_vs_postgres");
@@ -4091,16 +4091,16 @@ let youWordSet = new Set();
         youWordSet.add("kafka_very_short_summary");
     searchMap.set("you", youWordSet);
 
-let acceptingWordSet = new Set();
-        acceptingWordSet.add("kafka_in_action_summary");
-    searchMap.set("accepting", acceptingWordSet);
-
 let softWordSet = new Set();
         softWordSet.add("persuasion");
         softWordSet.add("soft_skills");
         softWordSet.add("leadership");
         softWordSet.add("toc");
     searchMap.set("soft", softWordSet);
+
+let acceptingWordSet = new Set();
+        acceptingWordSet.add("kafka_in_action_summary");
+    searchMap.set("accepting", acceptingWordSet);
 
 let databasesWordSet = new Set();
         databasesWordSet.add("mongo_db");
@@ -4232,14 +4232,14 @@ let adoptingWordSet = new Set();
         adoptingWordSet.add("kafka_in_action_summary");
     searchMap.set("adopting", adoptingWordSet);
 
+let millionsWordSet = new Set();
+        millionsWordSet.add("comparing_different_queues");
+    searchMap.set("millions", millionsWordSet);
+
 let assignedWordSet = new Set();
         assignedWordSet.add("kafka_in_action_summary");
         assignedWordSet.add("kafka_very_short_summary");
     searchMap.set("assigned", assignedWordSet);
-
-let millionsWordSet = new Set();
-        millionsWordSet.add("comparing_different_queues");
-    searchMap.set("millions", millionsWordSet);
 
 let hocWordSet = new Set();
         hocWordSet.add("kafka_in_action_summary");
@@ -4249,22 +4249,18 @@ let touchedWordSet = new Set();
         touchedWordSet.add("relational_dbs_performance");
     searchMap.set("touched", touchedWordSet);
 
-let mirrorWordSet = new Set();
-        mirrorWordSet.add("kafka_in_action_summary");
-    searchMap.set("mirror", mirrorWordSet);
-
 let mentorshipWordSet = new Set();
         mentorshipWordSet.add("leadership");
     searchMap.set("mentorship", mentorshipWordSet);
+
+let mirrorWordSet = new Set();
+        mirrorWordSet.add("kafka_in_action_summary");
+    searchMap.set("mirror", mirrorWordSet);
 
 let comesWordSet = new Set();
         comesWordSet.add("mongo_db");
         comesWordSet.add("acid_internally");
     searchMap.set("comes", comesWordSet);
-
-let unsafeWordSet = new Set();
-        unsafeWordSet.add("kafka_in_action_summary");
-    searchMap.set("unsafe", unsafeWordSet);
 
 let choosingWordSet = new Set();
         choosingWordSet.add("choice");
@@ -4273,6 +4269,10 @@ let choosingWordSet = new Set();
 let hotWordSet = new Set();
         hotWordSet.add("mysql_vs_postgres");
     searchMap.set("hot", hotWordSet);
+
+let unsafeWordSet = new Set();
+        unsafeWordSet.add("kafka_in_action_summary");
+    searchMap.set("unsafe", unsafeWordSet);
 
 let existedWordSet = new Set();
         existedWordSet.add("persuasion");
@@ -4541,8 +4541,8 @@ let countWordSet = new Set();
     searchMap.set("count", countWordSet);
 
 let regardingWordSet = new Set();
-        regardingWordSet.add("dynamo_db");
         regardingWordSet.add("kafka_in_action_summary");
+        regardingWordSet.add("dynamo_db");
     searchMap.set("regarding", regardingWordSet);
 
 let takeWordSet = new Set();
@@ -4591,12 +4591,6 @@ let virtualWordSet = new Set();
         virtualWordSet.add("how_to_create_a_python_project");
     searchMap.set("virtual", virtualWordSet);
 
-let beginningWordSet = new Set();
-        beginningWordSet.add("kafka_in_action_summary");
-        beginningWordSet.add("relational_dbs_performance");
-        beginningWordSet.add("kafka_very_short_summary");
-    searchMap.set("beginning", beginningWordSet);
-
 let analyticalWordSet = new Set();
         analyticalWordSet.add("thinking_fast_and_slow");
     searchMap.set("analytical", analyticalWordSet);
@@ -4606,6 +4600,12 @@ let waitingWordSet = new Set();
         waitingWordSet.add("acid_internally");
         waitingWordSet.add("kafka_very_short_summary");
     searchMap.set("waiting", waitingWordSet);
+
+let beginningWordSet = new Set();
+        beginningWordSet.add("kafka_in_action_summary");
+        beginningWordSet.add("relational_dbs_performance");
+        beginningWordSet.add("kafka_very_short_summary");
+    searchMap.set("beginning", beginningWordSet);
 
 let ratherWordSet = new Set();
         ratherWordSet.add("kafka_in_action_summary");
@@ -4694,8 +4694,8 @@ let justWordSet = new Set();
         justWordSet.add("persuasion");
         justWordSet.add("career_crises");
         justWordSet.add("mongo_db");
-        justWordSet.add("dynamo_db");
         justWordSet.add("kafka_in_action_summary");
+        justWordSet.add("dynamo_db");
         justWordSet.add("interest");
         justWordSet.add("day_dreams");
         justWordSet.add("relational_dbs_performance");
@@ -4767,14 +4767,14 @@ let nodesWordSet = new Set();
         nodesWordSet.add("relational_dbs_performance");
     searchMap.set("nodes", nodesWordSet);
 
+let althoughWordSet = new Set();
+        althoughWordSet.add("acid_internally");
+    searchMap.set("although", althoughWordSet);
+
 let hubWordSet = new Set();
         hubWordSet.add("kafka_in_action_summary");
         hubWordSet.add("kafka_very_short_summary");
     searchMap.set("hub", hubWordSet);
-
-let althoughWordSet = new Set();
-        althoughWordSet.add("acid_internally");
-    searchMap.set("although", althoughWordSet);
 
 let brockersWordSet = new Set();
         brockersWordSet.add("kafka_very_short_summary");
@@ -4822,6 +4822,10 @@ let hopeWordSet = new Set();
         hopeWordSet.add("acid_internally");
     searchMap.set("hope", hopeWordSet);
 
+let collaborateWordSet = new Set();
+        collaborateWordSet.add("persuasion");
+    searchMap.set("collaborate", collaborateWordSet);
+
 let attemptWordSet = new Set();
         attemptWordSet.add("kafka_in_action_summary");
     searchMap.set("attempt", attemptWordSet);
@@ -4829,10 +4833,6 @@ let attemptWordSet = new Set();
 let trackingWordSet = new Set();
         trackingWordSet.add("kafka_in_action_summary");
     searchMap.set("tracking", trackingWordSet);
-
-let collaborateWordSet = new Set();
-        collaborateWordSet.add("persuasion");
-    searchMap.set("collaborate", collaborateWordSet);
 
 let tablesWordSet = new Set();
         tablesWordSet.add("cassandra");
@@ -4851,20 +4851,16 @@ let newtableWordSet = new Set();
         newtableWordSet.add("sql_commands");
     searchMap.set("newtable", newtableWordSet);
 
-let actionWordSet = new Set();
-        actionWordSet.add("kafka_in_action_summary");
-        actionWordSet.add("queues");
-    searchMap.set("action", actionWordSet);
-
 let lockWordSet = new Set();
         lockWordSet.add("mongo_db");
         lockWordSet.add("terraform");
         lockWordSet.add("acid_internally");
     searchMap.set("lock", lockWordSet);
 
-let classifiesWordSet = new Set();
-        classifiesWordSet.add("kafka_in_action_summary");
-    searchMap.set("classifies", classifiesWordSet);
+let actionWordSet = new Set();
+        actionWordSet.add("kafka_in_action_summary");
+        actionWordSet.add("queues");
+    searchMap.set("action", actionWordSet);
 
 let textWordSet = new Set();
         textWordSet.add("thinking_fast_and_slow");
@@ -4884,6 +4880,10 @@ let whereasWordSet = new Set();
         whereasWordSet.add("kafka_in_action_summary");
         whereasWordSet.add("mysql_vs_postgres");
     searchMap.set("whereas", whereasWordSet);
+
+let classifiesWordSet = new Set();
+        classifiesWordSet.add("kafka_in_action_summary");
+    searchMap.set("classifies", classifiesWordSet);
 
 let validationWordSet = new Set();
         validationWordSet.add("kafka_in_action_summary");
@@ -4927,14 +4927,14 @@ let sensitiveWordSet = new Set();
         sensitiveWordSet.add("sql_commands");
     searchMap.set("sensitive", sensitiveWordSet);
 
-let beingWordSet = new Set();
-        beingWordSet.add("kafka_in_action_summary");
-    searchMap.set("being", beingWordSet);
-
 let dynamoWordSet = new Set();
         dynamoWordSet.add("dynamo_db");
         dynamoWordSet.add("nosql_dbs");
     searchMap.set("dynamo", dynamoWordSet);
+
+let beingWordSet = new Set();
+        beingWordSet.add("kafka_in_action_summary");
+    searchMap.set("being", beingWordSet);
 
 let brewWordSet = new Set();
         brewWordSet.add("how_to_create_a_python_project");
@@ -4952,10 +4952,6 @@ let alteredWordSet = new Set();
         alteredWordSet.add("mysql_vs_postgres");
     searchMap.set("altered", alteredWordSet);
 
-let validatingWordSet = new Set();
-        validatingWordSet.add("kafka_in_action_summary");
-    searchMap.set("validating", validatingWordSet);
-
 let fieldWordSet = new Set();
         fieldWordSet.add("mongo_db");
         fieldWordSet.add("relational_dbs_performance");
@@ -4963,6 +4959,10 @@ let fieldWordSet = new Set();
         fieldWordSet.add("acid_internally");
         fieldWordSet.add("sql_commands");
     searchMap.set("field", fieldWordSet);
+
+let validatingWordSet = new Set();
+        validatingWordSet.add("kafka_in_action_summary");
+    searchMap.set("validating", validatingWordSet);
 
 let contentsWordSet = new Set();
         contentsWordSet.add("kafka_in_action_summary");
@@ -4982,13 +4982,6 @@ let invalidWordSet = new Set();
         invalidWordSet.add("kafka_in_action_summary");
     searchMap.set("invalid", invalidWordSet);
 
-let messagesWordSet = new Set();
-        messagesWordSet.add("kafka_in_action_summary");
-        messagesWordSet.add("relational_dbs_performance");
-        messagesWordSet.add("comparing_different_queues");
-        messagesWordSet.add("kafka_very_short_summary");
-    searchMap.set("messages", messagesWordSet);
-
 let docWordSet = new Set();
         docWordSet.add("mysql_vs_postgres");
     searchMap.set("doc", docWordSet);
@@ -4996,6 +4989,13 @@ let docWordSet = new Set();
 let opensWordSet = new Set();
         opensWordSet.add("leadership");
     searchMap.set("opens", opensWordSet);
+
+let messagesWordSet = new Set();
+        messagesWordSet.add("kafka_in_action_summary");
+        messagesWordSet.add("relational_dbs_performance");
+        messagesWordSet.add("comparing_different_queues");
+        messagesWordSet.add("kafka_very_short_summary");
+    searchMap.set("messages", messagesWordSet);
 
 let intervalWordSet = new Set();
         intervalWordSet.add("kafka_in_action_summary");
@@ -5018,15 +5018,15 @@ let evaluateWordSet = new Set();
         evaluateWordSet.add("relational_dbs_performance");
     searchMap.set("evaluate", evaluateWordSet);
 
-let transactionalWordSet = new Set();
-        transactionalWordSet.add("kafka_in_action_summary");
-    searchMap.set("transactional", transactionalWordSet);
-
 let snapshotWordSet = new Set();
         snapshotWordSet.add("mongo_db");
         snapshotWordSet.add("kafka_in_action_summary");
         snapshotWordSet.add("acid_internally");
     searchMap.set("snapshot", snapshotWordSet);
+
+let transactionalWordSet = new Set();
+        transactionalWordSet.add("kafka_in_action_summary");
+    searchMap.set("transactional", transactionalWordSet);
 
 let statusWordSet = new Set();
         statusWordSet.add("persuasion");
@@ -5306,16 +5306,16 @@ let mainWordSet = new Set();
         mainWordSet.add("kafka_very_short_summary");
     searchMap.set("main", mainWordSet);
 
-let integerWordSet = new Set();
-        integerWordSet.add("mongo_db");
-        integerWordSet.add("kafka_in_action_summary");
-    searchMap.set("integer", integerWordSet);
-
 let serveWordSet = new Set();
         serveWordSet.add("mongo_db");
         serveWordSet.add("kafka_in_action_summary");
         serveWordSet.add("mysql_vs_postgres");
     searchMap.set("serve", serveWordSet);
+
+let integerWordSet = new Set();
+        integerWordSet.add("mongo_db");
+        integerWordSet.add("kafka_in_action_summary");
+    searchMap.set("integer", integerWordSet);
 
 let microservicesWordSet = new Set();
         microservicesWordSet.add("kafka_in_action_summary");
@@ -5367,13 +5367,13 @@ let combineWordSet = new Set();
         combineWordSet.add("sql_commands");
     searchMap.set("combine", combineWordSet);
 
-let wasteWordSet = new Set();
-        wasteWordSet.add("kafka_in_action_summary");
-    searchMap.set("waste", wasteWordSet);
-
 let spawningWordSet = new Set();
         spawningWordSet.add("mysql_vs_postgres");
     searchMap.set("spawning", spawningWordSet);
+
+let wasteWordSet = new Set();
+        wasteWordSet.add("kafka_in_action_summary");
+    searchMap.set("waste", wasteWordSet);
 
 let idealWordSet = new Set();
         idealWordSet.add("career_crises");
@@ -5486,15 +5486,19 @@ let inferWordSet = new Set();
         inferWordSet.add("mysql_vs_postgres");
     searchMap.set("infer", inferWordSet);
 
+let listsWordSet = new Set();
+        listsWordSet.add("kafka_in_action_summary");
+        listsWordSet.add("comparing_different_queues");
+    searchMap.set("lists", listsWordSet);
+
 let backgroundWordSet = new Set();
         backgroundWordSet.add("mongo_db");
         backgroundWordSet.add("kafka_in_action_summary");
     searchMap.set("background", backgroundWordSet);
 
-let listsWordSet = new Set();
-        listsWordSet.add("kafka_in_action_summary");
-        listsWordSet.add("comparing_different_queues");
-    searchMap.set("lists", listsWordSet);
+let principlesWordSet = new Set();
+        principlesWordSet.add("leadership");
+    searchMap.set("principles", principlesWordSet);
 
 let trueWordSet = new Set();
         trueWordSet.add("mongo_db");
@@ -5505,17 +5509,13 @@ let trueWordSet = new Set();
         trueWordSet.add("acid_internally");
     searchMap.set("true", trueWordSet);
 
-let principlesWordSet = new Set();
-        principlesWordSet.add("leadership");
-    searchMap.set("principles", principlesWordSet);
+let tacticsWordSet = new Set();
+        tacticsWordSet.add("persuasion");
+    searchMap.set("tactics", tacticsWordSet);
 
 let headerWordSet = new Set();
         headerWordSet.add("kafka_in_action_summary");
     searchMap.set("header", headerWordSet);
-
-let tacticsWordSet = new Set();
-        tacticsWordSet.add("persuasion");
-    searchMap.set("tactics", tacticsWordSet);
 
 let positionWordSet = new Set();
         positionWordSet.add("sql_commands");
@@ -5525,19 +5525,19 @@ let presentWordSet = new Set();
         presentWordSet.add("mongo_db");
     searchMap.set("present", presentWordSet);
 
-let sinceWordSet = new Set();
-        sinceWordSet.add("mongo_db");
-        sinceWordSet.add("kafka_in_action_summary");
-        sinceWordSet.add("mysql_vs_postgres");
-        sinceWordSet.add("acid_internally");
-    searchMap.set("since", sinceWordSet);
-
 let problemsWordSet = new Set();
         problemsWordSet.add("career_crises");
         problemsWordSet.add("interest");
         problemsWordSet.add("mysql_vs_postgres");
         problemsWordSet.add("acid_internally");
     searchMap.set("problems", problemsWordSet);
+
+let sinceWordSet = new Set();
+        sinceWordSet.add("mongo_db");
+        sinceWordSet.add("kafka_in_action_summary");
+        sinceWordSet.add("mysql_vs_postgres");
+        sinceWordSet.add("acid_internally");
+    searchMap.set("since", sinceWordSet);
 
 let belongWordSet = new Set();
         belongWordSet.add("relational_dbs_performance");
@@ -5548,6 +5548,13 @@ let dangerousWordSet = new Set();
         dangerousWordSet.add("acid_internally");
     searchMap.set("dangerous", dangerousWordSet);
 
+let bestWordSet = new Set();
+        bestWordSet.add("mongo_db");
+        bestWordSet.add("kafka_in_action_summary");
+        bestWordSet.add("leadership");
+        bestWordSet.add("relational_dbs_performance");
+    searchMap.set("best", bestWordSet);
+
 let fidelityWordSet = new Set();
         fidelityWordSet.add("kafka_in_action_summary");
     searchMap.set("fidelity", fidelityWordSet);
@@ -5556,13 +5563,6 @@ let appearsWordSet = new Set();
         appearsWordSet.add("kafka_in_action_summary");
         appearsWordSet.add("mysql_vs_postgres");
     searchMap.set("appears", appearsWordSet);
-
-let bestWordSet = new Set();
-        bestWordSet.add("mongo_db");
-        bestWordSet.add("kafka_in_action_summary");
-        bestWordSet.add("leadership");
-        bestWordSet.add("relational_dbs_performance");
-    searchMap.set("best", bestWordSet);
 
 let deleteWordSet = new Set();
         deleteWordSet.add("mongo_db");
@@ -5759,6 +5759,18 @@ let racksWordSet = new Set();
         racksWordSet.add("kafka_very_short_summary");
     searchMap.set("racks", racksWordSet);
 
+let aboutWordSet = new Set();
+        aboutWordSet.add("thinking_fast_and_slow");
+        aboutWordSet.add("career_crises");
+        aboutWordSet.add("mongo_db");
+        aboutWordSet.add("kafka_in_action_summary");
+        aboutWordSet.add("dynamo_db");
+        aboutWordSet.add("relational_dbs_performance");
+        aboutWordSet.add("mysql_vs_postgres");
+        aboutWordSet.add("about_the_digital_garden");
+        aboutWordSet.add("kafka_very_short_summary");
+    searchMap.set("about", aboutWordSet);
+
 let commitWordSet = new Set();
         commitWordSet.add("mongo_db");
         commitWordSet.add("kafka_in_action_summary");
@@ -5769,27 +5781,15 @@ let commitWordSet = new Set();
         commitWordSet.add("kafka_very_short_summary");
     searchMap.set("commit", commitWordSet);
 
-let aboutWordSet = new Set();
-        aboutWordSet.add("thinking_fast_and_slow");
-        aboutWordSet.add("career_crises");
-        aboutWordSet.add("mongo_db");
-        aboutWordSet.add("dynamo_db");
-        aboutWordSet.add("kafka_in_action_summary");
-        aboutWordSet.add("relational_dbs_performance");
-        aboutWordSet.add("mysql_vs_postgres");
-        aboutWordSet.add("about_the_digital_garden");
-        aboutWordSet.add("kafka_very_short_summary");
-    searchMap.set("about", aboutWordSet);
+let parsingWordSet = new Set();
+        parsingWordSet.add("relational_dbs_performance");
+        parsingWordSet.add("terraform");
+    searchMap.set("parsing", parsingWordSet);
 
 let dangerWordSet = new Set();
         dangerWordSet.add("persuasion");
         dangerWordSet.add("kafka_in_action_summary");
     searchMap.set("danger", dangerWordSet);
-
-let parsingWordSet = new Set();
-        parsingWordSet.add("relational_dbs_performance");
-        parsingWordSet.add("terraform");
-    searchMap.set("parsing", parsingWordSet);
 
 let treesWordSet = new Set();
         treesWordSet.add("relational_dbs_performance");
@@ -5827,16 +5827,16 @@ let sizesWordSet = new Set();
         sizesWordSet.add("kafka_in_action_summary");
     searchMap.set("sizes", sizesWordSet);
 
-let meaningWordSet = new Set();
-        meaningWordSet.add("kafka_in_action_summary");
-        meaningWordSet.add("mysql_vs_postgres");
-    searchMap.set("meaning", meaningWordSet);
-
 let devopsWordSet = new Set();
         devopsWordSet.add("devops");
         devopsWordSet.add("toc");
         devopsWordSet.add("terraform");
     searchMap.set("devops", devopsWordSet);
+
+let meaningWordSet = new Set();
+        meaningWordSet.add("kafka_in_action_summary");
+        meaningWordSet.add("mysql_vs_postgres");
+    searchMap.set("meaning", meaningWordSet);
 
 let aboveWordSet = new Set();
         aboveWordSet.add("mongo_db");
@@ -5929,15 +5929,15 @@ let primraryWordSet = new Set();
         primraryWordSet.add("mongo_db");
     searchMap.set("primrary", primraryWordSet);
 
-let highestWordSet = new Set();
-        highestWordSet.add("kafka_in_action_summary");
-    searchMap.set("highest", highestWordSet);
-
 let cassandraWordSet = new Set();
         cassandraWordSet.add("kafka_in_action_summary");
         cassandraWordSet.add("cassandra");
         cassandraWordSet.add("nosql_dbs");
     searchMap.set("cassandra", cassandraWordSet);
+
+let highestWordSet = new Set();
+        highestWordSet.add("kafka_in_action_summary");
+    searchMap.set("highest", highestWordSet);
 
 let metaWordSet = new Set();
         metaWordSet.add("mongo_db");
@@ -5951,13 +5951,13 @@ let uniqueWordSet = new Set();
         uniqueWordSet.add("sql_commands");
     searchMap.set("unique", uniqueWordSet);
 
-let processingWordSet = new Set();
-        processingWordSet.add("kafka_in_action_summary");
-    searchMap.set("processing", processingWordSet);
-
 let consistentlyWordSet = new Set();
         consistentlyWordSet.add("acid_internally");
     searchMap.set("consistently", consistentlyWordSet);
+
+let processingWordSet = new Set();
+        processingWordSet.add("kafka_in_action_summary");
+    searchMap.set("processing", processingWordSet);
 
 let exceptWordSet = new Set();
         exceptWordSet.add("kafka_in_action_summary");
@@ -6100,14 +6100,14 @@ let equalityWordSet = new Set();
         equalityWordSet.add("relational_dbs_performance");
     searchMap.set("equality", equalityWordSet);
 
+let workersWordSet = new Set();
+        workersWordSet.add("kafka_in_action_summary");
+        workersWordSet.add("dynamo_db");
+    searchMap.set("workers", workersWordSet);
+
 let mixWordSet = new Set();
         mixWordSet.add("kafka_in_action_summary");
     searchMap.set("mix", mixWordSet);
-
-let workersWordSet = new Set();
-        workersWordSet.add("dynamo_db");
-        workersWordSet.add("kafka_in_action_summary");
-    searchMap.set("workers", workersWordSet);
 
 let dirtyWordSet = new Set();
         dirtyWordSet.add("kafka_in_action_summary");
@@ -6123,14 +6123,14 @@ let expressionWordSet = new Set();
         expressionWordSet.add("relational_dbs_performance");
     searchMap.set("expression", expressionWordSet);
 
+let associatesWordSet = new Set();
+        associatesWordSet.add("mysql_vs_postgres");
+    searchMap.set("associates", associatesWordSet);
+
 let thoughWordSet = new Set();
         thoughWordSet.add("kafka_in_action_summary");
         thoughWordSet.add("relational_dbs_performance");
     searchMap.set("though", thoughWordSet);
-
-let associatesWordSet = new Set();
-        associatesWordSet.add("mysql_vs_postgres");
-    searchMap.set("associates", associatesWordSet);
 
 let subtopicsWordSet = new Set();
         subtopicsWordSet.add("toc");
@@ -6156,17 +6156,13 @@ let peopleWordSet = new Set();
         peopleWordSet.add("leadership");
     searchMap.set("people", peopleWordSet);
 
-let stayWordSet = new Set();
-        stayWordSet.add("kafka_in_action_summary");
-    searchMap.set("stay", stayWordSet);
-
 let releasesWordSet = new Set();
         releasesWordSet.add("mysql_vs_postgres");
     searchMap.set("releases", releasesWordSet);
 
-let controlledWordSet = new Set();
-        controlledWordSet.add("kafka_in_action_summary");
-    searchMap.set("controlled", controlledWordSet);
+let stayWordSet = new Set();
+        stayWordSet.add("kafka_in_action_summary");
+    searchMap.set("stay", stayWordSet);
 
 let actuallyWordSet = new Set();
         actuallyWordSet.add("persuasion");
@@ -6177,6 +6173,10 @@ let actuallyWordSet = new Set();
         actuallyWordSet.add("acid_internally");
     searchMap.set("actually", actuallyWordSet);
 
+let controlledWordSet = new Set();
+        controlledWordSet.add("kafka_in_action_summary");
+    searchMap.set("controlled", controlledWordSet);
+
 let shardsWordSet = new Set();
         shardsWordSet.add("mongo_db");
     searchMap.set("shards", shardsWordSet);
@@ -6185,13 +6185,13 @@ let appearWordSet = new Set();
         appearWordSet.add("relational_dbs_performance");
     searchMap.set("appear", appearWordSet);
 
-let extensiveWordSet = new Set();
-        extensiveWordSet.add("kafka_in_action_summary");
-    searchMap.set("extensive", extensiveWordSet);
-
 let faceWordSet = new Set();
         faceWordSet.add("thinking_fast_and_slow");
     searchMap.set("face", faceWordSet);
+
+let extensiveWordSet = new Set();
+        extensiveWordSet.add("kafka_in_action_summary");
+    searchMap.set("extensive", extensiveWordSet);
 
 let oldestWordSet = new Set();
         oldestWordSet.add("kafka_in_action_summary");
@@ -6216,15 +6216,15 @@ let yyyyWordSet = new Set();
         yyyyWordSet.add("relational_dbs_performance");
     searchMap.set("yyyy", yyyyWordSet);
 
-let troubleshootingWordSet = new Set();
-        troubleshootingWordSet.add("kafka_in_action_summary");
-    searchMap.set("troubleshooting", troubleshootingWordSet);
-
 let progressWordSet = new Set();
         progressWordSet.add("mongo_db");
         progressWordSet.add("leadership");
         progressWordSet.add("acid_internally");
     searchMap.set("progress", progressWordSet);
+
+let troubleshootingWordSet = new Set();
+        troubleshootingWordSet.add("kafka_in_action_summary");
+    searchMap.set("troubleshooting", troubleshootingWordSet);
 
 let operationWordSet = new Set();
         operationWordSet.add("mongo_db");
@@ -6404,27 +6404,21 @@ let controlesWordSet = new Set();
         controlesWordSet.add("kafka_very_short_summary");
     searchMap.set("controles", controlesWordSet);
 
-let commitsWordSet = new Set();
-        commitsWordSet.add("kafka_in_action_summary");
-        commitsWordSet.add("kafka_very_short_summary");
-    searchMap.set("commits", commitsWordSet);
-
 let idsWordSet = new Set();
         idsWordSet.add("kafka_in_action_summary");
         idsWordSet.add("mysql_vs_postgres");
         idsWordSet.add("sql_commands");
     searchMap.set("ids", idsWordSet);
 
+let commitsWordSet = new Set();
+        commitsWordSet.add("kafka_in_action_summary");
+        commitsWordSet.add("kafka_very_short_summary");
+    searchMap.set("commits", commitsWordSet);
+
 let conflictWordSet = new Set();
         conflictWordSet.add("leadership");
         conflictWordSet.add("mysql_vs_postgres");
     searchMap.set("conflict", conflictWordSet);
-
-let allowWordSet = new Set();
-        allowWordSet.add("kafka_in_action_summary");
-        allowWordSet.add("acid_internally");
-        allowWordSet.add("kafka_very_short_summary");
-    searchMap.set("allow", allowWordSet);
 
 let killsWordSet = new Set();
         killsWordSet.add("mysql_vs_postgres");
@@ -6435,6 +6429,12 @@ let mongoWordSet = new Set();
         mongoWordSet.add("dynamo_db");
         mongoWordSet.add("nosql_dbs");
     searchMap.set("mongo", mongoWordSet);
+
+let allowWordSet = new Set();
+        allowWordSet.add("kafka_in_action_summary");
+        allowWordSet.add("acid_internally");
+        allowWordSet.add("kafka_very_short_summary");
+    searchMap.set("allow", allowWordSet);
 
 let interseptionWordSet = new Set();
         interseptionWordSet.add("relational_dbs_performance");
@@ -6471,16 +6471,16 @@ let recordingWordSet = new Set();
         recordingWordSet.add("kafka_in_action_summary");
     searchMap.set("recording", recordingWordSet);
 
-let ruleWordSet = new Set();
-        ruleWordSet.add("kafka_in_action_summary");
-        ruleWordSet.add("relational_dbs_performance");
-    searchMap.set("rule", ruleWordSet);
-
 let detectWordSet = new Set();
         detectWordSet.add("kafka_in_action_summary");
         detectWordSet.add("cassandra");
         detectWordSet.add("mysql_vs_postgres");
     searchMap.set("detect", detectWordSet);
+
+let ruleWordSet = new Set();
+        ruleWordSet.add("kafka_in_action_summary");
+        ruleWordSet.add("relational_dbs_performance");
+    searchMap.set("rule", ruleWordSet);
 
 let updateWordSet = new Set();
         updateWordSet.add("mongo_db");
@@ -6624,14 +6624,14 @@ let indeedWordSet = new Set();
         indeedWordSet.add("kafka_in_action_summary");
     searchMap.set("indeed", indeedWordSet);
 
-let printsWordSet = new Set();
-        printsWordSet.add("kafka_in_action_summary");
-    searchMap.set("prints", printsWordSet);
-
 let imidiatlyWordSet = new Set();
         imidiatlyWordSet.add("acid_internally");
         imidiatlyWordSet.add("kafka_very_short_summary");
     searchMap.set("imidiatly", imidiatlyWordSet);
+
+let printsWordSet = new Set();
+        printsWordSet.add("kafka_in_action_summary");
+    searchMap.set("prints", printsWordSet);
 
 let replicationsWordSet = new Set();
         replicationsWordSet.add("mongo_db");
@@ -6644,12 +6644,6 @@ let moneyWordSet = new Set();
         moneyWordSet.add("acid_internally");
     searchMap.set("money", moneyWordSet);
 
-let bashWordSet = new Set();
-        bashWordSet.add("mongo_db");
-        bashWordSet.add("kafka_in_action_summary");
-        bashWordSet.add("how_to_create_a_python_project");
-    searchMap.set("bash", bashWordSet);
-
 let relationalWordSet = new Set();
         relationalWordSet.add("relational_dbs");
         relationalWordSet.add("relational_dbs_performance");
@@ -6659,13 +6653,19 @@ let relationalWordSet = new Set();
         relationalWordSet.add("sql_commands");
     searchMap.set("relational", relationalWordSet);
 
-let foreverWordSet = new Set();
-        foreverWordSet.add("kafka_in_action_summary");
-    searchMap.set("forever", foreverWordSet);
+let bashWordSet = new Set();
+        bashWordSet.add("mongo_db");
+        bashWordSet.add("kafka_in_action_summary");
+        bashWordSet.add("how_to_create_a_python_project");
+    searchMap.set("bash", bashWordSet);
 
 let disgustWordSet = new Set();
         disgustWordSet.add("thinking_fast_and_slow");
     searchMap.set("disgust", disgustWordSet);
+
+let foreverWordSet = new Set();
+        foreverWordSet.add("kafka_in_action_summary");
+    searchMap.set("forever", foreverWordSet);
 
 let informaticaWordSet = new Set();
         informaticaWordSet.add("kafka_in_action_summary");
@@ -6710,10 +6710,6 @@ let replicatingWordSet = new Set();
         replicatingWordSet.add("mysql_vs_postgres");
     searchMap.set("replicating", replicatingWordSet);
 
-let fairWordSet = new Set();
-        fairWordSet.add("kafka_in_action_summary");
-    searchMap.set("fair", fairWordSet);
-
 let duringWordSet = new Set();
         duringWordSet.add("thinking_fast_and_slow");
         duringWordSet.add("mongo_db");
@@ -6722,14 +6718,18 @@ let duringWordSet = new Set();
         duringWordSet.add("acid_internally");
     searchMap.set("during", duringWordSet);
 
-let lossWordSet = new Set();
-        lossWordSet.add("kafka_in_action_summary");
-    searchMap.set("loss", lossWordSet);
+let fairWordSet = new Set();
+        fairWordSet.add("kafka_in_action_summary");
+    searchMap.set("fair", fairWordSet);
 
 let reliableWordSet = new Set();
         reliableWordSet.add("kafka_in_action_summary");
         reliableWordSet.add("comparing_different_queues");
     searchMap.set("reliable", reliableWordSet);
+
+let lossWordSet = new Set();
+        lossWordSet.add("kafka_in_action_summary");
+    searchMap.set("loss", lossWordSet);
 
 let compatibleWordSet = new Set();
         compatibleWordSet.add("comparing_different_queues");
@@ -6743,12 +6743,6 @@ let safetyWordSet = new Set();
         safetyWordSet.add("mongo_db");
     searchMap.set("safety", safetyWordSet);
 
-let enableWordSet = new Set();
-        enableWordSet.add("mongo_db");
-        enableWordSet.add("kafka_in_action_summary");
-        enableWordSet.add("relational_dbs_performance");
-    searchMap.set("enable", enableWordSet);
-
 let priceWordSet = new Set();
         priceWordSet.add("thinking_fast_and_slow");
         priceWordSet.add("sql_commands");
@@ -6761,6 +6755,12 @@ let lostWordSet = new Set();
         lostWordSet.add("acid_internally");
         lostWordSet.add("kafka_very_short_summary");
     searchMap.set("lost", lostWordSet);
+
+let enableWordSet = new Set();
+        enableWordSet.add("mongo_db");
+        enableWordSet.add("kafka_in_action_summary");
+        enableWordSet.add("relational_dbs_performance");
+    searchMap.set("enable", enableWordSet);
 
 let slateWordSet = new Set();
         slateWordSet.add("kafka_in_action_summary");
@@ -6783,8 +6783,8 @@ let varWordSet = new Set();
     searchMap.set("var", varWordSet);
 
 let workWordSet = new Set();
-        workWordSet.add("dynamo_db");
         workWordSet.add("kafka_in_action_summary");
+        workWordSet.add("dynamo_db");
         workWordSet.add("interest");
         workWordSet.add("relational_dbs_performance");
         workWordSet.add("acid_internally");
@@ -6884,8 +6884,8 @@ let bootstrapWordSet = new Set();
     searchMap.set("bootstrap", bootstrapWordSet);
 
 let requestsWordSet = new Set();
-        requestsWordSet.add("dynamo_db");
         requestsWordSet.add("kafka_in_action_summary");
+        requestsWordSet.add("dynamo_db");
         requestsWordSet.add("kafka_very_short_summary");
     searchMap.set("requests", requestsWordSet);
 
@@ -7027,12 +7027,6 @@ let cultureWordSet = new Set();
         cultureWordSet.add("leadership");
     searchMap.set("culture", cultureWordSet);
 
-let existsWordSet = new Set();
-        existsWordSet.add("kafka_in_action_summary");
-        existsWordSet.add("sql_commands");
-        existsWordSet.add("kafka_very_short_summary");
-    searchMap.set("exists", existsWordSet);
-
 let cannotWordSet = new Set();
         cannotWordSet.add("mongo_db");
         cannotWordSet.add("kafka_in_action_summary");
@@ -7040,6 +7034,12 @@ let cannotWordSet = new Set();
         cannotWordSet.add("comparing_different_queues");
         cannotWordSet.add("mysql_vs_postgres");
     searchMap.set("cannot", cannotWordSet);
+
+let existsWordSet = new Set();
+        existsWordSet.add("kafka_in_action_summary");
+        existsWordSet.add("sql_commands");
+        existsWordSet.add("kafka_very_short_summary");
+    searchMap.set("exists", existsWordSet);
 
 let sharderWordSet = new Set();
         sharderWordSet.add("mongo_db");
@@ -7068,13 +7068,13 @@ let checkpointWordSet = new Set();
         checkpointWordSet.add("mongo_db");
     searchMap.set("checkpoint", checkpointWordSet);
 
-let verifiableproducerWordSet = new Set();
-        verifiableproducerWordSet.add("kafka_in_action_summary");
-    searchMap.set("verifiableproducer", verifiableproducerWordSet);
-
 let msgWordSet = new Set();
         msgWordSet.add("comparing_different_queues");
     searchMap.set("msg", msgWordSet);
+
+let verifiableproducerWordSet = new Set();
+        verifiableproducerWordSet.add("kafka_in_action_summary");
+    searchMap.set("verifiableproducer", verifiableproducerWordSet);
 
 let perfectWordSet = new Set();
         perfectWordSet.add("career_crises");
@@ -7174,16 +7174,16 @@ let cleanerWordSet = new Set();
         cleanerWordSet.add("kafka_in_action_summary");
     searchMap.set("cleaner", cleanerWordSet);
 
-let publishedWordSet = new Set();
-        publishedWordSet.add("kafka_in_action_summary");
-    searchMap.set("published", publishedWordSet);
-
 let failedWordSet = new Set();
         failedWordSet.add("mongo_db");
         failedWordSet.add("kafka_in_action_summary");
         failedWordSet.add("acid_internally");
         failedWordSet.add("kafka_very_short_summary");
     searchMap.set("failed", failedWordSet);
+
+let publishedWordSet = new Set();
+        publishedWordSet.add("kafka_in_action_summary");
+    searchMap.set("published", publishedWordSet);
 
 let replsetWordSet = new Set();
         replsetWordSet.add("mongo_db");
@@ -7269,18 +7269,18 @@ let errorWordSet = new Set();
         errorWordSet.add("kafka_very_short_summary");
     searchMap.set("error", errorWordSet);
 
-let aggregateWordSet = new Set();
-        aggregateWordSet.add("mongo_db");
-        aggregateWordSet.add("kafka_in_action_summary");
-        aggregateWordSet.add("sql_commands");
-    searchMap.set("aggregate", aggregateWordSet);
-
 let networkWordSet = new Set();
         networkWordSet.add("mongo_db");
         networkWordSet.add("kafka_in_action_summary");
         networkWordSet.add("mysql_vs_postgres");
         networkWordSet.add("kafka_very_short_summary");
     searchMap.set("network", networkWordSet);
+
+let aggregateWordSet = new Set();
+        aggregateWordSet.add("mongo_db");
+        aggregateWordSet.add("kafka_in_action_summary");
+        aggregateWordSet.add("sql_commands");
+    searchMap.set("aggregate", aggregateWordSet);
 
 let holdingWordSet = new Set();
         holdingWordSet.add("mysql_vs_postgres");
@@ -7558,6 +7558,12 @@ let buildingWordSet = new Set();
         buildingWordSet.add("relational_dbs_performance");
     searchMap.set("building", buildingWordSet);
 
+let viaWordSet = new Set();
+        viaWordSet.add("mongo_db");
+        viaWordSet.add("kafka_in_action_summary");
+        viaWordSet.add("mysql_vs_postgres");
+    searchMap.set("via", viaWordSet);
+
 let settingWordSet = new Set();
         settingWordSet.add("thinking_fast_and_slow");
         settingWordSet.add("kafka_in_action_summary");
@@ -7569,12 +7575,6 @@ let commitedWordSet = new Set();
         commitedWordSet.add("kafka_in_action_summary");
         commitedWordSet.add("acid_internally");
     searchMap.set("commited", commitedWordSet);
-
-let viaWordSet = new Set();
-        viaWordSet.add("mongo_db");
-        viaWordSet.add("kafka_in_action_summary");
-        viaWordSet.add("mysql_vs_postgres");
-    searchMap.set("via", viaWordSet);
 
 let properlyWordSet = new Set();
         properlyWordSet.add("kafka_in_action_summary");
@@ -7621,13 +7621,13 @@ let sortsWordSet = new Set();
         sortsWordSet.add("relational_dbs_performance");
     searchMap.set("sorts", sortsWordSet);
 
-let movingWordSet = new Set();
-        movingWordSet.add("kafka_in_action_summary");
-    searchMap.set("moving", movingWordSet);
-
 let ipcWordSet = new Set();
         ipcWordSet.add("mysql_vs_postgres");
     searchMap.set("ipc", ipcWordSet);
+
+let movingWordSet = new Set();
+        movingWordSet.add("kafka_in_action_summary");
+    searchMap.set("moving", movingWordSet);
 
 let ranWordSet = new Set();
         ranWordSet.add("kafka_in_action_summary");
@@ -7646,15 +7646,15 @@ let internallyWordSet = new Set();
         internallyWordSet.add("acid_internally");
     searchMap.set("internally", internallyWordSet);
 
-let zookeeperWordSet = new Set();
-        zookeeperWordSet.add("kafka_in_action_summary");
-        zookeeperWordSet.add("comparing_different_queues");
-    searchMap.set("zookeeper", zookeeperWordSet);
-
 let upgradeWordSet = new Set();
         upgradeWordSet.add("mysql_vs_postgres");
         upgradeWordSet.add("acid_internally");
     searchMap.set("upgrade", upgradeWordSet);
+
+let zookeeperWordSet = new Set();
+        zookeeperWordSet.add("kafka_in_action_summary");
+        zookeeperWordSet.add("comparing_different_queues");
+    searchMap.set("zookeeper", zookeeperWordSet);
 
 let consernWordSet = new Set();
         consernWordSet.add("mongo_db");
@@ -7688,14 +7688,14 @@ let ipvWordSet = new Set();
         ipvWordSet.add("kafka_in_action_summary");
     searchMap.set("ipv", ipvWordSet);
 
+let personsWordSet = new Set();
+        personsWordSet.add("thinking_fast_and_slow");
+    searchMap.set("persons", personsWordSet);
+
 let retriesWordSet = new Set();
         retriesWordSet.add("kafka_in_action_summary");
         retriesWordSet.add("kafka_very_short_summary");
     searchMap.set("retries", retriesWordSet);
-
-let personsWordSet = new Set();
-        personsWordSet.add("thinking_fast_and_slow");
-    searchMap.set("persons", personsWordSet);
 
 let sortedWordSet = new Set();
         sortedWordSet.add("relational_dbs_performance");
@@ -7716,8 +7716,8 @@ let encounteringWordSet = new Set();
 
 let stopWordSet = new Set();
         stopWordSet.add("mongo_db");
-        stopWordSet.add("dynamo_db");
         stopWordSet.add("kafka_in_action_summary");
+        stopWordSet.add("dynamo_db");
     searchMap.set("stop", stopWordSet);
 
 let filestreamsourceconnectorWordSet = new Set();
@@ -7737,13 +7737,13 @@ let rboWordSet = new Set();
         rboWordSet.add("relational_dbs_performance");
     searchMap.set("rbo", rboWordSet);
 
-let appropriateWordSet = new Set();
-        appropriateWordSet.add("kafka_in_action_summary");
-    searchMap.set("appropriate", appropriateWordSet);
-
 let retriedWordSet = new Set();
         retriedWordSet.add("acid_internally");
     searchMap.set("retried", retriedWordSet);
+
+let appropriateWordSet = new Set();
+        appropriateWordSet.add("kafka_in_action_summary");
+    searchMap.set("appropriate", appropriateWordSet);
 
 let leaderandisrWordSet = new Set();
         leaderandisrWordSet.add("kafka_in_action_summary");
@@ -7794,13 +7794,13 @@ let repeatableWordSet = new Set();
         repeatableWordSet.add("acid_internally");
     searchMap.set("repeatable", repeatableWordSet);
 
-let produceridWordSet = new Set();
-        produceridWordSet.add("kafka_in_action_summary");
-    searchMap.set("producerid", produceridWordSet);
-
 let wikipediaWordSet = new Set();
         wikipediaWordSet.add("mysql_vs_postgres");
     searchMap.set("wikipedia", wikipediaWordSet);
+
+let produceridWordSet = new Set();
+        produceridWordSet.add("kafka_in_action_summary");
+    searchMap.set("producerid", produceridWordSet);
 
 let decicionWordSet = new Set();
         decicionWordSet.add("acid_internally");
@@ -7828,13 +7828,13 @@ let linkedWordSet = new Set();
         linkedWordSet.add("about_the_digital_garden");
     searchMap.set("linked", linkedWordSet);
 
-let minimizeWordSet = new Set();
-        minimizeWordSet.add("kafka_in_action_summary");
-    searchMap.set("minimize", minimizeWordSet);
-
 let federationWordSet = new Set();
         federationWordSet.add("comparing_different_queues");
     searchMap.set("federation", federationWordSet);
+
+let minimizeWordSet = new Set();
+        minimizeWordSet.add("kafka_in_action_summary");
+    searchMap.set("minimize", minimizeWordSet);
 
 let shrdingWordSet = new Set();
         shrdingWordSet.add("comparing_different_queues");
@@ -7904,11 +7904,6 @@ let persuasiveWordSet = new Set();
         persuasiveWordSet.add("persuasion");
     searchMap.set("persuasive", persuasiveWordSet);
 
-let controlsWordSet = new Set();
-        controlsWordSet.add("kafka_in_action_summary");
-        controlsWordSet.add("kafka_very_short_summary");
-    searchMap.set("controls", controlsWordSet);
-
 let communicateWordSet = new Set();
         communicateWordSet.add("leadership");
     searchMap.set("communicate", communicateWordSet);
@@ -7920,6 +7915,11 @@ let notesWordSet = new Set();
         notesWordSet.add("cassandra");
         notesWordSet.add("about_the_digital_garden");
     searchMap.set("notes", notesWordSet);
+
+let controlsWordSet = new Set();
+        controlsWordSet.add("kafka_in_action_summary");
+        controlsWordSet.add("kafka_very_short_summary");
+    searchMap.set("controls", controlsWordSet);
 
 let generatesWordSet = new Set();
         generatesWordSet.add("mongo_db");
@@ -8004,11 +8004,18 @@ let intuitionWordSet = new Set();
         intuitionWordSet.add("thinking_fast_and_slow");
     searchMap.set("intuition", intuitionWordSet);
 
-let partitionsWordSet = new Set();
-        partitionsWordSet.add("mongo_db");
-        partitionsWordSet.add("kafka_in_action_summary");
-        partitionsWordSet.add("kafka_very_short_summary");
-    searchMap.set("partitions", partitionsWordSet);
+let doesnWordSet = new Set();
+        doesnWordSet.add("thinking_fast_and_slow");
+        doesnWordSet.add("mongo_db");
+        doesnWordSet.add("kafka_in_action_summary");
+        doesnWordSet.add("dynamo_db");
+        doesnWordSet.add("relational_dbs_performance");
+        doesnWordSet.add("mysql_vs_postgres");
+        doesnWordSet.add("terraform");
+        doesnWordSet.add("acid_internally");
+        doesnWordSet.add("sql_commands");
+        doesnWordSet.add("kafka_very_short_summary");
+    searchMap.set("doesn", doesnWordSet);
 
 let addWordSet = new Set();
         addWordSet.add("mongo_db");
@@ -8017,18 +8024,11 @@ let addWordSet = new Set();
         addWordSet.add("mysql_vs_postgres");
     searchMap.set("add", addWordSet);
 
-let doesnWordSet = new Set();
-        doesnWordSet.add("thinking_fast_and_slow");
-        doesnWordSet.add("mongo_db");
-        doesnWordSet.add("dynamo_db");
-        doesnWordSet.add("kafka_in_action_summary");
-        doesnWordSet.add("relational_dbs_performance");
-        doesnWordSet.add("mysql_vs_postgres");
-        doesnWordSet.add("terraform");
-        doesnWordSet.add("acid_internally");
-        doesnWordSet.add("sql_commands");
-        doesnWordSet.add("kafka_very_short_summary");
-    searchMap.set("doesn", doesnWordSet);
+let partitionsWordSet = new Set();
+        partitionsWordSet.add("mongo_db");
+        partitionsWordSet.add("kafka_in_action_summary");
+        partitionsWordSet.add("kafka_very_short_summary");
+    searchMap.set("partitions", partitionsWordSet);
 
 let duplicatesWordSet = new Set();
         duplicatesWordSet.add("kafka_in_action_summary");
@@ -8042,8 +8042,8 @@ let bsqxvWordSet = new Set();
 let needWordSet = new Set();
         needWordSet.add("persuasion");
         needWordSet.add("mongo_db");
-        needWordSet.add("dynamo_db");
         needWordSet.add("kafka_in_action_summary");
+        needWordSet.add("dynamo_db");
         needWordSet.add("leadership");
         needWordSet.add("relational_dbs_performance");
         needWordSet.add("comparing_different_queues");
@@ -8074,21 +8074,21 @@ let itsWordSet = new Set();
     searchMap.set("its", itsWordSet);
 
 let oftenWordSet = new Set();
-        oftenWordSet.add("dynamo_db");
         oftenWordSet.add("kafka_in_action_summary");
+        oftenWordSet.add("dynamo_db");
     searchMap.set("often", oftenWordSet);
 
 let consentWordSet = new Set();
         consentWordSet.add("kafka_very_short_summary");
     searchMap.set("consent", consentWordSet);
 
-let eltWordSet = new Set();
-        eltWordSet.add("kafka_in_action_summary");
-    searchMap.set("elt", eltWordSet);
-
 let comparisionWordSet = new Set();
         comparisionWordSet.add("comparing_different_queues");
     searchMap.set("comparision", comparisionWordSet);
+
+let eltWordSet = new Set();
+        eltWordSet.add("kafka_in_action_summary");
+    searchMap.set("elt", eltWordSet);
 
 let unitsinstockWordSet = new Set();
         unitsinstockWordSet.add("sql_commands");
@@ -8120,13 +8120,13 @@ let curatorWordSet = new Set();
         curatorWordSet.add("comparing_different_queues");
     searchMap.set("curator", curatorWordSet);
 
-let testsWordSet = new Set();
-        testsWordSet.add("kafka_in_action_summary");
-    searchMap.set("tests", testsWordSet);
-
 let mutualWordSet = new Set();
         mutualWordSet.add("acid_internally");
     searchMap.set("mutual", mutualWordSet);
+
+let testsWordSet = new Set();
+        testsWordSet.add("kafka_in_action_summary");
+    searchMap.set("tests", testsWordSet);
 
 let portWordSet = new Set();
         portWordSet.add("mongo_db");
@@ -8170,14 +8170,14 @@ let privateWordSet = new Set();
         privateWordSet.add("comparing_different_queues");
     searchMap.set("private", privateWordSet);
 
+let inboundWordSet = new Set();
+        inboundWordSet.add("comparing_different_queues");
+    searchMap.set("inbound", inboundWordSet);
+
 let productionWordSet = new Set();
         productionWordSet.add("mongo_db");
         productionWordSet.add("kafka_in_action_summary");
     searchMap.set("production", productionWordSet);
-
-let inboundWordSet = new Set();
-        inboundWordSet.add("comparing_different_queues");
-    searchMap.set("inbound", inboundWordSet);
 
 let smallestWordSet = new Set();
         smallestWordSet.add("relational_dbs_performance");
@@ -8207,16 +8207,16 @@ let directoryWordSet = new Set();
         directoryWordSet.add("kafka_very_short_summary");
     searchMap.set("directory", directoryWordSet);
 
-let inconsistenciesWordSet = new Set();
-        inconsistenciesWordSet.add("kafka_in_action_summary");
-    searchMap.set("inconsistencies", inconsistenciesWordSet);
-
 let preventWordSet = new Set();
         preventWordSet.add("mongo_db");
         preventWordSet.add("mysql_vs_postgres");
         preventWordSet.add("terraform");
         preventWordSet.add("acid_internally");
     searchMap.set("prevent", preventWordSet);
+
+let inconsistenciesWordSet = new Set();
+        inconsistenciesWordSet.add("kafka_in_action_summary");
+    searchMap.set("inconsistencies", inconsistenciesWordSet);
 
 let behaveWordSet = new Set();
         behaveWordSet.add("kafka_in_action_summary");
@@ -8361,14 +8361,14 @@ let referredWordSet = new Set();
         referredWordSet.add("kafka_in_action_summary");
     searchMap.set("referred", referredWordSet);
 
-let slightlyWordSet = new Set();
-        slightlyWordSet.add("kafka_in_action_summary");
-    searchMap.set("slightly", slightlyWordSet);
-
 let triesWordSet = new Set();
         triesWordSet.add("acid_internally");
         triesWordSet.add("kafka_very_short_summary");
     searchMap.set("tries", triesWordSet);
+
+let slightlyWordSet = new Set();
+        slightlyWordSet.add("kafka_in_action_summary");
+    searchMap.set("slightly", slightlyWordSet);
 
 let backupWordSet = new Set();
         backupWordSet.add("mongo_db");
@@ -8430,8 +8430,8 @@ let turnsWordSet = new Set();
 let numberWordSet = new Set();
         numberWordSet.add("thinking_fast_and_slow");
         numberWordSet.add("mongo_db");
-        numberWordSet.add("dynamo_db");
         numberWordSet.add("kafka_in_action_summary");
+        numberWordSet.add("dynamo_db");
         numberWordSet.add("relational_dbs_performance");
         numberWordSet.add("comparing_different_queues");
         numberWordSet.add("mysql_vs_postgres");
@@ -8465,6 +8465,12 @@ let mappingWordSet = new Set();
         mappingWordSet.add("kafka_in_action_summary");
     searchMap.set("mapping", mappingWordSet);
 
+let nothingWordSet = new Set();
+        nothingWordSet.add("career_crises");
+        nothingWordSet.add("mongo_db");
+        nothingWordSet.add("terraform");
+    searchMap.set("nothing", nothingWordSet);
+
 let testingWordSet = new Set();
         testingWordSet.add("kafka_in_action_summary");
     searchMap.set("testing", testingWordSet);
@@ -8473,12 +8479,6 @@ let acksWordSet = new Set();
         acksWordSet.add("kafka_in_action_summary");
         acksWordSet.add("kafka_very_short_summary");
     searchMap.set("acks", acksWordSet);
-
-let nothingWordSet = new Set();
-        nothingWordSet.add("career_crises");
-        nothingWordSet.add("mongo_db");
-        nothingWordSet.add("terraform");
-    searchMap.set("nothing", nothingWordSet);
 
 let specifyWordSet = new Set();
         specifyWordSet.add("mongo_db");
@@ -8539,16 +8539,16 @@ let systemWordSet = new Set();
         systemWordSet.add("kafka_very_short_summary");
     searchMap.set("system", systemWordSet);
 
-let connectorWordSet = new Set();
-        connectorWordSet.add("kafka_in_action_summary");
-        connectorWordSet.add("kafka_very_short_summary");
-    searchMap.set("connector", connectorWordSet);
-
 let driverWordSet = new Set();
         driverWordSet.add("thinking_fast_and_slow");
         driverWordSet.add("mongo_db");
         driverWordSet.add("comparing_different_queues");
     searchMap.set("driver", driverWordSet);
+
+let connectorWordSet = new Set();
+        connectorWordSet.add("kafka_in_action_summary");
+        connectorWordSet.add("kafka_very_short_summary");
+    searchMap.set("connector", connectorWordSet);
 
 let lgbhbsWordSet = new Set();
         lgbhbsWordSet.add("relational_dbs_performance");
@@ -8621,14 +8621,14 @@ let localWordSet = new Set();
         localWordSet.add("terraform");
     searchMap.set("local", localWordSet);
 
+let userspaceWordSet = new Set();
+        userspaceWordSet.add("mysql_vs_postgres");
+    searchMap.set("userspace", userspaceWordSet);
+
 let segmentsWordSet = new Set();
         segmentsWordSet.add("kafka_in_action_summary");
         segmentsWordSet.add("kafka_very_short_summary");
     searchMap.set("segments", segmentsWordSet);
-
-let userspaceWordSet = new Set();
-        userspaceWordSet.add("mysql_vs_postgres");
-    searchMap.set("userspace", userspaceWordSet);
 
 let validWordSet = new Set();
         validWordSet.add("kafka_in_action_summary");
@@ -8878,15 +8878,6 @@ let intenseWordSet = new Set();
         intenseWordSet.add("thinking_fast_and_slow");
     searchMap.set("intense", intenseWordSet);
 
-let alwaysWordSet = new Set();
-        alwaysWordSet.add("mongo_db");
-        alwaysWordSet.add("kafka_in_action_summary");
-        alwaysWordSet.add("relational_dbs_performance");
-        alwaysWordSet.add("terraform");
-        alwaysWordSet.add("acid_internally");
-        alwaysWordSet.add("sql_commands");
-    searchMap.set("always", alwaysWordSet);
-
 let allWordSet = new Set();
         allWordSet.add("mongo_db");
         allWordSet.add("kafka_in_action_summary");
@@ -8897,6 +8888,15 @@ let allWordSet = new Set();
         allWordSet.add("sql_commands");
         allWordSet.add("kafka_very_short_summary");
     searchMap.set("all", allWordSet);
+
+let alwaysWordSet = new Set();
+        alwaysWordSet.add("mongo_db");
+        alwaysWordSet.add("kafka_in_action_summary");
+        alwaysWordSet.add("relational_dbs_performance");
+        alwaysWordSet.add("terraform");
+        alwaysWordSet.add("acid_internally");
+        alwaysWordSet.add("sql_commands");
+    searchMap.set("always", alwaysWordSet);
 
 let settingsWordSet = new Set();
         settingsWordSet.add("kafka_in_action_summary");
@@ -8995,13 +8995,13 @@ let followersWordSet = new Set();
         followersWordSet.add("kafka_in_action_summary");
     searchMap.set("followers", followersWordSet);
 
-let apisWordSet = new Set();
-        apisWordSet.add("kafka_in_action_summary");
-    searchMap.set("apis", apisWordSet);
-
 let getqueueWordSet = new Set();
         getqueueWordSet.add("comparing_different_queues");
     searchMap.set("getqueue", getqueueWordSet);
+
+let apisWordSet = new Set();
+        apisWordSet.add("kafka_in_action_summary");
+    searchMap.set("apis", apisWordSet);
 
 let dsphereWordSet = new Set();
         dsphereWordSet.add("mongo_db");
@@ -9035,13 +9035,13 @@ let backupsWordSet = new Set();
         backupsWordSet.add("mongo_db");
     searchMap.set("backups", backupsWordSet);
 
-let boundaryWordSet = new Set();
-        boundaryWordSet.add("kafka_in_action_summary");
-    searchMap.set("boundary", boundaryWordSet);
-
 let badlyWordSet = new Set();
         badlyWordSet.add("acid_internally");
     searchMap.set("badly", badlyWordSet);
+
+let boundaryWordSet = new Set();
+        boundaryWordSet.add("kafka_in_action_summary");
+    searchMap.set("boundary", boundaryWordSet);
 
 let facilitateWordSet = new Set();
         facilitateWordSet.add("kafka_in_action_summary");
@@ -9063,15 +9063,15 @@ let respectiveWordSet = new Set();
         respectiveWordSet.add("relational_dbs_performance");
     searchMap.set("respective", respectiveWordSet);
 
-let reachingWordSet = new Set();
-        reachingWordSet.add("kafka_in_action_summary");
-    searchMap.set("reaching", reachingWordSet);
-
 let innodbWordSet = new Set();
         innodbWordSet.add("relational_dbs_performance");
         innodbWordSet.add("mysql_vs_postgres");
         innodbWordSet.add("acid_internally");
     searchMap.set("innodb", innodbWordSet);
+
+let reachingWordSet = new Set();
+        reachingWordSet.add("kafka_in_action_summary");
+    searchMap.set("reaching", reachingWordSet);
 
 let dreamsWordSet = new Set();
         dreamsWordSet.add("how_to_find_you_career");
@@ -9191,16 +9191,16 @@ let requirementWordSet = new Set();
         requirementWordSet.add("kafka_in_action_summary");
     searchMap.set("requirement", requirementWordSet);
 
+let rollsWordSet = new Set();
+        rollsWordSet.add("mysql_vs_postgres");
+    searchMap.set("rolls", rollsWordSet);
+
 let specificWordSet = new Set();
         specificWordSet.add("thinking_fast_and_slow");
         specificWordSet.add("mongo_db");
         specificWordSet.add("kafka_in_action_summary");
         specificWordSet.add("relational_dbs_performance");
     searchMap.set("specific", specificWordSet);
-
-let rollsWordSet = new Set();
-        rollsWordSet.add("mysql_vs_postgres");
-    searchMap.set("rolls", rollsWordSet);
 
 let timeunitWordSet = new Set();
         timeunitWordSet.add("comparing_different_queues");
@@ -9229,6 +9229,10 @@ let encryptedWordSet = new Set();
         encryptedWordSet.add("mongo_db");
     searchMap.set("encrypted", encryptedWordSet);
 
+let rpsWordSet = new Set();
+        rpsWordSet.add("dynamo_db");
+    searchMap.set("rps", rpsWordSet);
+
 let applicationWordSet = new Set();
         applicationWordSet.add("mongo_db");
         applicationWordSet.add("kafka_in_action_summary");
@@ -9237,17 +9241,13 @@ let applicationWordSet = new Set();
         applicationWordSet.add("acid_internally");
     searchMap.set("application", applicationWordSet);
 
-let rpsWordSet = new Set();
-        rpsWordSet.add("dynamo_db");
-    searchMap.set("rps", rpsWordSet);
+let productiveWordSet = new Set();
+        productiveWordSet.add("persuasion");
+    searchMap.set("productive", productiveWordSet);
 
 let tunedWordSet = new Set();
         tunedWordSet.add("kafka_in_action_summary");
     searchMap.set("tuned", tunedWordSet);
-
-let productiveWordSet = new Set();
-        productiveWordSet.add("persuasion");
-    searchMap.set("productive", productiveWordSet);
 
 let partitioningWordSet = new Set();
         partitioningWordSet.add("mongo_db");
@@ -9321,18 +9321,18 @@ let aggresiveWordSet = new Set();
         aggresiveWordSet.add("mongo_db");
     searchMap.set("aggresive", aggresiveWordSet);
 
-let decidedWordSet = new Set();
-        decidedWordSet.add("kafka_in_action_summary");
-        decidedWordSet.add("about_the_digital_garden");
-        decidedWordSet.add("kafka_very_short_summary");
-    searchMap.set("decided", decidedWordSet);
-
 let skillsWordSet = new Set();
         skillsWordSet.add("persuasion");
         skillsWordSet.add("soft_skills");
         skillsWordSet.add("leadership");
         skillsWordSet.add("toc");
     searchMap.set("skills", skillsWordSet);
+
+let decidedWordSet = new Set();
+        decidedWordSet.add("kafka_in_action_summary");
+        decidedWordSet.add("about_the_digital_garden");
+        decidedWordSet.add("kafka_very_short_summary");
+    searchMap.set("decided", decidedWordSet);
 
 let sacrificingWordSet = new Set();
         sacrificingWordSet.add("kafka_in_action_summary");
@@ -9346,15 +9346,15 @@ let companiesWordSet = new Set();
         companiesWordSet.add("kafka_in_action_summary");
     searchMap.set("companies", companiesWordSet);
 
-let locallyWordSet = new Set();
-        locallyWordSet.add("kafka_in_action_summary");
-        locallyWordSet.add("terraform");
-    searchMap.set("locally", locallyWordSet);
-
 let javaWordSet = new Set();
         javaWordSet.add("relational_dbs_performance");
         javaWordSet.add("comparing_different_queues");
     searchMap.set("java", javaWordSet);
+
+let locallyWordSet = new Set();
+        locallyWordSet.add("kafka_in_action_summary");
+        locallyWordSet.add("terraform");
+    searchMap.set("locally", locallyWordSet);
 
 let taggedWordSet = new Set();
         taggedWordSet.add("acid_internally");
@@ -9385,18 +9385,18 @@ let fullyWordSet = new Set();
         fullyWordSet.add("mysql_vs_postgres");
     searchMap.set("fully", fullyWordSet);
 
+let cacheWordSet = new Set();
+        cacheWordSet.add("kafka_in_action_summary");
+        cacheWordSet.add("mysql_vs_postgres");
+        cacheWordSet.add("kafka_very_short_summary");
+    searchMap.set("cache", cacheWordSet);
+
 let usingWordSet = new Set();
         usingWordSet.add("mongo_db");
         usingWordSet.add("kafka_in_action_summary");
         usingWordSet.add("relational_dbs_performance");
         usingWordSet.add("mysql_vs_postgres");
     searchMap.set("using", usingWordSet);
-
-let cacheWordSet = new Set();
-        cacheWordSet.add("kafka_in_action_summary");
-        cacheWordSet.add("mysql_vs_postgres");
-        cacheWordSet.add("kafka_very_short_summary");
-    searchMap.set("cache", cacheWordSet);
 
 let confluentWordSet = new Set();
         confluentWordSet.add("kafka_in_action_summary");
@@ -9406,15 +9406,15 @@ let hostsWordSet = new Set();
         hostsWordSet.add("mongo_db");
     searchMap.set("hosts", hostsWordSet);
 
-let remainWordSet = new Set();
-        remainWordSet.add("kafka_in_action_summary");
-    searchMap.set("remain", remainWordSet);
-
 let containingWordSet = new Set();
         containingWordSet.add("kafka_in_action_summary");
         containingWordSet.add("acid_internally");
         containingWordSet.add("programming");
     searchMap.set("containing", containingWordSet);
+
+let remainWordSet = new Set();
+        remainWordSet.add("kafka_in_action_summary");
+    searchMap.set("remain", remainWordSet);
 
 let importnatnWordSet = new Set();
         importnatnWordSet.add("mongo_db");
@@ -9483,8 +9483,8 @@ let inclusivenessWordSet = new Set();
     searchMap.set("inclusiveness", inclusivenessWordSet);
 
 let alternativesWordSet = new Set();
-        alternativesWordSet.add("dynamo_db");
         alternativesWordSet.add("kafka_in_action_summary");
+        alternativesWordSet.add("dynamo_db");
     searchMap.set("alternatives", alternativesWordSet);
 
 let calculationsWordSet = new Set();
@@ -9524,6 +9524,15 @@ let maybeWordSet = new Set();
         maybeWordSet.add("kafka_in_action_summary");
     searchMap.set("maybe", maybeWordSet);
 
+let automaticallyWordSet = new Set();
+        automaticallyWordSet.add("mongo_db");
+        automaticallyWordSet.add("kafka_in_action_summary");
+        automaticallyWordSet.add("relational_dbs_performance");
+        automaticallyWordSet.add("comparing_different_queues");
+        automaticallyWordSet.add("mysql_vs_postgres");
+        automaticallyWordSet.add("acid_internally");
+    searchMap.set("automatically", automaticallyWordSet);
+
 let anotherWordSet = new Set();
         anotherWordSet.add("thinking_fast_and_slow");
         anotherWordSet.add("mongo_db");
@@ -9534,15 +9543,6 @@ let anotherWordSet = new Set();
         anotherWordSet.add("sql_commands");
         anotherWordSet.add("kafka_very_short_summary");
     searchMap.set("another", anotherWordSet);
-
-let automaticallyWordSet = new Set();
-        automaticallyWordSet.add("mongo_db");
-        automaticallyWordSet.add("kafka_in_action_summary");
-        automaticallyWordSet.add("relational_dbs_performance");
-        automaticallyWordSet.add("comparing_different_queues");
-        automaticallyWordSet.add("mysql_vs_postgres");
-        automaticallyWordSet.add("acid_internally");
-    searchMap.set("automatically", automaticallyWordSet);
 
 let guaranteeWordSet = new Set();
         guaranteeWordSet.add("kafka_in_action_summary");
@@ -9566,19 +9566,23 @@ let acquireWordSet = new Set();
         acquireWordSet.add("acid_internally");
     searchMap.set("acquire", acquireWordSet);
 
+let literalWordSet = new Set();
+        literalWordSet.add("mysql_vs_postgres");
+    searchMap.set("literal", literalWordSet);
+
 let matchingWordSet = new Set();
         matchingWordSet.add("kafka_in_action_summary");
         matchingWordSet.add("relational_dbs_performance");
         matchingWordSet.add("sql_commands");
     searchMap.set("matching", matchingWordSet);
 
-let literalWordSet = new Set();
-        literalWordSet.add("mysql_vs_postgres");
-    searchMap.set("literal", literalWordSet);
-
 let increasesWordSet = new Set();
         increasesWordSet.add("kafka_in_action_summary");
     searchMap.set("increases", increasesWordSet);
+
+let diversityWordSet = new Set();
+        diversityWordSet.add("leadership");
+    searchMap.set("diversity", diversityWordSet);
 
 let defaultWordSet = new Set();
         defaultWordSet.add("mongo_db");
@@ -9588,10 +9592,6 @@ let defaultWordSet = new Set();
         defaultWordSet.add("terraform");
         defaultWordSet.add("kafka_very_short_summary");
     searchMap.set("default", defaultWordSet);
-
-let diversityWordSet = new Set();
-        diversityWordSet.add("leadership");
-    searchMap.set("diversity", diversityWordSet);
 
 let encryptionWordSet = new Set();
         encryptionWordSet.add("terraform");
@@ -9658,8 +9658,8 @@ let mechanismWordSet = new Set();
 
 let takesWordSet = new Set();
         takesWordSet.add("mongo_db");
-        takesWordSet.add("dynamo_db");
         takesWordSet.add("kafka_in_action_summary");
+        takesWordSet.add("dynamo_db");
         takesWordSet.add("relational_dbs_performance");
         takesWordSet.add("mysql_vs_postgres");
     searchMap.set("takes", takesWordSet);
@@ -9680,6 +9680,10 @@ let brokenWordSet = new Set();
         brokenWordSet.add("kafka_very_short_summary");
     searchMap.set("broken", brokenWordSet);
 
+let detectionWordSet = new Set();
+        detectionWordSet.add("acid_internally");
+    searchMap.set("detection", detectionWordSet);
+
 let scalingWordSet = new Set();
         scalingWordSet.add("kafka_in_action_summary");
     searchMap.set("scaling", scalingWordSet);
@@ -9689,10 +9693,6 @@ let viceWordSet = new Set();
         viceWordSet.add("acid_internally");
         viceWordSet.add("sql_commands");
     searchMap.set("vice", viceWordSet);
-
-let detectionWordSet = new Set();
-        detectionWordSet.add("acid_internally");
-    searchMap.set("detection", detectionWordSet);
 
 let bandwidthWordSet = new Set();
         bandwidthWordSet.add("kafka_in_action_summary");
@@ -9725,15 +9725,15 @@ let ascWordSet = new Set();
         ascWordSet.add("sql_commands");
     searchMap.set("asc", ascWordSet);
 
-let noticesWordSet = new Set();
-        noticesWordSet.add("kafka_in_action_summary");
-    searchMap.set("notices", noticesWordSet);
-
 let callWordSet = new Set();
         callWordSet.add("mongo_db");
         callWordSet.add("kafka_in_action_summary");
         callWordSet.add("acid_internally");
     searchMap.set("call", callWordSet);
+
+let noticesWordSet = new Set();
+        noticesWordSet.add("kafka_in_action_summary");
+    searchMap.set("notices", noticesWordSet);
 
 let boringWordSet = new Set();
         boringWordSet.add("persuasion");
@@ -9785,15 +9785,15 @@ let supportedWordSet = new Set();
         supportedWordSet.add("cassandra");
     searchMap.set("supported", supportedWordSet);
 
+let forwardsWordSet = new Set();
+        forwardsWordSet.add("comparing_different_queues");
+    searchMap.set("forwards", forwardsWordSet);
+
 let throughWordSet = new Set();
         throughWordSet.add("kafka_in_action_summary");
         throughWordSet.add("day_dreams");
         throughWordSet.add("kafka_very_short_summary");
     searchMap.set("through", throughWordSet);
-
-let forwardsWordSet = new Set();
-        forwardsWordSet.add("comparing_different_queues");
-    searchMap.set("forwards", forwardsWordSet);
 
 let lookasideWordSet = new Set();
         lookasideWordSet.add("mysql_vs_postgres");
@@ -9811,13 +9811,13 @@ let administrationWordSet = new Set();
         administrationWordSet.add("mongo_db");
     searchMap.set("administration", administrationWordSet);
 
-let solvedWordSet = new Set();
-        solvedWordSet.add("kafka_in_action_summary");
-    searchMap.set("solved", solvedWordSet);
-
 let casandraWordSet = new Set();
         casandraWordSet.add("dynamo_db");
     searchMap.set("casandra", casandraWordSet);
+
+let solvedWordSet = new Set();
+        solvedWordSet.add("kafka_in_action_summary");
+    searchMap.set("solved", solvedWordSet);
 
 let remainsWordSet = new Set();
         remainsWordSet.add("kafka_in_action_summary");
@@ -9936,15 +9936,15 @@ let expressionsWordSet = new Set();
         expressionsWordSet.add("relational_dbs_performance");
     searchMap.set("expressions", expressionsWordSet);
 
+let worseWordSet = new Set();
+        worseWordSet.add("acid_internally");
+    searchMap.set("worse", worseWordSet);
+
 let syncWordSet = new Set();
         syncWordSet.add("mongo_db");
         syncWordSet.add("kafka_in_action_summary");
         syncWordSet.add("kafka_very_short_summary");
     searchMap.set("sync", syncWordSet);
-
-let worseWordSet = new Set();
-        worseWordSet.add("acid_internally");
-    searchMap.set("worse", worseWordSet);
 
 let decreaseWordSet = new Set();
         decreaseWordSet.add("dynamo_db");
@@ -10178,13 +10178,13 @@ let incorporatingWordSet = new Set();
         incorporatingWordSet.add("acid_internally");
     searchMap.set("incorporating", incorporatingWordSet);
 
-let ensuresWordSet = new Set();
-        ensuresWordSet.add("kafka_in_action_summary");
-    searchMap.set("ensures", ensuresWordSet);
-
 let newsWordSet = new Set();
         newsWordSet.add("comparing_different_queues");
     searchMap.set("news", newsWordSet);
+
+let ensuresWordSet = new Set();
+        ensuresWordSet.add("kafka_in_action_summary");
+    searchMap.set("ensures", ensuresWordSet);
 
 let deliveryWordSet = new Set();
         deliveryWordSet.add("kafka_in_action_summary");
@@ -10200,25 +10200,25 @@ let greenWordSet = new Set();
         greenWordSet.add("mongo_db");
     searchMap.set("green", greenWordSet);
 
-let electionWordSet = new Set();
-        electionWordSet.add("kafka_in_action_summary");
-    searchMap.set("election", electionWordSet);
-
 let walWordSet = new Set();
         walWordSet.add("mysql_vs_postgres");
     searchMap.set("wal", walWordSet);
+
+let electionWordSet = new Set();
+        electionWordSet.add("kafka_in_action_summary");
+    searchMap.set("election", electionWordSet);
 
 let learnedWordSet = new Set();
         learnedWordSet.add("kafka_in_action_summary");
     searchMap.set("learned", learnedWordSet);
 
-let introduceWordSet = new Set();
-        introduceWordSet.add("kafka_in_action_summary");
-    searchMap.set("introduce", introduceWordSet);
-
 let effectivelyWordSet = new Set();
         effectivelyWordSet.add("mysql_vs_postgres");
     searchMap.set("effectively", effectivelyWordSet);
+
+let introduceWordSet = new Set();
+        introduceWordSet.add("kafka_in_action_summary");
+    searchMap.set("introduce", introduceWordSet);
 
 let lockingWordSet = new Set();
         lockingWordSet.add("acid_internally");
@@ -10254,13 +10254,13 @@ let wayWordSet = new Set();
         wayWordSet.add("choice");
     searchMap.set("way", wayWordSet);
 
-let targetWordSet = new Set();
-        targetWordSet.add("kafka_in_action_summary");
-    searchMap.set("target", targetWordSet);
-
 let greyWordSet = new Set();
         greyWordSet.add("thinking_fast_and_slow");
     searchMap.set("grey", greyWordSet);
+
+let targetWordSet = new Set();
+        targetWordSet.add("kafka_in_action_summary");
+    searchMap.set("target", targetWordSet);
 
 let whatWordSet = new Set();
         whatWordSet.add("persuasion");
@@ -10281,13 +10281,13 @@ let referWordSet = new Set();
         referWordSet.add("kafka_in_action_summary");
     searchMap.set("refer", referWordSet);
 
-let assumingWordSet = new Set();
-        assumingWordSet.add("kafka_in_action_summary");
-    searchMap.set("assuming", assumingWordSet);
-
 let restrictedWordSet = new Set();
         restrictedWordSet.add("comparing_different_queues");
     searchMap.set("restricted", restrictedWordSet);
+
+let assumingWordSet = new Set();
+        assumingWordSet.add("kafka_in_action_summary");
+    searchMap.set("assuming", assumingWordSet);
 
 let hdfsWordSet = new Set();
         hdfsWordSet.add("kafka_in_action_summary");
@@ -10346,15 +10346,15 @@ let quicklyWordSet = new Set();
         quicklyWordSet.add("mysql_vs_postgres");
     searchMap.set("quickly", quicklyWordSet);
 
-let decideWordSet = new Set();
-        decideWordSet.add("mongo_db");
-        decideWordSet.add("kafka_in_action_summary");
-    searchMap.set("decide", decideWordSet);
-
 let collectedWordSet = new Set();
         collectedWordSet.add("soft_skills");
         collectedWordSet.add("relational_dbs_performance");
     searchMap.set("collected", collectedWordSet);
+
+let decideWordSet = new Set();
+        decideWordSet.add("mongo_db");
+        decideWordSet.add("kafka_in_action_summary");
+    searchMap.set("decide", decideWordSet);
 
 let nearbyWordSet = new Set();
         nearbyWordSet.add("kafka_in_action_summary");
@@ -10525,14 +10525,14 @@ let failingWordSet = new Set();
         failingWordSet.add("kafka_in_action_summary");
     searchMap.set("failing", failingWordSet);
 
+let qeueuWordSet = new Set();
+        qeueuWordSet.add("comparing_different_queues");
+    searchMap.set("qeueu", qeueuWordSet);
+
 let resetWordSet = new Set();
         resetWordSet.add("kafka_in_action_summary");
         resetWordSet.add("kafka_very_short_summary");
     searchMap.set("reset", resetWordSet);
-
-let qeueuWordSet = new Set();
-        qeueuWordSet.add("comparing_different_queues");
-    searchMap.set("qeueu", qeueuWordSet);
 
 let matchedWordSet = new Set();
         matchedWordSet.add("sql_commands");
@@ -10578,16 +10578,16 @@ let flagsWordSet = new Set();
         flagsWordSet.add("mongo_db");
     searchMap.set("flags", flagsWordSet);
 
-let patternWordSet = new Set();
-        patternWordSet.add("kafka_in_action_summary");
-        patternWordSet.add("sql_commands");
-    searchMap.set("pattern", patternWordSet);
-
 let directWordSet = new Set();
         directWordSet.add("thinking_fast_and_slow");
         directWordSet.add("kafka_in_action_summary");
         directWordSet.add("relational_dbs_performance");
     searchMap.set("direct", directWordSet);
+
+let patternWordSet = new Set();
+        patternWordSet.add("kafka_in_action_summary");
+        patternWordSet.add("sql_commands");
+    searchMap.set("pattern", patternWordSet);
 
 let incrementWordSet = new Set();
         incrementWordSet.add("kafka_in_action_summary");
@@ -10658,8 +10658,8 @@ let architectureWordSet = new Set();
 let moreWordSet = new Set();
         moreWordSet.add("persuasion");
         moreWordSet.add("mongo_db");
-        moreWordSet.add("dynamo_db");
         moreWordSet.add("kafka_in_action_summary");
+        moreWordSet.add("dynamo_db");
         moreWordSet.add("interest");
         moreWordSet.add("leadership");
         moreWordSet.add("relational_dbs_performance");
@@ -10812,8 +10812,8 @@ let totallyWordSet = new Set();
 
 let connectionsWordSet = new Set();
         connectionsWordSet.add("mongo_db");
-        connectionsWordSet.add("dynamo_db");
         connectionsWordSet.add("kafka_in_action_summary");
+        connectionsWordSet.add("dynamo_db");
         connectionsWordSet.add("comparing_different_queues");
         connectionsWordSet.add("mysql_vs_postgres");
     searchMap.set("connections", connectionsWordSet);
@@ -10822,15 +10822,15 @@ let describedWordSet = new Set();
         describedWordSet.add("mysql_vs_postgres");
     searchMap.set("described", describedWordSet);
 
-let configuredWordSet = new Set();
-        configuredWordSet.add("kafka_in_action_summary");
-        configuredWordSet.add("kafka_very_short_summary");
-    searchMap.set("configured", configuredWordSet);
-
 let markedWordSet = new Set();
         markedWordSet.add("acid_internally");
         markedWordSet.add("kafka_very_short_summary");
     searchMap.set("marked", markedWordSet);
+
+let configuredWordSet = new Set();
+        configuredWordSet.add("kafka_in_action_summary");
+        configuredWordSet.add("kafka_very_short_summary");
+    searchMap.set("configured", configuredWordSet);
 
 let pathologicalWordSet = new Set();
         pathologicalWordSet.add("mysql_vs_postgres");
@@ -10842,13 +10842,13 @@ let corruptedWordSet = new Set();
         corruptedWordSet.add("kafka_very_short_summary");
     searchMap.set("corrupted", corruptedWordSet);
 
-let packageWordSet = new Set();
-        packageWordSet.add("kafka_in_action_summary");
-    searchMap.set("package", packageWordSet);
-
 let visibleWordSet = new Set();
         visibleWordSet.add("acid_internally");
     searchMap.set("visible", visibleWordSet);
+
+let packageWordSet = new Set();
+        packageWordSet.add("kafka_in_action_summary");
+    searchMap.set("package", packageWordSet);
 
 let gruesomeWordSet = new Set();
         gruesomeWordSet.add("thinking_fast_and_slow");
@@ -10883,10 +10883,6 @@ let qeueueWordSet = new Set();
         qeueueWordSet.add("comparing_different_queues");
     searchMap.set("qeueue", qeueueWordSet);
 
-let producedWordSet = new Set();
-        producedWordSet.add("kafka_in_action_summary");
-    searchMap.set("produced", producedWordSet);
-
 let bothWordSet = new Set();
         bothWordSet.add("persuasion");
         bothWordSet.add("mongo_db");
@@ -10897,6 +10893,10 @@ let bothWordSet = new Set();
         bothWordSet.add("sql_commands");
         bothWordSet.add("kafka_very_short_summary");
     searchMap.set("both", bothWordSet);
+
+let producedWordSet = new Set();
+        producedWordSet.add("kafka_in_action_summary");
+    searchMap.set("produced", producedWordSet);
 
 let persuasionWordSet = new Set();
         persuasionWordSet.add("persuasion");
@@ -10940,32 +10940,32 @@ let keepWordSet = new Set();
         keepWordSet.add("thinking_fast_and_slow");
         keepWordSet.add("persuasion");
         keepWordSet.add("mongo_db");
-        keepWordSet.add("dynamo_db");
         keepWordSet.add("kafka_in_action_summary");
+        keepWordSet.add("dynamo_db");
         keepWordSet.add("terraform");
         keepWordSet.add("acid_internally");
         keepWordSet.add("kafka_very_short_summary");
     searchMap.set("keep", keepWordSet);
+
+let explainingWordSet = new Set();
+        explainingWordSet.add("persuasion");
+    searchMap.set("explaining", explainingWordSet);
 
 let producesWordSet = new Set();
         producesWordSet.add("kafka_in_action_summary");
         producesWordSet.add("kafka_very_short_summary");
     searchMap.set("produces", producesWordSet);
 
-let explainingWordSet = new Set();
-        explainingWordSet.add("persuasion");
-    searchMap.set("explaining", explainingWordSet);
-
-let topicWordSet = new Set();
-        topicWordSet.add("kafka_in_action_summary");
-        topicWordSet.add("kafka_very_short_summary");
-    searchMap.set("topic", topicWordSet);
-
 let producerWordSet = new Set();
         producerWordSet.add("kafka_in_action_summary");
         producerWordSet.add("comparing_different_queues");
         producerWordSet.add("kafka_very_short_summary");
     searchMap.set("producer", producerWordSet);
+
+let topicWordSet = new Set();
+        topicWordSet.add("kafka_in_action_summary");
+        topicWordSet.add("kafka_very_short_summary");
+    searchMap.set("topic", topicWordSet);
 
 let jobWordSet = new Set();
         jobWordSet.add("thinking_fast_and_slow");
@@ -11121,13 +11121,13 @@ let optimeWordSet = new Set();
         optimeWordSet.add("mongo_db");
     searchMap.set("optime", optimeWordSet);
 
-let assignmentWordSet = new Set();
-        assignmentWordSet.add("kafka_in_action_summary");
-    searchMap.set("assignment", assignmentWordSet);
-
 let occuredWordSet = new Set();
         occuredWordSet.add("acid_internally");
     searchMap.set("occured", occuredWordSet);
+
+let assignmentWordSet = new Set();
+        assignmentWordSet.add("kafka_in_action_summary");
+    searchMap.set("assignment", assignmentWordSet);
 
 let sawWordSet = new Set();
         sawWordSet.add("kafka_in_action_summary");
@@ -11155,8 +11155,8 @@ let approachesWordSet = new Set();
     searchMap.set("approaches", approachesWordSet);
 
 let enoughWordSet = new Set();
-        enoughWordSet.add("dynamo_db");
         enoughWordSet.add("kafka_in_action_summary");
+        enoughWordSet.add("dynamo_db");
         enoughWordSet.add("comparing_different_queues");
         enoughWordSet.add("kafka_very_short_summary");
     searchMap.set("enough", enoughWordSet);
@@ -11191,14 +11191,14 @@ let intensivelyWordSet = new Set();
         intensivelyWordSet.add("mongo_db");
     searchMap.set("intensively", intensivelyWordSet);
 
-let administrativeWordSet = new Set();
-        administrativeWordSet.add("kafka_in_action_summary");
-    searchMap.set("administrative", administrativeWordSet);
-
 let variousWordSet = new Set();
         variousWordSet.add("kafka_in_action_summary");
         variousWordSet.add("mysql_vs_postgres");
     searchMap.set("various", variousWordSet);
+
+let administrativeWordSet = new Set();
+        administrativeWordSet.add("kafka_in_action_summary");
+    searchMap.set("administrative", administrativeWordSet);
 
 let organizationsWordSet = new Set();
         organizationsWordSet.add("kafka_in_action_summary");
@@ -11227,6 +11227,10 @@ let visitWordSet = new Set();
         visitWordSet.add("relational_dbs_performance");
     searchMap.set("visit", visitWordSet);
 
+let architecutreWordSet = new Set();
+        architecutreWordSet.add("mysql_vs_postgres");
+    searchMap.set("architecutre", architecutreWordSet);
+
 let userWordSet = new Set();
         userWordSet.add("mongo_db");
         userWordSet.add("kafka_in_action_summary");
@@ -11234,10 +11238,6 @@ let userWordSet = new Set();
         userWordSet.add("mysql_vs_postgres");
         userWordSet.add("sql_commands");
     searchMap.set("user", userWordSet);
-
-let architecutreWordSet = new Set();
-        architecutreWordSet.add("mysql_vs_postgres");
-    searchMap.set("architecutre", architecutreWordSet);
 
 let simplyWordSet = new Set();
         simplyWordSet.add("kafka_in_action_summary");
@@ -11282,8 +11282,8 @@ let parentWordSet = new Set();
 let badWordSet = new Set();
         badWordSet.add("thinking_fast_and_slow");
         badWordSet.add("mongo_db");
-        badWordSet.add("dynamo_db");
         badWordSet.add("kafka_in_action_summary");
+        badWordSet.add("dynamo_db");
         badWordSet.add("day_dreams");
         badWordSet.add("relational_dbs_performance");
         badWordSet.add("acid_internally");
@@ -11294,22 +11294,22 @@ let figWordSet = new Set();
         figWordSet.add("relational_dbs_performance");
     searchMap.set("fig", figWordSet);
 
+let switchesWordSet = new Set();
+        switchesWordSet.add("mysql_vs_postgres");
+    searchMap.set("switches", switchesWordSet);
+
 let bringWordSet = new Set();
         bringWordSet.add("kafka_in_action_summary");
         bringWordSet.add("day_dreams");
     searchMap.set("bring", bringWordSet);
 
-let switchesWordSet = new Set();
-        switchesWordSet.add("mysql_vs_postgres");
-    searchMap.set("switches", switchesWordSet);
+let reflectedWordSet = new Set();
+        reflectedWordSet.add("mysql_vs_postgres");
+    searchMap.set("reflected", reflectedWordSet);
 
 let assuresWordSet = new Set();
         assuresWordSet.add("kafka_in_action_summary");
     searchMap.set("assures", assuresWordSet);
-
-let reflectedWordSet = new Set();
-        reflectedWordSet.add("mysql_vs_postgres");
-    searchMap.set("reflected", reflectedWordSet);
 
 let losingWordSet = new Set();
         losingWordSet.add("kafka_in_action_summary");
@@ -11319,10 +11319,6 @@ let randWordSet = new Set();
         randWordSet.add("mongo_db");
     searchMap.set("rand", randWordSet);
 
-let fitWordSet = new Set();
-        fitWordSet.add("kafka_in_action_summary");
-    searchMap.set("fit", fitWordSet);
-
 let onmessageWordSet = new Set();
         onmessageWordSet.add("comparing_different_queues");
     searchMap.set("onmessage", onmessageWordSet);
@@ -11330,6 +11326,10 @@ let onmessageWordSet = new Set();
 let offerWordSet = new Set();
         offerWordSet.add("comparing_different_queues");
     searchMap.set("offer", offerWordSet);
+
+let fitWordSet = new Set();
+        fitWordSet.add("kafka_in_action_summary");
+    searchMap.set("fit", fitWordSet);
 
 let barWordSet = new Set();
         barWordSet.add("day_dreams");
@@ -11376,17 +11376,17 @@ let adWordSet = new Set();
         adWordSet.add("kafka_in_action_summary");
     searchMap.set("ad", adWordSet);
 
-let growWordSet = new Set();
-        growWordSet.add("mongo_db");
-        growWordSet.add("kafka_in_action_summary");
-    searchMap.set("grow", growWordSet);
-
 let sureWordSet = new Set();
         sureWordSet.add("persuasion");
         sureWordSet.add("mongo_db");
         sureWordSet.add("kafka_in_action_summary");
         sureWordSet.add("choice");
     searchMap.set("sure", sureWordSet);
+
+let growWordSet = new Set();
+        growWordSet.add("mongo_db");
+        growWordSet.add("kafka_in_action_summary");
+    searchMap.set("grow", growWordSet);
 
 let preallocatedWordSet = new Set();
         preallocatedWordSet.add("mongo_db");
@@ -11465,22 +11465,17 @@ let considerationWordSet = new Set();
         considerationWordSet.add("relational_dbs_performance");
     searchMap.set("consideration", considerationWordSet);
 
-let lookingWordSet = new Set();
-        lookingWordSet.add("kafka_in_action_summary");
-    searchMap.set("looking", lookingWordSet);
-
 let simultaneouslyWordSet = new Set();
         simultaneouslyWordSet.add("acid_internally");
     searchMap.set("simultaneously", simultaneouslyWordSet);
 
+let lookingWordSet = new Set();
+        lookingWordSet.add("kafka_in_action_summary");
+    searchMap.set("looking", lookingWordSet);
+
 let priviligesWordSet = new Set();
         priviligesWordSet.add("mongo_db");
     searchMap.set("priviliges", priviligesWordSet);
-
-let compressionWordSet = new Set();
-        compressionWordSet.add("kafka_in_action_summary");
-        compressionWordSet.add("kafka_very_short_summary");
-    searchMap.set("compression", compressionWordSet);
 
 let driveWordSet = new Set();
         driveWordSet.add("thinking_fast_and_slow");
@@ -11489,6 +11484,11 @@ let driveWordSet = new Set();
 let blockingqueueWordSet = new Set();
         blockingqueueWordSet.add("comparing_different_queues");
     searchMap.set("blockingqueue", blockingqueueWordSet);
+
+let compressionWordSet = new Set();
+        compressionWordSet.add("kafka_in_action_summary");
+        compressionWordSet.add("kafka_very_short_summary");
+    searchMap.set("compression", compressionWordSet);
 
 let schemaWordSet = new Set();
         schemaWordSet.add("kafka_in_action_summary");
@@ -11530,28 +11530,28 @@ let beWordSet = new Set();
         beWordSet.add("kafka_very_short_summary");
     searchMap.set("be", beWordSet);
 
-let schemeWordSet = new Set();
-        schemeWordSet.add("kafka_in_action_summary");
-        schemeWordSet.add("relational_dbs_performance");
-    searchMap.set("scheme", schemeWordSet);
-
 let standbyWordSet = new Set();
         standbyWordSet.add("kafka_in_action_summary");
         standbyWordSet.add("mysql_vs_postgres");
         standbyWordSet.add("kafka_very_short_summary");
     searchMap.set("standby", standbyWordSet);
 
+let schemeWordSet = new Set();
+        schemeWordSet.add("kafka_in_action_summary");
+        schemeWordSet.add("relational_dbs_performance");
+    searchMap.set("scheme", schemeWordSet);
+
 let bgWordSet = new Set();
         bgWordSet.add("mongo_db");
     searchMap.set("bg", bgWordSet);
 
-let orderingWordSet = new Set();
-        orderingWordSet.add("kafka_in_action_summary");
-    searchMap.set("ordering", orderingWordSet);
-
 let affectWordSet = new Set();
         affectWordSet.add("mysql_vs_postgres");
     searchMap.set("affect", affectWordSet);
+
+let orderingWordSet = new Set();
+        orderingWordSet.add("kafka_in_action_summary");
+    searchMap.set("ordering", orderingWordSet);
 
 let deadWordSet = new Set();
         deadWordSet.add("kafka_in_action_summary");
@@ -11566,6 +11566,13 @@ let communicationsWordSet = new Set();
         communicationsWordSet.add("mongo_db");
     searchMap.set("communications", communicationsWordSet);
 
+let searchWordSet = new Set();
+        searchWordSet.add("mongo_db");
+        searchWordSet.add("cassandra");
+        searchWordSet.add("relational_dbs_performance");
+        searchWordSet.add("sql_commands");
+    searchMap.set("search", searchWordSet);
+
 let seeWordSet = new Set();
         seeWordSet.add("persuasion");
         seeWordSet.add("mongo_db");
@@ -11575,21 +11582,9 @@ let seeWordSet = new Set();
         seeWordSet.add("kafka_very_short_summary");
     searchMap.set("see", seeWordSet);
 
-let searchWordSet = new Set();
-        searchWordSet.add("mongo_db");
-        searchWordSet.add("cassandra");
-        searchWordSet.add("relational_dbs_performance");
-        searchWordSet.add("sql_commands");
-    searchMap.set("search", searchWordSet);
-
 let slavedelayWordSet = new Set();
         slavedelayWordSet.add("mongo_db");
     searchMap.set("slavedelay", slavedelayWordSet);
-
-let systemsWordSet = new Set();
-        systemsWordSet.add("thinking_fast_and_slow");
-        systemsWordSet.add("kafka_in_action_summary");
-    searchMap.set("systems", systemsWordSet);
 
 let responsibilityWordSet = new Set();
         responsibilityWordSet.add("acid_internally");
@@ -11599,10 +11594,15 @@ let offeredWordSet = new Set();
         offeredWordSet.add("comparing_different_queues");
     searchMap.set("offered", offeredWordSet);
 
+let systemsWordSet = new Set();
+        systemsWordSet.add("thinking_fast_and_slow");
+        systemsWordSet.add("kafka_in_action_summary");
+    searchMap.set("systems", systemsWordSet);
+
 let byWordSet = new Set();
         byWordSet.add("mongo_db");
-        byWordSet.add("dynamo_db");
         byWordSet.add("kafka_in_action_summary");
+        byWordSet.add("dynamo_db");
         byWordSet.add("cassandra");
         byWordSet.add("relational_dbs_performance");
         byWordSet.add("comparing_different_queues");
@@ -11646,14 +11646,6 @@ let configuringWordSet = new Set();
         configuringWordSet.add("kafka_in_action_summary");
     searchMap.set("configuring", configuringWordSet);
 
-let containWordSet = new Set();
-        containWordSet.add("kafka_in_action_summary");
-        containWordSet.add("cassandra");
-        containWordSet.add("relational_dbs_performance");
-        containWordSet.add("mysql_vs_postgres");
-        containWordSet.add("terraform");
-    searchMap.set("contain", containWordSet);
-
 let setWordSet = new Set();
         setWordSet.add("mongo_db");
         setWordSet.add("kafka_in_action_summary");
@@ -11665,6 +11657,14 @@ let setWordSet = new Set();
         setWordSet.add("sql_commands");
         setWordSet.add("kafka_very_short_summary");
     searchMap.set("set", setWordSet);
+
+let containWordSet = new Set();
+        containWordSet.add("kafka_in_action_summary");
+        containWordSet.add("cassandra");
+        containWordSet.add("relational_dbs_performance");
+        containWordSet.add("mysql_vs_postgres");
+        containWordSet.add("terraform");
+    searchMap.set("contain", containWordSet);
 
 let tombstoneWordSet = new Set();
         tombstoneWordSet.add("kafka_in_action_summary");
@@ -11685,18 +11685,18 @@ let sexWordSet = new Set();
         sexWordSet.add("sql_commands");
     searchMap.set("sex", sexWordSet);
 
-let columnWordSet = new Set();
-        columnWordSet.add("kafka_in_action_summary");
-        columnWordSet.add("relational_dbs_performance");
-        columnWordSet.add("sql_commands");
-    searchMap.set("column", columnWordSet);
-
 let wordsWordSet = new Set();
         wordsWordSet.add("thinking_fast_and_slow");
         wordsWordSet.add("persuasion");
         wordsWordSet.add("mongo_db");
         wordsWordSet.add("about_the_digital_garden");
     searchMap.set("words", wordsWordSet);
+
+let columnWordSet = new Set();
+        columnWordSet.add("kafka_in_action_summary");
+        columnWordSet.add("relational_dbs_performance");
+        columnWordSet.add("sql_commands");
+    searchMap.set("column", columnWordSet);
 
 let acknowledgmentsWordSet = new Set();
         acknowledgmentsWordSet.add("kafka_in_action_summary");
@@ -11892,18 +11892,6 @@ let digitWordSet = new Set();
         digitWordSet.add("thinking_fast_and_slow");
     searchMap.set("digit", digitWordSet);
 
-let whichWordSet = new Set();
-        whichWordSet.add("thinking_fast_and_slow");
-        whichWordSet.add("mongo_db");
-        whichWordSet.add("kafka_in_action_summary");
-        whichWordSet.add("relational_dbs_performance");
-        whichWordSet.add("comparing_different_queues");
-        whichWordSet.add("mysql_vs_postgres");
-        whichWordSet.add("terraform");
-        whichWordSet.add("acid_internally");
-        whichWordSet.add("kafka_very_short_summary");
-    searchMap.set("which", whichWordSet);
-
 let disadvantageWordSet = new Set();
         disadvantageWordSet.add("mysql_vs_postgres");
     searchMap.set("disadvantage", disadvantageWordSet);
@@ -11917,16 +11905,28 @@ let needsWordSet = new Set();
         needsWordSet.add("acid_internally");
     searchMap.set("needs", needsWordSet);
 
-let imageWordSet = new Set();
-        imageWordSet.add("thinking_fast_and_slow");
-        imageWordSet.add("kafka_in_action_summary");
-        imageWordSet.add("relational_dbs_performance");
-    searchMap.set("image", imageWordSet);
+let whichWordSet = new Set();
+        whichWordSet.add("thinking_fast_and_slow");
+        whichWordSet.add("mongo_db");
+        whichWordSet.add("kafka_in_action_summary");
+        whichWordSet.add("relational_dbs_performance");
+        whichWordSet.add("comparing_different_queues");
+        whichWordSet.add("mysql_vs_postgres");
+        whichWordSet.add("terraform");
+        whichWordSet.add("acid_internally");
+        whichWordSet.add("kafka_very_short_summary");
+    searchMap.set("which", whichWordSet);
 
 let searchesWordSet = new Set();
         searchesWordSet.add("relational_dbs_performance");
         searchesWordSet.add("mysql_vs_postgres");
     searchMap.set("searches", searchesWordSet);
+
+let imageWordSet = new Set();
+        imageWordSet.add("thinking_fast_and_slow");
+        imageWordSet.add("kafka_in_action_summary");
+        imageWordSet.add("relational_dbs_performance");
+    searchMap.set("image", imageWordSet);
 
 let tradeoffsWordSet = new Set();
         tradeoffsWordSet.add("mysql_vs_postgres");
@@ -12522,14 +12522,14 @@ let inWordSet = new Set();
         inWordSet.add("kafka_very_short_summary");
     searchMap.set("in", inWordSet);
 
+let literallyWordSet = new Set();
+        literallyWordSet.add("mysql_vs_postgres");
+    searchMap.set("literally", literallyWordSet);
+
 let ioWordSet = new Set();
         ioWordSet.add("kafka_in_action_summary");
         ioWordSet.add("comparing_different_queues");
     searchMap.set("io", ioWordSet);
-
-let literallyWordSet = new Set();
-        literallyWordSet.add("mysql_vs_postgres");
-    searchMap.set("literally", literallyWordSet);
 
 let ipWordSet = new Set();
         ipWordSet.add("mongo_db");
@@ -12626,14 +12626,14 @@ let tuplesWordSet = new Set();
         tuplesWordSet.add("mysql_vs_postgres");
     searchMap.set("tuples", tuplesWordSet);
 
-let remotelyWordSet = new Set();
-        remotelyWordSet.add("kafka_in_action_summary");
-    searchMap.set("remotely", remotelyWordSet);
-
 let beginWordSet = new Set();
         beginWordSet.add("mongo_db");
         beginWordSet.add("acid_internally");
     searchMap.set("begin", beginWordSet);
+
+let remotelyWordSet = new Set();
+        remotelyWordSet.add("kafka_in_action_summary");
+    searchMap.set("remotely", remotelyWordSet);
 
 let becomeWordSet = new Set();
         becomeWordSet.add("career_crises");
@@ -12665,13 +12665,13 @@ let worksWordSet = new Set();
         worksWordSet.add("kafka_very_short_summary");
     searchMap.set("works", worksWordSet);
 
-let aliveWordSet = new Set();
-        aliveWordSet.add("kafka_in_action_summary");
-    searchMap.set("alive", aliveWordSet);
-
 let proportionWordSet = new Set();
         proportionWordSet.add("acid_internally");
     searchMap.set("proportion", proportionWordSet);
+
+let aliveWordSet = new Set();
+        aliveWordSet.add("kafka_in_action_summary");
+    searchMap.set("alive", aliveWordSet);
 
 let jqWordSet = new Set();
         jqWordSet.add("relational_dbs_performance");
@@ -12732,8 +12732,8 @@ let deafultWordSet = new Set();
     searchMap.set("deafult", deafultWordSet);
 
 let sendingWordSet = new Set();
-        sendingWordSet.add("dynamo_db");
         sendingWordSet.add("kafka_in_action_summary");
+        sendingWordSet.add("dynamo_db");
         sendingWordSet.add("comparing_different_queues");
     searchMap.set("sending", sendingWordSet);
 
@@ -12791,8 +12791,8 @@ let missedWordSet = new Set();
 
 let changeWordSet = new Set();
         changeWordSet.add("mongo_db");
-        changeWordSet.add("dynamo_db");
         changeWordSet.add("kafka_in_action_summary");
+        changeWordSet.add("dynamo_db");
         changeWordSet.add("relational_dbs_performance");
         changeWordSet.add("mysql_vs_postgres");
         changeWordSet.add("terraform");
@@ -12934,13 +12934,13 @@ let standsWordSet = new Set();
         standsWordSet.add("kafka_in_action_summary");
     searchMap.set("stands", standsWordSet);
 
-let couplingWordSet = new Set();
-        couplingWordSet.add("kafka_in_action_summary");
-    searchMap.set("coupling", couplingWordSet);
-
 let pausesWordSet = new Set();
         pausesWordSet.add("mysql_vs_postgres");
     searchMap.set("pauses", pausesWordSet);
+
+let couplingWordSet = new Set();
+        couplingWordSet.add("kafka_in_action_summary");
+    searchMap.set("coupling", couplingWordSet);
 
 let thatWordSet = new Set();
         thatWordSet.add("thinking_fast_and_slow");
@@ -12979,10 +12979,6 @@ let proceedsWordSet = new Set();
         proceedsWordSet.add("kafka_in_action_summary");
     searchMap.set("proceeds", proceedsWordSet);
 
-let fallsWordSet = new Set();
-        fallsWordSet.add("kafka_in_action_summary");
-    searchMap.set("falls", fallsWordSet);
-
 let splitWordSet = new Set();
         splitWordSet.add("thinking_fast_and_slow");
         splitWordSet.add("mongo_db");
@@ -12990,6 +12986,10 @@ let splitWordSet = new Set();
         splitWordSet.add("leadership");
         splitWordSet.add("kafka_very_short_summary");
     searchMap.set("split", splitWordSet);
+
+let fallsWordSet = new Set();
+        fallsWordSet.add("kafka_in_action_summary");
+    searchMap.set("falls", fallsWordSet);
 
 let mbWordSet = new Set();
         mbWordSet.add("mongo_db");
@@ -13009,13 +13009,19 @@ let thanWordSet = new Set();
         thanWordSet.add("thinking_fast_and_slow");
         thanWordSet.add("persuasion");
         thanWordSet.add("mongo_db");
-        thanWordSet.add("dynamo_db");
         thanWordSet.add("kafka_in_action_summary");
+        thanWordSet.add("dynamo_db");
         thanWordSet.add("relational_dbs_performance");
         thanWordSet.add("mysql_vs_postgres");
         thanWordSet.add("sql_commands");
         thanWordSet.add("kafka_very_short_summary");
     searchMap.set("than", thanWordSet);
+
+let meWordSet = new Set();
+        meWordSet.add("mongo_db");
+        meWordSet.add("kafka_in_action_summary");
+        meWordSet.add("name_me");
+    searchMap.set("me", meWordSet);
 
 let limitWordSet = new Set();
         limitWordSet.add("thinking_fast_and_slow");
@@ -13025,15 +13031,20 @@ let limitWordSet = new Set();
         limitWordSet.add("sql_commands");
     searchMap.set("limit", limitWordSet);
 
-let meWordSet = new Set();
-        meWordSet.add("mongo_db");
-        meWordSet.add("kafka_in_action_summary");
-        meWordSet.add("name_me");
-    searchMap.set("me", meWordSet);
+let communicationWordSet = new Set();
+        communicationWordSet.add("leadership");
+    searchMap.set("communication", communicationWordSet);
 
 let unplannedWordSet = new Set();
         unplannedWordSet.add("kafka_in_action_summary");
     searchMap.set("unplanned", unplannedWordSet);
+
+let directlyWordSet = new Set();
+        directlyWordSet.add("kafka_in_action_summary");
+        directlyWordSet.add("relational_dbs_performance");
+        directlyWordSet.add("mysql_vs_postgres");
+        directlyWordSet.add("acid_internally");
+    searchMap.set("directly", directlyWordSet);
 
 let differentWordSet = new Set();
         differentWordSet.add("career_crises");
@@ -13048,17 +13059,6 @@ let differentWordSet = new Set();
         differentWordSet.add("sql_commands");
         differentWordSet.add("kafka_very_short_summary");
     searchMap.set("different", differentWordSet);
-
-let directlyWordSet = new Set();
-        directlyWordSet.add("kafka_in_action_summary");
-        directlyWordSet.add("relational_dbs_performance");
-        directlyWordSet.add("mysql_vs_postgres");
-        directlyWordSet.add("acid_internally");
-    searchMap.set("directly", directlyWordSet);
-
-let communicationWordSet = new Set();
-        communicationWordSet.add("leadership");
-    searchMap.set("communication", communicationWordSet);
 
 let repartitionWordSet = new Set();
         repartitionWordSet.add("mongo_db");
@@ -13119,6 +13119,10 @@ let mongosWordSet = new Set();
         mongosWordSet.add("mongo_db");
     searchMap.set("mongos", mongosWordSet);
 
+let amazonWordSet = new Set();
+        amazonWordSet.add("comparing_different_queues");
+    searchMap.set("amazon", amazonWordSet);
+
 let relevantWordSet = new Set();
         relevantWordSet.add("mongo_db");
         relevantWordSet.add("kafka_in_action_summary");
@@ -13127,10 +13131,6 @@ let relevantWordSet = new Set();
 let chandyWordSet = new Set();
         chandyWordSet.add("kafka_in_action_summary");
     searchMap.set("chandy", chandyWordSet);
-
-let amazonWordSet = new Set();
-        amazonWordSet.add("comparing_different_queues");
-    searchMap.set("amazon", amazonWordSet);
 
 let entryWordSet = new Set();
         entryWordSet.add("kafka_in_action_summary");
@@ -13178,6 +13178,11 @@ let consumedWordSet = new Set();
         consumedWordSet.add("kafka_in_action_summary");
     searchMap.set("consumed", consumedWordSet);
 
+let behindWordSet = new Set();
+        behindWordSet.add("kafka_in_action_summary");
+        behindWordSet.add("mysql_vs_postgres");
+    searchMap.set("behind", behindWordSet);
+
 let noWordSet = new Set();
         noWordSet.add("thinking_fast_and_slow");
         noWordSet.add("mongo_db");
@@ -13190,10 +13195,9 @@ let noWordSet = new Set();
         noWordSet.add("kafka_very_short_summary");
     searchMap.set("no", noWordSet);
 
-let behindWordSet = new Set();
-        behindWordSet.add("kafka_in_action_summary");
-        behindWordSet.add("mysql_vs_postgres");
-    searchMap.set("behind", behindWordSet);
+let legacyWordSet = new Set();
+        legacyWordSet.add("comparing_different_queues");
+    searchMap.set("legacy", legacyWordSet);
 
 let heartbeatsWordSet = new Set();
         heartbeatsWordSet.add("kafka_in_action_summary");
@@ -13203,10 +13207,6 @@ let codeWordSet = new Set();
         codeWordSet.add("kafka_in_action_summary");
         codeWordSet.add("relational_dbs_performance");
     searchMap.set("code", codeWordSet);
-
-let legacyWordSet = new Set();
-        legacyWordSet.add("comparing_different_queues");
-    searchMap.set("legacy", legacyWordSet);
 
 let keysWordSet = new Set();
         keysWordSet.add("mongo_db");
@@ -13224,19 +13224,19 @@ let wmemWordSet = new Set();
         wmemWordSet.add("kafka_in_action_summary");
     searchMap.set("wmem", wmemWordSet);
 
-let boxWordSet = new Set();
-        boxWordSet.add("kafka_in_action_summary");
-    searchMap.set("box", boxWordSet);
-
 let mixedWordSet = new Set();
         mixedWordSet.add("mysql_vs_postgres");
         mixedWordSet.add("kafka_very_short_summary");
     searchMap.set("mixed", mixedWordSet);
 
+let boxWordSet = new Set();
+        boxWordSet.add("kafka_in_action_summary");
+    searchMap.set("box", boxWordSet);
+
 let storageWordSet = new Set();
         storageWordSet.add("mongo_db");
-        storageWordSet.add("dynamo_db");
         storageWordSet.add("kafka_in_action_summary");
+        storageWordSet.add("dynamo_db");
         storageWordSet.add("relational_dbs_performance");
         storageWordSet.add("mysql_vs_postgres");
         storageWordSet.add("terraform");
@@ -13299,10 +13299,6 @@ let reserveWordSet = new Set();
         reserveWordSet.add("mongo_db");
     searchMap.set("reserve", reserveWordSet);
 
-let somehowWordSet = new Set();
-        somehowWordSet.add("kafka_in_action_summary");
-    searchMap.set("somehow", somehowWordSet);
-
 let backendWordSet = new Set();
         backendWordSet.add("terraform");
     searchMap.set("backend", backendWordSet);
@@ -13312,6 +13308,10 @@ let consumersWordSet = new Set();
         consumersWordSet.add("comparing_different_queues");
         consumersWordSet.add("kafka_very_short_summary");
     searchMap.set("consumers", consumersWordSet);
+
+let somehowWordSet = new Set();
+        somehowWordSet.add("kafka_in_action_summary");
+    searchMap.set("somehow", somehowWordSet);
 
 let okWordSet = new Set();
         okWordSet.add("career_crises");
@@ -13334,6 +13334,11 @@ let consumerWordSet = new Set();
         consumerWordSet.add("kafka_very_short_summary");
     searchMap.set("consumer", consumerWordSet);
 
+let highlyWordSet = new Set();
+        highlyWordSet.add("kafka_in_action_summary");
+        highlyWordSet.add("comparing_different_queues");
+    searchMap.set("highly", highlyWordSet);
+
 let consumesWordSet = new Set();
         consumesWordSet.add("kafka_in_action_summary");
     searchMap.set("consumes", consumesWordSet);
@@ -13341,11 +13346,6 @@ let consumesWordSet = new Set();
 let allocatedWordSet = new Set();
         allocatedWordSet.add("kafka_in_action_summary");
     searchMap.set("allocated", allocatedWordSet);
-
-let highlyWordSet = new Set();
-        highlyWordSet.add("kafka_in_action_summary");
-        highlyWordSet.add("comparing_different_queues");
-    searchMap.set("highly", highlyWordSet);
 
 let onWordSet = new Set();
         onWordSet.add("thinking_fast_and_slow");
@@ -13474,13 +13474,13 @@ let pkWordSet = new Set();
         pkWordSet.add("sql_commands");
     searchMap.set("pk", pkWordSet);
 
-let temptingWordSet = new Set();
-        temptingWordSet.add("kafka_in_action_summary");
-    searchMap.set("tempting", temptingWordSet);
-
 let plWordSet = new Set();
         plWordSet.add("acid_internally");
     searchMap.set("pl", plWordSet);
+
+let temptingWordSet = new Set();
+        temptingWordSet.add("kafka_in_action_summary");
+    searchMap.set("tempting", temptingWordSet);
 
 let numberofcountriesWordSet = new Set();
         numberofcountriesWordSet.add("sql_commands");
@@ -13690,6 +13690,10 @@ let rsWordSet = new Set();
         rsWordSet.add("mongo_db");
     searchMap.set("rs", rsWordSet);
 
+let minusWordSet = new Set();
+        minusWordSet.add("dynamo_db");
+    searchMap.set("minus", minusWordSet);
+
 let checkingWordSet = new Set();
         checkingWordSet.add("kafka_in_action_summary");
     searchMap.set("checking", checkingWordSet);
@@ -13700,10 +13704,6 @@ let subWordSet = new Set();
         subWordSet.add("programming");
         subWordSet.add("kafka_very_short_summary");
     searchMap.set("sub", subWordSet);
-
-let minusWordSet = new Set();
-        minusWordSet.add("dynamo_db");
-    searchMap.set("minus", minusWordSet);
 
 let accessWordSet = new Set();
         accessWordSet.add("mongo_db");
@@ -13746,21 +13746,21 @@ let seenWordSet = new Set();
         seenWordSet.add("kafka_in_action_summary");
     searchMap.set("seen", seenWordSet);
 
-let servingWordSet = new Set();
-        servingWordSet.add("kafka_in_action_summary");
-    searchMap.set("serving", servingWordSet);
-
 let supWordSet = new Set();
         supWordSet.add("comparing_different_queues");
     searchMap.set("sup", supWordSet);
 
-let offlineWordSet = new Set();
-        offlineWordSet.add("kafka_in_action_summary");
-    searchMap.set("offline", offlineWordSet);
+let servingWordSet = new Set();
+        servingWordSet.add("kafka_in_action_summary");
+    searchMap.set("serving", servingWordSet);
 
 let rpoplpushWordSet = new Set();
         rpoplpushWordSet.add("comparing_different_queues");
     searchMap.set("rpoplpush", rpoplpushWordSet);
+
+let offlineWordSet = new Set();
+        offlineWordSet.add("kafka_in_action_summary");
+    searchMap.set("offline", offlineWordSet);
 
 let currentWordSet = new Set();
         currentWordSet.add("mongo_db");
@@ -13777,15 +13777,15 @@ let sfWordSet = new Set();
         sfWordSet.add("kafka_in_action_summary");
     searchMap.set("sf", sfWordSet);
 
-let shWordSet = new Set();
-        shWordSet.add("mongo_db");
-        shWordSet.add("kafka_in_action_summary");
-    searchMap.set("sh", shWordSet);
-
 let varietyWordSet = new Set();
         varietyWordSet.add("kafka_in_action_summary");
         varietyWordSet.add("mysql_vs_postgres");
     searchMap.set("variety", varietyWordSet);
+
+let shWordSet = new Set();
+        shWordSet.add("mongo_db");
+        shWordSet.add("kafka_in_action_summary");
+    searchMap.set("sh", shWordSet);
 
 let managedWordSet = new Set();
         managedWordSet.add("comparing_different_queues");
@@ -13795,13 +13795,13 @@ let myisamWordSet = new Set();
         myisamWordSet.add("relational_dbs_performance");
     searchMap.set("myisam", myisamWordSet);
 
-let executesWordSet = new Set();
-        executesWordSet.add("kafka_in_action_summary");
-    searchMap.set("executes", executesWordSet);
-
 let persistWordSet = new Set();
         persistWordSet.add("comparing_different_queues");
     searchMap.set("persist", persistWordSet);
+
+let executesWordSet = new Set();
+        executesWordSet.add("kafka_in_action_summary");
+    searchMap.set("executes", executesWordSet);
 
 let soWordSet = new Set();
         soWordSet.add("thinking_fast_and_slow");
@@ -13820,6 +13820,12 @@ let soWordSet = new Set();
         soWordSet.add("kafka_very_short_summary");
     searchMap.set("so", soWordSet);
 
+let postgresWordSet = new Set();
+        postgresWordSet.add("relational_dbs");
+        postgresWordSet.add("mysql_vs_postgres");
+        postgresWordSet.add("acid_internally");
+    searchMap.set("postgres", postgresWordSet);
+
 let preferredWordSet = new Set();
         preferredWordSet.add("kafka_in_action_summary");
         preferredWordSet.add("kafka_very_short_summary");
@@ -13835,12 +13841,6 @@ let keyWordSet = new Set();
         keyWordSet.add("acid_internally");
         keyWordSet.add("kafka_very_short_summary");
     searchMap.set("key", keyWordSet);
-
-let postgresWordSet = new Set();
-        postgresWordSet.add("relational_dbs");
-        postgresWordSet.add("mysql_vs_postgres");
-        postgresWordSet.add("acid_internally");
-    searchMap.set("postgres", postgresWordSet);
 
 let situationsWordSet = new Set();
         situationsWordSet.add("mysql_vs_postgres");
@@ -13863,10 +13863,6 @@ let stoppedWordSet = new Set();
         stoppedWordSet.add("comparing_different_queues");
     searchMap.set("stopped", stoppedWordSet);
 
-let managerWordSet = new Set();
-        managerWordSet.add("kafka_in_action_summary");
-    searchMap.set("manager", managerWordSet);
-
 let necessaryWordSet = new Set();
         necessaryWordSet.add("interest");
         necessaryWordSet.add("relational_dbs_performance");
@@ -13880,6 +13876,10 @@ let decisionWordSet = new Set();
         decisionWordSet.add("acid_internally");
         decisionWordSet.add("kafka_very_short_summary");
     searchMap.set("decision", decisionWordSet);
+
+let managerWordSet = new Set();
+        managerWordSet.add("kafka_in_action_summary");
+    searchMap.set("manager", managerWordSet);
 
 let readanydatabaseWordSet = new Set();
         readanydatabaseWordSet.add("mongo_db");
@@ -14045,18 +14045,18 @@ let suppliersWordSet = new Set();
         suppliersWordSet.add("sql_commands");
     searchMap.set("suppliers", suppliersWordSet);
 
+let declareWordSet = new Set();
+        declareWordSet.add("kafka_in_action_summary");
+        declareWordSet.add("terraform");
+        declareWordSet.add("sql_commands");
+    searchMap.set("declare", declareWordSet);
+
 let separateWordSet = new Set();
         separateWordSet.add("mongo_db");
         separateWordSet.add("kafka_in_action_summary");
         separateWordSet.add("terraform");
         separateWordSet.add("kafka_very_short_summary");
     searchMap.set("separate", separateWordSet);
-
-let declareWordSet = new Set();
-        declareWordSet.add("kafka_in_action_summary");
-        declareWordSet.add("terraform");
-        declareWordSet.add("sql_commands");
-    searchMap.set("declare", declareWordSet);
 
 let reasonableWordSet = new Set();
         reasonableWordSet.add("kafka_in_action_summary");
@@ -14113,13 +14113,13 @@ let secondoriesWordSet = new Set();
         secondoriesWordSet.add("mongo_db");
     searchMap.set("secondories", secondoriesWordSet);
 
-let apacheWordSet = new Set();
-        apacheWordSet.add("kafka_in_action_summary");
-    searchMap.set("apache", apacheWordSet);
-
 let trivialWordSet = new Set();
         trivialWordSet.add("mysql_vs_postgres");
     searchMap.set("trivial", trivialWordSet);
+
+let apacheWordSet = new Set();
+        apacheWordSet.add("kafka_in_action_summary");
+    searchMap.set("apache", apacheWordSet);
 
 let awarenessWordSet = new Set();
         awarenessWordSet.add("kafka_in_action_summary");
@@ -14147,13 +14147,6 @@ let detailsWordSet = new Set();
         detailsWordSet.add("relational_dbs_performance");
     searchMap.set("details", detailsWordSet);
 
-let writtenWordSet = new Set();
-        writtenWordSet.add("mongo_db");
-        writtenWordSet.add("kafka_in_action_summary");
-        writtenWordSet.add("acid_internally");
-        writtenWordSet.add("sql_commands");
-    searchMap.set("written", writtenWordSet);
-
 let upWordSet = new Set();
         upWordSet.add("mongo_db");
         upWordSet.add("kafka_in_action_summary");
@@ -14162,14 +14155,21 @@ let upWordSet = new Set();
         upWordSet.add("kafka_very_short_summary");
     searchMap.set("up", upWordSet);
 
-let generateWordSet = new Set();
-        generateWordSet.add("kafka_in_action_summary");
-        generateWordSet.add("relational_dbs_performance");
-    searchMap.set("generate", generateWordSet);
+let writtenWordSet = new Set();
+        writtenWordSet.add("mongo_db");
+        writtenWordSet.add("kafka_in_action_summary");
+        writtenWordSet.add("acid_internally");
+        writtenWordSet.add("sql_commands");
+    searchMap.set("written", writtenWordSet);
 
 let unusualWordSet = new Set();
         unusualWordSet.add("mysql_vs_postgres");
     searchMap.set("unusual", unusualWordSet);
+
+let generateWordSet = new Set();
+        generateWordSet.add("kafka_in_action_summary");
+        generateWordSet.add("relational_dbs_performance");
+    searchMap.set("generate", generateWordSet);
 
 let somereadwriteuserWordSet = new Set();
         somereadwriteuserWordSet.add("mongo_db");
@@ -14187,6 +14187,12 @@ let usWordSet = new Set();
         usWordSet.add("kafka_very_short_summary");
     searchMap.set("us", usWordSet);
 
+let oracleWordSet = new Set();
+        oracleWordSet.add("kafka_in_action_summary");
+        oracleWordSet.add("acid_internally");
+        oracleWordSet.add("sql_commands");
+    searchMap.set("oracle", oracleWordSet);
+
 let ensureWordSet = new Set();
         ensureWordSet.add("kafka_in_action_summary");
     searchMap.set("ensure", ensureWordSet);
@@ -14194,12 +14200,6 @@ let ensureWordSet = new Set();
 let coordinateWordSet = new Set();
         coordinateWordSet.add("kafka_in_action_summary");
     searchMap.set("coordinate", coordinateWordSet);
-
-let oracleWordSet = new Set();
-        oracleWordSet.add("kafka_in_action_summary");
-        oracleWordSet.add("acid_internally");
-        oracleWordSet.add("sql_commands");
-    searchMap.set("oracle", oracleWordSet);
 
 let usualWordSet = new Set();
         usualWordSet.add("kafka_in_action_summary");
@@ -14320,6 +14320,13 @@ let regionWordSet = new Set();
         regionWordSet.add("terraform");
     searchMap.set("region", regionWordSet);
 
+let vsWordSet = new Set();
+        vsWordSet.add("relational_dbs");
+        vsWordSet.add("mongo_db");
+        vsWordSet.add("relational_dbs_performance");
+        vsWordSet.add("mysql_vs_postgres");
+    searchMap.set("vs", vsWordSet);
+
 let supportWordSet = new Set();
         supportWordSet.add("mongo_db");
         supportWordSet.add("kafka_in_action_summary");
@@ -14328,13 +14335,6 @@ let supportWordSet = new Set();
         supportWordSet.add("mysql_vs_postgres");
     searchMap.set("support", supportWordSet);
 
-let vsWordSet = new Set();
-        vsWordSet.add("relational_dbs");
-        vsWordSet.add("mongo_db");
-        vsWordSet.add("relational_dbs_performance");
-        vsWordSet.add("mysql_vs_postgres");
-    searchMap.set("vs", vsWordSet);
-
 let textscoreWordSet = new Set();
         textscoreWordSet.add("mongo_db");
     searchMap.set("textscore", textscoreWordSet);
@@ -14342,10 +14342,6 @@ let textscoreWordSet = new Set();
 let descWordSet = new Set();
         descWordSet.add("sql_commands");
     searchMap.set("desc", descWordSet);
-
-let higherWordSet = new Set();
-        higherWordSet.add("kafka_in_action_summary");
-    searchMap.set("higher", higherWordSet);
 
 let changedWordSet = new Set();
         changedWordSet.add("career_crises");
@@ -14356,6 +14352,10 @@ let changedWordSet = new Set();
         changedWordSet.add("choice");
         changedWordSet.add("acid_internally");
     searchMap.set("changed", changedWordSet);
+
+let higherWordSet = new Set();
+        higherWordSet.add("kafka_in_action_summary");
+    searchMap.set("higher", higherWordSet);
 
 let dropWordSet = new Set();
         dropWordSet.add("mongo_db");
@@ -14484,16 +14484,20 @@ let allocationWordSet = new Set();
         allocationWordSet.add("kafka_in_action_summary");
     searchMap.set("allocation", allocationWordSet);
 
-let typesWordSet = new Set();
-        typesWordSet.add("kafka_in_action_summary");
-        typesWordSet.add("relational_dbs_performance");
-    searchMap.set("types", typesWordSet);
-
 let figureWordSet = new Set();
         figureWordSet.add("kafka_in_action_summary");
         figureWordSet.add("relational_dbs_performance");
         figureWordSet.add("choice");
     searchMap.set("figure", figureWordSet);
+
+let typesWordSet = new Set();
+        typesWordSet.add("kafka_in_action_summary");
+        typesWordSet.add("relational_dbs_performance");
+    searchMap.set("types", typesWordSet);
+
+let slightWordSet = new Set();
+        slightWordSet.add("mysql_vs_postgres");
+    searchMap.set("slight", slightWordSet);
 
 let casesWordSet = new Set();
         casesWordSet.add("mongo_db");
@@ -14501,10 +14505,6 @@ let casesWordSet = new Set();
         casesWordSet.add("relational_dbs_performance");
         casesWordSet.add("acid_internally");
     searchMap.set("cases", casesWordSet);
-
-let slightWordSet = new Set();
-        slightWordSet.add("mysql_vs_postgres");
-    searchMap.set("slight", slightWordSet);
 
 let previousWordSet = new Set();
         previousWordSet.add("kafka_in_action_summary");
@@ -14518,16 +14518,16 @@ let orgWordSet = new Set();
         orgWordSet.add("mysql_vs_postgres");
     searchMap.set("org", orgWordSet);
 
+let xaWordSet = new Set();
+        xaWordSet.add("comparing_different_queues");
+    searchMap.set("xa", xaWordSet);
+
 let readingWordSet = new Set();
         readingWordSet.add("kafka_in_action_summary");
         readingWordSet.add("terraform");
         readingWordSet.add("acid_internally");
         readingWordSet.add("kafka_very_short_summary");
     searchMap.set("reading", readingWordSet);
-
-let xaWordSet = new Set();
-        xaWordSet.add("comparing_different_queues");
-    searchMap.set("xa", xaWordSet);
 
 let advicesWordSet = new Set();
         advicesWordSet.add("how_to_find_you_career");
@@ -14602,26 +14602,26 @@ let millisecondsWordSet = new Set();
         millisecondsWordSet.add("kafka_in_action_summary");
     searchMap.set("milliseconds", millisecondsWordSet);
 
-let frameworksWordSet = new Set();
-        frameworksWordSet.add("kafka_in_action_summary");
-    searchMap.set("frameworks", frameworksWordSet);
-
 let heldWordSet = new Set();
         heldWordSet.add("mysql_vs_postgres");
         heldWordSet.add("acid_internally");
     searchMap.set("held", heldWordSet);
 
+let frameworksWordSet = new Set();
+        frameworksWordSet.add("kafka_in_action_summary");
+    searchMap.set("frameworks", frameworksWordSet);
+
 let backedWordSet = new Set();
         backedWordSet.add("terraform");
     searchMap.set("backed", backedWordSet);
 
-let confWordSet = new Set();
-        confWordSet.add("kafka_in_action_summary");
-    searchMap.set("conf", confWordSet);
-
 let prviousWordSet = new Set();
         prviousWordSet.add("mysql_vs_postgres");
     searchMap.set("prvious", prviousWordSet);
+
+let confWordSet = new Set();
+        confWordSet.add("kafka_in_action_summary");
+    searchMap.set("conf", confWordSet);
 
 let foregroundWordSet = new Set();
         foregroundWordSet.add("mongo_db");
@@ -14651,13 +14651,13 @@ let selectsWordSet = new Set();
         selectsWordSet.add("sql_commands");
     searchMap.set("selects", selectsWordSet);
 
-let idempotentWordSet = new Set();
-        idempotentWordSet.add("kafka_in_action_summary");
-    searchMap.set("idempotent", idempotentWordSet);
-
 let feedbackWordSet = new Set();
         feedbackWordSet.add("leadership");
     searchMap.set("feedback", feedbackWordSet);
+
+let idempotentWordSet = new Set();
+        idempotentWordSet.add("kafka_in_action_summary");
+    searchMap.set("idempotent", idempotentWordSet);
 
 let secondsWordSet = new Set();
         secondsWordSet.add("mongo_db");
@@ -14681,10 +14681,6 @@ let numberofrowsinlefttableWordSet = new Set();
         numberofrowsinlefttableWordSet.add("relational_dbs_performance");
     searchMap.set("numberofrowsinlefttable", numberofrowsinlefttableWordSet);
 
-let optimizationWordSet = new Set();
-        optimizationWordSet.add("kafka_in_action_summary");
-    searchMap.set("optimization", optimizationWordSet);
-
 let roadWordSet = new Set();
         roadWordSet.add("thinking_fast_and_slow");
     searchMap.set("road", roadWordSet);
@@ -14698,10 +14694,14 @@ let termsWordSet = new Set();
         termsWordSet.add("dynamo_db");
     searchMap.set("terms", termsWordSet);
 
+let optimizationWordSet = new Set();
+        optimizationWordSet.add("kafka_in_action_summary");
+    searchMap.set("optimization", optimizationWordSet);
+
 let connectionWordSet = new Set();
         connectionWordSet.add("mongo_db");
-        connectionWordSet.add("dynamo_db");
         connectionWordSet.add("kafka_in_action_summary");
+        connectionWordSet.add("dynamo_db");
         connectionWordSet.add("mysql_vs_postgres");
     searchMap.set("connection", connectionWordSet);
 
@@ -14859,13 +14859,13 @@ let columnsWordSet = new Set();
         columnsWordSet.add("sql_commands");
     searchMap.set("columns", columnsWordSet);
 
-let decompressesWordSet = new Set();
-        decompressesWordSet.add("kafka_in_action_summary");
-    searchMap.set("decompresses", decompressesWordSet);
-
 let effortfulWordSet = new Set();
         effortfulWordSet.add("thinking_fast_and_slow");
     searchMap.set("effortful", effortfulWordSet);
+
+let decompressesWordSet = new Set();
+        decompressesWordSet.add("kafka_in_action_summary");
+    searchMap.set("decompresses", decompressesWordSet);
 
 let rangeWordSet = new Set();
         rangeWordSet.add("mongo_db");
@@ -14880,20 +14880,24 @@ let distributionWordSet = new Set();
         distributionWordSet.add("relational_dbs_performance");
     searchMap.set("distribution", distributionWordSet);
 
+let toolsWordSet = new Set();
+        toolsWordSet.add("kafka_in_action_summary");
+        toolsWordSet.add("mysql_vs_postgres");
+    searchMap.set("tools", toolsWordSet);
+
 let ourWordSet = new Set();
         ourWordSet.add("thinking_fast_and_slow");
         ourWordSet.add("persuasion");
         ourWordSet.add("kafka_in_action_summary");
     searchMap.set("our", ourWordSet);
 
-let toolsWordSet = new Set();
-        toolsWordSet.add("kafka_in_action_summary");
-        toolsWordSet.add("mysql_vs_postgres");
-    searchMap.set("tools", toolsWordSet);
-
 let copeWordSet = new Set();
         copeWordSet.add("mongo_db");
     searchMap.set("cope", copeWordSet);
+
+let capacityWordSet = new Set();
+        capacityWordSet.add("dynamo_db");
+    searchMap.set("capacity", capacityWordSet);
 
 let outWordSet = new Set();
         outWordSet.add("thinking_fast_and_slow");
@@ -14904,10 +14908,6 @@ let outWordSet = new Set();
         outWordSet.add("acid_internally");
         outWordSet.add("kafka_very_short_summary");
     searchMap.set("out", outWordSet);
-
-let capacityWordSet = new Set();
-        capacityWordSet.add("dynamo_db");
-    searchMap.set("capacity", capacityWordSet);
 
 let geoWordSet = new Set();
         geoWordSet.add("mongo_db");
@@ -14931,14 +14931,14 @@ let seeingWordSet = new Set();
         seeingWordSet.add("kafka_in_action_summary");
     searchMap.set("seeing", seeingWordSet);
 
+let blockedWordSet = new Set();
+        blockedWordSet.add("mysql_vs_postgres");
+    searchMap.set("blocked", blockedWordSet);
+
 let featureWordSet = new Set();
         featureWordSet.add("mongo_db");
         featureWordSet.add("kafka_in_action_summary");
     searchMap.set("feature", featureWordSet);
-
-let blockedWordSet = new Set();
-        blockedWordSet.add("mysql_vs_postgres");
-    searchMap.set("blocked", blockedWordSet);
 
 let operatorsWordSet = new Set();
         operatorsWordSet.add("sql_commands");
@@ -14967,13 +14967,6 @@ let powerWordSet = new Set();
         powerWordSet.add("relational_dbs_performance");
     searchMap.set("power", powerWordSet);
 
-let placeWordSet = new Set();
-        placeWordSet.add("kafka_in_action_summary");
-        placeWordSet.add("mysql_vs_postgres");
-        placeWordSet.add("choice");
-        placeWordSet.add("sql_commands");
-    searchMap.set("place", placeWordSet);
-
 let copyWordSet = new Set();
         copyWordSet.add("mongo_db");
         copyWordSet.add("kafka_in_action_summary");
@@ -14983,6 +14976,13 @@ let copyWordSet = new Set();
         copyWordSet.add("sql_commands");
         copyWordSet.add("kafka_very_short_summary");
     searchMap.set("copy", copyWordSet);
+
+let placeWordSet = new Set();
+        placeWordSet.add("kafka_in_action_summary");
+        placeWordSet.add("mysql_vs_postgres");
+        placeWordSet.add("choice");
+        placeWordSet.add("sql_commands");
+    searchMap.set("place", placeWordSet);
 
 let regularWordSet = new Set();
         regularWordSet.add("mongo_db");
@@ -15012,14 +15012,14 @@ let leafWordSet = new Set();
         leafWordSet.add("relational_dbs_performance");
     searchMap.set("leaf", leafWordSet);
 
-let transformationWordSet = new Set();
-        transformationWordSet.add("kafka_in_action_summary");
-    searchMap.set("transformation", transformationWordSet);
-
 let brainWordSet = new Set();
         brainWordSet.add("thinking_fast_and_slow");
         brainWordSet.add("mongo_db");
     searchMap.set("brain", brainWordSet);
+
+let transformationWordSet = new Set();
+        transformationWordSet.add("kafka_in_action_summary");
+    searchMap.set("transformation", transformationWordSet);
 
 let leadWordSet = new Set();
         leadWordSet.add("kafka_in_action_summary");
@@ -15083,14 +15083,14 @@ let connectingWordSet = new Set();
         connectingWordSet.add("kafka_in_action_summary");
     searchMap.set("connecting", connectingWordSet);
 
+let architecturalWordSet = new Set();
+        architecturalWordSet.add("mysql_vs_postgres");
+    searchMap.set("architectural", architecturalWordSet);
+
 let minimumWordSet = new Set();
         minimumWordSet.add("kafka_in_action_summary");
         minimumWordSet.add("kafka_very_short_summary");
     searchMap.set("minimum", minimumWordSet);
-
-let architecturalWordSet = new Set();
-        architecturalWordSet.add("mysql_vs_postgres");
-    searchMap.set("architectural", architecturalWordSet);
 
 let queueWordSet = new Set();
         queueWordSet.add("mongo_db");
@@ -15098,15 +15098,15 @@ let queueWordSet = new Set();
         queueWordSet.add("comparing_different_queues");
     searchMap.set("queue", queueWordSet);
 
-let magicWordSet = new Set();
-        magicWordSet.add("kafka_in_action_summary");
-    searchMap.set("magic", magicWordSet);
-
 let dateWordSet = new Set();
         dateWordSet.add("mongo_db");
         dateWordSet.add("relational_dbs_performance");
         dateWordSet.add("mysql_vs_postgres");
     searchMap.set("date", dateWordSet);
+
+let magicWordSet = new Set();
+        magicWordSet.add("kafka_in_action_summary");
+    searchMap.set("magic", magicWordSet);
 
 let dbadminanydatabaseWordSet = new Set();
         dbadminanydatabaseWordSet.add("mongo_db");
@@ -15134,17 +15134,17 @@ let soundWordSet = new Set();
         soundWordSet.add("thinking_fast_and_slow");
     searchMap.set("sound", soundWordSet);
 
+let wikiWordSet = new Set();
+        wikiWordSet.add("mongo_db");
+        wikiWordSet.add("mysql_vs_postgres");
+    searchMap.set("wiki", wikiWordSet);
+
 let ownWordSet = new Set();
         ownWordSet.add("mongo_db");
         ownWordSet.add("kafka_in_action_summary");
         ownWordSet.add("mysql_vs_postgres");
         ownWordSet.add("kafka_very_short_summary");
     searchMap.set("own", ownWordSet);
-
-let wikiWordSet = new Set();
-        wikiWordSet.add("mongo_db");
-        wikiWordSet.add("mysql_vs_postgres");
-    searchMap.set("wiki", wikiWordSet);
 
 let leadersWordSet = new Set();
         leadersWordSet.add("kafka_in_action_summary");
@@ -15188,6 +15188,21 @@ let crashedWordSet = new Set();
         crashedWordSet.add("comparing_different_queues");
     searchMap.set("crashed", crashedWordSet);
 
+let shouldWordSet = new Set();
+        shouldWordSet.add("thinking_fast_and_slow");
+        shouldWordSet.add("persuasion");
+        shouldWordSet.add("career_crises");
+        shouldWordSet.add("mongo_db");
+        shouldWordSet.add("kafka_in_action_summary");
+        shouldWordSet.add("dynamo_db");
+        shouldWordSet.add("relational_dbs_performance");
+        shouldWordSet.add("terraform");
+        shouldWordSet.add("choice");
+        shouldWordSet.add("acid_internally");
+        shouldWordSet.add("sql_commands");
+        shouldWordSet.add("kafka_very_short_summary");
+    searchMap.set("should", shouldWordSet);
+
 let onlyWordSet = new Set();
         onlyWordSet.add("thinking_fast_and_slow");
         onlyWordSet.add("mongo_db");
@@ -15203,28 +15218,9 @@ let onlyWordSet = new Set();
         onlyWordSet.add("kafka_very_short_summary");
     searchMap.set("only", onlyWordSet);
 
-let shouldWordSet = new Set();
-        shouldWordSet.add("thinking_fast_and_slow");
-        shouldWordSet.add("persuasion");
-        shouldWordSet.add("career_crises");
-        shouldWordSet.add("mongo_db");
-        shouldWordSet.add("dynamo_db");
-        shouldWordSet.add("kafka_in_action_summary");
-        shouldWordSet.add("relational_dbs_performance");
-        shouldWordSet.add("terraform");
-        shouldWordSet.add("choice");
-        shouldWordSet.add("acid_internally");
-        shouldWordSet.add("sql_commands");
-        shouldWordSet.add("kafka_very_short_summary");
-    searchMap.set("should", shouldWordSet);
-
 let consequencesWordSet = new Set();
         consequencesWordSet.add("kafka_in_action_summary");
     searchMap.set("consequences", consequencesWordSet);
-
-let publishersWordSet = new Set();
-        publishersWordSet.add("kafka_in_action_summary");
-    searchMap.set("publishers", publishersWordSet);
 
 let createWordSet = new Set();
         createWordSet.add("mongo_db");
@@ -15236,6 +15232,10 @@ let createWordSet = new Set();
         createWordSet.add("kafka_very_short_summary");
     searchMap.set("create", createWordSet);
 
+let publishersWordSet = new Set();
+        publishersWordSet.add("kafka_in_action_summary");
+    searchMap.set("publishers", publishersWordSet);
+
 let collationWordSet = new Set();
         collationWordSet.add("mongo_db");
     searchMap.set("collation", collationWordSet);
@@ -15244,13 +15244,13 @@ let tagWordSet = new Set();
         tagWordSet.add("mongo_db");
     searchMap.set("tag", tagWordSet);
 
-let avoidingWordSet = new Set();
-        avoidingWordSet.add("kafka_in_action_summary");
-    searchMap.set("avoiding", avoidingWordSet);
-
 let blowWordSet = new Set();
         blowWordSet.add("mysql_vs_postgres");
     searchMap.set("blow", blowWordSet);
+
+let avoidingWordSet = new Set();
+        avoidingWordSet.add("kafka_in_action_summary");
+    searchMap.set("avoiding", avoidingWordSet);
 
 let mechanismsWordSet = new Set();
         mechanismsWordSet.add("kafka_in_action_summary");
@@ -15262,14 +15262,14 @@ let versaWordSet = new Set();
         versaWordSet.add("sql_commands");
     searchMap.set("versa", versaWordSet);
 
+let timeunitsWordSet = new Set();
+        timeunitsWordSet.add("comparing_different_queues");
+    searchMap.set("timeunits", timeunitsWordSet);
+
 let localhostWordSet = new Set();
         localhostWordSet.add("mongo_db");
         localhostWordSet.add("kafka_in_action_summary");
     searchMap.set("localhost", localhostWordSet);
-
-let timeunitsWordSet = new Set();
-        timeunitsWordSet.add("comparing_different_queues");
-    searchMap.set("timeunits", timeunitsWordSet);
 
 let developmentWordSet = new Set();
         developmentWordSet.add("soft_skills");
@@ -15339,14 +15339,14 @@ let goesWordSet = new Set();
         goesWordSet.add("kafka_in_action_summary");
     searchMap.set("goes", goesWordSet);
 
-let acceptedWordSet = new Set();
-        acceptedWordSet.add("kafka_in_action_summary");
-    searchMap.set("accepted", acceptedWordSet);
-
 let comparingWordSet = new Set();
         comparingWordSet.add("queues");
         comparingWordSet.add("comparing_different_queues");
     searchMap.set("comparing", comparingWordSet);
+
+let acceptedWordSet = new Set();
+        acceptedWordSet.add("kafka_in_action_summary");
+    searchMap.set("accepted", acceptedWordSet);
 
 let towardsWordSet = new Set();
         towardsWordSet.add("thinking_fast_and_slow");
@@ -15371,16 +15371,16 @@ let blobWordSet = new Set();
         blobWordSet.add("mongo_db");
     searchMap.set("blob", blobWordSet);
 
+let purposesWordSet = new Set();
+        purposesWordSet.add("mysql_vs_postgres");
+    searchMap.set("purposes", purposesWordSet);
+
 let personWordSet = new Set();
         personWordSet.add("thinking_fast_and_slow");
         personWordSet.add("career_crises");
         personWordSet.add("kafka_in_action_summary");
         personWordSet.add("choice");
     searchMap.set("person", personWordSet);
-
-let purposesWordSet = new Set();
-        purposesWordSet.add("mysql_vs_postgres");
-    searchMap.set("purposes", purposesWordSet);
 
 let safeWordSet = new Set();
         safeWordSet.add("mongo_db");
@@ -15402,16 +15402,12 @@ let terraformWordSet = new Set();
 
 let sendWordSet = new Set();
         sendWordSet.add("mongo_db");
-        sendWordSet.add("dynamo_db");
         sendWordSet.add("kafka_in_action_summary");
+        sendWordSet.add("dynamo_db");
         sendWordSet.add("relational_dbs_performance");
         sendWordSet.add("comparing_different_queues");
         sendWordSet.add("kafka_very_short_summary");
     searchMap.set("send", sendWordSet);
-
-let namespacesWordSet = new Set();
-        namespacesWordSet.add("kafka_in_action_summary");
-    searchMap.set("namespaces", namespacesWordSet);
 
 let potentiallyWordSet = new Set();
         potentiallyWordSet.add("mysql_vs_postgres");
@@ -15419,15 +15415,19 @@ let potentiallyWordSet = new Set();
         potentiallyWordSet.add("acid_internally");
     searchMap.set("potentially", potentiallyWordSet);
 
-let youtubeWordSet = new Set();
-        youtubeWordSet.add("kafka_in_action_summary");
-    searchMap.set("youtube", youtubeWordSet);
+let namespacesWordSet = new Set();
+        namespacesWordSet.add("kafka_in_action_summary");
+    searchMap.set("namespaces", namespacesWordSet);
 
 let hereWordSet = new Set();
         hereWordSet.add("mongo_db");
         hereWordSet.add("kafka_in_action_summary");
         hereWordSet.add("soft_skills");
     searchMap.set("here", hereWordSet);
+
+let youtubeWordSet = new Set();
+        youtubeWordSet.add("kafka_in_action_summary");
+    searchMap.set("youtube", youtubeWordSet);
 
 let noteWordSet = new Set();
         noteWordSet.add("kafka_in_action_summary");
@@ -15447,15 +15447,15 @@ let acknowledgedWordSet = new Set();
         acknowledgedWordSet.add("kafka_in_action_summary");
     searchMap.set("acknowledged", acknowledgedWordSet);
 
-let challengesWordSet = new Set();
-        challengesWordSet.add("kafka_in_action_summary");
-    searchMap.set("challenges", challengesWordSet);
-
 let instancesWordSet = new Set();
         instancesWordSet.add("mongo_db");
         instancesWordSet.add("kafka_in_action_summary");
         instancesWordSet.add("comparing_different_queues");
     searchMap.set("instances", instancesWordSet);
+
+let challengesWordSet = new Set();
+        challengesWordSet.add("kafka_in_action_summary");
+    searchMap.set("challenges", challengesWordSet);
 
 let lineWordSet = new Set();
         lineWordSet.add("mongo_db");
@@ -15522,6 +15522,10 @@ let canWordSet = new Set();
         canWordSet.add("kafka_very_short_summary");
     searchMap.set("can", canWordSet);
 
+let hairWordSet = new Set();
+        hairWordSet.add("thinking_fast_and_slow");
+    searchMap.set("hair", hairWordSet);
+
 let securityWordSet = new Set();
         securityWordSet.add("mongo_db");
         securityWordSet.add("kafka_in_action_summary");
@@ -15531,30 +15535,26 @@ let exctlyWordSet = new Set();
         exctlyWordSet.add("kafka_in_action_summary");
     searchMap.set("exctly", exctlyWordSet);
 
-let hairWordSet = new Set();
-        hairWordSet.add("thinking_fast_and_slow");
-    searchMap.set("hair", hairWordSet);
+let gitWordSet = new Set();
+        gitWordSet.add("terraform");
+    searchMap.set("git", gitWordSet);
 
 let serversWordSet = new Set();
         serversWordSet.add("mongo_db");
         serversWordSet.add("kafka_in_action_summary");
     searchMap.set("servers", serversWordSet);
 
-let gitWordSet = new Set();
-        gitWordSet.add("terraform");
-    searchMap.set("git", gitWordSet);
-
 let carWordSet = new Set();
         carWordSet.add("thinking_fast_and_slow");
     searchMap.set("car", carWordSet);
 
-let asynchronousWordSet = new Set();
-        asynchronousWordSet.add("kafka_in_action_summary");
-    searchMap.set("asynchronous", asynchronousWordSet);
-
 let eligibleWordSet = new Set();
         eligibleWordSet.add("mysql_vs_postgres");
     searchMap.set("eligible", eligibleWordSet);
+
+let asynchronousWordSet = new Set();
+        asynchronousWordSet.add("kafka_in_action_summary");
+    searchMap.set("asynchronous", asynchronousWordSet);
 
 let acknowledgesWordSet = new Set();
         acknowledgesWordSet.add("kafka_in_action_summary");
@@ -15594,6 +15594,12 @@ let idleWordSet = new Set();
         idleWordSet.add("kafka_in_action_summary");
     searchMap.set("idle", idleWordSet);
 
+let limitedWordSet = new Set();
+        limitedWordSet.add("mongo_db");
+        limitedWordSet.add("kafka_in_action_summary");
+        limitedWordSet.add("dynamo_db");
+    searchMap.set("limited", limitedWordSet);
+
 let satisfyWordSet = new Set();
         satisfyWordSet.add("kafka_in_action_summary");
     searchMap.set("satisfy", satisfyWordSet);
@@ -15608,12 +15614,6 @@ let willWordSet = new Set();
         willWordSet.add("sql_commands");
         willWordSet.add("kafka_very_short_summary");
     searchMap.set("will", willWordSet);
-
-let limitedWordSet = new Set();
-        limitedWordSet.add("mongo_db");
-        limitedWordSet.add("dynamo_db");
-        limitedWordSet.add("kafka_in_action_summary");
-    searchMap.set("limited", limitedWordSet);
 
 let implementationWordSet = new Set();
         implementationWordSet.add("relational_dbs_performance");
@@ -15669,13 +15669,13 @@ let cboWordSet = new Set();
         cboWordSet.add("relational_dbs_performance");
     searchMap.set("cbo", cboWordSet);
 
-let deduplicatedWordSet = new Set();
-        deduplicatedWordSet.add("kafka_in_action_summary");
-    searchMap.set("deduplicated", deduplicatedWordSet);
-
 let washingWordSet = new Set();
         washingWordSet.add("thinking_fast_and_slow");
     searchMap.set("washing", washingWordSet);
+
+let deduplicatedWordSet = new Set();
+        deduplicatedWordSet.add("kafka_in_action_summary");
+    searchMap.set("deduplicated", deduplicatedWordSet);
 
 let booleanWordSet = new Set();
         booleanWordSet.add("mongo_db");
@@ -15686,15 +15686,15 @@ let equialentWordSet = new Set();
         equialentWordSet.add("sql_commands");
     searchMap.set("equialent", equialentWordSet);
 
-let migrationsWordSet = new Set();
-        migrationsWordSet.add("kafka_in_action_summary");
-    searchMap.set("migrations", migrationsWordSet);
-
 let correspondingWordSet = new Set();
         correspondingWordSet.add("relational_dbs_performance");
         correspondingWordSet.add("comparing_different_queues");
         correspondingWordSet.add("sql_commands");
     searchMap.set("corresponding", correspondingWordSet);
+
+let migrationsWordSet = new Set();
+        migrationsWordSet.add("kafka_in_action_summary");
+    searchMap.set("migrations", migrationsWordSet);
 
 let responseWordSet = new Set();
         responseWordSet.add("kafka_in_action_summary");
