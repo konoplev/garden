@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comparing different queues</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/pace.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/lc_gif_player.css">
+
+    <!-- js -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+</head>
+
+<body id="single">
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="index.html"><b>Konoplev's</b> garden</a></h1>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="index.html" data-hover="Garden">Garden</a></li>
+                            <li class="cl-effect-11"><a href="http://konoplev.me" data-hover="Blog">Blog</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <input type="search" placeholder="Search" required class="search-input">
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- col-md-8 -->
+        </div>
+    </header>
+</div>
+
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-12">
+                <div id="content-holder">
+                    <article class="post post-1">
+                        <header class="entry-header">
+                            <h1 class="entry-title">Comparing different queues</h1>
+                            <div class="entry-meta">
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="2020-12-03T23:00:00Z">Dec 4, 2020</time></a></span>
+
+                                <span class="post-category">
+                                                                        <a href=".html"> #</a>
+                                                                    </span>
+
+                                                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Different queues comparision</p>
+</div>
+<div class="paragraph">
+<p>Full list on <a href="http://queueus.io" class="bare">http://queueus.io</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jms">JMS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Old protocol with a lot of legacy.</p>
+</div>
+<div class="paragraph">
+<p>Message delivery is not guaranteed by default.</p>
+</div>
+<div class="paragraph">
+<p>Default config:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Non persistent messages</p>
+</li>
+<li>
+<p>No transactions on both sides</p>
+</li>
+<li>
+<p>No wait for ACK on producer side</p>
+</li>
+<li>
+<p>AUTO ACK on consumer side</p>
+</li>
+<li>
+<p>No flush on disc on every write</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Duplicates are possible. If consumer wrote a message to DB, but didn&#8217;t send ACK the message is delivered one more time.</p>
+</div>
+<div class="paragraph">
+<p>What XA transactions?</p>
+</div>
+<div class="paragraph">
+<p>Questions to ask to choose a query:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How many messages (if not a lot Hazelcast or Zookeeper)</p>
+</li>
+<li>
+<p>Is it local? (if yes BlockingQueue)</p>
+</li>
+<li>
+<p>Are you restricted in technology choice?</p>
+</li>
+<li>
+<p>Is it critical if a message is lost? (Do we need persistent)</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_local_blockingqueue">Local BlockingQueue</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public void sendMessage() {
+    try {
+        boolean sent = queue.offer("msg", 10, TimeUnit.SECONDS);
+    } catch (InterruptedException e) {
+        //handle
+    }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">private volatile boolean stopped;
+
+public void receiveMessage() {
+    while (!stopped) {
+        try {
+            String message = queue.take();
+        } catch (InterruptedException e) {
+            //handle
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_zookeeper_curator">Zookeeper + Curator</h3>
+<div class="paragraph">
+<p>They don&#8217;t recomend to use it for queries, but for sending states (state machine), for example, it&#8217;s ok.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hazelcast">Hazelcast</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">HazelcastInstance hazelcastInstance = HazelcastInstance.newHazelcastInstance();
+//standart java blocking queue interface
+BlockingQueue&lt;MyTask&gt; queue = hazelcastInstance.getQueue("tasks");
+queue.put(new MyTask());
+MyTask task = queue.take();
+
+boolean offered = qeueue.offer(new MyTask(), 10, TimeUnits.SECONDS);
+
+task = queueu.poll(5, TimeUnit.SECONDS);
+
+if (task != null) {
+    //process task
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_redis">Redis</h3>
+<div class="paragraph">
+<p>Writes append only log. Persist state according to your settings (and stores which commit in the log was the last commit). If process crashed, it can restore state from persisted state and append only log.</p>
+</div>
+<div class="paragraph">
+<p>So messages are persisted.</p>
+</div>
+<div class="sect3">
+<h4 id="_lightweight_pub_sup">Lightweight Pub/Sup</h4>
+<div class="paragraph">
+<p>Consumer:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Jedis jedis = pool.getResource();
+jedis.subscribe(new JedisPubSub() {
+    @Override
+    public void onMessage(String channel, String message) {
+        //process message. can use channel for that
+    }
+}, "news/*", "articles");</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Producer:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Jedis jedis = pool.getResource();
+jedis.publish("articles", "Message which is new article");</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reliable_flexible_queues_on_lists">Reliable flexible queues on lists</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Jedis jedis = pool.getResource();
+//send message to common queue
+jedis.rpush("common_queue", "msg1", "msg2");
+
+//get message and copy it atomically to local queue
+String message = jedis.rpoplpush("common_queue", "local_qeueu");
+//process message
+//remove message from local queueu if it was processed
+jedis.lrem("local_qeueu", 1, message);
+//after that it automatically removed from common queue. So it works like ACK</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You need enough RAM to store messages. Redis is scalable (shrding + replication).</p>
+</div>
+<div class="paragraph">
+<p>Mutliple producer and multiple consumers:</p>
+</div>
+<div class="paragraph">
+<p>create channels per producer. Each user subscribes channels of the corresponding producers.</p>
+</div>
+<div class="paragraph">
+<p>The limitation is NOT the number of channels you can create, but the number of client connections. You CANNOT have millions of users connect to a single Redis instance at the same time.</p>
+</div>
+<div class="paragraph">
+<p>In order to achieve that, you have to create multiple Redis instances, and shard users into shardings. Each Redis instance creates a full list of producers, and handles connections from only one sharding of users.</p>
+</div>
+<div class="paragraph">
+<p>When producing messages, you can publish the message on the corresponding channel of each Redis instances, so that users who subscribed the channel, can receive the message.</p>
+</div>
+<div class="paragraph">
+<p>On consumer side:</p>
+</div>
+<div class="paragraph">
+<p>while(true) { BLPOP}</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s blocking left pop.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_amqp_most_popular_implementation_is_rabbitmq">AMQP (most popular implementation is RabbitMQ)</h3>
+<div class="paragraph">
+<p>Simple server with routing. Publisher send to exchange server and it forwards message to corresponding consumer.</p>
+</div>
+<div class="paragraph">
+<p>Implemented on Erlang.</p>
+</div>
+<div class="paragraph">
+<p>Main features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Flexible reliablity</p>
+</li>
+<li>
+<p>Clustering</p>
+</li>
+<li>
+<p>Federation</p>
+</li>
+<li>
+<p>Highly availiable queries</p>
+</li>
+<li>
+<p>Multi-protocol</p>
+</li>
+<li>
+<p>Clients in different langauges</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>But with enabled persistence performance is almost JMS</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_amazon_sqs">Amazon SQS</h3>
+<div class="paragraph">
+<p>Everything managed by Amazon</p>
+</div>
+<div class="paragraph">
+<p>First 1 million messages is for free.</p>
+</div>
+<div class="paragraph">
+<p>Has JMS compatible driver.</p>
+</div>
+<div class="paragraph">
+<p>Has exactly once support but with limitation of 300 transactions per second.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kafka">Kafka</h3>
+<div class="paragraph">
+<p>3.5 Million messages per second</p>
+</div>
+<div class="paragraph">
+<p>5.5 Gigabits/second Inbound</p>
+</div>
+<div class="paragraph">
+<p>18 Gigabits/second Outbound</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java"></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="file.html">Parent</a></p>
+</div>
+</div>
+</div>
+                        </div>
+                        <div class="height-40px"></div>
+                        <div>
+                            <div id="remark42" aria-live="polite">
+                                <noscript>Please enable JavaScript to view the comments</noscript>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy; 2020 Konoplev.me</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Garden</a></li>
+            <li><a href="http://konoplev.me">Blog</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script src="js/script.js" type="module"></script>
+<script>
+    var remark_config = {
+        host: "https://comments.konoplev.me",
+        site_id: 'konoplev',
+    };
+
+    (function (c) {
+        for (var i = 0; i < c.length; i++) {
+            var d = document, s = d.createElement('script');
+            s.src = remark_config.host + '/web/' + c[i] + '.js';
+            s.defer = true;
+            (d.head || d.body).appendChild(s);
+        }
+    })(remark_config.components || ['embed']);
+</script>
+
+</body>
+</html>

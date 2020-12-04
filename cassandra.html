@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Relational DBs</title>
+    <title>Cassandra</title>
 
     <!-- meta -->
     <meta charset="UTF-8">
@@ -67,13 +67,14 @@
                 <div id="content-holder">
                     <article class="post post-1">
                         <header class="entry-header">
-                            <h1 class="entry-title">Relational DBs</h1>
+                            <h1 class="entry-title">Cassandra</h1>
                             <div class="entry-meta">
                             <span class="post-date"><a href="#"><time class="entry-date"
                                                                       datetime="2020-12-01T23:00:00Z">Dec 2, 2020</time></a></span>
 
                                 <span class="post-category">
-                                                                        <a href="relational_dbs.html"> #relational_dbs</a>
+                                                                        <a href="nosql_dbs.html"> #nosql_dbs</a>
+                                                                        <a href="programming.html"> #programming</a>
                                                                     </span>
 
                                                             </div>
@@ -82,39 +83,34 @@
                             <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Topics related to Relational DBs</p>
+<p>Cassandra notes</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_performance">Performance</h2>
+<h2 id="_tables">Tables</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="relational_dbs_performance.html">Relational DBs Performance</a></p>
+<p>Are the same as in SQL except:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>reference keys are possible, but consistency is not guaranteed by db</p>
+</li>
+<li>
+<p>indexes are not supported. only primary key.</p>
+</li>
+</ul>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_acid_internally">ACID internally</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p><a href="acid_internally.html">ACID internally</a></p>
+<p>primary key is &lt;partition key&gt; + &lt;cluster key&gt;</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_sql_commands">SQL commands</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p><a href="sql_commands.html">SQL commands</a></p>
+<p>partition key is to detect partition. same partition key means that data is located on the same node</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_mysql_vs_postgres">MySQL vs Postgres</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p><a href="mysql_vs_postgres.html">MySQL vs Postgres</a></p>
+<p>cluster key is for search. where clause can contain only cluster key parts or partition key parts.</p>
 </div>
 </div>
 </div>
@@ -122,7 +118,7 @@
 <h2 id="_links">Links</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="programming.html">Parent</a></p>
+<p><a href="nosql_dbs.html">Parent</a></p>
 </div>
 </div>
 </div>
