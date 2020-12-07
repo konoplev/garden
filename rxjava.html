@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RxJava</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/pace.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/lc_gif_player.css">
+
+    <!-- js -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+</head>
+
+<body id="single">
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="index.html"><b>Konoplev's</b> garden</a></h1>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="index.html" data-hover="Garden">Garden</a></li>
+                            <li class="cl-effect-11"><a href="http://konoplev.me" data-hover="Blog">Blog</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <input type="search" placeholder="Search" required class="search-input">
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- col-md-8 -->
+        </div>
+    </header>
+</div>
+
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-12">
+                <div id="content-holder">
+                    <article class="post post-1">
+                        <header class="entry-header">
+                            <h1 class="entry-title">RxJava</h1>
+                            <div class="entry-meta">
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="2020-12-01T23:00:00Z">Dec 2, 2020</time></a></span>
+
+                                <span class="post-category">
+                                                                        <a href=".html"> #</a>
+                                                                    </span>
+
+                                                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Everything about reactive java</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why">Why?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>CompleatableFuture only deals with a single value. What if you are trying to process a series of values on fly</p>
+</li>
+<li>
+<p>Actors requare you to buy into a whole actor framework and are also a lower level API</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_s_observable">What&#8217;s Observable</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single Item</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Many items</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Blocking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stream&lt;T&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non blocking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CompletableFuture&lt;T&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Observable&lt;T&gt;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_java_8_streams_vs_observables">Java 8 Streams vs Observables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Streams are for defining operations on collections or data parallelism</p>
+</div>
+<div class="paragraph">
+<p>Observables for composing operations</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Abstract over blocking and non-blocking sources</p>
+</li>
+<li>
+<p>Frequently wrapping up the results of I/O or an api call</p>
+</li>
+<li>
+<p>More flexible threading model</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples of using Observable:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>On Demand Computation (Monitor stock market ticks until price is below some certan value)</p>
+</li>
+<li>
+<p>I/O Workloads (Agregating temperature sensor information to control heating)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Observable is something like CompletableFuture&lt;List&lt;T&gt;&gt;, but instead of wating for all list elements are ready you process them one by one as soon as new element arrives.</p>
+</div>
+<div class="paragraph">
+<p>Observable was changed to Flowable in RxJava 2. Flowable supports back pressure (the source can be slowed down when the consumer cannot keep up).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_flowable_lifecycle">Flowable lifecycle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each change in the lifecycle has a corresponding event.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Subscryber</code> implements callbacks for these events.</p>
+</div>
+<div class="paragraph">
+<p>All events have a <code>on*</code> naming convention.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>        onSubscribe
+             |
+            \|/
+        Normal Operation -&gt; onNext
+         /          \
+        /            \
+    onComplete       onError</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hot_and_cold_flowable">Hot and Cold Flowable</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Hot - starts emitting as soon as it&#8217;s created and at it&#8217;s own pace. It usually broad cast. Producer doesn&#8217;t depend on (and dont care about) subscriber.</p>
+</div>
+<div class="paragraph">
+<p>Hot means that you receive all events. If you have too many events you&#8217;ll be overflowed.</p>
+</div>
+<div class="paragraph">
+<p>Cold - producer/emitter activated during subscription. Producer depends on subscriber speed. It usually unicast. (examples DB query, File IO, Http Get)</p>
+</div>
+<div class="paragraph">
+<p>data-driven is cold, event-driven is hot.</p>
+</div>
+<div class="sect2">
+<h3 id="_cold_observer_example">Cold observer example:</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java"> Observable&lt;Long&gt; myObservable = Observable.interval(1, TimeUnit.SECONDS);
+    myObservable.subscribe(item -&gt; Log.d("Observer 1: " + item));
+    Thread.sleep(3000);
+    myObservable.subscribe(item -&gt; Log.d("Observer 2: " + item));
+    Thread.sleep(5000);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Both observers starts from 0 despite the fact that they started to monitor observable in different period of times.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hot_observer_example">Hot observer example:</h3>
+<div class="paragraph">
+<p>A ConnectableObservable is a single observable source for different observers. The main difference aside from being a single observable source is that calling <code>subscribe</code> on a ConnectableObserver will not trigger emission, but <code>connect</code> will.</p>
+</div>
+<div class="paragraph">
+<p>To convert an observable to a connectable one, you can use the <code>publish</code> operator. Publishing the observable will make it hot and will not re-play the items for observers after activation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>    Observable&lt;Long&gt; myObservable = Observable.interval(1, TimeUnit.SECONDS);
+    ConnectableObservable&lt;Long&gt; connectableObservable = myObservable.publish();
+    connectableObservable.subscribe(item -&gt; Log.d("Observer 1: " + item));
+    connectableObservable.connect();
+    Thread.sleep(3000);
+    connectableObservable.subscribe(item -&gt; Log.d("Observer 2: " + item));
+    Thread.sleep(5000);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>refCount</code> returns an Observable that stays connected to this ConnectableObservable as long as there is at least one subscription to this ConnectableObservable</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Observable&lt;Long&gt; myObservable = Observable.interval(1, TimeUnit.SECONDS);
+    Observable&lt;Long&gt; hotObservable = myObservable.publish().refCount();
+    Disposable subscription1 = hotObservable
+            .doOnSubscribe(d -&gt; Log.d("Observer 1 subscribed"))
+            .doFinally(() -&gt; Log.d("Observer 1 unsubscribed"))
+            .subscribe(item -&gt; Log.d("Observer 1: " + item));
+    Thread.sleep(3000);
+    Disposable subscription2 = hotObservable
+            .doOnSubscribe(d -&gt; Log.d("Observer 2 subscribed"))
+            .doFinally(() -&gt; Log.d("Observer 2 unsubscribed"))
+            .subscribe(item -&gt; Log.d("Observer 2: " + item));
+    Thread.sleep(3000);
+    subscription1.dispose();
+    subscription2.dispose();
+    hotObservable
+            .doOnSubscribe(d -&gt; Log.d("Observer 3 subscribed"))
+            .doFinally(() -&gt; Log.d("Observer 3 unsubscribed"))
+            .subscribe(item -&gt; Log.d("Observer 3: " + item));
+    Thread.sleep(3000);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing">Testing</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Flowable &lt;T&gt; flowable = ...;
+TestSubscriber&lt;T&gt; test = flowable.test();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_error_handling">Error handling</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Error types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Transient failure communicating with a remote service (Network partition, Remote service failure)</p>
+</li>
+<li>
+<p>Exception from a calculation (Business logic validation error, divide by zero)</p>
+</li>
+<li>
+<p>Unrecoverable system failure (Run out of disc space when writting to a file)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Handling:
+- Flowable.retry() (re-subscribe in case of error)
+- handling in subscriber or Flowable.onErrorReturnItem() or Flowable.onErrorReturn(ex &#8594; handling) (return some default if error happened)</p>
+</div>
+<div class="paragraph">
+<p>any error event is terminating event. We can&#8217;t proceed after it. We can proceed using another provider. To specify it we can use <code>Flowable.onErrorResumeNext()</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_backpressure_conflation">Backpressure &amp; Conflation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Procuder controls the flow. If receiver works to slow (throttling), producer stop producing or procude with lower speed. If we can&#8217;t controll backpressure, consumer will fail to receive data and we have to resend this data and overflow consumer even more. That&#8217;s why backpressure shude be controlled.</p>
+</div>
+<div class="paragraph">
+<p>But if producer doesn&#8217;t controll backpressure, subscriber can try to avoide failure by conflation. Basically ignoring the data which can&#8217;t be processed or stored in queue (for example process only important data).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reactive_pull_back_pressure">Reactive pull back pressure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Subscriber says to publisher how many events it can process. As soon as such number events is ready publisher sends them to subscriber, after that subscriber tells how many events it can process now and so on.</p>
+</div>
+<div class="paragraph">
+<p><code>Subscription.request(N)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Also</p>
+</div>
+<div class="paragraph">
+<p><code>sample(1000, TimeUnit.SECOND), throttaleFirst/Last(1000, TimeUnit.SECOND)</code> to let producer know how oftern do you want to receive events.</p>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="paragraph">
+<p><code>buffer(5)</code> how many events can I receive per call.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_schedulers">Schedulers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Something like executor service API, but it higher-level abstraction.</p>
+</div>
+<div class="paragraph">
+<p><code>subscribeOn</code> vs <code>observeOn</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>subscribeOn(scheduler): Execute this operation and notify the subsequent operation on the Scheduler</p>
+</li>
+<li>
+<p>observeOn(scheduler) : Just notify the subsequent operation on the Scheduler</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This leads us to the following conclusions
+- observeOn works only downstream.
+- subscribeOn works downstream and upstream.
+- consecutive subscribeOns do not change the thread (the first one is used).
+- consequent observeOns do change the thread (the last one is used).
+- Thread change by an observeOn cannot be overridden by a subscribeOn.</p>
+</div>
+<div class="paragraph">
+<p>Schedulers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>io(): Use for IO-Bound work. Thread Pool that grows as needed</p>
+</li>
+<li>
+<p>computation(): Use for computational work fixed thread pool sized at number of cores</p>
+</li>
+<li>
+<p>trampoline(): Use for continuing/isolating work on current thread. Runs on current thread once work is completed. (default)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Other Schedulers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>single(): Single threaded event loop.</p>
+</li>
+<li>
+<p>from(Executor): custom thread pull (isolation or integration)</p>
+</li>
+<li>
+<p>newThread(): Each operation in new thread. Are you sure you want to use it?</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_subsriber_which_is_emitter">Create subsriber which is emitter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You subscribe for some events, process them and produce as an emitter.</p>
+</div>
+<div class="paragraph">
+<p>Chat bot for example: you receive a message from user, process it and reply to the user.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s called <code>Processor</code>.</p>
+</div>
+<div class="paragraph">
+<p>Type of processors:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>UnicastProcessor: single subscriber, buffer events</p>
+</li>
+<li>
+<p>ReplayProcessor: many subscribers, buffers events for subscribers (when new subscriber is subscribed it receives all events)</p>
+</li>
+<li>
+<p>BehaviourProcessor: many subscribers, buffers last event for subscribers (when new subscriber is subscribed it receives an event with summary of the window when events occured)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_implementations">Other implementations</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Project Reactor - Spring</p>
+</li>
+<li>
+<p>AkkaStreams - Akka</p>
+</li>
+<li>
+<p>Vertx</p>
+</li>
+<li>
+<p>RxNetty</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>reactivesocket.io - websocket protocol with back pressure</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_standartizaion">Standartizaion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All interfaces (Publisher, Subscriber, Subscription, Processor) are part of Java 9. java.util.concurrent.Flow</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_apis">APIs</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_java_util_concurrent_flow">java.util.concurrent.Flow</h3>
+<div class="paragraph">
+<p>4 interfaces Publisher, Subscriber, Subscription, Processor</p>
+</div>
+<div class="paragraph">
+<p>Implementations:</p>
+</div>
+<div class="paragraph">
+<p>Publisher - Flowable (abstract class with many implementations provided by static methods)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public interface Publisher&lt;T&gt; {
+
+    /**
+     * Request {@link Publisher} to start streaming data.
+     * &lt;p&gt;
+     * This is a "factory method" and can be called multiple times, each time starting a new {@link Subscription}.
+     * &lt;p&gt;
+     * Each {@link Subscription} will work for only a single {@link Subscriber}.
+     * &lt;p&gt;
+     * A {@link Subscriber} should only subscribe once to a single {@link Publisher}.
+     * &lt;p&gt;
+     * If the {@link Publisher} rejects the subscription attempt or otherwise fails it will
+     * signal the error via {@link Subscriber#onError}.
+     *
+     * @param s the {@link Subscriber} that will consume signals from this {@link Publisher}
+     */
+    public void subscribe(Subscriber&lt;? super T&gt; s);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Subscriber</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public interface Subscriber&lt;T&gt; {
+    /**
+     * Invoked after calling {@link Publisher#subscribe(Subscriber)}.
+     * &lt;p&gt;
+     * No data will start flowing until {@link Subscription#request(long)} is invoked.
+     * &lt;p&gt;
+     * It is the responsibility of this {@link Subscriber} instance to call {@link Subscription#request(long)} whenever more data is wanted.
+     * &lt;p&gt;
+     * The {@link Publisher} will send notifications only in response to {@link Subscription#request(long)}.
+     *
+     * @param s
+     *            {@link Subscription} that allows requesting data via {@link Subscription#request(long)}
+     */
+    public void onSubscribe(Subscription s);
+
+    /**
+     * Data notification sent by the {@link Publisher} in response to requests to {@link Subscription#request(long)}.
+     *
+     * @param t the element signaled
+     */
+    public void onNext(T t);
+
+    /**
+     * Failed terminal state.
+     * &lt;p&gt;
+     * No further events will be sent even if {@link Subscription#request(long)} is invoked again.
+     *
+     * @param t the throwable signaled
+     */
+    public void onError(Throwable t);
+
+    /**
+     * Successful terminal state.
+     * &lt;p&gt;
+     * No further events will be sent even if {@link Subscription#request(long)} is invoked again.
+     */
+    public void onComplete();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Flowable.create(emmiter -&gt; {
+            emmiter.onNext("1");
+            emmiter.onNext("2");
+            emmiter.onError(new Exception("Error"));
+            emmiter.onComplete();
+        }, BackpressureStrategy.MISSING)
+                .subscribe(
+                        next -&gt; {
+                            System.out.println("Next is received: " + next);
+                        },
+                        error -&gt; {
+                            System.out.println("Error occured: " + error);
+                        },
+                        () -&gt; {
+                            System.out.println("Complete");
+                        }
+                );</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>output (on completed is not called, because error occured):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Next is received: 1
+Next is received: 2
+Error occured: java.lang.Exception: Error</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_publishers_observables">Publishers (Observables)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>io.reactivex.Flowable: 0..N flows, supporting Reactive-Streams and backpressure</p>
+</li>
+<li>
+<p>io.reactivex.Observable: 0..N flows, no backpressure,</p>
+</li>
+<li>
+<p>io.reactivex.Single: a flow of exactly 1 item or an error,</p>
+</li>
+<li>
+<p>io.reactivex.Completable: a flow without items but only a completion or error signal,</p>
+</li>
+<li>
+<p>io.reactivex.Maybe: a flow with no items, exactly one item or an error.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_single">Single</h4>
+<div class="paragraph">
+<p>Same as Flowable and Observable, but wihtout <code>onNext</code> method. There are <code>onSuccess</code> and <code>onError</code> only. The <code>onSuccess</code> is the same as onNext + onComplete of Observable but in one method (so there is no complete handler, because it means success).</p>
+</div>
+<div class="paragraph">
+<p>Can be converted from Observable by <code>.singleOrError()</code>. If more than one element provided by <code>onNext</code>, it fails. If just <code>onComplete()</code> is called then error handler with NoSuchElementException is called.</p>
+</div>
+<div class="paragraph">
+<p>Single can be converted to Observable also (<code>toObservable()</code>). To be merged with other observables, for example.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_maybe">Maybe</h4>
+<div class="paragraph">
+<p>Same as Single, but onComplete is also possible. In case of multiple <code>onSuccess</code> calls only first is received. All other are ignored.</p>
+</div>
+<div class="paragraph">
+<p>Can be converted to Observable also. So, in case of <code>onSuccess</code> both success and complete handlers are called (if you subscribe to Maybe then complete handler is not called in this case).</p>
+</div>
+<div class="paragraph">
+<p><code>.firstElement()</code> of Observable returns Maybe.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_completable">Completable</h4>
+<div class="paragraph">
+<p>Only complete and onError methods. We don&#8217;t need the result of completion. It&#8217;s void. We need to know if the action completed or failed.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_filtering_operators">Filtering operators</h3>
+<div class="sect3">
+<h4 id="_filter">Filter</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, 2, 3, 4, 5)
+            .filter(num -&gt; num &lt; 3)
+            .subscribe(Log::d);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_oftype">ofType</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, "test", 12.0, Character.valueOf('c'))
+            .ofType(Number.class)
+            .subscribe(Log::d);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_take">Take</h4>
+<div class="paragraph">
+<p>One overload of the take operator allows you to limit the count. If the observable emits more than the specified limit, the take operator will simply terminate the emission with an onComplete.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, 2, 3, 4, 5)
+            .take(3)
+            .subscribe(Log::d, Log::d, () -&gt; Log.d("completed"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ontput:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>1
+2
+3
+completed</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The other overload is time based. It takes all the items emitted within the time window.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code> Observable.interval(1, TimeUnit.SECONDS)
+            .take(3, TimeUnit.SECONDS)
+            .blockingSubscribe(Log::d, Log::d, () -&gt; Log.d("completed"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>0
+1
+completed</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_takelast">TakeLast</h4>
+<div class="paragraph">
+<p><code>takeLast</code> is the reverse end of <code>take</code>. It emits the last n items from the upstream observable. To do this, it subscribes to the upstream observable and exhaust its elements before emitting the last n items. Therefore it is important to note that this operator is a stateful one. Infinite upstream sequence will block indefinitely.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, 2, 3, 4, 5, 6)
+            .doOnNext(item -&gt; Log.d("beforeTakeLast: " + item))
+            .takeLast(2)
+            .blockingSubscribe(Log::d, Log::d, () -&gt; Log.d("completed"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>beforeTakeLast: 1
+beforeTakeLast: 2
+beforeTakeLast: 3
+beforeTakeLast: 4
+beforeTakeLast: 5
+beforeTakeLast: 6
+5
+6
+completed</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_skip">Skip</h4>
+<div class="paragraph">
+<p><code>skip</code> is the opposite of <code>take</code>. It skips the first n emissions and emits the items starting from n + 1, if they exist.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, 2, 3, 4, 5, 6)
+            .skip(2)
+            .blockingSubscribe(Log::d, Log::d, () -&gt; Log.d("completed"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>3
+4
+5
+6
+completed</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>skip also has a time based overload just like take. It skips the emissions within the specified time duration.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_skiplast">SkipLast</h4>
+<div class="paragraph">
+<p><code>skipLast</code> is the opposite of <code>takeLast</code>. Just like <code>takeLast</code>, it also exhausts the upstream observable and queues the items to be able to logically determine the count of items.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, 2, 3, 4, 5, 6)
+            .doOnNext(item -&gt; Log.d("beforeSkipLast: " + item))
+            .skipLast(2)
+            .blockingSubscribe(Log::d, Log::d, () -&gt; Log.d("completed"));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>beforeSkipLast: 1
+beforeSkipLast: 2
+beforeSkipLast: 3
+beforeSkipLast: 4
+beforeSkipLast: 5
+beforeSkipLast: 6
+1
+2
+3
+4
+completed</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_first">First</h4>
+<div class="paragraph">
+<p>first converts the observable to a Single and emits the first item, or a given default value if the source does not emit any items.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, 2, 3, 4, 5)
+            .first(10)
+            .subscribe(Log::d);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There is also a variant that converts to a Maybe called <code>firstElement</code>. This emits only the first item emitted by the source. A variant called <code>singleElement</code> also exists which emits the first item but throws an exception if there are more than 1 item.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_elementat">ElementAt</h4>
+<div class="paragraph">
+<p><code>elementAt</code> returns a Maybe that emits the element at the specified index. If the source terminates before the specified index, <code>elementAt</code> will simply complete. Indexes are zero based.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, 2, 3, 4, 5)
+            .elementAt(4)
+            .subscribe(Log::d);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Output: 5.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_last">Last</h4>
+<div class="paragraph">
+<p>last converts an observable to a Single and emits the last item emitted by the source before it completes, or a default value if the source did not emit anything. In other implementations (such as .NET), this is a blocking operator that returns the last value, not an observable.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, 2, 3, 4, 5)
+            .last(10)
+            .subscribe(Log::d);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Output: 5</p>
+</div>
+<div class="paragraph">
+<p>There is also a variant called <code>lastElement</code> that converts to Maybe. This will simply complete if no items are emitted by the source.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_takewhile">TakeWhile</h4>
+<div class="paragraph">
+<p><code>takeWhile</code> is a variant of <code>take</code> which emits a value while a given predicate holds true.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, 2, 3, 4, 5)
+            .takeWhile(it -&gt; it &lt; 4)
+            .subscribe(Log::d);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>1
+2
+3</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_skipwhile">SkipWhile</h4>
+<div class="paragraph">
+<p><code>skipWhile</code> is a variant of <code>skip</code> that prevents emission while a given predicate holds true.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, 2, 3, 4, 5)
+            .skipWhile(it -&gt; it &lt; 3)
+            .subscribe(Log::d);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>3
+4
+5</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ignoreelements">IgnoreElements</h4>
+<div class="paragraph">
+<p>This operator simply ignores all emissions and emits complete or error events only.</p>
+</div>
+<div class="paragraph">
+<p>This code outputs nothing.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, 2, 3, 4, 5)
+            .ignoreElements()
+            .subscribe();</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sample">Sample</h4>
+<div class="paragraph">
+<p><code>sample</code> is a very powerful operator. It allows you to get the most recent item emitted by the source at specific intervals.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.interval(1, TimeUnit.SECONDS)
+                .doOnNext(element -&gt; System.out.println("Current element is " + element))
+                .sample(5, TimeUnit.SECONDS)
+                .blockingSubscribe(System.out::println);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Current element is 0
+Current element is 1
+Current element is 2
+Current element is 3
+Current element is 4
+4
+Current element is 5
+Current element is 6
+Current element is 7
+Current element is 8
+8
+Current element is 9
+Current element is 10
+Current element is 11</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_debounce">Debounce</h4>
+<div class="paragraph">
+<p>debounce emits the last item after a specified time interval has elapsed since the last emission. In simpler terms, it filters out rapid emission. This is useful in cases such as monitoring text fields for real-time search. When searching, you do not want to trigger a search every time the search text updates. You might want to trigger only after a time interval has passed since the last emission.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.fromPublisher(publisher -&gt; {
+            publisher.onNext("Not published 1");
+            publisher.onNext("Should be published 1");
+            try {
+                TimeUnit.SECONDS.sleep(6);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            for (int i = 0; i &lt; 10; i++) {
+                publisher.onNext("Not published " + i);
+            }
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            publisher.onNext("Should be published 2");
+
+        })
+                .doOnNext(element -&gt; System.out.println("Current element is " + element))
+                .debounce(5, TimeUnit.SECONDS)
+                .blockingSubscribe(System.out::println);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Current element is Not published 1
+Current element is Should be published 1
+Current element is Not published 0
+Current element is Not published 1
+Current element is Not published 2
+Current element is Not published 3
+Current element is Not published 4
+Current element is Not published 5
+Current element is Not published 6
+Current element is Not published 7
+Current element is Not published 8
+Current element is Not published 9
+Current element is Should be published 2
+Should be published 1
+Should be published 2</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_distinct">Distinct</h4>
+<div class="paragraph">
+<p>distinct is both powerful and dangerous when used incorrectly. distinct only emits unique values and filters duplicates. Equality is judged using the default Object.equals() and Object.hashCode() methods so be sure to define meaningful comparison logic.
+Internally, distinct uses a HashSet to store the unique references. Distinct does not clear this map until the sequence terminates so this will only grow. Unbounded or infinite streams with very distinct elements may cause this HashSet to grow very large and cause an OutOfMemoryError.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code> Observable.just(1, 2, 2, 3, 4, 4, 5)
+            .distinct()
+            .blockingSubscribe(Log::d);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are other variants that improves the default functionality. One variant allows you to provide a key selector function to determine uniqueness. Another variant allows you to provide a collection supplier to control retention policy manually.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_distinctuntilchanged">DistinctUntilChanged</h4>
+<div class="paragraph">
+<p>This operator is a special version of the distinct operator. It allows you to emit values that are different from their predecessor. This operator caches the previous emitted item for comparison with the succeeding items. It also uses the default Object.equals() and Object.hashCode() to determine uniqueness.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Observable.just(1, 2, 1, 2, 3, 4, 4, 5)
+            .distinctUntilChanged()
+            .blockingSubscribe(Log::d);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>1
+2
+1
+2
+3
+4
+5</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There is also a variant wherein you can provide a BiPredicate that receives the previous and current items. This will allow you to determine uniqueness manually.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_backpressure">Backpressure</h3>
+<div class="paragraph">
+<p>Makes sense only if producer and subscriber are in different threads. Which is not true by default.</p>
+</div>
+<div class="paragraph">
+<p>If both are in the same thread then slow subscriber blocks producer. Procuder blocked until subscriber working in onNext handler.</p>
+</div>
+<div class="sect3">
+<h4 id="_how_overflow_happens">How overflow happens</h4>
+<div class="paragraph">
+<p>Provider describes how it deals with values it provides in case of subscriber unability to receive values. There are 4 BackpressureStrategies:</p>
+</div>
+<div class="paragraph">
+<p>MISSING</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="file.html">Parent</a></p>
+</div>
+</div>
+</div>
+                        </div>
+                        <div class="height-40px"></div>
+                        <div>
+                            <div id="remark42" aria-live="polite">
+                                <noscript>Please enable JavaScript to view the comments</noscript>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy; 2020 Konoplev.me</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Garden</a></li>
+            <li><a href="http://konoplev.me">Blog</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script src="js/script.js" type="module"></script>
+<script>
+    var remark_config = {
+        host: "https://comments.konoplev.me",
+        site_id: 'konoplev',
+    };
+
+    (function (c) {
+        for (var i = 0; i < c.length; i++) {
+            var d = document, s = d.createElement('script');
+            s.src = remark_config.host + '/web/' + c[i] + '.js';
+            s.defer = true;
+            (d.head || d.body).appendChild(s);
+        }
+    })(remark_config.components || ['embed']);
+</script>
+
+</body>
+</html>

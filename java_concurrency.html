@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java Concurrency</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/pace.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/lc_gif_player.css">
+
+    <!-- js -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+</head>
+
+<body id="single">
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="index.html"><b>Konoplev's</b> garden</a></h1>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="index.html" data-hover="Garden">Garden</a></li>
+                            <li class="cl-effect-11"><a href="http://konoplev.me" data-hover="Blog">Blog</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <input type="search" placeholder="Search" required class="search-input">
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- col-md-8 -->
+        </div>
+    </header>
+</div>
+
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-12">
+                <div id="content-holder">
+                    <article class="post post-1">
+                        <header class="entry-header">
+                            <h1 class="entry-title">Java Concurrency</h1>
+                            <div class="entry-meta">
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="2020-12-01T23:00:00Z">Dec 2, 2020</time></a></span>
+
+                                <span class="post-category">
+                                                                        <a href="programming.html"> #programming</a>
+                                                                    </span>
+
+                                                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Java Util Concurrency, details about multithreading and parallel execution in Java.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ways_to_parallel">Ways to parallel</h3>
+<div class="paragraph">
+<p>We have a sequential task. We split it to independent tasks. Run each task in its own thread and join results.
+So we have two parts: spliterator and Collector</p>
+</div>
+<div class="paragraph">
+<p>(Amdahl&#8217;s law):</p>
+</div>
+<div class="paragraph">
+<p>Sp = 1 / (a + (1 - a)/p)</p>
+</div>
+<div class="paragraph">
+<p>a - part of the task which can&#8217;t be parallelised.
+p - number of processors
+Sp -</p>
+</div>
+<div class="paragraph">
+<p>So speadup of whole task can&#8217;t be faster than speed of smallest sequential task.</p>
+</div>
+<div class="sect3">
+<h4 id="_1_way_use_java_util_thread">1 Way : Use java.util.Thread</h4>
+<div class="sect4">
+<h5 id="_cons">cons</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Threads can&#8217;t be reused. Each thread takes about 1Mb in memory.</p>
+</li>
+<li>
+<p>Spagetti code. How we parallel and what we calculate is mixed up</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_thread_canceling">Thread canceling</h4>
+<div class="paragraph">
+<p>To cancel a thread you can just call thread.interrupt()</p>
+</div>
+<div class="paragraph">
+<p>If thread do some calculation and is not blocked on IO or some blocking waiting (or sleep) anything which throws InterruptedException the thread will continue working. The interruption should be processed. That&#8217;s why thread should split it&#8217;s job into small parts to be able to handle interruption.</p>
+</div>
+<div class="paragraph">
+<p>If a thread (parent) created a new thread (child) and parent thread is interrupted then child thread is not interupted automatically.</p>
+</div>
+<div class="paragraph">
+<p>The same valid for a task (Future or Callable which is actually FutureTask) running in a ThreadPool.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_way_threadpool">2 Way : ThreadPool</h4>
+<div class="paragraph">
+<p>Better then the previous because we can reuse threads.
+What is pool. We have several producers (running in several threads). Each producer put tasks to a Job queue. Thread pool reads from job queue as soon as one of the thread pool threads is done with its previous task.
+Multiple tasks can be put to the pool by one thread.</p>
+</div>
+<div class="paragraph">
+<p>Thread pool consists of 3 things: worker Queue with runnables, Worker class which has a link to a thread (it&#8217;s a wrapper).</p>
+</div>
+<div class="paragraph">
+<p>Worker class gets a thread from ThreadFactory (by default it&#8217;s DefaultThreadFactory. It always creates a new thread by default).</p>
+</div>
+<div class="paragraph">
+<p>Are created via factory methods of Executors facade.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>FixedThreadPool - you set number of threads processing tasks</p>
+</li>
+<li>
+<p>CachedThreadPool - unlimited number of threads. SynchronousQueue. If thread is idle for 60 seconds, it&#8217;s interrupted.</p>
+</li>
+<li>
+<p>ScheduledThreadPool</p>
+</li>
+<li>
+<p>SingleThreadExecutor</p>
+</li>
+<li>
+<p>WorkStealingPool</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Executors facade returns ExecutorService interface. Which allows to</p>
+</div>
+<div class="paragraph">
+<p>If you need to read from a queue of executed tasks use ExecutorCompletionService. To get task results you should submit them via ExecutorCompletionService.</p>
+</div>
+<div class="paragraph">
+<p>executorCompletionService.take() blocks until there is a Future with execution results.</p>
+</div>
+<div class="paragraph">
+<p>TODO: How Threads are reused.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_way_forkjoin">3 Way : ForkJoin</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">Result solve(Problem problem) {
+	if (problem.size() &gt; SEQUENTIAL_THRESHOLD) {
+		return solveSequentially(problem);
+	} else {
+		Result left, right;
+		INVOKE-IN-PARALLEL {
+			left = solve(extractLeftHalf(problem));
+			right = solve(extractRightHalf(problem));
+		}
+		return combine(left, right);
+	}
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It&#8217;s better for tasks which can be split into smaller subtasks:</p>
+</div>
+<div class="paragraph">
+<p>1.If we use traditional ThreadPool, split and merge are done serially in one thread.
+2. If some tasks are waiting for results of other tasks, the thread is blocked. If a lot of threads are waiting for only one hard working thread we loosing resources.</p>
+</div>
+<div class="paragraph">
+<p>So join shouldn&#8217;t occupy a thread. Blocked (on join) threads should be working. It needs a coordination.</p>
+</div>
+<div class="paragraph">
+<p>Idea of a ThreadPool</p>
+</div>
+<div class="paragraph">
+<p>Thread pool has one queue for all threads and this queue should be read/write(producers) syncroniosly. In ForkJoinPool each thread has it&#8217;s own deck. Tasks are splitted equally between threads and are put to the decks. When some thread is out of tasks it can still new task from another thread&#8217;s deck (from opposite end). So we don&#8217;t waste time on syncronisation.</p>
+</div>
+<div class="paragraph">
+<p>Also reducing of result is faster than in threadPool because result of each task is reducing in parallel.</p>
+</div>
+<div class="paragraph">
+<p>Task for ForkJoin is RecursiveTask (return value) or RecursiveAction (return void).</p>
+</div>
+<div class="paragraph">
+<p>Each task has fork and join methods. So initially you have only one Task. Which split itself into to two and so on.</p>
+</div>
+<div class="paragraph">
+<p>The problem is that if you have sleeping threads in a pool, it takes long time to awake them. Usually one thread started to work on tasks and send a signal to couple of threads to awaike them. They send more signals to other threads, steal tasks and start to work.</p>
+</div>
+<div class="paragraph">
+<p>JVM can not do <a href="https://en.wikipedia.org/wiki/Busy_waiting">spinning</a> , because in this case threads uses CPU in idle mode.</p>
+</div>
+<div class="paragraph">
+<p>To improve performance it&#8217;s better to awake more threads than necessary. It&#8217;s called oversignaling.</p>
+</div>
+<div class="paragraph">
+<p>How ForkJoinPool solve this problem? Scheduller thread started to work on tasks. So the thread initiating calculation, makes the calculation itself until other threads are awake. So it doesn&#8217;t wait for threads to be awaken. So this thread is a one of the threads of ForkJoinPool. But to do this we need to have an access to workQueue.</p>
+</div>
+<div class="paragraph">
+<p>Since ForkJoinPool creates and keeps a lot of threads to start solving tasks quickly, it&#8217;s better to use system wide ForkJoinPool. So JVM has it.</p>
+</div>
+<div class="paragraph">
+<p>Any RecursiveTask or RecursiveAction has a link to this pool, so they have a link to workQueue. It puts a task to workQueue, pool it and start working on it in the same thread.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://en.wikipedia.org/wiki/Fork–join_model" class="bare">https://en.wikipedia.org/wiki/Fork–join_model</a></p>
+</div>
+<div class="sect4">
+<h5 id="_applicable_if">Applicable if</h5>
+<div class="paragraph">
+<p>Thread Pool - for task level parallelism. You have tasks and you need to run them in parallel.</p>
+</div>
+<div class="paragraph">
+<p>ForkJoinPool - for data level parallelism. You have a big chunk of data and you have to process it in parallel.</p>
+</div>
+<div class="paragraph">
+<p>For example - to do IO from ForkJoinPool is a bad idea, because you can break perfromance optimisations (schedulling).</p>
+</div>
+<div class="paragraph">
+<p>The only reason to create your own ForkJoinPool is when you do some IO or something else bad and you&#8217;d like to avoid any problems on main pool.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Each task creates subtasks (if not it&#8217;s just a thread pool + overhead)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>if input tasks are already split into tasks of approximately equal computing load, then it less efficient than just using a ThreadPoolExecuter directly.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Mostly for academical tasks: reduce, filter, map, cumulate, sort, uniquify, paired mappings</p>
+</li>
+<li>
+<p>No cyclic dependencies between tasks. If it is <strong>sometimes</strong> you can get a deadlock.</p>
+</li>
+<li>
+<p>No blocking or IO.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_performance_of_each_ways_is_about_the_same">Performance of each ways is about the same</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_forkjoin_and_parallel_stream">ForkJoin and parallel stream</h4>
+<div class="paragraph">
+<p>stream()
+.parallel()
+<strong>.map()
+.reduce()</strong></p>
+</div>
+<div class="paragraph">
+<p>everything after parallel runs in ForkJoin. So fist task split whole stream into two parts, and create a task per part. Created task does the same and so on. So we split the stream into tasks.</p>
+</div>
+<div class="paragraph">
+<p><strong>All streams use same ForkJoin</strong> by default, so if some stream needs a lot of computations and there are other streams in parallel tread, the high load stream should use specific ForkJoin but it&#8217;s not possible in current JDK. Actually it&#8217;s possible. We can create a new ForkJoinPool and submit a task to this pool.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_completable_future">Completable Future</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_why">Why?</h3>
+<div class="paragraph">
+<p>Simple <code>Future</code> is bad because future.get() blocks current thread.</p>
+</div>
+<div class="paragraph">
+<p>All \*Async are run in the ForkJoin pool (or specified pool). All non async methods are ran in the same thread as previous computation.</p>
+</div>
+<div class="paragraph">
+<p>It doesn&#8217;t make sense to have \*Async in the pipeline. The \*Async waits for result of previous computation and the next block in pipeline waits for \*Async computation. So it doesn&#8217;t matter is \*Async runs in the same thread or in a separate thread.</p>
+</div>
+<div class="paragraph">
+<p>\*Async is used for splitting pipeline. When you have several parallel compleatableFutures you can wait for all of them (CompletableFuture.allOf) or wait for the fastest one (CompletableFuture.anyOf).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how">How</h3>
+<div class="sect3">
+<h4 id="_just_run">Just run</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">final CompletableFuture&lt;String&gt; java =
+		CompletableFuture.supplyAsync(
+				() -&gt; client.mostRecentQuestionAbout("java"),
+				optionalExecutorService
+		);
+log.debug("Found: '{}'", java.get());</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_thenapply_map">thenApply (Map)</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">final CompletableFuture&lt;Document&gt; java =
+		CompletableFuture.supplyAsync(() -&gt;
+						client.mostRecentQuestionsAbout("java"),
+				executorService
+		);
+
+final CompletableFuture&lt;Element&gt; titleElement =
+		java.thenApply((Document doc) -&gt;
+				doc.select("a.question-hyperlink").get(0));
+
+final CompletableFuture&lt;String&gt; titleText =
+		titleElement.thenApply(Element::text);
+
+final CompletableFuture&lt;Integer&gt; length =
+		titleText.thenApply(String::length);
+
+log.debug("Length: {}", length.get());
+
+///// the same
+
+final CompletableFuture&lt;Document&gt; java =
+		CompletableFuture.supplyAsync(() -&gt;
+						client.mostRecentQuestionsAbout("java"),
+				executorService
+		);
+
+final CompletableFuture&lt;Integer&gt; length = java.
+		thenApply(doc -&gt; doc.select("a.question-hyperlink").get(0)).
+		thenApply(Element::text).
+		thenApply(String::length);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Chain of result processing. thenApply is run in the same thread as</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_thencompose_flat_map">thenCompose (flat map)</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">//without
+
+javaQuestions().thenAccept(document -&gt; {
+			findMostInterestingQuestion(document).thenAccept(question -&gt; {
+				googleAnswer(question).thenAccept(answer -&gt; {
+					postAnswer(answer).thenAccept(status -&gt; {
+						if (status == HttpStatus.OK.value()) {
+							log.debug("OK");
+						} else {
+							log.error("Wrong status code: {}", status);
+						}
+					});
+				});
+			});
+		});
+
+//using flat map
+
+final CompletableFuture&lt;Document&gt; java = javaQuestions();
+
+final CompletableFuture&lt;Question&gt; questionFuture =
+		java.thenCompose(doc -&gt; findMostInterestingQuestion(doc));
+
+final CompletableFuture&lt;String&gt; answerFuture =
+		questionFuture.thenCompose(question -&gt; googleAnswer(question));
+
+final CompletableFuture&lt;Integer&gt; httpStatusFuture =
+		answerFuture.thenCompose(answer -&gt; postAnswer(answer));
+
+httpStatusFuture.thenAccept(status -&gt; {
+	if (status == HttpStatus.OK.value()) {
+		log.debug("OK");
+	} else {
+		log.error("Wrong status code: {}", status);
+	}
+});
+////the same
+
+javaQuestions().
+			thenCompose(doc -&gt; findMostInterestingQuestion(doc)).
+			thenCompose(question -&gt; googleAnswer(question)).
+			thenCompose(answer -&gt; postAnswer(answer)).
+			thenAccept(status -&gt; {
+				if (status == HttpStatus.OK.value()) {
+					log.debug("OK");
+				} else {
+					log.error("Wrong status code: {}", status);
+				}
+			});</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_applytoeither_the_first_one_wins">applyToEither (the first one wins)</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">final CompletableFuture&lt;String&gt; java = questions("java");
+final CompletableFuture&lt;String&gt; scala = questions("scala");
+
+final CompletableFuture&lt;String&gt; both = java.
+		applyToEither(scala, title -&gt; title.toUpperCase());
+
+both.thenAccept(title -&gt; log.debug("First: {}", title));</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_if_you_have_a_lot_of_futures_use_allof_or_anyof_instead_of_applytoeither">if you have a lot of futures use allOf or anyOf (instead of applyToEither)</h3>
+<div class="sect3">
+<h4 id="_allof">allOf</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">final CompletableFuture&lt;String&gt; java = questions("java");
+final CompletableFuture&lt;String&gt; scala = questions("scala");
+final CompletableFuture&lt;String&gt; clojure = questions("clojure");
+final CompletableFuture&lt;String&gt; groovy = questions("groovy");
+
+final CompletableFuture&lt;Void&gt; allCompleted =
+		CompletableFuture.allOf(
+				java, scala, clojure, groovy
+		);
+
+allCompleted.thenRun(() -&gt; {
+	try {
+		log.debug("Loaded: {}", java.get());
+		log.debug("Loaded: {}", scala.get());
+		log.debug("Loaded: {}", clojure.get());
+		log.debug("Loaded: {}", groovy.get());
+	} catch (InterruptedException | ExecutionException e) {
+		log.error("", e);
+	}
+});</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_anyof">anyOf</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">final CompletableFuture&lt;String&gt; java = questions("java");
+final CompletableFuture&lt;String&gt; scala = questions("scala");
+final CompletableFuture&lt;String&gt; clojure = questions("clojure");
+final CompletableFuture&lt;String&gt; groovy = questions("groovy");
+
+final CompletableFuture&lt;Object&gt; firstCompleted =
+		CompletableFuture.anyOf(
+				java, scala, clojure, groovy
+		);
+
+firstCompleted.thenAccept((Object result) -&gt; {
+	log.debug("First: {}", result);
+});</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_diff_between_thenaccept_and_thenapply">Diff between thenAccept and thenApply</h4>
+<div class="paragraph">
+<p>thenApply receives a result of previous computation process it and returns a new result. Can be piplined.</p>
+</div>
+<div class="paragraph">
+<p>thenAccept receives a result of previous computation do something and stops. It&#8217;s terminated operator. It returns future with void.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_locks_and_conditions">Locks and Conditions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>reentrant lock.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public class Lock {
+
+  boolean isLocked = false;
+  Thread  lockedBy = null;
+  int     lockedCount = 0;
+
+  public synchronized void lock()
+  throws InterruptedException{
+    Thread callingThread = Thread.currentThread();
+    while(isLocked &amp;&amp; lockedBy != callingThread){
+      wait();
+    }
+    isLocked = true;
+    lockedCount++;
+    lockedBy = callingThread;
+  }
+
+
+  public synchronized void unlock(){
+    if(Thread.curentThread() == this.lockedBy){
+      lockedCount--;
+
+      if(lockedCount == 0){
+        isLocked = false;
+        notify();
+      }
+    }
+  }
+
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_optimistic_locking">Optimistic locking</h3>
+<div class="paragraph">
+<p>lockless algorithms</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">import java.util.concurrent.atomic.AtomicLong;
+
+public class AtomicCounter {
+    private AtomicLong count = new AtomicLong(0);
+
+    public void inc() {
+        boolean updated = false;
+        while(!updated){
+            long prevCount = this.count.get();
+            updated = this.count.compareAndSet(prevCount, prevCount + 1);
+        }
+    }
+
+    public long count() {
+        return this.count.get();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If two threads trying to do inc one of the threads will run after another thread so, prevCount will be different.</p>
+</div>
+<div class="paragraph">
+<p>Optimistic locking allows all threads to create a copy of the shared memory without any blocking. The threads may then make modifications to their copy, and attempt to write their modified version back into the shared memory.</p>
+</div>
+<div class="paragraph">
+<p>The implementations are written to take advantage of modern processor features, so they can be nonblocking (lock-free) if suitable support is available from the hardware and OS, which should be it is for most modern systems.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lock">Lock</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Add different types of locks (such as reader and writer locks).</p>
+</li>
+<li>
+<p>Not restrict locks to blocks (allow a lock in one method and unlock in another).</p>
+</li>
+<li>
+<p>If a thread cannot acquire a lock (for example, if another thread has the lock), allow the thread to back out or carry on or do something else — a tryLock() method.</p>
+</li>
+<li>
+<p>Allow a thread to attempt to acquire a lock and give up after a certain amount of time.</p>
+</li>
+<li>
+<p>ReentrantLock — This is essentially the equivalent of the familiar lock used in Java synchronized blocks, but it’s slightly more flexible.</p>
+</li>
+<li>
+<p>ReentrantReadWriteLock — This can provide better performance in cases where there are many readers but few writers.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_condition">Condition</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">final Lock lock = new ReentrantLock();
+final Condition queueEmpty  = lock.newCondition();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Should be held by lock.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reentrantreadwritelock">ReentrantReadWriteLock</h3>
+<div class="paragraph">
+<p>it has two locks: readWriteLock.readLock() and readWriteLock.writeLock();</p>
+</div>
+<div class="paragraph">
+<p>Idea: Reading happens more ofthen and it is not blocked by writting (which happens rarely, so it waits untill all reading threads are done)</p>
+</div>
+<div class="paragraph">
+<p>Read lock can be acquired by different threads in parallel. Write lock can be acquired by one thread only.</p>
+</div>
+<div class="paragraph">
+<p>readLock.lock():</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This means that if any other thread is writing (i.e. holds a write lock) then stop here until no other thread is writing.</p>
+</li>
+<li>
+<p>Once the lock is granted no other thread will be allowed to write (i.e. take a write lock) until the lock is released.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>writeLock.lock():</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This means that if any other thread is reading or writing, stop here and wait until no other thread is reading or writing.</p>
+</li>
+<li>
+<p>Once the lock is granted, no other thread will be allowed to read or write (i.e. take a read or write lock) until the lock is released.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This could lead to a dead lock. If someone acquired a read lock and tries to acquire a write lock the try will be blocked. Notice, that it doesn&#8217;t lock read attempts, because we&#8217;re forever waiting for write, but read locks can be acquired and released until write lock is not acquired.</p>
+</div>
+<div class="paragraph">
+<p>tryLock - allows to try to lock. If succeded the lock is acquired, if not the false is returned and you can process it in else statement.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_countdownlatch">CountDownLatch</h3>
+<div class="paragraph">
+<p>The CountDownLatch is a simple synchronization pattern that allows for multiple threads to all agree on a minimum amount of preparation that must be done before any thread can pass a synchronization barrier.</p>
+</div>
+<div class="paragraph">
+<p>Several threads shared CountDownLatch. Each thread do it&#8217;s job and do countDownLatch.countDown();</p>
+</div>
+<div class="paragraph">
+<p>After that each thread stops at countDownLatch.await(); until the counter is 0. After that each thread can do other staff.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_concurrenthashmap">ConcurrentHashMap</h3>
+<div class="paragraph">
+<p>the classic HashMap uses a function (the hash function) to determine which “bucket” it will store the key/value pair in. This is where the “hash” part of the class’s name comes from. This suggests a rather straightforward multithreaded generalization—instead of needing to lock the whole structure when making a change, it’s only necessary to lock the bucket that’s being altered.</p>
+</div>
+<div class="paragraph">
+<p>A well-written implementation of a concurrent HashMap will be essentially lock-free on reads, and for writes will only lock the bucket being modified.</p>
+</div>
+<div class="paragraph">
+<p>Additional atomic methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>putIfAbsent() — Adds the key/value pair to the HashMap if the key isn’t already present.</p>
+</li>
+<li>
+<p>remove() — Atomically removes the key/value pair only if the key is present and the value is equal to the current state.</p>
+</li>
+<li>
+<p>replace() — The API provides two different forms of this method for atomic replacement in the HashMap.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_copyonwritearraylist">CopyOnWriteArrayList</h3>
+<div class="paragraph">
+<p>Any iterators formed don’t have to worry about any modifications that they didn’t expect. So any reading thread has its own snapshot of the array. Writing thread creates a new snapshot.</p>
+</div>
+<div class="paragraph">
+<p>the copy-on-write property means that if the list is altered while a read or a traversal is taking place, the entire array must be copied.</p>
+</div>
+<div class="paragraph">
+<p>Each operation is locked. So any other sync List is better in terms of performance. The only advantage of CopyOnWriteArrayList is it&#8217;s safe for iteration. So if most of the threads iterates over the list, only in this case CopyOnWriteArrayList should be used. And actually there are no other options.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_queues">Queues</h3>
+<div class="sect3">
+<h4 id="_blockingqueues">BlockingQueues</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>When trying to <strong>put()</strong> to the queue, it will cause the putting thread to wait for space to become available if the queue is full.</p>
+</li>
+<li>
+<p>When trying to <strong>take()</strong> from the queue, it will cause the taking thread to block if the queue is empty.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To control we can use same methods with timeouts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>instead of put use offer(value, timeout, timeunits)</p>
+</li>
+<li>
+<p>instead of take use poll(timeout, timeunits)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>implementations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>LinkedBlockingDeque - optionaly bounded queue</p>
+</li>
+<li>
+<p>ArrayBlockingQueue - bounded queue</p>
+</li>
+<li>
+<p>SynchronousQueue - queue with just a one element (used in CachedThreadPool)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_transferqueues">TransferQueues</h4>
+<div class="paragraph">
+<p>Allows producer to make sure that the message is transfered. So producer can wait for consumer.</p>
+</div>
+<div class="paragraph">
+<p>Only one implementation: LinkedTransferQueue</p>
+</div>
+<div class="paragraph">
+<p>Also it&#8217;s faster implementation of unbounded queue.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jmm">JMM</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>An unlock operation on a monitor <em>Synchronizes-With</em> later lock operations</p>
+</li>
+<li>
+<p>A write to a volatile variable <em>Synchronizes-With</em> later reads of the variable</p>
+</li>
+<li>
+<p>If an action A <em>Synchronizes-With</em> action B, then A Happens-Before B</p>
+</li>
+<li>
+<p>If A comes before B in program order within a thread, then A Happens-Before B</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each thread has it&#8217;s own cache of the main memory. JMM guarantees that any changes made withing locked area is flushed to main memory before the lock is released. In addition, when a synchronized block is entered, then after the lock has been acquired, any changes to the locked object are read in from main memory, so the thread with the lock is synchronized to main memory’s view of the object before the code in the locked section begins to execute.</p>
+</div>
+<div class="paragraph">
+<p>What volatile means:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The value seen by a thread is always reread from main memory before use.</p>
+</li>
+<li>
+<p>Any value written by a thread is always flushed through to main memory before the instruction completes.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="programming.html">Parent</a></p>
+</div>
+</div>
+</div>
+                        </div>
+                        <div class="height-40px"></div>
+                        <div>
+                            <div id="remark42" aria-live="polite">
+                                <noscript>Please enable JavaScript to view the comments</noscript>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy; 2020 Konoplev.me</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Garden</a></li>
+            <li><a href="http://konoplev.me">Blog</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script src="js/script.js" type="module"></script>
+<script>
+    var remark_config = {
+        host: "https://comments.konoplev.me",
+        site_id: 'konoplev',
+    };
+
+    (function (c) {
+        for (var i = 0; i < c.length; i++) {
+            var d = document, s = d.createElement('script');
+            s.src = remark_config.host + '/web/' + c[i] + '.js';
+            s.defer = true;
+            (d.head || d.body).appendChild(s);
+        }
+    })(remark_config.components || ['embed']);
+</script>
+
+</body>
+</html>

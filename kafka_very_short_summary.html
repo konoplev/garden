@@ -89,10 +89,10 @@
 <p>This is pub/sub mechanism.</p>
 </div>
 <div class="paragraph">
-<p>Producers write to topics, consumers read from topics.</p>
+<p>Producers write to topics, consumers read (pull, not push) from topics.</p>
 </div>
 <div class="paragraph">
-<p>Topics are split to partitions. Each partition has a leader</p>
+<p>Topics are split to partitions (scaling). Each partition can be replicated (Fault tolerance). Each partition has a leader (a broker managing the partition).</p>
 </div>
 <div class="paragraph">
 <p>Producer produces a batch of messages to topic. Any message could have a key. Body of the message is binary.
@@ -107,7 +107,7 @@ Each consumer commits current offset to \__consumer_offsets topic. The partition
 <p>Different consumer groups allows to read the same messages by different consumers.</p>
 </div>
 <div class="paragraph">
-<p>For each topic it’s own retention policy can be chosen. It can be by time or size. Also topic could have a log compaction (We have only last message of each key. Older messages are removed)</p>
+<p>For each topic it’s own retention policy can be chosen. It can be done by time or size. Also topic could have a log compaction (We have only last message of each key. Older messages are removed)</p>
 </div>
 <div class="paragraph">
 <p>To remove some key completely a producer sends a key with null value. It’s called tomb stone. All other messages with this key are removed and this message is kept for configurable amount of time to let consumers know that the key is removed.
@@ -120,19 +120,19 @@ MirrorMaker - producer and consumer. Read from one data center and send to anoth
 <p>Each broker register ephemeral node on path /brokers/ID. The can’t be two brokers with the same id. Different Kafka components subscribe to this path, so the can be notified if some broker is out. Even broker is out its id is used in other places. In topic replicas for example. If some broker is down and another one with the same id is up, it’s assigned to the topics.</p>
 </div>
 <div class="paragraph">
-<p>Replication. Each replica send exactly the same commands to master as consumer send.</p>
+<p>Replication. Each replica send exactly the same commands to master as consumer send. So each replica pulls messages. If producer&#8217;s ack &gt; 1 then partition leader is waiting until ack number of replicas have sent confirmation about replication.</p>
 </div>
 <div class="paragraph">
-<p>If master doesn’t receive Fetch request from one of the replicas its marked out of sync. It can’be elected for a new leader.</p>
+<p>If master doesn’t receive Fetch request from one of the replicas its marked out of sync. Out of sync replica can’be elected for a new leader.</p>
 </div>
 <div class="paragraph">
-<p>Preferred leader - oldest insync replica!</p>
+<p>Preferred leader - oldest insync replica.</p>
 </div>
 <div class="paragraph">
 <p>Producer and consumer communicates only with a replica leader. If leader is unavailable client blocks and requests metadata of the cluster to know a new leader.</p>
 </div>
 <div class="paragraph">
-<p>Wire consent - ack 0, 1 or all (in sync replicas). All messages are stored in Linux cache. So nobody waits until the cache is purged to disk. If consern only 1 or 0 broker responded imidiatly. If not waiting until replicas send acks. The messages are in purgatory until all acks received and ack is sent back to client.</p>
+<p>Producer&#8217;s ack (Write consern) -  0, 1 or all (in sync replicas). All messages are stored in Linux cache. So nobody waits until the cache is purged to disk. If consern only 1 or 0 broker responded imidiatly. If not waiting until ack replicas sent acks. The messages are in purgatory until all acks received and ack is sent back to client.</p>
 </div>
 <div class="paragraph">
 <p>Fetch. Consumer request size of the messages it can process. If offset requested by client doesn’t exists (too old and removed for example) a broker respond with fail.</p>
@@ -160,14 +160,16 @@ Indexes are also split into segments. If index is corrupted or lost it can be cr
 <p>By default it’s allowed out of sync replica to become a leader if the are no other in sync replicas. If it happens we lose messages which were not replicated from failed leader to out of sync replica.</p>
 </div>
 <div class="paragraph">
-<p>We can set minimum in sync replicas. If there less in sync replicas than this value leader can’t process any requests.</p>
+<p>We can set minimum in sync replicas. If there are less in sync replicas than this value leader can’t process any requests.</p>
 </div>
 <div class="paragraph">
-<p>To don’t lose a message a producer should send messages with write consern 3 and be able to handle Leader Not Availiable.</p>
+<p>To don’t lose a message a producer should send messages with write consern <code>all</code> and be able to handle Leader Not Availiable.</p>
 </div>
 <div class="paragraph">
-<p>Ack 3 doesn’t guarantee exactly once. It guarantees at least once. Brocker could be able to write and replicate the message, but was not able to send ack back because producer become unavailable (network partitioning for example)
-READ ABOUT EXACTLY ONCE DELIVERY IN KAFKA</p>
+<p>Ack <code>all</code> doesn’t guarantee exactly once. It guarantees at least once. Brocker could be able to write and replicate the message, but was not able to send ack back because producer become unavailable (network partitioning for example)</p>
+</div>
+<div class="paragraph">
+<p>TODO: add info about exactly once delivery in Kafka</p>
 </div>
 <div class="paragraph">
 <p>Auto.offset.reset It could lead to reading messages twice or lose messages. If we don’t know the offset we could read from beginning or from the end. Both are bad.
