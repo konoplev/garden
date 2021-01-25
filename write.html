@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/lc_gif_player.css">
     <link rel="stylesheet" href="css/simplemde.min.css">
-<!--    <link rel="stylesheet" href="css/asciidoctor.css">-->
+    <!--    <link rel="stylesheet" href="css/asciidoctor.css">-->
 
     <!-- js -->
     <script src="js/simplemde.min.js"></script>
@@ -22,10 +22,40 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pace.min.js"></script>
     <script src="js/modernizr.custom.js"></script>
+    <style>
+        #open-file-form {
+            position: relative;
+            min-height: 42px;
+        }
+
+        #open-file-form input[type=search] {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            padding: 10px 30px 10px 10px;
+            border: 1px solid #ddd;
+            z-index: 99;
+        }
+
+        #open-file-form button {
+            position: absolute;
+            right: 6px;
+            top: 4px;
+            z-index: 999;
+            background: transparent;
+            border: 0;
+            padding: 0;
+        }
+
+        #open-file-form button span {
+            font-size: 26px;
+        }
+
+    </style>
 </head>
 
 <body id="single">
-<input type="file" id="uploader" style="display: none" accept="image/*" >
+<input type="file" id="uploader" style="display: none" accept="image/*">
 <div class="container">
     <header id="site-header">
         <div class="row">
@@ -71,17 +101,36 @@
                     <article class="post post-1">
                         <header class="entry-header">
                             <h1 class="entry-title">Add a new note</h1>
-                            <div>
+                            <div id="editor-holder">
                                 <textarea id="editor"></textarea>
                             </div>
                         </header>
                         <article class="post">
                             <div class="entry-content clearfix">
                                 <p>
+                                <div role="search" id="open-file-form">
+                                    <input type="search" class="search-input" id="open-file-input" placeholder="Search" required>
+
+                                </div>
+                                </p>
+                                <div class="height-40px"></div>
+                            </div>
+                            <div class="entry-content clearfix">
+                                <p>
                                 <form role="search" method="get" id="searchform" action="#">
                                     <input type="search" class="search-input" placeholder="Search" required>
                                     <button type="submit"><span class="ion-ios-search-strong"></span></button>
                                 </form>
+                                </p>
+                                <div class="height-40px"></div>
+                            </div>
+                        </article>
+                        <article class="post">
+                            <div class="entry-content clearfix">
+                                <p id="inbox">
+                                    <button onclick="showFile('Some_name.adoc');">Some_name.adoc</button>
+                                    <br>
+                                    <button onclick="showFile('Some_name.adoc');">Some_name.adoc</button>
                                 </p>
                                 <div class="height-40px"></div>
                             </div>
@@ -126,10 +175,23 @@
 <script src="js/script.js" type="module"></script>
 <script src="js/asciidoctor.min.js"></script>
 <script type="module">
+    let today = new Date().toISOString().slice(0, 10);
+    let defaultText = `= Name me
+Alexander Konoplev
+v 1.0, ${today}
+:tags:
+
+[intro]
+
+== Links
+
+<<file.adoc#,Parent>>
+
+    `;
     let pageRequest = new URL(window.location.href);
     let email = pageRequest.searchParams.get("email");
     let secret = pageRequest.searchParams.get("secret");
-    let barer = "Basic " +  pageRequest.searchParams.get("token");
+    let barer = "Basic " + pageRequest.searchParams.get("token");
 
     var url = "https://notes.konoplev.me/api";
 
@@ -148,12 +210,95 @@
         contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
     }).done(function (data) {
         console.log(data);
-        showEditor(barer, data.refresh_token);
+        showEditor(barer, data.refresh_token, defaultText);
+        showInbox(barer, data.refresh_token);
     }).fail(function () {
         alert("Sorry you don't have permissions to write");
     });
 
-    function showEditor(barer, refresh_token) {
+    function showInbox(barer, refresh_token) {
+        runRequest(barer, refresh_token, access_token => {
+            $.ajax({
+                url: url + '/in-progress',
+                type: 'GET',
+                headers: {Authorization: "Bearer " + access_token},
+                processData: false,
+                contentType: false                    // Using FormData, no need to process data.
+            }).done(function (files) {
+                console.log("Success: Get inbox!");
+                // editor.options.promptTexts.image = url;
+                $("#inbox").empty();
+                files.forEach(file => {
+                    $("#inbox").append(
+                        "<button onClick=\"showFile('" + file + "', '" + barer + "', '" + refresh_token + "')\">" + file + "</button> <br>"
+                    );
+                })
+                $("#open-file-form").append(
+                    "<button id=\"open-file\" onClick=\"openFile('" + barer + "', '" + refresh_token + "')\">" + "<span class=\"ion-ios-folder-outline\"></span></button>"
+                )
+                console.log(files);
+            }).fail(function () {
+                alert("Can't connect to server");
+            });
+        });
+    }
+
+
+</script>
+<script>
+    var url = "https://notes.konoplev.me/api";
+
+    function openFile(barer, refresh_token) {
+
+        let value = $('#open-file-input').val();
+        let slash = value.lastIndexOf("/");
+        let endOfFileName = value.indexOf(".html")
+        let fileName = value.substring(slash + 1, endOfFileName);
+        showFile(fileName + ".adoc", barer, refresh_token);
+    }
+    function showFile(name, barer, refresh_token) {
+        runRequest(barer, refresh_token,
+            access_token => {
+                $.ajax({
+                    url: url + '/note?fileName=' + name,
+                    type: 'GET',
+                    headers: {Authorization: "Bearer " + access_token},
+                    processData: false,
+                    contentType: false                    // Using FormData, no need to process data.
+                }).done(function (content) {
+                    console.log("Success: Get conent!");
+                    // editor.options.promptTexts.image = url;
+                    showEditor(barer, refresh_token, content);
+                }).fail(function () {
+                    alert("Can't connect to server ");
+                });
+            }
+        );
+    }
+
+    function runRequest(barer, refresh_token, request) {
+        $.ajax({
+            url: url + '/oauth/token',
+            type: 'POST',
+            headers: {Authorization: barer},
+            data: jQuery.param({
+                client_id: "web",
+                grant_type: "refresh_token",
+                refresh_token: refresh_token
+            }),
+            processData: false,
+            contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
+        }).done(function (data) {
+            request(data.access_token);
+        }).fail(function () {
+            alert("Sorry you don't have permissions to write");
+        });
+
+    }
+
+    function showEditor(barer, refresh_token, text) {
+        $("#editor-holder").empty();
+        $("#editor-holder").append("<textarea id=\"editor\"></textarea>")
         var asciidoctor = Asciidoctor()
         var simplemde = new SimpleMDE({
             autofocus: true,
@@ -324,40 +469,10 @@
                 return "Loading...";
             }
         });
-        let today = new Date().toISOString().slice(0,10);
-        simplemde.value(`= Name me
-Alexander Konoplev
-v 1.0, ${today}
-:tags:
-
-[intro]
-
-== Links
-
-<<file.adoc#,Parent>>
-
-    `)
+        simplemde.value(text);
     }
 
-    function runRequest(barer, refresh_token, request) {
-        $.ajax({
-            url: url + '/oauth/token',
-            type: 'POST',
-            headers: {Authorization: barer},
-            data: jQuery.param({
-                client_id: "web",
-                grant_type: "refresh_token",
-                refresh_token: refresh_token
-            }),
-            processData: false,
-            contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
-        }).done(function (data) {
-            request(data.access_token);
-        }).fail(function () {
-            alert("Sorry you don't have permissions to write");
-        });
-
-    }
 </script>
+
 </body>
 </html>

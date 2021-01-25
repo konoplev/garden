@@ -1,13 +1,5 @@
 let filesMap = new Map();
 
-        filesMap.set("how_to_find_you_career", {
-filename: "how_to_find_you_career",
-title: "How to find you career",
-text: `Mistakes, advices and ways to find a business you'll like
-`,
-date: "Fri Oct 09 00:00:00 CEST 2020",
-tags: [ {name: '', fileName: ''}, ]
-});
             filesMap.set("kafka_in_action_summary", {
 filename: "kafka_in_action_summary",
 title: "Kafka in action summary",
@@ -21,13 +13,6 @@ filename: "rxjava",
 title: "RxJava",
 text: `Everything about reactive java
 `,
-date: "Wed Dec 02 00:00:00 CET 2020",
-tags: [ {name: '', fileName: ''}, ]
-});
-        filesMap.set("name_me", {
-filename: "name_me",
-title: "Name me",
-text: ``,
 date: "Wed Dec 02 00:00:00 CET 2020",
 tags: [ {name: '', fileName: ''}, ]
 });
@@ -63,14 +48,6 @@ text: `TOC for DevOps related topics
 date: "Mon Oct 19 00:00:00 CEST 2020",
 tags: [ {name: '', fileName: ''}, ]
 });
-        filesMap.set("leadership", {
-filename: "leadership",
-title: "Leadership",
-text: `How to be a leader, build a team, solve conflicts, motivate
-`,
-date: "Mon Nov 02 00:00:00 CET 2020",
-tags: [ {name: '', fileName: ''}, ]
-});
         filesMap.set("relational_dbs", {
 filename: "relational_dbs",
 title: "Relational DBs",
@@ -78,6 +55,14 @@ text: `Topics related to Relational DBs
 `,
 date: "Wed Dec 02 00:00:00 CET 2020",
 tags: [ {name: 'relational_dbs', fileName: 'relational_dbs'}, ]
+});
+        filesMap.set("eto_norm", {
+filename: "eto_norm",
+title: "Это норм!",
+text: `Elena Ryazanova book. Mistakes, advices and ways to find a business you'll like
+`,
+date: "Fri Oct 09 00:00:00 CEST 2020",
+tags: [ {name: '', fileName: ''}, ]
 });
             filesMap.set("mysql_vs_postgres", {
 filename: "mysql_vs_postgres",
@@ -249,6 +234,14 @@ filename: "day_dreams",
 title: "Day dreams",
 text: ``,
 date: "Mon Oct 12 00:00:00 CEST 2020",
+tags: [ {name: '', fileName: ''}, ]
+});
+        filesMap.set("gaining_wisdom", {
+filename: "gaining_wisdom",
+title: "Gaining wisdom",
+text: `The way to gain wisdom.
+`,
+date: "Wed Dec 30 00:00:00 CET 2020",
 tags: [ {name: '', fileName: ''}, ]
 });
         filesMap.set("how_to_create_a_python_project", {
@@ -535,7 +528,6 @@ let aWordSet = new Set();
         aWordSet.add("career_crises");
         aWordSet.add("mongo_db");
         aWordSet.add("java_concurrency");
-        aWordSet.add("how_to_find_you_career");
         aWordSet.add("day_dreams");
         aWordSet.add("toc");
         aWordSet.add("about_the_digital_garden");
@@ -544,9 +536,9 @@ let aWordSet = new Set();
         aWordSet.add("persuasion");
         aWordSet.add("kafka_in_action_summary");
         aWordSet.add("interest");
-        aWordSet.add("leadership");
         aWordSet.add("relational_dbs_performance");
         aWordSet.add("comparing_different_queues");
+        aWordSet.add("eto_norm");
         aWordSet.add("mysql_vs_postgres");
         aWordSet.add("terraform");
         aWordSet.add("choice");
@@ -684,6 +676,7 @@ let theWordSet = new Set();
         theWordSet.add("mysql_vs_postgres");
         theWordSet.add("terraform");
         theWordSet.add("choice");
+        theWordSet.add("gaining_wisdom");
         theWordSet.add("rxjava");
         theWordSet.add("acid_internally");
         theWordSet.add("kafka_very_short_summary");
@@ -712,7 +705,6 @@ let sWordSet = new Set();
         sWordSet.add("persuasion");
         sWordSet.add("kafka_in_action_summary");
         sWordSet.add("interest");
-        sWordSet.add("leadership");
         sWordSet.add("relational_dbs_performance");
         sWordSet.add("comparing_different_queues");
         sWordSet.add("mysql_vs_postgres");
@@ -752,7 +744,6 @@ let throwWordSet = new Set();
 let vWordSet = new Set();
         vWordSet.add("relational_dbs");
         vWordSet.add("career_crises");
-        vWordSet.add("how_to_find_you_career");
         vWordSet.add("day_dreams");
         vWordSet.add("toc");
         vWordSet.add("nosql_dbs");
@@ -761,8 +752,8 @@ let vWordSet = new Set();
         vWordSet.add("soft_skills");
         vWordSet.add("interest");
         vWordSet.add("devops");
-        vWordSet.add("leadership");
         vWordSet.add("tech_books");
+        vWordSet.add("gaining_wisdom");
         vWordSet.add("acid_internally");
         vWordSet.add("non-fiction_books");
         vWordSet.add("programming");
@@ -771,7 +762,6 @@ let vWordSet = new Set();
         vWordSet.add("dynamo_db");
         vWordSet.add("java_concurrency");
         vWordSet.add("how_to_create_a_python_project");
-        vWordSet.add("name_me");
         vWordSet.add("sql_commands");
         vWordSet.add("persuasion");
         vWordSet.add("performance");
@@ -779,6 +769,7 @@ let vWordSet = new Set();
         vWordSet.add("queues");
         vWordSet.add("relational_dbs_performance");
         vWordSet.add("comparing_different_queues");
+        vWordSet.add("eto_norm");
         vWordSet.add("mysql_vs_postgres");
         vWordSet.add("terraform");
         vWordSet.add("choice");
@@ -811,8 +802,8 @@ let obviousWordSet = new Set();
 let informationWordSet = new Set();
         informationWordSet.add("mongo_db");
         informationWordSet.add("kafka_in_action_summary");
-        informationWordSet.add("leadership");
         informationWordSet.add("mysql_vs_postgres");
+        informationWordSet.add("gaining_wisdom");
         informationWordSet.add("rxjava");
     searchMap.set("information", informationWordSet);
 
@@ -838,6 +829,7 @@ let goodWordSet = new Set();
         goodWordSet.add("mongo_db");
         goodWordSet.add("kafka_in_action_summary");
         goodWordSet.add("relational_dbs_performance");
+        goodWordSet.add("gaining_wisdom");
     searchMap.set("good", goodWordSet);
 
 let emptyWordSet = new Set();
@@ -978,10 +970,6 @@ let rootWordSet = new Set();
         rootWordSet.add("relational_dbs_performance");
         rootWordSet.add("terraform");
     searchMap.set("root", rootWordSet);
-
-let motivateWordSet = new Set();
-        motivateWordSet.add("leadership");
-    searchMap.set("motivate", motivateWordSet);
 
 let tutorialWordSet = new Set();
         tutorialWordSet.add("mongo_db");
@@ -1157,6 +1145,10 @@ let decompressWordSet = new Set();
         decompressWordSet.add("kafka_very_short_summary");
     searchMap.set("decompress", decompressWordSet);
 
+let gainedWordSet = new Set();
+        gainedWordSet.add("gaining_wisdom");
+    searchMap.set("gained", gainedWordSet);
+
 let executorWordSet = new Set();
         executorWordSet.add("rxjava");
     searchMap.set("executor", executorWordSet);
@@ -1173,10 +1165,6 @@ let flowWordSet = new Set();
         flowWordSet.add("interest");
         flowWordSet.add("rxjava");
     searchMap.set("flow", flowWordSet);
-
-let cooperationWordSet = new Set();
-        cooperationWordSet.add("leadership");
-    searchMap.set("cooperation", cooperationWordSet);
 
 let avroWordSet = new Set();
         avroWordSet.add("kafka_in_action_summary");
@@ -1211,10 +1199,6 @@ let binaryWordSet = new Set();
         binaryWordSet.add("mysql_vs_postgres");
         binaryWordSet.add("kafka_very_short_summary");
     searchMap.set("binary", binaryWordSet);
-
-let transparencyWordSet = new Set();
-        transparencyWordSet.add("leadership");
-    searchMap.set("transparency", transparencyWordSet);
 
 let ordersWordSet = new Set();
         ordersWordSet.add("relational_dbs_performance");
@@ -1287,7 +1271,6 @@ let haveWordSet = new Set();
         haveWordSet.add("sql_commands");
         haveWordSet.add("kafka_in_action_summary");
         haveWordSet.add("interest");
-        haveWordSet.add("leadership");
         haveWordSet.add("relational_dbs_performance");
         haveWordSet.add("comparing_different_queues");
         haveWordSet.add("mysql_vs_postgres");
@@ -1342,6 +1325,7 @@ let comWordSet = new Set();
         comWordSet.add("kafka_in_action_summary");
         comWordSet.add("relational_dbs_performance");
         comWordSet.add("mysql_vs_postgres");
+        comWordSet.add("gaining_wisdom");
     searchMap.set("com", comWordSet);
 
 let uponWordSet = new Set();
@@ -1533,10 +1517,6 @@ let choosesWordSet = new Set();
 let monotonicallyWordSet = new Set();
         monotonicallyWordSet.add("mongo_db");
     searchMap.set("monotonically", monotonicallyWordSet);
-
-let horizonsWordSet = new Set();
-        horizonsWordSet.add("leadership");
-    searchMap.set("horizons", horizonsWordSet);
 
 let deploymentsWordSet = new Set();
         deploymentsWordSet.add("kafka_in_action_summary");
@@ -1815,14 +1795,13 @@ let languagesWordSet = new Set();
         languagesWordSet.add("programming");
     searchMap.set("languages", languagesWordSet);
 
+let teamWordSet = new Set();
+        teamWordSet.add("terraform");
+    searchMap.set("team", teamWordSet);
+
 let refusesWordSet = new Set();
         refusesWordSet.add("mysql_vs_postgres");
     searchMap.set("refuses", refusesWordSet);
-
-let teamWordSet = new Set();
-        teamWordSet.add("leadership");
-        teamWordSet.add("terraform");
-    searchMap.set("team", teamWordSet);
 
 let servicesWordSet = new Set();
         servicesWordSet.add("kafka_in_action_summary");
@@ -2152,6 +2131,10 @@ let requiredWordSet = new Set();
         requiredWordSet.add("kafka_in_action_summary");
     searchMap.set("required", requiredWordSet);
 
+let elenaWordSet = new Set();
+        elenaWordSet.add("eto_norm");
+    searchMap.set("elena", elenaWordSet);
+
 let consistenceWordSet = new Set();
         consistenceWordSet.add("mongo_db");
     searchMap.set("consistence", consistenceWordSet);
@@ -2187,10 +2170,6 @@ let someadminusernameWordSet = new Set();
         someadminusernameWordSet.add("mongo_db");
     searchMap.set("someadminusername", someadminusernameWordSet);
 
-let playersWordSet = new Set();
-        playersWordSet.add("leadership");
-    searchMap.set("players", playersWordSet);
-
 let priorityWordSet = new Set();
         priorityWordSet.add("mongo_db");
     searchMap.set("priority", priorityWordSet);
@@ -2219,7 +2198,6 @@ let provideWordSet = new Set();
         provideWordSet.add("mongo_db");
         provideWordSet.add("kafka_in_action_summary");
         provideWordSet.add("java_concurrency");
-        provideWordSet.add("leadership");
         provideWordSet.add("rxjava");
     searchMap.set("provide", provideWordSet);
 
@@ -2365,7 +2343,6 @@ let showsWordSet = new Set();
 let introWordSet = new Set();
         introWordSet.add("relational_dbs");
         introWordSet.add("career_crises");
-        introWordSet.add("how_to_find_you_career");
         introWordSet.add("day_dreams");
         introWordSet.add("toc");
         introWordSet.add("nosql_dbs");
@@ -2374,8 +2351,8 @@ let introWordSet = new Set();
         introWordSet.add("soft_skills");
         introWordSet.add("interest");
         introWordSet.add("devops");
-        introWordSet.add("leadership");
         introWordSet.add("tech_books");
+        introWordSet.add("gaining_wisdom");
         introWordSet.add("acid_internally");
         introWordSet.add("non-fiction_books");
         introWordSet.add("programming");
@@ -2384,7 +2361,6 @@ let introWordSet = new Set();
         introWordSet.add("dynamo_db");
         introWordSet.add("java_concurrency");
         introWordSet.add("how_to_create_a_python_project");
-        introWordSet.add("name_me");
         introWordSet.add("sql_commands");
         introWordSet.add("persuasion");
         introWordSet.add("performance");
@@ -2392,6 +2368,7 @@ let introWordSet = new Set();
         introWordSet.add("queues");
         introWordSet.add("relational_dbs_performance");
         introWordSet.add("comparing_different_queues");
+        introWordSet.add("eto_norm");
         introWordSet.add("mysql_vs_postgres");
         introWordSet.add("terraform");
         introWordSet.add("choice");
@@ -2411,17 +2388,17 @@ let necessitateWordSet = new Set();
         necessitateWordSet.add("mysql_vs_postgres");
     searchMap.set("necessitate", necessitateWordSet);
 
+let dayWordSet = new Set();
+        dayWordSet.add("kafka_in_action_summary");
+        dayWordSet.add("day_dreams");
+        dayWordSet.add("eto_norm");
+    searchMap.set("day", dayWordSet);
+
 let keepsWordSet = new Set();
         keepsWordSet.add("mongo_db");
         keepsWordSet.add("kafka_in_action_summary");
         keepsWordSet.add("java_concurrency");
     searchMap.set("keeps", keepsWordSet);
-
-let dayWordSet = new Set();
-        dayWordSet.add("kafka_in_action_summary");
-        dayWordSet.add("how_to_find_you_career");
-        dayWordSet.add("day_dreams");
-    searchMap.set("day", dayWordSet);
 
 let combinationWordSet = new Set();
         combinationWordSet.add("mongo_db");
@@ -2612,7 +2589,6 @@ let someoneWordSet = new Set();
         someoneWordSet.add("thinking_fast_and_slow");
         someoneWordSet.add("career_crises");
         someoneWordSet.add("java_concurrency");
-        someoneWordSet.add("leadership");
     searchMap.set("someone", someoneWordSet);
 
 let thirdWordSet = new Set();
@@ -2621,7 +2597,6 @@ let thirdWordSet = new Set();
 
 let buildWordSet = new Set();
         buildWordSet.add("mongo_db");
-        buildWordSet.add("leadership");
     searchMap.set("build", buildWordSet);
 
 let interactionWordSet = new Set();
@@ -2801,7 +2776,7 @@ let mindWordSet = new Set();
 
 let businessWordSet = new Set();
         businessWordSet.add("kafka_in_action_summary");
-        businessWordSet.add("how_to_find_you_career");
+        businessWordSet.add("eto_norm");
         businessWordSet.add("rxjava");
     searchMap.set("business", businessWordSet);
 
@@ -3027,7 +3002,6 @@ let ignoreWordSet = new Set();
 
 let companyWordSet = new Set();
         companyWordSet.add("kafka_in_action_summary");
-        companyWordSet.add("leadership");
     searchMap.set("company", companyWordSet);
 
 let retryWordSet = new Set();
@@ -3216,10 +3190,6 @@ let docWordSet = new Set();
         docWordSet.add("java_concurrency");
         docWordSet.add("mysql_vs_postgres");
     searchMap.set("doc", docWordSet);
-
-let opensWordSet = new Set();
-        opensWordSet.add("leadership");
-    searchMap.set("opens", opensWordSet);
 
 let messagesWordSet = new Set();
         messagesWordSet.add("kafka_in_action_summary");
@@ -3413,7 +3383,6 @@ let mainWordSet = new Set();
         mainWordSet.add("mongo_db");
         mainWordSet.add("kafka_in_action_summary");
         mainWordSet.add("java_concurrency");
-        mainWordSet.add("leadership");
         mainWordSet.add("comparing_different_queues");
         mainWordSet.add("choice");
         mainWordSet.add("rxjava");
@@ -3579,6 +3548,7 @@ let makeWordSet = new Set();
         makeWordSet.add("mysql_vs_postgres");
         makeWordSet.add("about_the_digital_garden");
         makeWordSet.add("choice");
+        makeWordSet.add("gaining_wisdom");
         makeWordSet.add("rxjava");
         makeWordSet.add("acid_internally");
     searchMap.set("make", makeWordSet);
@@ -3776,7 +3746,6 @@ let releasedWordSet = new Set();
 
 let goalsWordSet = new Set();
         goalsWordSet.add("kafka_in_action_summary");
-        goalsWordSet.add("leadership");
     searchMap.set("goals", goalsWordSet);
 
 let receiverWordSet = new Set();
@@ -3903,16 +3872,15 @@ let fellWordSet = new Set();
 let intoWordSet = new Set();
         intoWordSet.add("thinking_fast_and_slow");
         intoWordSet.add("mongo_db");
-        intoWordSet.add("java_concurrency");
-        intoWordSet.add("sql_commands");
         intoWordSet.add("kafka_in_action_summary");
-        intoWordSet.add("leadership");
+        intoWordSet.add("java_concurrency");
         intoWordSet.add("relational_dbs_performance");
         intoWordSet.add("comparing_different_queues");
         intoWordSet.add("mysql_vs_postgres");
         intoWordSet.add("terraform");
         intoWordSet.add("rxjava");
         intoWordSet.add("acid_internally");
+        intoWordSet.add("sql_commands");
         intoWordSet.add("kafka_very_short_summary");
     searchMap.set("into", intoWordSet);
 
@@ -4033,7 +4001,6 @@ let increasingWordSet = new Set();
 
 let progressWordSet = new Set();
         progressWordSet.add("mongo_db");
-        progressWordSet.add("leadership");
         progressWordSet.add("acid_internally");
     searchMap.set("progress", progressWordSet);
 
@@ -4227,7 +4194,6 @@ let locactionWordSet = new Set();
 
 let commonWordSet = new Set();
         commonWordSet.add("kafka_in_action_summary");
-        commonWordSet.add("leadership");
         commonWordSet.add("relational_dbs_performance");
         commonWordSet.add("comparing_different_queues");
     searchMap.set("common", commonWordSet);
@@ -4237,8 +4203,8 @@ let rangedWordSet = new Set();
     searchMap.set("ranged", rangedWordSet);
 
 let interestWordSet = new Set();
-        interestWordSet.add("how_to_find_you_career");
         interestWordSet.add("interest");
+        interestWordSet.add("eto_norm");
     searchMap.set("interest", interestWordSet);
 
 let unevenWordSet = new Set();
@@ -4499,6 +4465,7 @@ let writingWordSet = new Set();
         writingWordSet.add("mongo_db");
         writingWordSet.add("kafka_in_action_summary");
         writingWordSet.add("java_concurrency");
+        writingWordSet.add("gaining_wisdom");
         writingWordSet.add("acid_internally");
     searchMap.set("writing", writingWordSet);
 
@@ -4535,6 +4502,10 @@ let uniquelyWordSet = new Set();
         uniquelyWordSet.add("kafka_in_action_summary");
     searchMap.set("uniquely", uniquelyWordSet);
 
+let gatheringWordSet = new Set();
+        gatheringWordSet.add("gaining_wisdom");
+    searchMap.set("gathering", gatheringWordSet);
+
 let sendsWordSet = new Set();
         sendsWordSet.add("kafka_in_action_summary");
         sendsWordSet.add("rxjava");
@@ -4544,7 +4515,6 @@ let sendsWordSet = new Set();
 let alexanderWordSet = new Set();
         alexanderWordSet.add("relational_dbs");
         alexanderWordSet.add("career_crises");
-        alexanderWordSet.add("how_to_find_you_career");
         alexanderWordSet.add("day_dreams");
         alexanderWordSet.add("toc");
         alexanderWordSet.add("nosql_dbs");
@@ -4553,8 +4523,8 @@ let alexanderWordSet = new Set();
         alexanderWordSet.add("soft_skills");
         alexanderWordSet.add("interest");
         alexanderWordSet.add("devops");
-        alexanderWordSet.add("leadership");
         alexanderWordSet.add("tech_books");
+        alexanderWordSet.add("gaining_wisdom");
         alexanderWordSet.add("acid_internally");
         alexanderWordSet.add("non-fiction_books");
         alexanderWordSet.add("programming");
@@ -4563,7 +4533,6 @@ let alexanderWordSet = new Set();
         alexanderWordSet.add("dynamo_db");
         alexanderWordSet.add("java_concurrency");
         alexanderWordSet.add("how_to_create_a_python_project");
-        alexanderWordSet.add("name_me");
         alexanderWordSet.add("sql_commands");
         alexanderWordSet.add("persuasion");
         alexanderWordSet.add("performance");
@@ -4571,6 +4540,7 @@ let alexanderWordSet = new Set();
         alexanderWordSet.add("queues");
         alexanderWordSet.add("relational_dbs_performance");
         alexanderWordSet.add("comparing_different_queues");
+        alexanderWordSet.add("eto_norm");
         alexanderWordSet.add("mysql_vs_postgres");
         alexanderWordSet.add("terraform");
         alexanderWordSet.add("choice");
@@ -5120,7 +5090,6 @@ let needWordSet = new Set();
         needWordSet.add("kafka_in_action_summary");
         needWordSet.add("dynamo_db");
         needWordSet.add("java_concurrency");
-        needWordSet.add("leadership");
         needWordSet.add("relational_dbs_performance");
         needWordSet.add("comparing_different_queues");
         needWordSet.add("mysql_vs_postgres");
@@ -5203,7 +5172,6 @@ let inboundWordSet = new Set();
 
 let rolesWordSet = new Set();
         rolesWordSet.add("mongo_db");
-        rolesWordSet.add("leadership");
     searchMap.set("roles", rolesWordSet);
 
 let sleepingWordSet = new Set();
@@ -5315,9 +5283,9 @@ let slightlyWordSet = new Set();
 
 let careerWordSet = new Set();
         careerWordSet.add("career_crises");
-        careerWordSet.add("how_to_find_you_career");
         careerWordSet.add("interest");
         careerWordSet.add("day_dreams");
+        careerWordSet.add("eto_norm");
         careerWordSet.add("choice");
     searchMap.set("career", careerWordSet);
 
@@ -5450,7 +5418,6 @@ let indicatesWordSet = new Set();
 
 let shareWordSet = new Set();
         shareWordSet.add("kafka_in_action_summary");
-        shareWordSet.add("leadership");
         shareWordSet.add("terraform");
     searchMap.set("share", shareWordSet);
 
@@ -5564,7 +5531,6 @@ let controllersWordSet = new Set();
 let linksWordSet = new Set();
         linksWordSet.add("relational_dbs");
         linksWordSet.add("career_crises");
-        linksWordSet.add("how_to_find_you_career");
         linksWordSet.add("day_dreams");
         linksWordSet.add("toc");
         linksWordSet.add("nosql_dbs");
@@ -5572,8 +5538,8 @@ let linksWordSet = new Set();
         linksWordSet.add("soft_skills");
         linksWordSet.add("interest");
         linksWordSet.add("devops");
-        linksWordSet.add("leadership");
         linksWordSet.add("tech_books");
+        linksWordSet.add("gaining_wisdom");
         linksWordSet.add("acid_internally");
         linksWordSet.add("non-fiction_books");
         linksWordSet.add("programming");
@@ -5581,7 +5547,6 @@ let linksWordSet = new Set();
         linksWordSet.add("dynamo_db");
         linksWordSet.add("java_concurrency");
         linksWordSet.add("how_to_create_a_python_project");
-        linksWordSet.add("name_me");
         linksWordSet.add("sql_commands");
         linksWordSet.add("persuasion");
         linksWordSet.add("performance");
@@ -5589,6 +5554,7 @@ let linksWordSet = new Set();
         linksWordSet.add("queues");
         linksWordSet.add("relational_dbs_performance");
         linksWordSet.add("comparing_different_queues");
+        linksWordSet.add("eto_norm");
         linksWordSet.add("mysql_vs_postgres");
         linksWordSet.add("terraform");
         linksWordSet.add("choice");
@@ -5627,7 +5593,6 @@ let newWordSet = new Set();
         newWordSet.add("kafka_in_action_summary");
         newWordSet.add("java_concurrency");
         newWordSet.add("day_dreams");
-        newWordSet.add("leadership");
         newWordSet.add("relational_dbs_performance");
         newWordSet.add("comparing_different_queues");
         newWordSet.add("mysql_vs_postgres");
@@ -5704,14 +5669,14 @@ let respectiveWordSet = new Set();
         respectiveWordSet.add("relational_dbs_performance");
     searchMap.set("respective", respectiveWordSet);
 
+let dreamsWordSet = new Set();
+        dreamsWordSet.add("day_dreams");
+        dreamsWordSet.add("eto_norm");
+    searchMap.set("dreams", dreamsWordSet);
+
 let reachingWordSet = new Set();
         reachingWordSet.add("kafka_in_action_summary");
     searchMap.set("reaching", reachingWordSet);
-
-let dreamsWordSet = new Set();
-        dreamsWordSet.add("how_to_find_you_career");
-        dreamsWordSet.add("day_dreams");
-    searchMap.set("dreams", dreamsWordSet);
 
 let aroundWordSet = new Set();
         aroundWordSet.add("kafka_in_action_summary");
@@ -5738,7 +5703,6 @@ let overflowedWordSet = new Set();
 
 let defineWordSet = new Set();
         defineWordSet.add("kafka_in_action_summary");
-        defineWordSet.add("leadership");
         defineWordSet.add("relational_dbs_performance");
         defineWordSet.add("rxjava");
     searchMap.set("define", defineWordSet);
@@ -5842,7 +5806,6 @@ let defenetlyWordSet = new Set();
 let skillsWordSet = new Set();
         skillsWordSet.add("persuasion");
         skillsWordSet.add("soft_skills");
-        skillsWordSet.add("leadership");
         skillsWordSet.add("toc");
     searchMap.set("skills", skillsWordSet);
 
@@ -6329,6 +6292,7 @@ let notWordSet = new Set();
         notWordSet.add("comparing_different_queues");
         notWordSet.add("mysql_vs_postgres");
         notWordSet.add("choice");
+        notWordSet.add("gaining_wisdom");
         notWordSet.add("rxjava");
         notWordSet.add("acid_internally");
         notWordSet.add("kafka_very_short_summary");
@@ -6446,6 +6410,7 @@ let wayWordSet = new Set();
         wayWordSet.add("terraform");
         wayWordSet.add("about_the_digital_garden");
         wayWordSet.add("choice");
+        wayWordSet.add("gaining_wisdom");
     searchMap.set("way", wayWordSet);
 
 let greyWordSet = new Set();
@@ -6539,6 +6504,7 @@ let whenWordSet = new Set();
         whenWordSet.add("relational_dbs_performance");
         whenWordSet.add("comparing_different_queues");
         whenWordSet.add("mysql_vs_postgres");
+        whenWordSet.add("gaining_wisdom");
         whenWordSet.add("rxjava");
         whenWordSet.add("acid_internally");
         whenWordSet.add("kafka_very_short_summary");
@@ -6575,7 +6541,6 @@ let catchWordSet = new Set();
 
 let planWordSet = new Set();
         planWordSet.add("mongo_db");
-        planWordSet.add("leadership");
         planWordSet.add("relational_dbs_performance");
         planWordSet.add("terraform");
     searchMap.set("plan", planWordSet);
@@ -6649,6 +6614,10 @@ let enabledWordSet = new Set();
         enabledWordSet.add("kafka_in_action_summary");
         enabledWordSet.add("comparing_different_queues");
     searchMap.set("enabled", enabledWordSet);
+
+let gainWordSet = new Set();
+        gainWordSet.add("gaining_wisdom");
+    searchMap.set("gain", gainWordSet);
 
 let receivingWordSet = new Set();
         receivingWordSet.add("kafka_in_action_summary");
@@ -6776,6 +6745,10 @@ let originatedWordSet = new Set();
 let centralizedWordSet = new Set();
         centralizedWordSet.add("kafka_in_action_summary");
     searchMap.set("centralized", centralizedWordSet);
+
+let ryazanovaWordSet = new Set();
+        ryazanovaWordSet.add("eto_norm");
+    searchMap.set("ryazanova", ryazanovaWordSet);
 
 let notificationWordSet = new Set();
         notificationWordSet.add("rxjava");
@@ -6909,7 +6882,6 @@ let whoWordSet = new Set();
         whoWordSet.add("mongo_db");
         whoWordSet.add("kafka_in_action_summary");
         whoWordSet.add("interest");
-        whoWordSet.add("leadership");
         whoWordSet.add("comparing_different_queues");
         whoWordSet.add("choice");
     searchMap.set("who", whoWordSet);
@@ -6930,7 +6902,6 @@ let whyWordSet = new Set();
         whyWordSet.add("java_concurrency");
         whyWordSet.add("interest");
         whyWordSet.add("day_dreams");
-        whyWordSet.add("leadership");
         whyWordSet.add("about_the_digital_garden");
         whyWordSet.add("rxjava");
         whyWordSet.add("kafka_very_short_summary");
@@ -7068,13 +7039,12 @@ let userWordSet = new Set();
 let parentWordSet = new Set();
         parentWordSet.add("relational_dbs");
         parentWordSet.add("career_crises");
-        parentWordSet.add("how_to_find_you_career");
         parentWordSet.add("day_dreams");
         parentWordSet.add("nosql_dbs");
         parentWordSet.add("kafka_in_action_summary");
         parentWordSet.add("interest");
         parentWordSet.add("devops");
-        parentWordSet.add("leadership");
+        parentWordSet.add("gaining_wisdom");
         parentWordSet.add("acid_internally");
         parentWordSet.add("non-fiction_books");
         parentWordSet.add("programming");
@@ -7082,7 +7052,6 @@ let parentWordSet = new Set();
         parentWordSet.add("dynamo_db");
         parentWordSet.add("java_concurrency");
         parentWordSet.add("how_to_create_a_python_project");
-        parentWordSet.add("name_me");
         parentWordSet.add("sql_commands");
         parentWordSet.add("persuasion");
         parentWordSet.add("performance");
@@ -7090,6 +7059,7 @@ let parentWordSet = new Set();
         parentWordSet.add("queues");
         parentWordSet.add("relational_dbs_performance");
         parentWordSet.add("comparing_different_queues");
+        parentWordSet.add("eto_norm");
         parentWordSet.add("mysql_vs_postgres");
         parentWordSet.add("terraform");
         parentWordSet.add("choice");
@@ -7282,11 +7252,11 @@ let beWordSet = new Set();
         beWordSet.add("java_concurrency");
         beWordSet.add("sql_commands");
         beWordSet.add("kafka_in_action_summary");
-        beWordSet.add("leadership");
         beWordSet.add("relational_dbs_performance");
         beWordSet.add("mysql_vs_postgres");
         beWordSet.add("terraform");
         beWordSet.add("choice");
+        beWordSet.add("gaining_wisdom");
         beWordSet.add("rxjava");
         beWordSet.add("acid_internally");
         beWordSet.add("kafka_very_short_summary");
@@ -7337,6 +7307,7 @@ let byWordSet = new Set();
         byWordSet.add("comparing_different_queues");
         byWordSet.add("mysql_vs_postgres");
         byWordSet.add("terraform");
+        byWordSet.add("gaining_wisdom");
         byWordSet.add("rxjava");
         byWordSet.add("acid_internally");
         byWordSet.add("kafka_very_short_summary");
@@ -7485,6 +7456,7 @@ let doWordSet = new Set();
         doWordSet.add("comparing_different_queues");
         doWordSet.add("mysql_vs_postgres");
         doWordSet.add("choice");
+        doWordSet.add("gaining_wisdom");
         doWordSet.add("rxjava");
         doWordSet.add("acid_internally");
         doWordSet.add("kafka_very_short_summary");
@@ -7660,7 +7632,6 @@ let forWordSet = new Set();
         forWordSet.add("interest");
         forWordSet.add("devops");
         forWordSet.add("queues");
-        forWordSet.add("leadership");
         forWordSet.add("relational_dbs_performance");
         forWordSet.add("comparing_different_queues");
         forWordSet.add("mysql_vs_postgres");
@@ -7674,7 +7645,7 @@ let mistakesWordSet = new Set();
         mistakesWordSet.add("thinking_fast_and_slow");
         mistakesWordSet.add("career_crises");
         mistakesWordSet.add("kafka_in_action_summary");
-        mistakesWordSet.add("how_to_find_you_career");
+        mistakesWordSet.add("eto_norm");
     searchMap.set("mistakes", mistakesWordSet);
 
 let contentWordSet = new Set();
@@ -7784,7 +7755,6 @@ let significantlyWordSet = new Set();
 
 let assignWordSet = new Set();
         assignWordSet.add("kafka_in_action_summary");
-        assignWordSet.add("leadership");
     searchMap.set("assign", assignWordSet);
 
 let straightforwardWordSet = new Set();
@@ -7800,7 +7770,6 @@ let veryWordSet = new Set();
         veryWordSet.add("kafka_in_action_summary");
         veryWordSet.add("day_dreams");
         veryWordSet.add("queues");
-        veryWordSet.add("leadership");
         veryWordSet.add("relational_dbs_performance");
         veryWordSet.add("rxjava");
         veryWordSet.add("kafka_very_short_summary");
@@ -7875,6 +7844,7 @@ let httpsWordSet = new Set();
         httpsWordSet.add("java_concurrency");
         httpsWordSet.add("relational_dbs_performance");
         httpsWordSet.add("mysql_vs_postgres");
+        httpsWordSet.add("gaining_wisdom");
     searchMap.set("https", httpsWordSet);
 
 let ieWordSet = new Set();
@@ -7982,12 +7952,12 @@ let isWordSet = new Set();
         isWordSet.add("kafka_in_action_summary");
         isWordSet.add("cassandra");
         isWordSet.add("interest");
-        isWordSet.add("leadership");
         isWordSet.add("relational_dbs_performance");
         isWordSet.add("comparing_different_queues");
         isWordSet.add("mysql_vs_postgres");
         isWordSet.add("terraform");
         isWordSet.add("choice");
+        isWordSet.add("gaining_wisdom");
         isWordSet.add("rxjava");
         isWordSet.add("acid_internally");
         isWordSet.add("kafka_very_short_summary");
@@ -8070,10 +8040,6 @@ let subscriptionWordSet = new Set();
         subscriptionWordSet.add("rxjava");
     searchMap.set("subscription", subscriptionWordSet);
 
-let delegateWordSet = new Set();
-        delegateWordSet.add("leadership");
-    searchMap.set("delegate", delegateWordSet);
-
 let libraryWordSet = new Set();
         libraryWordSet.add("kafka_in_action_summary");
     searchMap.set("library", libraryWordSet);
@@ -8094,7 +8060,6 @@ let sendingWordSet = new Set();
 
 let abilityWordSet = new Set();
         abilityWordSet.add("kafka_in_action_summary");
-        abilityWordSet.add("leadership");
     searchMap.set("ability", abilityWordSet);
 
 let linkedtransferqueueWordSet = new Set();
@@ -8167,7 +8132,7 @@ let transactionWordSet = new Set();
 
 let llWordSet = new Set();
         llWordSet.add("kafka_in_action_summary");
-        llWordSet.add("how_to_find_you_career");
+        llWordSet.add("eto_norm");
         llWordSet.add("rxjava");
     searchMap.set("ll", llWordSet);
 
@@ -8228,12 +8193,12 @@ let thatWordSet = new Set();
         thatWordSet.add("kafka_in_action_summary");
         thatWordSet.add("cassandra");
         thatWordSet.add("interest");
-        thatWordSet.add("leadership");
         thatWordSet.add("relational_dbs_performance");
         thatWordSet.add("comparing_different_queues");
         thatWordSet.add("mysql_vs_postgres");
         thatWordSet.add("terraform");
         thatWordSet.add("choice");
+        thatWordSet.add("gaining_wisdom");
         thatWordSet.add("rxjava");
         thatWordSet.add("acid_internally");
         thatWordSet.add("kafka_very_short_summary");
@@ -8278,7 +8243,6 @@ let thanWordSet = new Set();
 let meWordSet = new Set();
         meWordSet.add("mongo_db");
         meWordSet.add("kafka_in_action_summary");
-        meWordSet.add("name_me");
     searchMap.set("me", meWordSet);
 
 let limitWordSet = new Set();
@@ -8297,10 +8261,6 @@ let trampolineWordSet = new Set();
 let lockedWordSet = new Set();
         lockedWordSet.add("java_concurrency");
     searchMap.set("locked", lockedWordSet);
-
-let communicationWordSet = new Set();
-        communicationWordSet.add("leadership");
-    searchMap.set("communication", communicationWordSet);
 
 let oncompleteWordSet = new Set();
         oncompleteWordSet.add("rxjava");
@@ -8376,8 +8336,8 @@ let diskWordSet = new Set();
     searchMap.set("disk", diskWordSet);
 
 let dreamWordSet = new Set();
-        dreamWordSet.add("how_to_find_you_career");
         dreamWordSet.add("day_dreams");
+        dreamWordSet.add("eto_norm");
     searchMap.set("dream", dreamWordSet);
 
 let synchronizesWordSet = new Set();
@@ -8975,14 +8935,13 @@ let compressedWordSet = new Set();
 let toWordSet = new Set();
         toWordSet.add("relational_dbs");
         toWordSet.add("career_crises");
-        toWordSet.add("how_to_find_you_career");
         toWordSet.add("day_dreams");
         toWordSet.add("toc");
         toWordSet.add("about_the_digital_garden");
         toWordSet.add("kafka_in_action_summary");
         toWordSet.add("soft_skills");
         toWordSet.add("interest");
-        toWordSet.add("leadership");
+        toWordSet.add("gaining_wisdom");
         toWordSet.add("acid_internally");
         toWordSet.add("non-fiction_books");
         toWordSet.add("programming");
@@ -8997,6 +8956,7 @@ let toWordSet = new Set();
         toWordSet.add("cassandra");
         toWordSet.add("relational_dbs_performance");
         toWordSet.add("comparing_different_queues");
+        toWordSet.add("eto_norm");
         toWordSet.add("mysql_vs_postgres");
         toWordSet.add("terraform");
         toWordSet.add("choice");
@@ -9170,7 +9130,6 @@ let solveWordSet = new Set();
         solveWordSet.add("mongo_db");
         solveWordSet.add("kafka_in_action_summary");
         solveWordSet.add("java_concurrency");
-        solveWordSet.add("leadership");
     searchMap.set("solve", solveWordSet);
 
 let knowWordSet = new Set();
@@ -9835,7 +9794,6 @@ let resourceWordSet = new Set();
 let likeWordSet = new Set();
         likeWordSet.add("mongo_db");
         likeWordSet.add("java_concurrency");
-        likeWordSet.add("how_to_find_you_career");
         likeWordSet.add("day_dreams");
         likeWordSet.add("toc");
         likeWordSet.add("about_the_digital_garden");
@@ -9843,6 +9801,7 @@ let likeWordSet = new Set();
         likeWordSet.add("kafka_in_action_summary");
         likeWordSet.add("relational_dbs_performance");
         likeWordSet.add("comparing_different_queues");
+        likeWordSet.add("eto_norm");
         likeWordSet.add("mysql_vs_postgres");
         likeWordSet.add("choice");
         likeWordSet.add("rxjava");
@@ -10024,10 +9983,6 @@ let followWordSet = new Set();
 let speadupWordSet = new Set();
         speadupWordSet.add("java_concurrency");
     searchMap.set("speadup", speadupWordSet);
-
-let factorsWordSet = new Set();
-        factorsWordSet.add("leadership");
-    searchMap.set("factors", factorsWordSet);
 
 let washingWordSet = new Set();
         washingWordSet.add("thinking_fast_and_slow");
@@ -10461,6 +10416,10 @@ let removeWordSet = new Set();
         removeWordSet.add("kafka_very_short_summary");
     searchMap.set("remove", removeWordSet);
 
+let wisdomWordSet = new Set();
+        wisdomWordSet.add("gaining_wisdom");
+    searchMap.set("wisdom", wisdomWordSet);
+
 let oplogreplayWordSet = new Set();
         oplogreplayWordSet.add("mongo_db");
     searchMap.set("oplogreplay", oplogreplayWordSet);
@@ -10641,6 +10600,7 @@ let writeWordSet = new Set();
         writeWordSet.add("interest");
         writeWordSet.add("comparing_different_queues");
         writeWordSet.add("mysql_vs_postgres");
+        writeWordSet.add("gaining_wisdom");
         writeWordSet.add("acid_internally");
         writeWordSet.add("kafka_very_short_summary");
     searchMap.set("write", writeWordSet);
@@ -10859,7 +10819,6 @@ let whetherWordSet = new Set();
 let membersWordSet = new Set();
         membersWordSet.add("mongo_db");
         membersWordSet.add("kafka_in_action_summary");
-        membersWordSet.add("leadership");
         membersWordSet.add("terraform");
     searchMap.set("members", membersWordSet);
 
@@ -11181,6 +11140,10 @@ let rereadingWordSet = new Set();
         rereadingWordSet.add("kafka_in_action_summary");
     searchMap.set("rereading", rereadingWordSet);
 
+let factsWordSet = new Set();
+        factsWordSet.add("gaining_wisdom");
+    searchMap.set("facts", factsWordSet);
+
 let anywayWordSet = new Set();
         anywayWordSet.add("relational_dbs_performance");
         anywayWordSet.add("acid_internally");
@@ -11362,10 +11325,6 @@ let preWordSet = new Set();
 let unlockWordSet = new Set();
         unlockWordSet.add("java_concurrency");
     searchMap.set("unlock", unlockWordSet);
-
-let intersubjectivityWordSet = new Set();
-        intersubjectivityWordSet.add("leadership");
-    searchMap.set("intersubjectivity", intersubjectivityWordSet);
 
 let lastWordSet = new Set();
         lastWordSet.add("mongo_db");
@@ -11719,7 +11678,7 @@ let waysWordSet = new Set();
         waysWordSet.add("mongo_db");
         waysWordSet.add("kafka_in_action_summary");
         waysWordSet.add("java_concurrency");
-        waysWordSet.add("how_to_find_you_career");
+        waysWordSet.add("eto_norm");
         waysWordSet.add("terraform");
     searchMap.set("ways", waysWordSet);
 
@@ -11743,7 +11702,6 @@ let efficientWordSet = new Set();
         efficientWordSet.add("mongo_db");
         efficientWordSet.add("kafka_in_action_summary");
         efficientWordSet.add("java_concurrency");
-        efficientWordSet.add("leadership");
         efficientWordSet.add("relational_dbs_performance");
         efficientWordSet.add("mysql_vs_postgres");
     searchMap.set("efficient", efficientWordSet);
@@ -11777,8 +11735,8 @@ let gardenWordSet = new Set();
     searchMap.set("garden", gardenWordSet);
 
 let choiceWordSet = new Set();
-        choiceWordSet.add("how_to_find_you_career");
         choiceWordSet.add("comparing_different_queues");
+        choiceWordSet.add("eto_norm");
         choiceWordSet.add("choice");
     searchMap.set("choice", choiceWordSet);
 
@@ -12107,7 +12065,6 @@ let youWordSet = new Set();
         youWordSet.add("mongo_db");
         youWordSet.add("dynamo_db");
         youWordSet.add("java_concurrency");
-        youWordSet.add("how_to_find_you_career");
         youWordSet.add("day_dreams");
         youWordSet.add("sql_commands");
         youWordSet.add("persuasion");
@@ -12115,9 +12072,11 @@ let youWordSet = new Set();
         youWordSet.add("interest");
         youWordSet.add("relational_dbs_performance");
         youWordSet.add("comparing_different_queues");
+        youWordSet.add("eto_norm");
         youWordSet.add("mysql_vs_postgres");
         youWordSet.add("terraform");
         youWordSet.add("choice");
+        youWordSet.add("gaining_wisdom");
         youWordSet.add("rxjava");
         youWordSet.add("kafka_very_short_summary");
     searchMap.set("you", youWordSet);
@@ -12125,7 +12084,6 @@ let youWordSet = new Set();
 let softWordSet = new Set();
         softWordSet.add("persuasion");
         softWordSet.add("soft_skills");
-        softWordSet.add("leadership");
         softWordSet.add("toc");
     searchMap.set("soft", softWordSet);
 
@@ -12158,15 +12116,14 @@ let subsidiaryWordSet = new Set();
 let tagsWordSet = new Set();
         tagsWordSet.add("relational_dbs");
         tagsWordSet.add("career_crises");
-        tagsWordSet.add("how_to_find_you_career");
         tagsWordSet.add("day_dreams");
         tagsWordSet.add("nosql_dbs");
         tagsWordSet.add("kafka_in_action_summary");
         tagsWordSet.add("soft_skills");
         tagsWordSet.add("interest");
         tagsWordSet.add("devops");
-        tagsWordSet.add("leadership");
         tagsWordSet.add("tech_books");
+        tagsWordSet.add("gaining_wisdom");
         tagsWordSet.add("acid_internally");
         tagsWordSet.add("non-fiction_books");
         tagsWordSet.add("programming");
@@ -12175,7 +12132,6 @@ let tagsWordSet = new Set();
         tagsWordSet.add("dynamo_db");
         tagsWordSet.add("java_concurrency");
         tagsWordSet.add("how_to_create_a_python_project");
-        tagsWordSet.add("name_me");
         tagsWordSet.add("sql_commands");
         tagsWordSet.add("persuasion");
         tagsWordSet.add("performance");
@@ -12183,6 +12139,7 @@ let tagsWordSet = new Set();
         tagsWordSet.add("queues");
         tagsWordSet.add("relational_dbs_performance");
         tagsWordSet.add("comparing_different_queues");
+        tagsWordSet.add("eto_norm");
         tagsWordSet.add("mysql_vs_postgres");
         tagsWordSet.add("terraform");
         tagsWordSet.add("choice");
@@ -12226,10 +12183,6 @@ let hocWordSet = new Set();
         hocWordSet.add("kafka_in_action_summary");
     searchMap.set("hoc", hocWordSet);
 
-let mentorshipWordSet = new Set();
-        mentorshipWordSet.add("leadership");
-    searchMap.set("mentorship", mentorshipWordSet);
-
 let mirrorWordSet = new Set();
         mirrorWordSet.add("kafka_in_action_summary");
     searchMap.set("mirror", mirrorWordSet);
@@ -12262,14 +12215,12 @@ let howWordSet = new Set();
         howWordSet.add("career_crises");
         howWordSet.add("mongo_db");
         howWordSet.add("java_concurrency");
-        howWordSet.add("how_to_find_you_career");
         howWordSet.add("day_dreams");
         howWordSet.add("about_the_digital_garden");
         howWordSet.add("how_to_create_a_python_project");
         howWordSet.add("sql_commands");
         howWordSet.add("kafka_in_action_summary");
         howWordSet.add("interest");
-        howWordSet.add("leadership");
         howWordSet.add("relational_dbs_performance");
         howWordSet.add("comparing_different_queues");
         howWordSet.add("mysql_vs_postgres");
@@ -12308,6 +12259,10 @@ let replicateWordSet = new Set();
 let committingWordSet = new Set();
         committingWordSet.add("kafka_in_action_summary");
     searchMap.set("committing", committingWordSet);
+
+let moretothatWordSet = new Set();
+        moretothatWordSet.add("gaining_wisdom");
+    searchMap.set("moretothat", moretothatWordSet);
 
 let onsuccessWordSet = new Set();
         onsuccessWordSet.add("rxjava");
@@ -12573,7 +12528,6 @@ let affectsWordSet = new Set();
 let monitorWordSet = new Set();
         monitorWordSet.add("kafka_in_action_summary");
         monitorWordSet.add("java_concurrency");
-        monitorWordSet.add("leadership");
         monitorWordSet.add("rxjava");
     searchMap.set("monitor", monitorWordSet);
 
@@ -12756,13 +12710,13 @@ let streamingWordSet = new Set();
 let fileWordSet = new Set();
         fileWordSet.add("mongo_db");
         fileWordSet.add("kafka_in_action_summary");
-        fileWordSet.add("how_to_find_you_career");
         fileWordSet.add("relational_dbs_performance");
         fileWordSet.add("comparing_different_queues");
         fileWordSet.add("toc");
+        fileWordSet.add("eto_norm");
         fileWordSet.add("terraform");
+        fileWordSet.add("gaining_wisdom");
         fileWordSet.add("rxjava");
-        fileWordSet.add("name_me");
         fileWordSet.add("kafka_very_short_summary");
     searchMap.set("file", fileWordSet);
 
@@ -12777,7 +12731,6 @@ let workqueueWordSet = new Set();
 
 let togetherWordSet = new Set();
         togetherWordSet.add("kafka_in_action_summary");
-        togetherWordSet.add("leadership");
     searchMap.set("together", togetherWordSet);
 
 let withinWordSet = new Set();
@@ -12794,7 +12747,6 @@ let couldWordSet = new Set();
         couldWordSet.add("java_concurrency");
         couldWordSet.add("interest");
         couldWordSet.add("day_dreams");
-        couldWordSet.add("leadership");
         couldWordSet.add("relational_dbs_performance");
         couldWordSet.add("terraform");
         couldWordSet.add("acid_internally");
@@ -12856,7 +12808,6 @@ let observableWordSet = new Set();
 
 let efficientlyWordSet = new Set();
         efficientlyWordSet.add("kafka_in_action_summary");
-        efficientlyWordSet.add("leadership");
     searchMap.set("efficiently", efficientlyWordSet);
 
 let returnWordSet = new Set();
@@ -12907,11 +12858,10 @@ let findWordSet = new Set();
         findWordSet.add("career_crises");
         findWordSet.add("mongo_db");
         findWordSet.add("kafka_in_action_summary");
-        findWordSet.add("how_to_find_you_career");
         findWordSet.add("interest");
         findWordSet.add("day_dreams");
-        findWordSet.add("leadership");
         findWordSet.add("relational_dbs_performance");
+        findWordSet.add("eto_norm");
         findWordSet.add("mysql_vs_postgres");
         findWordSet.add("choice");
     searchMap.set("find", findWordSet);
@@ -12991,10 +12941,6 @@ let inferWordSet = new Set();
         inferWordSet.add("mysql_vs_postgres");
     searchMap.set("infer", inferWordSet);
 
-let principlesWordSet = new Set();
-        principlesWordSet.add("leadership");
-    searchMap.set("principles", principlesWordSet);
-
 let trueWordSet = new Set();
         trueWordSet.add("mongo_db");
         trueWordSet.add("kafka_in_action_summary");
@@ -13053,7 +12999,6 @@ let dangerousWordSet = new Set();
 let bestWordSet = new Set();
         bestWordSet.add("mongo_db");
         bestWordSet.add("kafka_in_action_summary");
-        bestWordSet.add("leadership");
         bestWordSet.add("relational_dbs_performance");
     searchMap.set("best", bestWordSet);
 
@@ -13076,7 +13021,6 @@ let transformWordSet = new Set();
 let leadershipWordSet = new Set();
         leadershipWordSet.add("kafka_in_action_summary");
         leadershipWordSet.add("soft_skills");
-        leadershipWordSet.add("leadership");
     searchMap.set("leadership", leadershipWordSet);
 
 let excitementsWordSet = new Set();
@@ -13095,7 +13039,6 @@ let certainlyWordSet = new Set();
 let processesWordSet = new Set();
         processesWordSet.add("mongo_db");
         processesWordSet.add("kafka_in_action_summary");
-        processesWordSet.add("leadership");
         processesWordSet.add("mysql_vs_postgres");
     searchMap.set("processes", processesWordSet);
 
@@ -13124,6 +13067,7 @@ let processedWordSet = new Set();
         processedWordSet.add("java_concurrency");
         processedWordSet.add("relational_dbs_performance");
         processedWordSet.add("comparing_different_queues");
+        processedWordSet.add("gaining_wisdom");
         processedWordSet.add("rxjava");
         processedWordSet.add("kafka_very_short_summary");
     searchMap.set("processed", processedWordSet);
@@ -13167,6 +13111,7 @@ let racksWordSet = new Set();
 
 let reflectWordSet = new Set();
         reflectWordSet.add("mysql_vs_postgres");
+        reflectWordSet.add("gaining_wisdom");
     searchMap.set("reflect", reflectWordSet);
 
 let basedWordSet = new Set();
@@ -13292,7 +13237,6 @@ let verifiableconsumerWordSet = new Set();
 
 let peopleWordSet = new Set();
         peopleWordSet.add("persuasion");
-        peopleWordSet.add("leadership");
     searchMap.set("people", peopleWordSet);
 
 let actuallyWordSet = new Set();
@@ -13432,7 +13376,6 @@ let idsWordSet = new Set();
     searchMap.set("ids", idsWordSet);
 
 let conflictWordSet = new Set();
-        conflictWordSet.add("leadership");
         conflictWordSet.add("mysql_vs_postgres");
     searchMap.set("conflict", conflictWordSet);
 
@@ -13713,10 +13656,6 @@ let flowableWordSet = new Set();
         flowableWordSet.add("rxjava");
     searchMap.set("flowable", flowableWordSet);
 
-let cultureWordSet = new Set();
-        cultureWordSet.add("leadership");
-    searchMap.set("culture", cultureWordSet);
-
 let cannotWordSet = new Set();
         cannotWordSet.add("mongo_db");
         cannotWordSet.add("kafka_in_action_summary");
@@ -13889,7 +13828,6 @@ let replacementWordSet = new Set();
 
 let solvingWordSet = new Set();
         solvingWordSet.add("java_concurrency");
-        solvingWordSet.add("leadership");
     searchMap.set("solving", solvingWordSet);
 
 let wildspeedWordSet = new Set();
@@ -14328,10 +14266,6 @@ let persuasiveWordSet = new Set();
 let coupleWordSet = new Set();
         coupleWordSet.add("java_concurrency");
     searchMap.set("couple", coupleWordSet);
-
-let communicateWordSet = new Set();
-        communicateWordSet.add("leadership");
-    searchMap.set("communicate", communicateWordSet);
 
 let controlsWordSet = new Set();
         controlsWordSet.add("kafka_in_action_summary");
@@ -15047,7 +14981,6 @@ let andWordSet = new Set();
         andWordSet.add("career_crises");
         andWordSet.add("mongo_db");
         andWordSet.add("java_concurrency");
-        andWordSet.add("how_to_find_you_career");
         andWordSet.add("day_dreams");
         andWordSet.add("about_the_digital_garden");
         andWordSet.add("how_to_create_a_python_project");
@@ -15055,12 +14988,13 @@ let andWordSet = new Set();
         andWordSet.add("persuasion");
         andWordSet.add("kafka_in_action_summary");
         andWordSet.add("interest");
-        andWordSet.add("leadership");
         andWordSet.add("relational_dbs_performance");
         andWordSet.add("comparing_different_queues");
+        andWordSet.add("eto_norm");
         andWordSet.add("mysql_vs_postgres");
         andWordSet.add("terraform");
         andWordSet.add("choice");
+        andWordSet.add("gaining_wisdom");
         andWordSet.add("rxjava");
         andWordSet.add("acid_internally");
         andWordSet.add("non-fiction_books");
@@ -15264,10 +15198,6 @@ let atomicWordSet = new Set();
         atomicWordSet.add("java_concurrency");
     searchMap.set("atomic", atomicWordSet);
 
-let inclusivenessWordSet = new Set();
-        inclusivenessWordSet.add("leadership");
-    searchMap.set("inclusiveness", inclusivenessWordSet);
-
 let alternativesWordSet = new Set();
         alternativesWordSet.add("kafka_in_action_summary");
         alternativesWordSet.add("dynamo_db");
@@ -15322,10 +15252,6 @@ let increasesWordSet = new Set();
         increasesWordSet.add("kafka_in_action_summary");
     searchMap.set("increases", increasesWordSet);
 
-let diversityWordSet = new Set();
-        diversityWordSet.add("leadership");
-    searchMap.set("diversity", diversityWordSet);
-
 let areWordSet = new Set();
         areWordSet.add("thinking_fast_and_slow");
         areWordSet.add("career_crises");
@@ -15339,7 +15265,6 @@ let areWordSet = new Set();
         areWordSet.add("soft_skills");
         areWordSet.add("cassandra");
         areWordSet.add("interest");
-        areWordSet.add("leadership");
         areWordSet.add("relational_dbs_performance");
         areWordSet.add("comparing_different_queues");
         areWordSet.add("mysql_vs_postgres");
@@ -15571,7 +15496,6 @@ let nameWordSet = new Set();
         nameWordSet.add("relational_dbs_performance");
         nameWordSet.add("how_to_create_a_python_project");
         nameWordSet.add("acid_internally");
-        nameWordSet.add("name_me");
         nameWordSet.add("sql_commands");
     searchMap.set("name", nameWordSet);
 
@@ -15606,6 +15530,7 @@ let approachingWordSet = new Set();
 let bookWordSet = new Set();
         bookWordSet.add("thinking_fast_and_slow");
         bookWordSet.add("kafka_in_action_summary");
+        bookWordSet.add("eto_norm");
     searchMap.set("book", bookWordSet);
 
 let showWordSet = new Set();
@@ -15693,7 +15618,6 @@ let secondariesWordSet = new Set();
 
 let leaderWordSet = new Set();
         leaderWordSet.add("kafka_in_action_summary");
-        leaderWordSet.add("leadership");
         leaderWordSet.add("kafka_very_short_summary");
     searchMap.set("leader", leaderWordSet);
 
@@ -15771,7 +15695,7 @@ let caseWordSet = new Set();
 
 let crisesWordSet = new Set();
         crisesWordSet.add("career_crises");
-        crisesWordSet.add("how_to_find_you_career");
+        crisesWordSet.add("eto_norm");
     searchMap.set("crises", crisesWordSet);
 
 let itemWordSet = new Set();
@@ -15884,7 +15808,7 @@ let scrapeWordSet = new Set();
     searchMap.set("scrape", scrapeWordSet);
 
 let freedomWordSet = new Set();
-        freedomWordSet.add("how_to_find_you_career");
+        freedomWordSet.add("eto_norm");
     searchMap.set("freedom", freedomWordSet);
 
 let transfersWordSet = new Set();
@@ -15910,19 +15834,18 @@ let architectureWordSet = new Set();
     searchMap.set("architecture", architectureWordSet);
 
 let moreWordSet = new Set();
+        moreWordSet.add("persuasion");
         moreWordSet.add("mongo_db");
+        moreWordSet.add("kafka_in_action_summary");
         moreWordSet.add("dynamo_db");
         moreWordSet.add("java_concurrency");
-        moreWordSet.add("sql_commands");
-        moreWordSet.add("persuasion");
-        moreWordSet.add("kafka_in_action_summary");
         moreWordSet.add("interest");
-        moreWordSet.add("leadership");
         moreWordSet.add("relational_dbs_performance");
         moreWordSet.add("comparing_different_queues");
         moreWordSet.add("mysql_vs_postgres");
         moreWordSet.add("choice");
         moreWordSet.add("rxjava");
+        moreWordSet.add("sql_commands");
     searchMap.set("more", moreWordSet);
 
 let displayWordSet = new Set();
@@ -15990,6 +15913,7 @@ let connectionsWordSet = new Set();
         connectionsWordSet.add("dynamo_db");
         connectionsWordSet.add("comparing_different_queues");
         connectionsWordSet.add("mysql_vs_postgres");
+        connectionsWordSet.add("gaining_wisdom");
     searchMap.set("connections", connectionsWordSet);
 
 let describedWordSet = new Set();
@@ -16056,7 +15980,6 @@ let importantWordSet = new Set();
         importantWordSet.add("kafka_in_action_summary");
         importantWordSet.add("interest");
         importantWordSet.add("day_dreams");
-        importantWordSet.add("leadership");
         importantWordSet.add("relational_dbs_performance");
         importantWordSet.add("mysql_vs_postgres");
         importantWordSet.add("terraform");
@@ -16272,6 +16195,10 @@ let complexWordSet = new Set();
         complexWordSet.add("thinking_fast_and_slow");
         complexWordSet.add("relational_dbs_performance");
     searchMap.set("complex", complexWordSet);
+
+let gainingWordSet = new Set();
+        gainingWordSet.add("gaining_wisdom");
+    searchMap.set("gaining", gainingWordSet);
 
 let violatedWordSet = new Set();
         violatedWordSet.add("acid_internally");
@@ -16824,17 +16751,9 @@ let majorityWordSet = new Set();
         majorityWordSet.add("mongo_db");
     searchMap.set("majority", majorityWordSet);
 
-let modelWordSet = new Set();
-        modelWordSet.add("career_crises");
-        modelWordSet.add("kafka_in_action_summary");
-        modelWordSet.add("java_concurrency");
-        modelWordSet.add("rxjava");
-    searchMap.set("model", modelWordSet);
-
 let adocWordSet = new Set();
         adocWordSet.add("relational_dbs");
         adocWordSet.add("career_crises");
-        adocWordSet.add("how_to_find_you_career");
         adocWordSet.add("day_dreams");
         adocWordSet.add("toc");
         adocWordSet.add("nosql_dbs");
@@ -16843,8 +16762,8 @@ let adocWordSet = new Set();
         adocWordSet.add("soft_skills");
         adocWordSet.add("interest");
         adocWordSet.add("devops");
-        adocWordSet.add("leadership");
         adocWordSet.add("tech_books");
+        adocWordSet.add("gaining_wisdom");
         adocWordSet.add("acid_internally");
         adocWordSet.add("non-fiction_books");
         adocWordSet.add("programming");
@@ -16852,7 +16771,6 @@ let adocWordSet = new Set();
         adocWordSet.add("dynamo_db");
         adocWordSet.add("java_concurrency");
         adocWordSet.add("how_to_create_a_python_project");
-        adocWordSet.add("name_me");
         adocWordSet.add("sql_commands");
         adocWordSet.add("persuasion");
         adocWordSet.add("performance");
@@ -16860,12 +16778,20 @@ let adocWordSet = new Set();
         adocWordSet.add("queues");
         adocWordSet.add("relational_dbs_performance");
         adocWordSet.add("comparing_different_queues");
+        adocWordSet.add("eto_norm");
         adocWordSet.add("mysql_vs_postgres");
         adocWordSet.add("terraform");
         adocWordSet.add("choice");
         adocWordSet.add("rxjava");
         adocWordSet.add("kafka_very_short_summary");
     searchMap.set("adoc", adocWordSet);
+
+let modelWordSet = new Set();
+        modelWordSet.add("career_crises");
+        modelWordSet.add("kafka_in_action_summary");
+        modelWordSet.add("java_concurrency");
+        modelWordSet.add("rxjava");
+    searchMap.set("model", modelWordSet);
 
 let joinWordSet = new Set();
         joinWordSet.add("kafka_in_action_summary");
@@ -16877,7 +16803,6 @@ let joinWordSet = new Set();
 let tasksWordSet = new Set();
         tasksWordSet.add("kafka_in_action_summary");
         tasksWordSet.add("java_concurrency");
-        tasksWordSet.add("leadership");
         tasksWordSet.add("comparing_different_queues");
         tasksWordSet.add("kafka_very_short_summary");
     searchMap.set("tasks", tasksWordSet);
@@ -17131,7 +17056,6 @@ let splitWordSet = new Set();
         splitWordSet.add("mongo_db");
         splitWordSet.add("kafka_in_action_summary");
         splitWordSet.add("java_concurrency");
-        splitWordSet.add("leadership");
         splitWordSet.add("kafka_very_short_summary");
     searchMap.set("split", splitWordSet);
 
@@ -17489,10 +17413,6 @@ let enviromentWordSet = new Set();
 let overcomeWordSet = new Set();
         overcomeWordSet.add("interest");
     searchMap.set("overcome", overcomeWordSet);
-
-let cooperateWordSet = new Set();
-        cooperateWordSet.add("leadership");
-    searchMap.set("cooperate", cooperateWordSet);
 
 let sumWordSet = new Set();
         sumWordSet.add("sql_commands");
@@ -17864,7 +17784,6 @@ let missingWordSet = new Set();
 let conflictsWordSet = new Set();
         conflictsWordSet.add("thinking_fast_and_slow");
         conflictsWordSet.add("kafka_in_action_summary");
-        conflictsWordSet.add("leadership");
         conflictsWordSet.add("acid_internally");
     searchMap.set("conflicts", conflictsWordSet);
 
@@ -17901,7 +17820,7 @@ let typesWordSet = new Set();
     searchMap.set("types", typesWordSet);
 
 let advicesWordSet = new Set();
-        advicesWordSet.add("how_to_find_you_career");
+        advicesWordSet.add("eto_norm");
     searchMap.set("advices", advicesWordSet);
 
 let technologyWordSet = new Set();
@@ -17956,10 +17875,6 @@ let selectsWordSet = new Set();
         selectsWordSet.add("sql_commands");
     searchMap.set("selects", selectsWordSet);
 
-let feedbackWordSet = new Set();
-        feedbackWordSet.add("leadership");
-    searchMap.set("feedback", feedbackWordSet);
-
 let secondsWordSet = new Set();
         secondsWordSet.add("mongo_db");
         secondsWordSet.add("kafka_in_action_summary");
@@ -17982,6 +17897,7 @@ let betweenWordSet = new Set();
         betweenWordSet.add("kafka_in_action_summary");
         betweenWordSet.add("java_concurrency");
         betweenWordSet.add("mysql_vs_postgres");
+        betweenWordSet.add("gaining_wisdom");
         betweenWordSet.add("acid_internally");
         betweenWordSet.add("sql_commands");
         betweenWordSet.add("kafka_very_short_summary");
@@ -17997,7 +17913,6 @@ let efficiencyWordSet = new Set();
 
 let goalWordSet = new Set();
         goalWordSet.add("kafka_in_action_summary");
-        goalWordSet.add("leadership");
         goalWordSet.add("choice");
     searchMap.set("goal", goalWordSet);
 
@@ -18216,6 +18131,7 @@ let shouldWordSet = new Set();
         shouldWordSet.add("relational_dbs_performance");
         shouldWordSet.add("terraform");
         shouldWordSet.add("choice");
+        shouldWordSet.add("gaining_wisdom");
         shouldWordSet.add("rxjava");
         shouldWordSet.add("acid_internally");
         shouldWordSet.add("kafka_very_short_summary");
@@ -18270,7 +18186,6 @@ let individualWordSet = new Set();
 let konoplevWordSet = new Set();
         konoplevWordSet.add("relational_dbs");
         konoplevWordSet.add("career_crises");
-        konoplevWordSet.add("how_to_find_you_career");
         konoplevWordSet.add("day_dreams");
         konoplevWordSet.add("toc");
         konoplevWordSet.add("nosql_dbs");
@@ -18279,8 +18194,8 @@ let konoplevWordSet = new Set();
         konoplevWordSet.add("soft_skills");
         konoplevWordSet.add("interest");
         konoplevWordSet.add("devops");
-        konoplevWordSet.add("leadership");
         konoplevWordSet.add("tech_books");
+        konoplevWordSet.add("gaining_wisdom");
         konoplevWordSet.add("acid_internally");
         konoplevWordSet.add("non-fiction_books");
         konoplevWordSet.add("programming");
@@ -18289,7 +18204,6 @@ let konoplevWordSet = new Set();
         konoplevWordSet.add("dynamo_db");
         konoplevWordSet.add("java_concurrency");
         konoplevWordSet.add("how_to_create_a_python_project");
-        konoplevWordSet.add("name_me");
         konoplevWordSet.add("sql_commands");
         konoplevWordSet.add("persuasion");
         konoplevWordSet.add("performance");
@@ -18297,6 +18211,7 @@ let konoplevWordSet = new Set();
         konoplevWordSet.add("queues");
         konoplevWordSet.add("relational_dbs_performance");
         konoplevWordSet.add("comparing_different_queues");
+        konoplevWordSet.add("eto_norm");
         konoplevWordSet.add("mysql_vs_postgres");
         konoplevWordSet.add("terraform");
         konoplevWordSet.add("choice");
@@ -18423,6 +18338,7 @@ let canWordSet = new Set();
         canWordSet.add("comparing_different_queues");
         canWordSet.add("mysql_vs_postgres");
         canWordSet.add("choice");
+        canWordSet.add("gaining_wisdom");
         canWordSet.add("rxjava");
         canWordSet.add("acid_internally");
         canWordSet.add("kafka_very_short_summary");
