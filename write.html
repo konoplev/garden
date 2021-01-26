@@ -298,9 +298,10 @@ v 1.0, ${today}
 
     function showEditor(barer, refresh_token, text) {
         $("#editor-holder").empty();
-        $("#editor-holder").append("<textarea id=\"editor\"></textarea>")
+        $("#editor-holder").append("<textarea spellcheck=\"false\" contenteditable=\"true\" id=\"editor\"></textarea>")
         var asciidoctor = Asciidoctor()
         var simplemde = new SimpleMDE({
+            spellChecker: false,
             autofocus: true,
             blockStyles: {
                 bold: "*",
