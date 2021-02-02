@@ -469,6 +469,11 @@ v 1.0, ${today}
                 }, 250);
 
                 return "Loading...";
+            },
+            parsingConfig: {
+                allowAtxHeaderWithoutSpace: false,
+                strikethrough: false,
+                underscoresBreakWords: false
             }
         });
         simplemde.value(text);
