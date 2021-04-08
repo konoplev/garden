@@ -301,11 +301,12 @@ v 1.0, ${today}
 
     function showEditor(barer, refresh_token, text) {
         $("#editor-holder").empty();
-        $("#editor-holder").append("<textarea id=\"editor\"></textarea>")
+        $("#editor-holder").append("<textarea id=\"editor\" style=\"height: 500px;\"></textarea>")
         tinymce.init({
             selector: '#editor',
             menubar: false,
             branding: false,
+            height: 500,
             elementpath: false,
             toolbar: 'undo redo | my-h1 my-h2 my-h3 my-h4 | my-bold my-italic my-mono my-image my-link my-code my-table | my-save | my-preview',
             toolbar_location: 'bottom',
