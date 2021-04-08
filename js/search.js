@@ -64,6 +64,13 @@ text: `Elena Ryazanova book. Mistakes, advices and ways to find a business you'l
 date: "Fri Oct 09 00:00:00 CEST 2020",
 tags: [ {name: '', fileName: ''}, ]
 });
+        filesMap.set("test_all", {
+filename: "test_all",
+title: "Test all",
+text: ``,
+date: "Thu Apr 08 00:00:00 CEST 2021",
+tags: [ {name: '', fileName: ''}, ]
+});
             filesMap.set("mysql_vs_postgres", {
 filename: "mysql_vs_postgres",
 title: "MySQL vs Postgres",
@@ -392,6 +399,10 @@ let objectWordSet = new Set();
         objectWordSet.add("acid_internally");
     searchMap.set("object", objectWordSet);
 
+let cecWordSet = new Set();
+        cecWordSet.add("test_all");
+    searchMap.set("cec", cecWordSet);
+
 let statisticalWordSet = new Set();
         statisticalWordSet.add("thinking_fast_and_slow");
         statisticalWordSet.add("relational_dbs_performance");
@@ -550,6 +561,7 @@ let aWordSet = new Set();
         aWordSet.add("choice");
         aWordSet.add("rxjava");
         aWordSet.add("acid_internally");
+        aWordSet.add("test_all");
         aWordSet.add("kafka_very_short_summary");
     searchMap.set("a", aWordSet);
 
@@ -564,6 +576,7 @@ let bWordSet = new Set();
         bWordSet.add("java_concurrency");
         bWordSet.add("relational_dbs_performance");
         bWordSet.add("acid_internally");
+        bWordSet.add("test_all");
         bWordSet.add("sql_commands");
     searchMap.set("b", bWordSet);
 
@@ -588,6 +601,7 @@ let dWordSet = new Set();
         dWordSet.add("java_concurrency");
         dWordSet.add("mysql_vs_postgres");
         dWordSet.add("rxjava");
+        dWordSet.add("test_all");
     searchMap.set("d", dWordSet);
 
 let cfgWordSet = new Set();
@@ -611,6 +625,7 @@ let eWordSet = new Set();
 
 let fWordSet = new Set();
         fWordSet.add("kafka_in_action_summary");
+        fWordSet.add("test_all");
         fWordSet.add("sql_commands");
     searchMap.set("f", fWordSet);
 
@@ -762,6 +777,7 @@ let vWordSet = new Set();
         vWordSet.add("gaining_wisdom");
         vWordSet.add("acid_internally");
         vWordSet.add("non-fiction_books");
+        vWordSet.add("test_all");
         vWordSet.add("programming");
         vWordSet.add("thinking_fast_and_slow");
         vWordSet.add("mongo_db");
@@ -1867,17 +1883,18 @@ let lieWordSet = new Set();
 
 let sourceWordSet = new Set();
         sourceWordSet.add("thinking_fast_and_slow");
-        sourceWordSet.add("persuasion");
         sourceWordSet.add("mongo_db");
-        sourceWordSet.add("kafka_in_action_summary");
         sourceWordSet.add("java_concurrency");
+        sourceWordSet.add("how_to_create_a_python_project");
+        sourceWordSet.add("sql_commands");
+        sourceWordSet.add("persuasion");
+        sourceWordSet.add("kafka_in_action_summary");
         sourceWordSet.add("relational_dbs_performance");
         sourceWordSet.add("comparing_different_queues");
         sourceWordSet.add("mysql_vs_postgres");
-        sourceWordSet.add("how_to_create_a_python_project");
         sourceWordSet.add("rxjava");
         sourceWordSet.add("acid_internally");
-        sourceWordSet.add("sql_commands");
+        sourceWordSet.add("test_all");
     searchMap.set("source", sourceWordSet);
 
 let famouslyWordSet = new Set();
@@ -2344,6 +2361,10 @@ let tellWordSet = new Set();
         tellWordSet.add("kafka_in_action_summary");
     searchMap.set("tell", tellWordSet);
 
+let italicWordSet = new Set();
+        italicWordSet.add("test_all");
+    searchMap.set("italic", italicWordSet);
+
 let optimisationsWordSet = new Set();
         optimisationsWordSet.add("java_concurrency");
     searchMap.set("optimisations", optimisationsWordSet);
@@ -2368,6 +2389,7 @@ let introWordSet = new Set();
         introWordSet.add("gaining_wisdom");
         introWordSet.add("acid_internally");
         introWordSet.add("non-fiction_books");
+        introWordSet.add("test_all");
         introWordSet.add("programming");
         introWordSet.add("thinking_fast_and_slow");
         introWordSet.add("mongo_db");
@@ -2911,6 +2933,7 @@ let staticWordSet = new Set();
 let testWordSet = new Set();
         testWordSet.add("kafka_in_action_summary");
         testWordSet.add("rxjava");
+        testWordSet.add("test_all");
     searchMap.set("test", testWordSet);
 
 let finallyWordSet = new Set();
@@ -3121,6 +3144,7 @@ let textWordSet = new Set();
         textWordSet.add("relational_dbs_performance");
         textWordSet.add("terraform");
         textWordSet.add("rxjava");
+        textWordSet.add("test_all");
     searchMap.set("text", textWordSet);
 
 let usuallyWordSet = new Set();
@@ -3355,6 +3379,10 @@ let maxWordSet = new Set();
 let lacksWordSet = new Set();
         lacksWordSet.add("kafka_in_action_summary");
     searchMap.set("lacks", lacksWordSet);
+
+let arraylistWordSet = new Set();
+        arraylistWordSet.add("test_all");
+    searchMap.set("arraylist", arraylistWordSet);
 
 let computationWordSet = new Set();
         computationWordSet.add("kafka_in_action_summary");
@@ -4377,6 +4405,7 @@ let stillWordSet = new Set();
 let varWordSet = new Set();
         varWordSet.add("mongo_db");
         varWordSet.add("terraform");
+        varWordSet.add("test_all");
     searchMap.set("var", varWordSet);
 
 let workWordSet = new Set();
@@ -4543,6 +4572,7 @@ let alexanderWordSet = new Set();
         alexanderWordSet.add("gaining_wisdom");
         alexanderWordSet.add("acid_internally");
         alexanderWordSet.add("non-fiction_books");
+        alexanderWordSet.add("test_all");
         alexanderWordSet.add("programming");
         alexanderWordSet.add("thinking_fast_and_slow");
         alexanderWordSet.add("mongo_db");
@@ -5566,6 +5596,7 @@ let linksWordSet = new Set();
         linksWordSet.add("gaining_wisdom");
         linksWordSet.add("acid_internally");
         linksWordSet.add("non-fiction_books");
+        linksWordSet.add("test_all");
         linksWordSet.add("programming");
         linksWordSet.add("mongo_db");
         linksWordSet.add("dynamo_db");
@@ -5622,6 +5653,7 @@ let newWordSet = new Set();
         newWordSet.add("mysql_vs_postgres");
         newWordSet.add("rxjava");
         newWordSet.add("acid_internally");
+        newWordSet.add("test_all");
         newWordSet.add("kafka_very_short_summary");
     searchMap.set("new", newWordSet);
 
@@ -5852,6 +5884,7 @@ let javaWordSet = new Set();
         javaWordSet.add("relational_dbs_performance");
         javaWordSet.add("comparing_different_queues");
         javaWordSet.add("rxjava");
+        javaWordSet.add("test_all");
         javaWordSet.add("programming");
     searchMap.set("java", javaWordSet);
 
@@ -7073,6 +7106,7 @@ let parentWordSet = new Set();
         parentWordSet.add("gaining_wisdom");
         parentWordSet.add("acid_internally");
         parentWordSet.add("non-fiction_books");
+        parentWordSet.add("test_all");
         parentWordSet.add("programming");
         parentWordSet.add("mongo_db");
         parentWordSet.add("dynamo_db");
@@ -7357,6 +7391,10 @@ let cdWordSet = new Set();
         cdWordSet.add("how_to_create_a_python_project");
     searchMap.set("cd", cdWordSet);
 
+let ceWordSet = new Set();
+        ceWordSet.add("test_all");
+    searchMap.set("ce", ceWordSet);
+
 let tombstoneWordSet = new Set();
         tombstoneWordSet.add("kafka_in_action_summary");
     searchMap.set("tombstone", tombstoneWordSet);
@@ -7551,6 +7589,7 @@ let imageWordSet = new Set();
         imageWordSet.add("thinking_fast_and_slow");
         imageWordSet.add("kafka_in_action_summary");
         imageWordSet.add("relational_dbs_performance");
+        imageWordSet.add("test_all");
     searchMap.set("image", imageWordSet);
 
 let tradeoffsWordSet = new Set();
@@ -11105,6 +11144,7 @@ let wantWordSet = new Set();
 let pngWordSet = new Set();
         pngWordSet.add("kafka_in_action_summary");
         pngWordSet.add("relational_dbs_performance");
+        pngWordSet.add("test_all");
     searchMap.set("png", pngWordSet);
 
 let recognizeWordSet = new Set();
@@ -11607,6 +11647,7 @@ let optionsWordSet = new Set();
         optionsWordSet.add("mongo_db");
         optionsWordSet.add("kafka_in_action_summary");
         optionsWordSet.add("java_concurrency");
+        optionsWordSet.add("test_all");
     searchMap.set("options", optionsWordSet);
 
 let circusWordSet = new Set();
@@ -11905,6 +11946,7 @@ let valuesWordSet = new Set();
         valuesWordSet.add("relational_dbs_performance");
         valuesWordSet.add("rxjava");
         valuesWordSet.add("acid_internally");
+        valuesWordSet.add("test_all");
         valuesWordSet.add("sql_commands");
     searchMap.set("values", valuesWordSet);
 
@@ -12155,6 +12197,7 @@ let tagsWordSet = new Set();
         tagsWordSet.add("gaining_wisdom");
         tagsWordSet.add("acid_internally");
         tagsWordSet.add("non-fiction_books");
+        tagsWordSet.add("test_all");
         tagsWordSet.add("programming");
         tagsWordSet.add("thinking_fast_and_slow");
         tagsWordSet.add("mongo_db");
@@ -12747,6 +12790,7 @@ let fileWordSet = new Set();
         fileWordSet.add("terraform");
         fileWordSet.add("gaining_wisdom");
         fileWordSet.add("rxjava");
+        fileWordSet.add("test_all");
         fileWordSet.add("kafka_very_short_summary");
     searchMap.set("file", fileWordSet);
 
@@ -12988,6 +13032,7 @@ let tacticsWordSet = new Set();
 
 let headerWordSet = new Set();
         headerWordSet.add("kafka_in_action_summary");
+        headerWordSet.add("test_all");
     searchMap.set("header", headerWordSet);
 
 let positionWordSet = new Set();
@@ -13944,6 +13989,7 @@ let arrayWordSet = new Set();
         arrayWordSet.add("mongo_db");
         arrayWordSet.add("kafka_in_action_summary");
         arrayWordSet.add("java_concurrency");
+        arrayWordSet.add("test_all");
     searchMap.set("array", arrayWordSet);
 
 let macbookproWordSet = new Set();
@@ -14872,6 +14918,7 @@ let allWordSet = new Set();
         allWordSet.add("mysql_vs_postgres");
         allWordSet.add("rxjava");
         allWordSet.add("acid_internally");
+        allWordSet.add("test_all");
         allWordSet.add("sql_commands");
         allWordSet.add("kafka_very_short_summary");
     searchMap.set("all", allWordSet);
@@ -15495,6 +15542,10 @@ let telephoneWordSet = new Set();
         telephoneWordSet.add("thinking_fast_and_slow");
     searchMap.set("telephone", telephoneWordSet);
 
+let boldWordSet = new Set();
+        boldWordSet.add("test_all");
+    searchMap.set("bold", boldWordSet);
+
 let oftypeWordSet = new Set();
         oftypeWordSet.add("rxjava");
     searchMap.set("oftype", oftypeWordSet);
@@ -15587,6 +15638,10 @@ let descriptionWordSet = new Set();
         descriptionWordSet.add("terraform");
         descriptionWordSet.add("kafka_very_short_summary");
     searchMap.set("description", descriptionWordSet);
+
+let monoWordSet = new Set();
+        monoWordSet.add("test_all");
+    searchMap.set("mono", monoWordSet);
 
 let negativeWordSet = new Set();
         negativeWordSet.add("kafka_in_action_summary");
@@ -16420,6 +16475,7 @@ let wordsWordSet = new Set();
 let columnWordSet = new Set();
         columnWordSet.add("kafka_in_action_summary");
         columnWordSet.add("relational_dbs_performance");
+        columnWordSet.add("test_all");
         columnWordSet.add("sql_commands");
     searchMap.set("column", columnWordSet);
 
@@ -16471,6 +16527,10 @@ let visualizationWordSet = new Set();
 let transferredWordSet = new Set();
         transferredWordSet.add("kafka_in_action_summary");
     searchMap.set("transferred", transferredWordSet);
+
+let beeWordSet = new Set();
+        beeWordSet.add("test_all");
+    searchMap.set("bee", beeWordSet);
 
 let deckWordSet = new Set();
         deckWordSet.add("java_concurrency");
@@ -16810,6 +16870,7 @@ let adocWordSet = new Set();
         adocWordSet.add("gaining_wisdom");
         adocWordSet.add("acid_internally");
         adocWordSet.add("non-fiction_books");
+        adocWordSet.add("test_all");
         adocWordSet.add("programming");
         adocWordSet.add("mongo_db");
         adocWordSet.add("dynamo_db");
@@ -18247,6 +18308,7 @@ let konoplevWordSet = new Set();
         konoplevWordSet.add("gaining_wisdom");
         konoplevWordSet.add("acid_internally");
         konoplevWordSet.add("non-fiction_books");
+        konoplevWordSet.add("test_all");
         konoplevWordSet.add("programming");
         konoplevWordSet.add("thinking_fast_and_slow");
         konoplevWordSet.add("mongo_db");

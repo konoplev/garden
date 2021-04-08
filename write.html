@@ -307,9 +307,9 @@ v 1.0, ${today}
             selector: '#editor',
             menubar: false,
             branding: false,
-            mode : "textareas",
-            remove_linebreaks : false,
-            toolbar: 'undo redo | my-bold | my-image | my-save',
+            elementpath: false,
+            toolbar: 'undo redo | my-h1 my-h2 my-h3 my-h4 | my-bold my-italic my-mono my-image my-link my-code my-table | my-save',
+            toolbar_location: 'bottom',
             setup: function (editor) {
                 editor.on('init', function (e) {
                     editor.setContent(text);
@@ -317,33 +317,91 @@ v 1.0, ${today}
                 editor.on('BeforeSetContent', function(contentEvent) {
                     contentEvent.content = contentEvent.content.replace(/\r?\n/g, '<br />');
                 });
+                editor.ui.registry.addButton('my-h1', {
+                    text: 'h1',
+                    tooltip: "Make bold",
+                    onAction: function () {insert(editor, "==")}
+                });
+                editor.ui.registry.addButton('my-h2', {
+                    text: 'h2',
+                    tooltip: "Make bold",
+                    onAction: function () {insert(editor, "===")}
+                });
+                editor.ui.registry.addButton('my-h3', {
+                    text: 'h3',
+                    tooltip: "Make bold",
+                    onAction: function () {insert(editor, "====")}
+                });
+                editor.ui.registry.addButton('my-h4', {
+                    text: 'h4',
+                    tooltip: "Make bold",
+                    onAction: function () {insert(editor, "=====")}
+                });
                 editor.ui.registry.addButton('my-bold', {
                     icon: 'bold',
-                    tooltip: "Insert Image",
-                    onAction: function () {insertBold(editor)}
+                    tooltip: "Make bold",
+                    onAction: function () {wrap(editor, "*")}
+                });
+                editor.ui.registry.addButton('my-italic', {
+                    icon: 'italic',
+                    tooltip: "Make italic",
+                    onAction: function () {wrap(editor, "_")}
+                });
+                editor.ui.registry.addButton('my-mono', {
+                    icon: 'flip-vertically',
+                    tooltip: "Make mono",
+                    onAction: function () {wrap(editor, "+")}
                 });
                 editor.ui.registry.addButton('my-image', {
                     icon: 'image',
                     tooltip: "Insert Image",
-                    onAction: insertImage
+                    onAction: function () {insertImage(editor, barer, refresh_token)}
+                });
+                editor.ui.registry.addButton('my-link', {
+                    icon: 'link',
+                    tooltip: "Insert Link",
+                    onAction: function () {insertLink(editor)}
+                });
+                editor.ui.registry.addButton('my-code', {
+                    icon: 'sourcecode',
+                    tooltip: "Insert Code",
+                    onAction: function () {insertCode(editor)}
+                });
+                editor.ui.registry.addButton('my-table', {
+                    icon: 'table-insert-column-before',
+                    tooltip: "Insert Table",
+                    onAction: function () {insertTable(editor)}
                 });
                 editor.ui.registry.addButton('my-save', {
                     icon: 'save',
                     tooltip: "Save Text",
-                    onAction: function () {saveText(editor)}
+                    onAction: function () {saveText(editor, barer, refresh_token)}
                 });
             },
         });
-        console.log("Going to save text")
-        console.log(JSON.stringify(text));
-        tinymce.get("editor").setContent(text);
+        // tinymce.get("editor").setContent(text);
     }
 
-    function insertBold(editor) {
-        editor.insertContent("*<span id=\"_cursor\" />*");
+    function wrap(editor, character) {
+        editor.insertContent(character + "<span id=\"_cursor\" />" + character);
         editor.selection.select(editor.dom.select('#_cursor')[0]);
     }
-    function insertImage(editor) {
+    function insert(editor, character) {
+        editor.insertContent(character);
+    }
+    function insertLink(editor) {
+        editor.insertContent("http://<span id=\"_cursorLink\" />[]");
+        editor.selection.select(editor.dom.select('#_cursorLink')[0]);
+    }
+    function insertCode(editor) {
+        editor.insertContent("[source,java]\n-----------\n\<span id=\"_cursorCode\" />\n-----------");
+        editor.selection.select(editor.dom.select('#_cursorCode')[0]);
+    }
+    function insertTable(editor) {
+        editor.insertContent("[options=\"header\"]\n|=======================\n| Column 1 | Column 2 | Column 3 \n| Text             | Text             | Text \n|=======================\n");
+        editor.selection.select(editor.dom.select('#_cursorTable')[0]);
+    }
+    function insertImage(editor, barer, refresh_token) {
         $("#uploader").trigger('click');
         $("#uploader").change(function () {
             var fd = new FormData();
@@ -366,19 +424,18 @@ v 1.0, ${today}
             })
         });
     }
-    function saveText(editor) {
+    function saveText(editor, barer, refresh_token) {
         console.log(editor.getContent({format : 'text'}))
         runRequest(barer, refresh_token, access_token => {
             $.ajax({
                 url: url + '/note',
                 type: 'POST',
                 headers: {Authorization: "Bearer " + access_token},
-                data: editor.getContent(), // The form with the file inputs.
+                data: editor.getContent({format : 'text'}),
                 processData: false,
                 contentType: 'application/json; charset=utf-8'
             }).done(function (fileName) {
                 console.log("Success: Files sent!");
-                // editor.options.promptTexts.image = url;
                 location.reload();
             }).fail(function () {
                 alert("Can't connect to server");
