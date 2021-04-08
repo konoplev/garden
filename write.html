@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="css/ionicons.min.css">
     <link rel="stylesheet" href="css/pace.css">
     <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/lc_gif_player.css">
     <link rel="stylesheet" href="css/simplemde.min.css">
+
     <!--    <link rel="stylesheet" href="css/asciidoctor.css">-->
 
     <!-- js -->
     <script src="js/simplemde.min.js"></script>
+    <script src='js/tinymce.min.js'></script>
     <script src="js/jquery-2.1.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/pace.min.js"></script>
@@ -109,7 +110,8 @@
                             <div class="entry-content clearfix">
                                 <p>
                                 <div role="search" id="open-file-form">
-                                    <input type="search" class="search-input" id="open-file-input" placeholder="Search" required>
+                                    <input type="search" class="search-input" id="open-file-input" placeholder="Search"
+                                           required>
 
                                 </div>
                                 </p>
@@ -256,6 +258,7 @@ v 1.0, ${today}
         let fileName = value.substring(slash + 1, endOfFileName);
         showFile(fileName + ".adoc", barer, refresh_token);
     }
+
     function showFile(name, barer, refresh_token) {
         runRequest(barer, refresh_token,
             access_token => {
@@ -298,187 +301,90 @@ v 1.0, ${today}
 
     function showEditor(barer, refresh_token, text) {
         $("#editor-holder").empty();
-        $("#editor-holder").append("<textarea spellcheck=\"false\" contenteditable=\"true\" id=\"editor\"></textarea>")
+        $("#editor-holder").append("<textarea id=\"editor\"></textarea>")
         var asciidoctor = Asciidoctor()
-        var simplemde = new SimpleMDE({
-            spellChecker: false,
-            autofocus: true,
-            styleSelectedText: false,
-            blockStyles: {
-                bold: "*",
-                italic: "_",
-                code: "--------------\n"
-                //  strikethrough: "[source,java]\n-----------\n-----------"
+        tinymce.init({
+            selector: '#editor',
+            menubar: false,
+            branding: false,
+            mode : "textareas",
+            remove_linebreaks : false,
+            toolbar: 'undo redo | my-bold | my-image | my-save',
+            setup: function (editor) {
+                editor.on('init', function (e) {
+                    editor.setContent(text);
+                });
+                editor.on('BeforeSetContent', function(contentEvent) {
+                    contentEvent.content = contentEvent.content.replace(/\r?\n/g, '<br />');
+                });
+                editor.ui.registry.addButton('my-bold', {
+                    icon: 'bold',
+                    tooltip: "Insert Image",
+                    onAction: function () {insertBold(editor)}
+                });
+                editor.ui.registry.addButton('my-image', {
+                    icon: 'image',
+                    tooltip: "Insert Image",
+                    onAction: insertImage
+                });
+                editor.ui.registry.addButton('my-save', {
+                    icon: 'save',
+                    tooltip: "Save Text",
+                    onAction: function () {saveText(editor)}
+                });
             },
-            toolbar: [
-                {
-                    name: "bold",
-                    action: SimpleMDE.toggleBold,
-                    className: "fa fa-bold",
-                    title: "Bold",
-                },
-                {
-                    name: "italic",
-                    action: SimpleMDE.toggleItalic,
-                    className: "fa fa-italic",
-                    title: "Italic",
-                },
-                {
-                    name: "strikethrough",
-                    action: SimpleMDE.toggleStrikethrough,
-                    className: "fa fa-strikethrough",
-                    title: "Strikethrough",
-                },
-                {
-                    name: "heading",
-                    action: SimpleMDE.toggleHeadingSmaller,
-                    className: "fa fa-header",
-                    title: "Heading",
-                },
-                {
-                    name: "code",
-                    action: SimpleMDE.toggleCodeBlock,
-                    className: "fa fa-code",
-                    title: "Code",
-                },
-                "|",
-                {
-                    name: "quote",
-                    action: SimpleMDE.toggleBlockquote,
-                    className: "fa fa-quote-left",
-                    title: "Quote",
-                },
-                {
-                    name: "unordered-list",
-                    action: SimpleMDE.toggleUnorderedList,
-                    className: "fa fa-list-ul",
-                    title: "Generic List",
-                },
-                {
-                    name: "ordered-list",
-                    action: SimpleMDE.toggleOrderedList,
-                    className: "fa fa-list-ol",
-                    title: "Numbered List",
-                },
-                {
-                    name: "link",
-                    action: SimpleMDE.drawLink,
-                    className: "fa fa-link",
-                    title: "Create Link",
-                },
-                {
-                    name: "image",
-                    action: function customFunction(editor) {
-                        $("#uploader").trigger('click');
-                        $("#uploader").change(function () {
-                            var fd = new FormData();
-                            var files = $('#uploader')[0].files[0];
-                            fd.append('file', files);
-                            runRequest(barer, refresh_token, access_token => {
-                                $.ajax({
-                                    url: url + '/image',
-                                    type: 'POST',
-                                    headers: {Authorization: "Bearer " + access_token},
-                                    data: fd, // The form with the file inputs.
-                                    processData: false,
-                                    contentType: false                    // Using FormData, no need to process data.
-                                }).done(function (fileName) {
-                                    console.log("Success: Files sent!");
-                                    // editor.options.promptTexts.image = url;
-                                    editor.options.insertTexts.image = ["image::" + fileName, "[name me]"];
-                                    SimpleMDE.drawImage(editor);
-                                }).fail(function () {
-                                    alert("Can't connect to server");
-                                });
-                            })
-                        });
-
-                    },
-                    className: "fa fa-picture-o",
-                    title: "Insert Image",
-                },
-                {
-                    name: "table",
-                    action: SimpleMDE.drawTable,
-                    className: "fa fa-table",
-                    title: "Insert Table",
-                },
-                "|",
-                {
-                    name: "preview",
-                    action: SimpleMDE.togglePreview,
-                    className: "fa fa-eye no-disable",
-                    title: "Toggle Preview",
-                },
-                {
-                    name: "side-by-side",
-                    action: SimpleMDE.toggleSideBySide,
-                    className: "fa fa-columns no-disable no-mobile",
-                    title: "Toggle Side by Side",
-                },
-                {
-                    name: "fullscreen",
-                    action: SimpleMDE.toggleFullScreen,
-                    className: "fa fa-arrows-alt no-disable no-mobile",
-                    title: "Toggle Fullscreen",
-                },
-                "|",
-                {
-                    name: "save",
-                    action: function (editor) {
-                        runRequest(barer, refresh_token, access_token => {
-                            $.ajax({
-                                url: url + '/note',
-                                type: 'POST',
-                                headers: {Authorization: "Bearer " + access_token},
-                                data: simplemde.value(), // The form with the file inputs.
-                                processData: false,
-                                contentType: 'application/json; charset=utf-8'
-                            }).done(function (fileName) {
-                                console.log("Success: Files sent!");
-                                // editor.options.promptTexts.image = url;
-                                location.reload();
-                            }).fail(function () {
-                                alert("Can't connect to server");
-                            });
-                        })
-                    },
-                    className: "fa fa-save",
-                    title: "Save file",
-                },
-            ],
-            //toolbar: ["bold", "italic", "strikethrough", "heading", "code", "|", "quote", "unordered-list", "ordered-list", "clean-block", "link", "image", "table", "horizontal-rule", "|", "preview", "side-by-side", "fullscreen"],
-            element: document.getElementById("editor"),
-            insertTexts: {
-                horizontalRule: ["", "\n\n-----\n\n"],
-                image: ["![](http://", ")"],
-                link: ["http://", "[]"],
-                table: ["[options=\"header\"]\n|=======================", "\n| Column 1 | Column 2 | Column 3 \n| Text             | Text             | Text \n|=======================\n"],
-            },
-            lineWrapping: true,
-            showIcons: ["toggleBlockquote", "toggleBold", "cleanBlock", "toggleHeadingSmaller", "toggleItalic", "drawLink", "toggleUnorderedList", "togglePreview", "toggleCodeBlock", "drawImage", "toggleOrderedList", "toggleHeadingBigger", "toggleSideBySide", "toggleFullScreen"],
-            shortcuts: {
-                drawTable: "Cmd-Alt-T"
-            },
-            previewRender: function (plainText) {
-                return asciidoctor.convert(plainText); // Returns HTML from a custom parser
-            },
-            previewRender: function (plainText, preview) { // Async method
-                setTimeout(function () {
-                    preview.innerHTML = asciidoctor.convert(plainText);
-                }, 250);
-
-                return "Loading...";
-            },
-            parsingConfig: {
-                allowAtxHeaderWithoutSpace: false,
-                strikethrough: false,
-                underscoresBreakWords: false
-            }
         });
-        simplemde.value(text);
+        console.log("Going to save text")
+        console.log(JSON.stringify(text));
+        tinymce.get("editor").setContent(text);
     }
 
+    function insertBold(editor) {
+        editor.insertContent("*<span id=\"_cursor\" />*");
+        editor.selection.select(editor.dom.select('#_cursor')[0]);
+    }
+    function insertImage(editor) {
+        $("#uploader").trigger('click');
+        $("#uploader").change(function () {
+            var fd = new FormData();
+            var files = $('#uploader')[0].files[0];
+            fd.append('file', files);
+            runRequest(barer, refresh_token, access_token => {
+                $.ajax({
+                    url: url + '/image',
+                    type: 'POST',
+                    headers: {Authorization: "Bearer " + access_token},
+                    data: fd, // The form with the file inputs.
+                    processData: false,
+                    contentType: false                    // Using FormData, no need to process data.
+                }).done(function (fileName) {
+                    console.log("Success: Files sent!");
+                    editor.insertContent("image::" + fileName + "[name me]");
+                }).fail(function () {
+                    alert("Can't connect to server");
+                });
+            })
+        });
+    }
+    function saveText(editor) {
+        console.log(editor.getContent({format : 'text'}))
+        runRequest(barer, refresh_token, access_token => {
+            $.ajax({
+                url: url + '/note',
+                type: 'POST',
+                headers: {Authorization: "Bearer " + access_token},
+                data: editor.getContent(), // The form with the file inputs.
+                processData: false,
+                contentType: 'application/json; charset=utf-8'
+            }).done(function (fileName) {
+                console.log("Success: Files sent!");
+                // editor.options.promptTexts.image = url;
+                location.reload();
+            }).fail(function () {
+                alert("Can't connect to server");
+            });
+        })
+    }
 </script>
 
 </body>
