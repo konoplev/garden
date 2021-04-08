@@ -302,13 +302,12 @@ v 1.0, ${today}
     function showEditor(barer, refresh_token, text) {
         $("#editor-holder").empty();
         $("#editor-holder").append("<textarea id=\"editor\"></textarea>")
-        var asciidoctor = Asciidoctor()
         tinymce.init({
             selector: '#editor',
             menubar: false,
             branding: false,
             elementpath: false,
-            toolbar: 'undo redo | my-h1 my-h2 my-h3 my-h4 | my-bold my-italic my-mono my-image my-link my-code my-table | my-save',
+            toolbar: 'undo redo | my-h1 my-h2 my-h3 my-h4 | my-bold my-italic my-mono my-image my-link my-code my-table | my-save | my-preview',
             toolbar_location: 'bottom',
             setup: function (editor) {
                 editor.on('init', function (e) {
@@ -377,6 +376,11 @@ v 1.0, ${today}
                     tooltip: "Save Text",
                     onAction: function () {saveText(editor, barer, refresh_token)}
                 });
+                editor.ui.registry.addButton('my-preview', {
+                    icon: 'preview',
+                    tooltip: "Preview",
+                    onAction: function () {showPreview(editor)}
+                });
             },
         });
         // tinymce.get("editor").setContent(text);
@@ -423,6 +427,32 @@ v 1.0, ${today}
                 });
             })
         });
+    }
+    function showPreview(e) {
+        var asciidoctor = Asciidoctor()
+        var f = tinymce.util.Tools.resolve("tinymce.Env");
+        var w = tinymce.util.Tools.resolve("tinymce.util.Tools");
+        var t = function (t) {
+            var n = "", i = t.dom.encode, e = t.getParam("content_style", "", "string");
+            n += '<base href="' + i(t.documentBaseURI.getURI()) + '">';
+            var o = t.getParam("content_css_cors", !1, "boolean") ? ' crossorigin="anonymous"' : "";
+            w.each(t.contentCSS, function (e) {
+                n += '<link type="text/css" rel="stylesheet" href="' + i(t.documentBaseURI.toAbsolute(e)) + '"' + o + ">"
+            }), e && (n += '<style type="text/css">' + e + "</style>");
+            var r, a, c, s, d, m, l,
+                y = -1 === (s = (r = t).getParam("body_id", "tinymce", "string")).indexOf("=") ? s : (c = (a = r).getParam("body_id", "", "hash"))[a.id] || c,
+                u = -1 === (l = (d = t).getParam("body_class", "", "string")).indexOf("=") ? l : (m = d).getParam("body_class", "", "hash")[m.id] || "",
+                v = '<script>document.addEventListener && document.addEventListener("click", function(e) {for (var elm = e.target; elm; elm = elm.parentNode) {if (elm.nodeName === "A" && !(' + (f.mac ? "e.metaKey" : "e.ctrlKey && !e.altKey") + ")) {e.preventDefault();}}}, false);<\/script> ",
+                g = t.getBody().dir, p = g ? ' dir="' + i(g) + '"' : "";
+            return "<!DOCTYPE html><html><head>" + n + '</head><body id="' + i(y) + '" class="mce-content-body ' + i(u) + '"' + p + ">" + asciidoctor.convert(t.getContent({format : 'text'})) + v + "</body></html>"
+        }(e);
+        e.windowManager.open({
+            title: "Preview",
+            size: "large",
+            body: {type: "panel", items: [{name: "preview", type: "iframe", sandboxed: !0}]},
+            buttons: [{type: "cancel", name: "close", text: "Close", primary: !0}],
+            initialData: {preview: t}
+        }).focus("close")
     }
     function saveText(editor, barer, refresh_token) {
         console.log(editor.getContent({format : 'text'}))
