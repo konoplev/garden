@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JWT</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/pace.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/lc_gif_player.css">
+
+    <!-- js -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+</head>
+
+<body id="single">
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="index.html"><b>Konoplev's</b> garden</a></h1>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="index.html" data-hover="Garden">Garden</a></li>
+                            <li class="cl-effect-11"><a href="http://konoplev.me" data-hover="Blog">Blog</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <input type="search" placeholder="Search" required class="search-input">
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- col-md-8 -->
+        </div>
+    </header>
+</div>
+
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-12">
+                <div id="content-holder">
+                    <article class="post post-1">
+                        <header class="entry-header">
+                            <h1 class="entry-title">JWT</h1>
+                            <div class="entry-meta">
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="2021-09-20T22:00:00Z">Sep 21, 2021</time></a></span>
+
+                                <span class="post-category">
+                                                                    </span>
+
+                                                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>: tags:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_json_web_token">What is JSON Web Token?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA.</p>
+</div>
+<div class="paragraph">
+<p>Let’s explain some concepts of this definition further.</p>
+</div>
+<div class="paragraph">
+<p><em>Compact</em>: Because of their smaller size, JWTs can be sent through a URL, POST parameter, or inside an HTTP header. Additionally, the smaller size means transmission is fast.</p>
+</div>
+<div class="paragraph">
+<p><em>Self-contained</em>: The payload contains all the required information about the user, avoiding the need to query the database more than once.</p>
+</div>
+<div class="sect2">
+<h3 id="_when_should_you_use_json_web_tokens">When should you use JSON Web Tokens?</h3>
+<div class="paragraph">
+<p><strong>Authentication</strong>: This is the most common scenario for using JWT. Once the user is logged in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token. Single Sign On is a feature that widely uses JWT nowadays, because of its small overhead and its ability to be easily used across different domains.</p>
+</div>
+<div class="paragraph">
+<p><strong>Information Exchange</strong>: JSON Web Tokens are a good way of securely transmitting information between parties. Because JWTs can be signed — for example, using public/private key pairs — you can be sure the senders are who they say they are. Additionally, as the signature is calculated using the header and the payload, you can also verify that the content hasn’t been tampered with. (Actually it&#8217;s debatable)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_is_the_json_web_token_structure">What is the JSON Web Token structure?</h3>
+<div class="paragraph">
+<p>JSON Web Tokens consist of three parts separated by dots (.), which are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Header</p>
+</li>
+<li>
+<p>Payload</p>
+</li>
+<li>
+<p>Signature</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Therefore, a JWT typically looks like the following.
+xxxxx.yyyyy.zzzzz</p>
+</div>
+<div class="paragraph">
+<p>Let’s break down the different parts.</p>
+</div>
+<div class="paragraph">
+<p><strong>Header</strong></p>
+</div>
+<div class="paragraph">
+<p>The header typically consists of two parts: the type of the token, which is JWT, and the hashing algorithm being used, such as HMAC SHA256 or RSA.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "alg": "HS256",
+  "typ": "JWT"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then, this JSON is Base64Url encoded to form the first part of the JWT.</p>
+</div>
+<div class="paragraph">
+<p><strong>Payload</strong></p>
+</div>
+<div class="paragraph">
+<p>The second part of the token is the payload, which contains the claims. Claims are statements about an entity (typically, the user) and additional metadata. There are three types of claims: reserved, public, and private claims.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Reserved claims</strong>: These are a set of predefined claims which are not mandatory but recommended, to provide a set of useful, interoperable claims. Some of them are: iss (issuer), exp (expiration time), sub (subject), aud (audience), and others. Notice that the claim names are only three characters long as JWT is meant to be compact.</p>
+</li>
+<li>
+<p><strong>Public claims</strong>: These can be defined at will by those using JWTs. But to avoid collisions they should be defined in the IANA JSON Web Token Registry or be defined as a URI that contains a collision resistant namespace.</p>
+</li>
+<li>
+<p><strong>Private claims</strong>: These are the custom claims created to share information between parties that agree on using them.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An example of payload could be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "admin": true
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The payload is then Base64Url encoded to form the second part of the JSON Web Token.</p>
+</div>
+<div class="paragraph">
+<p><strong>Signature</strong></p>
+</div>
+<div class="paragraph">
+<p>To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that.
+For example if you want to use the HMAC SHA256 algorithm, the signature will be created in the following way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  secret)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The output is three Base64 strings separated by dots that can be easily passed in HTML and HTTP environments, while being more compact when compared to XML-based standards such as SAML.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_session_id_works">How Session Id works</h3>
+<div class="imageblock">
+<div class="content">
+<img src="./session-id.png" alt="session id">
+</div>
+</div>
+<div class="paragraph">
+<p>For each subsequent request the cookie is sent by the browser. If the session is still present on the server, the user is considered authenticated and the request continues. This flow enables a number of requirements essential to any web application, and that we’ll need for our SPA:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The username and password only need to be supplied once and not for every request. No brainer.</p>
+</li>
+<li>
+<p>If the user is inactive and the server does not get a request for that user for a set amount of time, they are no longer authenticated (as  the session will be removed server side) and will be asked to re-login.</p>
+</li>
+<li>
+<p>Every time a user is active (meaning makes a request to the server), their session length on the server is renewed.</p>
+</li>
+<li>
+<p>If the user closes their browser, they are no longer logged in (as the session-identifying cookie will be gone).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Take into account that basic OAuth token is the same thing as session Id.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jwt_is_stateless_sessionid">JWT is stateless SessionId</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_authorization_header_vs_coockie">Authorization header vs Coockie</h3>
+<div class="paragraph">
+<p>the Secure cookie flag ensures the cookie is only transmitted over HTTPS (mitigates MITM); the HTTPOnly cookie flag ensures that JavaScript can&#8217;t access the cookie value (mitigates XSS). Transmitting auth stuff in headers can mitigate CSRF.</p>
+</div>
+<div class="paragraph">
+<p>Cookies are transferred in HTTP header fields. So technically there is potentially very little distinction between the two, but coockies  offer over header fields is that browsers use the 'httponly' and 'secure' flags to handle them in a more secure way. A little distinction, but an important one.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_do_json_web_tokens_work">How do JSON Web Tokens work?</h3>
+<div class="paragraph">
+<p>In authentication, when the user successfully logs in using their credentials, a JSON Web Token will be returned and must be saved locally (typically in local storage, but cookies can be also used), instead of the traditional approach of creating a session in the server and returning a cookie.
+Whenever the user wants to access a protected route or resource, the user agent should send the JWT, typically in the Authorization header using the Bearer schema. The content of the header should look like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Authorization: Bearer &lt;token&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is a stateless authentication mechanism as the user state is never saved in server memory. The server’s protected routes will check for a valid JWT in the Authorization header, and if it’s present, the user will be allowed to access protected resources. As JWTs are self-contained, all the necessary information is there, reducing the need to query the database multiple times.</p>
+</div>
+<div class="paragraph">
+<p>This allows you to fully rely on data APIs that are stateless and even make requests to downstream services. It doesn’t matter which domains are serving your APIs, so Cross-Origin Resource Sharing (CORS) won’t be an issue as it doesn’t use cookies.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+How CORS works. It prevents and attach in which you load a script from a bad domain and this script trying to call some another domain (your bank, for example) where you&#8217;re logged in (so you have cookies) and using cookies make some request on you behalf. To check CORS browser sends OPTIONS request to server
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following diagram shows this process:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./JWT-process.png" alt="JWT process">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jwt_authentication_summary">JWT Authentication Summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Token based authentication schema’s became immensely popular in recent times, as they provide important benefits when compared to sessions/cookies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CORS (your server can return Access-Control-Allow-Origin \*, so you allow to call you from another resource)</p>
+</li>
+<li>
+<p>No need for CSRF protection</p>
+</li>
+<li>
+<p>Better integration with mobile</p>
+</li>
+<li>
+<p>Reduced load on authorization server</p>
+</li>
+<li>
+<p>No need for distributed session store</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Cookie is just a header with "Set-Cookie: sessionToken=abc123; Expires=Wed, 09 Jun 2021 10:18:14 GMT" sent from server. As soon as browser requested any page from this server it sends cookie back in "Cookie: theme=light; sessionToken=abc123" hader
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Some trade-offs have to be made with this approach:
+- More vulnerable to XSS attacks
+- Access token can contain outdated authorization claims (e.g when some of the user privileges are revoked)
+- Access tokens can grow in size in case of increased number of claims
+- File download API can be tricky to implement
+- True statelessness and revocation are mutually exclusive</p>
+</div>
+<div class="paragraph">
+<p>JWT Authentication flow is very simple:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User obtains Refresh and Access tokens by providing credentials to the Authorization server</p>
+</li>
+<li>
+<p>User sends Access token with each request to access protected API resource</p>
+</li>
+<li>
+<p>Access token is signed and contains user identity (e.g. user id) and authorization claims.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>It’s important to note that authorization claims will be included with the Access token. Why is this important? Well, let’s say that authorization claims (e.g user privileges in the database) are changed during the life time of Access token. Those changes will not become effective until new Access token is issued. In most cases this is not big issue, because Access tokens are short-lived. Otherwise go with the opaque token pattern.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_implementation_details">Implementation Details</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Let’s see how can we implement the JWT token based authentication using Java and Spring, while trying to reuse the Spring security default behavior where we can. The Spring Security framework comes with plug-in classes that already deal with authorization mechanisms such as: session cookies, HTTP Basic, and HTTP Digest. Nevertheless, it lacks from native support for JWT, and we need to get our hands dirty to make it work.</p>
+</div>
+</div>
+</div>
+                        </div>
+                        <div class="height-40px"></div>
+                        <div>
+                            <div id="remark42" aria-live="polite">
+                                <noscript>Please enable JavaScript to view the comments</noscript>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy; 2020 Konoplev.me</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Garden</a></li>
+            <li><a href="http://konoplev.me">Blog</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script src="js/script.js" type="module"></script>
+<script>
+    var remark_config = {
+        host: "https://comments.konoplev.me",
+        site_id: 'konoplev',
+    };
+
+    (function (c) {
+        for (var i = 0; i < c.length; i++) {
+            var d = document, s = d.createElement('script');
+            s.src = remark_config.host + '/web/' + c[i] + '.js';
+            s.defer = true;
+            (d.head || d.body).appendChild(s);
+        }
+    })(remark_config.components || ['embed']);
+</script>
+
+</body>
+</html>

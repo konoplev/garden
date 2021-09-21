@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Leadership</title>
+    <title>cryptography</title>
 
     <!-- meta -->
     <meta charset="UTF-8">
@@ -67,13 +67,12 @@
                 <div id="content-holder">
                     <article class="post post-1">
                         <header class="entry-header">
-                            <h1 class="entry-title">Leadership</h1>
+                            <h1 class="entry-title">cryptography</h1>
                             <div class="entry-meta">
                             <span class="post-date"><a href="#"><time class="entry-date"
-                                                                      datetime="2020-11-01T23:00:00Z">Nov 2, 2020</time></a></span>
+                                                                      datetime="2021-09-20T22:00:00Z">Sep 21, 2021</time></a></span>
 
                                 <span class="post-category">
-                                                                        <a href=".html"> #</a>
                                                                     </span>
 
                                                             </div>
@@ -82,148 +81,144 @@
                             <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>How to be a leader, build a team, solve conflicts, motivate</p>
+<p>: tags:</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_main">Main</h2>
+<h2 id="_theory">Theory</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>A leader is someone who opens new horizons for people.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_cooperation_and_intersubjectivity">Cooperation and Intersubjectivity</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>People cooperate to be more efficient together. To be a company members need to have a common goal and share information efficiently.
-That&#8217;s why transparency, diversity, and inclusiveness are benefitial.</p>
-</div>
-<div class="paragraph">
-<p>The easier to bring information to the right people, the more efficient the company.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_leadership">Leadership</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>It could be split into 3 factors:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>People - the ability to find the best team-players, assign roles, delegate, motivate, define culture and principles</p>
-</li>
-<li>
-<p>Goals - the ability to plan, assign tasks, define processes, monitor progress</p>
-</li>
-<li>
-<p>Communication - ability to communicate, provide feedback, mentorship, and conflict solving</p>
-</li>
-</ol>
-</div>
 <div class="sect2">
-<h3 id="_people">People</h3>
+<h3 id="_symmetric">Symmetric</h3>
+<div class="sect3">
+<h4 id="_any_cipher_is_actually_replacement_or_re_ordering">Any cipher is actually replacement or re-ordering</h4>
 <div class="paragraph">
-<p>A leader brings a role model. If a leader doesn&#8217;t grow, the company doesn&#8217;t grow also.</p>
+<p>Replacement - you have an algorithm that is applied to data to replace each symbol with another one. The simplest example is a replacement table. Each alphabet letter has a corresponding replacement.</p>
 </div>
 <div class="paragraph">
-<p>Dictatorship doesn&#8217;t work because in such an environment nobody feels safe. People should feel safe to try and fail, otherwise, there will be no motivation to grow.</p>
+<p>Re-ordering - you have an algorithm that is applied to data to reorder letters in the text.</p>
 </div>
-<div class="paragraph">
-<p>Truth is more important than revenue. Without truth, there will be no trust. Mistakes shouldn&#8217;t be hidden. They should be used to grow. So, feedback is beneficial.</p>
-</div>
-<div class="paragraph">
-<p>It&#8217;s ok to fail sometimes. If you take responsibility (you&#8217;re responsible for the result) then it&#8217;s ok to fail.</p>
-</div>
-<div class="paragraph">
-<p>A company should define who we are, what our values are?</p>
-</div>
-<div class="paragraph">
-<p>The main responsibility of a leader is to provide people with energy. So, a leader should be able to manage energy. For example, a leader should be like a roly-poly toy if any problems are faced (this will be copied by people as well (see role model)).</p>
 </div>
 <div class="sect3">
-<h4 id="_hiring">Hiring</h4>
+<h4 id="_there_are_steam_and_block_ciphers">There are steam and block ciphers</h4>
 <div class="paragraph">
-<p>The right "who" will answer to "what" and "how".</p>
+<p>Stream - there is an algorithm generating random numbers. You give it a seed (your key) and then the algorithm generates (using the seed) a random number for each received symbol.</p>
 </div>
 <div class="paragraph">
-<p>Avoid stress during the interview.</p>
+<p>An old example of the stream cipher - RC4.</p>
 </div>
 <div class="paragraph">
-<p>Questions (with purpose) for an interview:</p>
+<p>New example - Salsa20</p>
 </div>
 <div class="paragraph">
-<p>Why did you decide to work at X (a company from the CV) - ability to make the right decision
-What are your achievements (responsibilities) at X - the ability to analyze achievements (understanding responsibilities).
-How did you deal with the failure? - the ability to take responsibility
-What would you like to change in yourself - the ability to see weaknesses and improve. And also honesty.
-What type of people you don&#8217;t like? How do you deal with them? - self-control, the ability to be constructive
-What&#8217;s your manager&#8217;s/peer/reporter name? If I call him/her how he/she will evaluate you from 0 to 10. What do you need to be 10?</p>
+<p>A stream cipher is good for a stream sending via a network. But it works badly for a file on disk. To read the last 10 bytes you need to decipher the whole file.</p>
 </div>
 <div class="paragraph">
-<p>If the answer to 3 is that the problem happened because of someone else this is an indicator that a person can&#8217;t take responsibility. The good answer is that I fucked up and I improved something to avoid it in the future.</p>
+<p>Block cipher - 128 or 256 bit. Takes a block of text and cipher it to the block with the same length. The size of the block is determined by an algorithm.</p>
 </div>
 <div class="paragraph">
-<p>Hard skills: What&#8217;s the most interesting problem you had. How did you solve it? For any answer, ask why did you choose this solution as many times as you need to find which other options were considered and how the decisions were made.</p>
+<p>Examples - DES (old) и AES (new)</p>
 </div>
+<div class="paragraph">
+<p>DES - the key is too short</p>
+</div>
+<div class="paragraph">
+<p>triple DES to get bigger block and key</p>
+</div>
+<div class="paragraph">
+<p>AES - key size is longer than DES</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_Хэши">Хэши</h3>
+<div class="paragraph">
+<p>Функция, которую надо повторить на каждом блоке, при этом результаты чейнятся как в CBC.</p>
+</div>
+<div class="paragraph">
+<p>Главное свойство хэша - он одного размера и при минимальном изменении сообщения, хэш меняется сильно.</p>
+</div>
+<div class="paragraph">
+<p>Используют главным образом для подписи.</p>
+</div>
+<div class="paragraph">
+<p>Еще используют, чтобы из случайного числа получить еще более трудноподбираемое. Если генератор случайных числе плохой, то ключ будет плохим, лучше его предварительно пропустить через хэш.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_motivation">Motivation</h2>
+<h2 id="_symmetric_vs_assymetric_encription">Symmetric vs Assymetric encription</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_symmetric_2">Symmetric</h3>
+<div class="paragraph">
+<p>the same key is used to encrypt and decrypt messages. The key should be private.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_assymetric">Assymetric</h3>
+<div class="paragraph">
+<p>two keys: public and private. The public is used to encrypt a message. After the message is encrypted nobody can read it. Even a person who just encrypted it. The message could be decrypted only by a person who has a private key.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hash">Hash</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Intrinsic motivation should be checked during hiring. It&#8217;s not possible to motivate someone who is not motivated at all.</p>
+<p>A message digest (short length from any length message)</p>
 </div>
 <div class="paragraph">
-<p>Ways to motivate:</p>
+<p>One way trip. It&#8217;s not possible to de-hash.</p>
 </div>
+<div class="paragraph">
+<p>Hash can be used to check identity. Hash before sending is the same as after receiving.</p>
+</div>
+<div class="paragraph">
+<p>Or for checking passwords. Instead of storing passwords, you add some salt to the password get hash from them, and store the hash. To check password identity you apply the same function, get hash and compare it with hash in the database.</p>
+</div>
+<div class="sect2">
+<h3 id="_digital_signature">Digital signature</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>ownership</p>
+<p>Prove the message was not changed</p>
 </li>
 <li>
-<p>public praise</p>
+<p>Prove the source of the message (Authentication)</p>
 </li>
 <li>
-<p>help to grow</p>
+<p>Make sure the signature isn&#8217;t fake</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>1- There is an area of responsibility. A person should understand what is the contribution to the company&#8217;s success. Shares(options) is a form of ownership.
-2 - We are social animals. It works only when everyone understands what is the achievement. The praise shouldn&#8217;t be done often, othervise it will not be valuable.
-Feedback: if it&#8217;s negative the form should be not "You did it wrong", but "I&#8217;m upset about results".
-3 - it should be clear how to achieve the next level. You can use gamification for that. The next level is more responsibility (see 1), so the higher the level the more possibility to be impactful.</p>
+<p>Sign with the private key. The message doesn&#8217;t need to be encrypted. Nobody else can sign thins (obviously)</p>
 </div>
 <div class="paragraph">
-<p>How to kill motivation:
-Bad environment and unfriendly peers
-Meaningless tasks</p>
+<p>You have some text. You create a hash of this text. Encrypt it with the private key. Send it with text.</p>
 </div>
-<div class="sect2">
-<h3 id="_delegate">Delegate</h3>
 <div class="paragraph">
-<p>Let someone else to perform your task. Otherwise, you don&#8217;t let others to grow (and be motivated (no ownership)) and you have less time to grow as well. Set goals not tasks.
-It&#8217;s clear for you != it&#8217;s clear for everyone (clarify and motivate (how this goal contribute to company success))
-How the result should look like. It should be clear how will we know that the task is achieved. We should have an artifact as a result.
-When you delegate, you feel that you have less control. But it&#8217;s ok, this is how trust is gained.
-Processes should work without you. Otherwise, a leader is a bottleneck.</p>
+<p>The recipient has your public key. The public key is used to decrypt the signature and get the hash. The same hash function is applied to the text and the result is compared with decrypted hash. If this is the same hash, the message is sent from Alice.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_links">Links</h2>
+<h2 id="_cryptograpthing_nonce">Cryptograpthing nonce</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="soft_skills.html">Parent</a></p>
+<p>Random number. The server memorizes it and sends it to the client, the client uses the number to mix it to reply. The server knows the random number, so it can check that this is the response to this particular request.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ephemeral_keys">Ephemeral keys</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Asymmetric keys are difficult to use, it takes a lot of CPU to decrypt. Usually, symmetric keys are used. Asymmetric keys are used to encrypt the symmetric key and send it via unprotected networks. The client receives an encrypted symmetric key, decrypt it using the public key, and uses a symmetric key for future communication. The symmetric key should be changed often. That&#8217;s why it&#8217;s called ephemeral.</p>
 </div>
 </div>
 </div>

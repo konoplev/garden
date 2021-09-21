@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Non-fiction books</title>
+    <title>RSA</title>
 
     <!-- meta -->
     <meta charset="UTF-8">
@@ -67,13 +67,12 @@
                 <div id="content-holder">
                     <article class="post post-1">
                         <header class="entry-header">
-                            <h1 class="entry-title">Non-fiction books</h1>
+                            <h1 class="entry-title">RSA</h1>
                             <div class="entry-meta">
                             <span class="post-date"><a href="#"><time class="entry-date"
-                                                                      datetime="2020-11-10T23:00:00Z">Nov 11, 2020</time></a></span>
+                                                                      datetime="2021-09-20T22:00:00Z">Sep 21, 2021</time></a></span>
 
                                 <span class="post-category">
-                                                                        <a href="non_fiction_books.html"> #non_fiction_books</a>
                                                                     </span>
 
                                                             </div>
@@ -82,32 +81,24 @@
                             <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This page contains links to summary of non-fiction books I&#8217;ve read</p>
+<p>: tags:</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_list">List</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_thinking_fast_and_slow">Thinking fast and slow</h3>
-<div class="paragraph">
-<p><a href="thinking_fast_and_slow.html">Thinking fast and slow</a></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_antifragile">Antifragile</h3>
-<div class="paragraph">
-<p><a href="antifragile.html">Antifragile</a> <a href="antifragile-ru.html">Антихрупкость</a> </p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_links">Links</h2>
+<h2 id="_definition">Definition</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="toc.html">Parent</a></p>
+<p>RSA (Rivest–Shamir–Adleman) is one of the first public-key cryptosystems and is widely used for secure data transmission. In such a cryptosystem, the encryption key is public and it is different from the decryption key which is kept secret (private). In RSA, this asymmetry is based on the practical difficulty of the factorization of the product of two large prime numbers, the "factoring problem".</p>
+</div>
+<div class="paragraph">
+<p>A user of RSA creates and then publishes a public key based on two large prime numbers, along with an auxiliary value. The prime numbers must be kept secret. Anyone can use the public key to encrypt a message, but with currently published methods, and if the public key is large enough, only someone with knowledge of the prime numbers can decode the message feasibly.[2] Breaking RSA encryption is known as the RSA problem. Whether it is as difficult as the factoring problem remains an open question.</p>
+</div>
+<div class="paragraph">
+<p>So, receiver sends public key to sender (via any channel, the key is public). Sender uses public key to encrypt the message. Message can&#8217;t be decrypted without private key. Knowing public key only is not enough to decrypt the message.</p>
+</div>
+<div class="paragraph">
+<p>RSA is a relatively slow algorithm, and because of this, it is less commonly used to directly encrypt user data. More often, RSA passes encrypted shared keys for symmetric key cryptography which in turn can perform bulk encryption-decryption operations at much higher speed.</p>
 </div>
 </div>
 </div>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>oAuth</title>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/pace.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/lc_gif_player.css">
+
+    <!-- js -->
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+</head>
+
+<body id="single">
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="index.html"><b>Konoplev's</b> garden</a></h1>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="index.html" data-hover="Garden">Garden</a></li>
+                            <li class="cl-effect-11"><a href="http://konoplev.me" data-hover="Blog">Blog</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <input type="search" placeholder="Search" required class="search-input">
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- col-md-8 -->
+        </div>
+    </header>
+</div>
+
+
+<div class="content-body">
+    <div class="container">
+        <div class="row">
+            <main class="col-md-12">
+                <div id="content-holder">
+                    <article class="post post-1">
+                        <header class="entry-header">
+                            <h1 class="entry-title">oAuth</h1>
+                            <div class="entry-meta">
+                            <span class="post-date"><a href="#"><time class="entry-date"
+                                                                      datetime="2021-09-20T22:00:00Z">Sep 21, 2021</time></a></span>
+
+                                <span class="post-category">
+                                                                    </span>
+
+                                                            </div>
+                        </header>
+                        <div class="entry-content clearfix">
+                            <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>: tags:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_idea">Idea</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are two plaers: client and protected server. Protected server needs authenticate and authorize client.</p>
+</div>
+<div class="paragraph">
+<p>client app always has access_token, not user credentials. Access token can be unverfied, so app will not be able to make any requests. It&#8217;s easeir to unverify access token, then password (because resource server doesn&#8217;t know the password).</p>
+</div>
+<div class="paragraph">
+<p>Access token could have very short life. Access token can be refreshed (exchange existing token into the new one). So refresh can verify is it ok to prolong access token or not.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_grant_types">Grant types</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_password">Password</h3>
+<div class="paragraph">
+<p>For your own apps only (apps controlled by same developers as developing protected server).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>POST /oauth/token HTTP/1.1
+Host: authorization-server.com
+Content-type: application/x-www-form-urlencoded
+
+grant_type=password
+&amp;username=exampleuser
+&amp;password=1234luggage
+&amp;client_id=xxxxxxxxxx</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If user credentials are ok, the server provides access token.</p>
+</div>
+<div class="paragraph">
+<p>Response</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>{
+  "access_token": "MTQ0NjOkZmQ5OTM5NDE9ZTZjNGZmZjI3",
+  "token_type": "bearer",
+  "expires_in": 3600,
+  "scope": "create"
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authorization_code_grant">Authorization Code Grant</h3>
+<div class="paragraph">
+<p>For third party clients. Third party client has client id and secret. It uses client id to redirect user to protected resource.</p>
+</div>
+<div class="paragraph">
+<p>User is redirected to protected resource. Protected resource authenticates user and checks client id. By client id resource server find scope and ask user to confirm the scope. If user confirms, protected resource redirects user back (using redirct url which can be fetched from client id or if there are multiple urls the url should be passed in redirect (and checked by server that the url is correct) ) with authorization code.</p>
+</div>
+<div class="paragraph">
+<p>Authorization code can be exchanged for access token. To exchange it client uses client secret with authorization code.</p>
+</div>
+<div class="paragraph">
+<p>So, the flow:</p>
+</div>
+<div class="paragraph">
+<p>Client:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>https://authorization-server.com/auth
+ ?response_type=code
+ &amp;client_id=29352915982374239857
+ &amp;redirect_uri=https%3A%2F%2Fexample-app.com%2Fcallback
+ &amp;scope=create+delete
+ &amp;state=xcoiv98y2kd22vusuye3kch
+--------------------
+
+After user is authenticated, Server redirects back:
+
+------------------------
+https://example-app.com/redirect
+ ?code=g0ZGZmNjVmOWIjNTk2NTk4ZTYyZGI3
+ &amp;state=xcoiv98y2kd22vusuye3kch
+------------------------
+
+The state value will be the same value that the application initially set in the request. The application is expected to check that the state in the redirect matches the state it originally set. This protects against CSRF and other related attacks.
+
+The application makes a POST request to the service’s token endpoint with the following parameters:
+
+grant_type=authorization_code - This tells the token endpoint that the application is using the Authorization Code grant type.
+code - The application includes the authorization code it was given in the redirect.
+redirect_uri - The same redirect URI that was used when requesting the code. Some APIs don’t require this parameter, so you’ll need to double check the documentation of the particular API you’re accessing.
+client_id - The application’s client ID.
+client_secret - The application’s client secret. This ensures that the request to get the access token is made only from the application, and not from a potential attacker that may have intercepted the authorization code.
+
+The token endpoint will verify all the parameters in the request, ensuring the code hasn’t expired and that the client ID and secret match. If everything checks out, it will generate an access token and return it in the response!
+
+-------------------------
+HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-store
+Pragma: no-cache
+
+{
+  "access_token":"MTQ0NjJkZmQ5OTM2NDE1ZTZjNGZmZjI3",
+  "token_type":"bearer",
+  "expires_in":3600,
+  "refresh_token":"IwOGYzYTlmM2YxOTQ5MGE3YmNmMDFkNTVk",
+  "scope":"create delete"
+}
+-------------------------
+
+The Authorization Code flow is best used in web and mobile apps. Since the Authorization Code grant has the extra step of exchanging the authorization code for the access token, it provides an additional layer of security not present in the Implicit grant type.
+
+Client security code can be invalidated at any time. So if application does something wrong, server can block it.
+
+=== Authorization code flow with the PKCE extension
+
+PKCE (RFC 7636) is a technique to secure public clients that don't use a client secret.
+
+It is primarily used by native and mobile apps, but the technique can be applied to any public client as well. It requires additional support by the authorization server, so it is only supported on certain providers.
+
+In step (1), the native application running on the end device, such as a smartphone, issues
+an OAuth 2.0 Authorization Request via the browser/operating system.
+The Redirection Endpoint URI in this case typically uses a custom URI
+scheme.  Step (1) happens through a secure API that cannot be
+intercepted, though it may potentially be observed in advanced attack
+scenarios.  The request then gets forwarded to the OAuth 2.0
+authorization server in step (2).  Because OAuth requires the use of
+TLS, this communication is protected by TLS and cannot be
+intercepted.  The authorization server returns the authorization code
+in step (3).  In step (4), the Authorization Code is returned to the
+requester via the Redirection Endpoint URI that was provided in step
+(1).
+
+Note that it is possible for a malicious app to register itself as a
+handler for the custom scheme in addition to the legitimate OAuth 2.0
+app.  Once it does so, the malicious app is now able to intercept the
+authorization code in step (4).  This allows the attacker to request
+and obtain an access token in steps (5) and (6), respectively.
+
+--------------------------------
+ +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+    | End Device (e.g., Smartphone)  |
+    |                                |
+    | +-------------+   +----------+ | (6) Access Token  +----------+
+    | |Legitimate   |   | Malicious|&lt;--------------------|          |
+    | |OAuth 2.0 App|   | App      |--------------------&gt;|          |
+    | +-------------+   +----------+ | (5) Authorization |          |
+    |        |    ^          ^       |        Grant      |          |
+    |        |     \         |       |                   |          |
+    |        |      \   (4)  |       |                   |          |
+    |    (1) |       \  Authz|       |                   |          |
+    |   Authz|        \ Code |       |                   |  Authz   |
+    | Request|         \     |       |                   |  Server  |
+    |        |          \    |       |                   |          |
+    |        |           \   |       |                   |          |
+    |        v            \  |       |                   |          |
+    | +----------------------------+ |                   |          |
+    | |                            | | (3) Authz Code    |          |
+    | |     Operating System/      |&lt;--------------------|          |
+    | |         Browser            |--------------------&gt;|          |
+    | |                            | | (2) Authz Request |          |
+    | +----------------------------+ |                   +----------+
+    +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+
+--------------------------------
+
+To prevent it Legitimate app generates some random value and encode it. The encoded values is passed with (2) Authz Request with encoding method. At step 5 the value (original) is passed, so Authz Server can encode origianl value and compare with the value received on step 2.
+
+
+== JWT as an access token
+
+Has 3 parts: HEADER (which hashing algorithm is being used to create the JWT signature component), PAYLOAD (usefull information to check permissions, scope, user, when token expired, etc.) and SIGNATURE
+
+Signature:
+
+data = base64urlEncode( header ) + “.” + base64urlEncode( payload )
+hashedData = hash( data, secret )
+signature = base64urlEncode( hashedData )</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+                        </div>
+                        <div class="height-40px"></div>
+                        <div>
+                            <div id="remark42" aria-live="polite">
+                                <noscript>Please enable JavaScript to view the comments</noscript>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy; 2020 Konoplev.me</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="index.html">Garden</a></li>
+            <li><a href="http://konoplev.me">Blog</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script src="js/script.js" type="module"></script>
+<script>
+    var remark_config = {
+        host: "https://comments.konoplev.me",
+        site_id: 'konoplev',
+    };
+
+    (function (c) {
+        for (var i = 0; i < c.length; i++) {
+            var d = document, s = d.createElement('script');
+            s.src = remark_config.host + '/web/' + c[i] + '.js';
+            s.defer = true;
+            (d.head || d.body).appendChild(s);
+        }
+    })(remark_config.components || ['embed']);
+</script>
+
+</body>
+</html>
