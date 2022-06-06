@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Security</title>
+    <title>Spring JPA</title>
 
     <!-- meta -->
     <meta charset="UTF-8">
@@ -67,10 +67,10 @@
                 <div id="content-holder">
                     <article class="post post-1">
                         <header class="entry-header">
-                            <h1 class="entry-title">Security</h1>
+                            <h1 class="entry-title">Spring JPA</h1>
                             <div class="entry-meta">
                             <span class="post-date"><a href="#"><time class="entry-date"
-                                                                      datetime="2021-09-20T22:00:00Z">Sept 21, 2021</time></a></span>
+                                                                      datetime="2021-06-03T22:00:00Z">Jun 4, 2021</time></a></span>
 
                                 <span class="post-category">
                                                                     </span>
@@ -86,66 +86,126 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_cryptography">cryptography</h2>
+<h2 id="_idea">Idea</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="cryptography.html">cryptography</a></p>
+<p>Hides Hibernate details. Allows to create a repository to perform queries on a SQL DB.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ca_and_ssl_handshake">CA and SSL handshake</h2>
+<h2 id="_how_does_it_work">How does it work</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="CA_and_SSL_handshake.html">CA and SSL handshake</a></p>
+<p>Spring creates a proxy and wrap each method with a transaction. See <code>@Transactional</code> (the annotation that can be used to make any method transactional).</p>
+</div>
+<div class="sect2">
+<h3 id="_transaction_isolation_levels">Transaction isolation levels</h3>
+<div class="paragraph">
+<p>Defines the data contract between transactions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ISOLATION_READ_UNCOMMITTED: Transaction sees other transaction changes even in between begin and commit. It could lead reading data that is never committed because the modifying transaction has been rolled back.</p>
+</li>
+<li>
+<p>ISOLATION_READ_COMMITTED: Does not allow dirty reads (described above).</p>
+</li>
+<li>
+<p>ISOLATION_REPEATABLE_READ: If a row is read twice in the same transaction, the result will always be the same (even if between the reads another transaction is executed and modified the data).</p>
+</li>
+<li>
+<p>ISOLATION_SERIALIZABLE: Performs all transactions in a sequence.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The default isolation level is default isolation level of the database. For Postgress it&#8217;s ISOLATION_READ_COMMITTED.</p>
+</div>
+<div class="paragraph">
+<p>When ISOLATION_SERIALIZABLE needed? Your transaction reads some state and make decision based on this state to modify the state. Example: There are</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_transaction_propagation">Transaction Propagation</h3>
+<div class="paragraph">
+<p>Defines how transactions relate to each other. Common options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>REQUIRED: Code will always run in a transaction. Creates a new transaction or reuses one if available.</p>
+</li>
+<li>
+<p>REQUIRES_NEW: Code will always run in a new transaction. Suspends the current transaction if one exists.
+The default value for @Transactional is REQUIRED, and this is often what you want.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_oauth">oAuth</h2>
+<h2 id="_persistence_context">Persistence Context</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="oauth.html">oAuth</a></p>
+<p>The persistence context is the first-level cache where all the entities are fetched from the database or saved to the database. It sits between our application and persistent storage.</p>
+</div>
+<div class="paragraph">
+<p>Persistence context keeps track of any changes made into a managed entity. If anything changes during a transaction, then the entity is marked as dirty. When the transaction completes, these changes are flushed into persistent storage.</p>
+</div>
+<div class="paragraph">
+<p>To explicitly inject the manager managing the context:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>@PersistenceContext
+private EntityManager entityManager;</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_transaction_scoped_persistence_context_default">Transaction-scoped persistence context (Default)</h3>
+<div class="paragraph">
+<p>The transaction persistence context is bound to the transaction. As soon as the transaction finishes, the entities present in the persistence context will be flushed into persistent storage.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_extended_scoped_persistence_context">Extended-Scoped Persistence Context</h3>
+<div class="paragraph">
+<p><code>@PersistenceContext(type = PersistenceContextType.EXTENDED)</code></p>
+</div>
+<div class="paragraph">
+<p>An extended persistence context can span across multiple transactions. We can persist the entity without the transaction but cannot flush it without a transaction.</p>
+</div>
+<div class="paragraph">
+<p>In the stateless session bean, the extended persistence context in one component is completely unaware of any persistence context of another component. This is true even if both are in same the same transaction.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_password_hash">password hash</h2>
+<h2 id="_modifying">@Modifying</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="password_hash_in_db.html">password hash in db</a></p>
+<p>Required if the @Query of a JPA repo method used UPDATE, DELETE, INSERT. So the Spring knows what to do with the Persistence Context. The thing that modification query changes the object in the database and Spring doesn&#8217;t have any way to reflect this changes in the Persistence Context. So you have two options to add <code>flushAutomatically</code> and <code>clearAutomatically</code> to flush (before executing the method) and/or clear (to get it fresh from the database next time) the object from the persistence context. Most probably you need at least <code>clearAutomatically</code> to update the context. You don&#8217;t need it only when you perform the same modifications on the POJO. For example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>@Modifying
+  @Query("update BalanceEntity b set b.amount = :amount where b.id = " + BALANCE_ID)
+  void updateBalance(@Param("amount") BigDecimal amount);
+
+def entity = new BalanceEntity()
+entity.id = BALANCE_ID
+entity.amount = 0
+balanceRepository.save(entity)
+balanceRepository.updateBalance(10)
+entity.amount = 10</pre>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_jwt">JWT</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p><a href="jwt.html">JWT</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_hmac">HMAC</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="hmac.html">HMAC</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_rsa">RSA</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="RSA.html">RSA</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_sha_256">SHA-256</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><a href="SHA-256.html">SHA-256</a></p>
+<p>So, in this case the object in persistence context and the object in database have the same value 10.</p>
 </div>
 </div>
 </div>

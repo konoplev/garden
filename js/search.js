@@ -37,6 +37,13 @@ text: ``,
 date: "Tue Sep 21 00:00:00 CEST 2021",
 tags: []
 });
+    filesMap.set("antifragility", {
+filename: "antifragility",
+title: "Antifragility",
+text: ``,
+date: "Sun May 16 00:00:00 CEST 2021",
+tags: []
+});
         filesMap.set("nosql_dbs", {
 filename: "nosql_dbs",
 title: "NoSQL DBs",
@@ -344,6 +351,13 @@ text: `As short as possible description
 date: "Fri Dec 04 00:00:00 CET 2020",
 tags: [ {name: 'queues', fileName: 'queues'},  {name: 'programming', fileName: 'programming'}, ]
 });
+    filesMap.set("spring_jpa", {
+filename: "spring_jpa",
+title: "Spring JPA",
+text: ``,
+date: "Fri Jun 04 00:00:00 CEST 2021",
+tags: []
+});
 
 let searchMap = new Map();
 
@@ -506,15 +520,19 @@ let standardsWordSet = new Set();
         standardsWordSet.add("jwt");
     searchMap.set("standards", standardsWordSet);
 
+let reusesWordSet = new Set();
+        reusesWordSet.add("spring_jpa");
+    searchMap.set("reuses", reusesWordSet);
+
+let tripleWordSet = new Set();
+        tripleWordSet.add("cryptography");
+    searchMap.set("triple", tripleWordSet);
+
 let appliesWordSet = new Set();
         appliesWordSet.add("mongo_db");
         appliesWordSet.add("antifragility");
         appliesWordSet.add("mysql_vs_postgres");
     searchMap.set("applies", appliesWordSet);
-
-let tripleWordSet = new Set();
-        tripleWordSet.add("cryptography");
-    searchMap.set("triple", tripleWordSet);
 
 let sizeWordSet = new Set();
         sizeWordSet.add("mongo_db");
@@ -555,19 +573,20 @@ let objectWordSet = new Set();
         objectWordSet.add("kafka_in_action_summary");
         objectWordSet.add("java_concurrency");
         objectWordSet.add("jwt");
+        objectWordSet.add("spring_jpa");
         objectWordSet.add("hmac");
         objectWordSet.add("antifragility");
         objectWordSet.add("rxjava");
         objectWordSet.add("acid_internally");
     searchMap.set("object", objectWordSet);
 
-let newspaperWordSet = new Set();
-        newspaperWordSet.add("antifragility");
-    searchMap.set("newspaper", newspaperWordSet);
-
 let cecWordSet = new Set();
         cecWordSet.add("test_all");
     searchMap.set("cec", cecWordSet);
+
+let newspaperWordSet = new Set();
+        newspaperWordSet.add("antifragility");
+    searchMap.set("newspaper", newspaperWordSet);
 
 let statisticalWordSet = new Set();
         statisticalWordSet.add("thinking_fast_and_slow");
@@ -585,6 +604,7 @@ let roleWordSet = new Set();
         roleWordSet.add("mongo_db");
         roleWordSet.add("leadership");
         roleWordSet.add("terraform");
+        roleWordSet.add("oauth");
     searchMap.set("role", roleWordSet);
 
 let infiniteWordSet = new Set();
@@ -609,6 +629,7 @@ let exampleWordSet = new Set();
         exampleWordSet.add("sha-256");
         exampleWordSet.add("java_concurrency");
         exampleWordSet.add("jwt");
+        exampleWordSet.add("spring_jpa");
         exampleWordSet.add("antifragility");
         exampleWordSet.add("cryptography");
         exampleWordSet.add("ca_and_ssl_handshake");
@@ -634,6 +655,7 @@ let rebuiltWordSet = new Set();
 let resultWordSet = new Set();
         resultWordSet.add("thinking_fast_and_slow");
         resultWordSet.add("java_concurrency");
+        resultWordSet.add("spring_jpa");
         resultWordSet.add("antifragility");
         resultWordSet.add("cryptography");
         resultWordSet.add("ca_and_ssl_handshake");
@@ -668,6 +690,7 @@ let sameWordSet = new Set();
         sameWordSet.add("mongo_db");
         sameWordSet.add("java_concurrency");
         sameWordSet.add("jwt");
+        sameWordSet.add("spring_jpa");
         sameWordSet.add("antifragility");
         sameWordSet.add("cryptography");
         sameWordSet.add("sql_commands");
@@ -770,6 +793,7 @@ let aWordSet = new Set();
         aWordSet.add("career_crises");
         aWordSet.add("day_dreams");
         aWordSet.add("jwt");
+        aWordSet.add("spring_jpa");
         aWordSet.add("toc");
         aWordSet.add("ca_and_ssl_handshake");
         aWordSet.add("about_the_digital_garden");
@@ -810,6 +834,7 @@ let bWordSet = new Set();
         bWordSet.add("mongo_db");
         bWordSet.add("kafka_in_action_summary");
         bWordSet.add("java_concurrency");
+        bWordSet.add("spring_jpa");
         bWordSet.add("relational_dbs_performance");
         bWordSet.add("antifragility");
         bWordSet.add("antihrupkost");
@@ -916,6 +941,7 @@ let iWordSet = new Set();
         iWordSet.add("choice");
         iWordSet.add("rxjava");
         iWordSet.add("password_hash_in_db");
+        iWordSet.add("oauth");
         iWordSet.add("acid_internally");
         iWordSet.add("non-fiction_books");
     searchMap.set("i", iWordSet);
@@ -970,6 +996,7 @@ let theWordSet = new Set();
         theWordSet.add("career_crises");
         theWordSet.add("day_dreams");
         theWordSet.add("jwt");
+        theWordSet.add("spring_jpa");
         theWordSet.add("ca_and_ssl_handshake");
         theWordSet.add("about_the_digital_garden");
         theWordSet.add("kafka_in_action_summary");
@@ -1022,6 +1049,7 @@ let sWordSet = new Set();
         sWordSet.add("career_crises");
         sWordSet.add("day_dreams");
         sWordSet.add("jwt");
+        sWordSet.add("spring_jpa");
         sWordSet.add("ca_and_ssl_handshake");
         sWordSet.add("kafka_in_action_summary");
         sWordSet.add("interest");
@@ -1050,6 +1078,7 @@ let tWordSet = new Set();
         tWordSet.add("rsa");
         tWordSet.add("career_crises");
         tWordSet.add("jwt");
+        tWordSet.add("spring_jpa");
         tWordSet.add("kafka_in_action_summary");
         tWordSet.add("hmac");
         tWordSet.add("leadership");
@@ -1088,6 +1117,7 @@ let vWordSet = new Set();
         vWordSet.add("career_crises");
         vWordSet.add("day_dreams");
         vWordSet.add("jwt");
+        vWordSet.add("spring_jpa");
         vWordSet.add("toc");
         vWordSet.add("nosql_dbs");
         vWordSet.add("ca_and_ssl_handshake");
@@ -1153,14 +1183,18 @@ let xWordSet = new Set();
         xWordSet.add("oauth");
     searchMap.set("x", xWordSet);
 
+let yWordSet = new Set();
+        yWordSet.add("oauth");
+    searchMap.set("y", yWordSet);
+
+let unverifiedWordSet = new Set();
+        unverifiedWordSet.add("oauth");
+    searchMap.set("unverified", unverifiedWordSet);
+
 let obviousWordSet = new Set();
         obviousWordSet.add("antifragility");
         obviousWordSet.add("sql_commands");
     searchMap.set("obvious", obviousWordSet);
-
-let yWordSet = new Set();
-        yWordSet.add("oauth");
-    searchMap.set("y", yWordSet);
 
 let informationWordSet = new Set();
         informationWordSet.add("mongo_db");
@@ -1390,14 +1424,14 @@ let offsWordSet = new Set();
         offsWordSet.add("jwt");
     searchMap.set("offs", offsWordSet);
 
+let expandedWordSet = new Set();
+        expandedWordSet.add("hmac");
+    searchMap.set("expanded", expandedWordSet);
+
 let societyWordSet = new Set();
         societyWordSet.add("interest");
         societyWordSet.add("antifragility");
     searchMap.set("society", societyWordSet);
-
-let expandedWordSet = new Set();
-        expandedWordSet.add("hmac");
-    searchMap.set("expanded", expandedWordSet);
 
 let verifiableWordSet = new Set();
         verifiableWordSet.add("kafka_in_action_summary");
@@ -1405,6 +1439,7 @@ let verifiableWordSet = new Set();
 
 let flowsWordSet = new Set();
         flowsWordSet.add("rxjava");
+        flowsWordSet.add("oauth");
     searchMap.set("flows", flowsWordSet);
 
 let providerWordSet = new Set();
@@ -1471,13 +1506,13 @@ let conduciveWordSet = new Set();
         conduciveWordSet.add("antifragility");
     searchMap.set("conducive", conduciveWordSet);
 
-let pilotWordSet = new Set();
-        pilotWordSet.add("antifragility");
-    searchMap.set("pilot", pilotWordSet);
-
 let energeWordSet = new Set();
         energeWordSet.add("thinking_fast_and_slow");
     searchMap.set("energe", energeWordSet);
+
+let pilotWordSet = new Set();
+        pilotWordSet.add("antifragility");
+    searchMap.set("pilot", pilotWordSet);
 
 let useradminanydatabaseWordSet = new Set();
         useradminanydatabaseWordSet.add("mongo_db");
@@ -1521,6 +1556,7 @@ let multipleWordSet = new Set();
         multipleWordSet.add("dynamo_db");
         multipleWordSet.add("java_concurrency");
         multipleWordSet.add("jwt");
+        multipleWordSet.add("spring_jpa");
         multipleWordSet.add("sql_commands");
         multipleWordSet.add("kafka_in_action_summary");
         multipleWordSet.add("relational_dbs_performance");
@@ -1800,9 +1836,9 @@ let dumpsWordSet = new Set();
         dumpsWordSet.add("kafka_in_action_summary");
     searchMap.set("dumps", dumpsWordSet);
 
-let disgustinglyWordSet = new Set();
-        disgustinglyWordSet.add("antifragility");
-    searchMap.set("disgustingly", disgustinglyWordSet);
+let saveWordSet = new Set();
+        saveWordSet.add("spring_jpa");
+    searchMap.set("save", saveWordSet);
 
 let tocWordSet = new Set();
         tocWordSet.add("devops");
@@ -1814,6 +1850,10 @@ let tocWordSet = new Set();
         tocWordSet.add("non-fiction_books");
         tocWordSet.add("programming");
     searchMap.set("toc", tocWordSet);
+
+let disgustinglyWordSet = new Set();
+        disgustinglyWordSet.add("antifragility");
+    searchMap.set("disgustingly", disgustinglyWordSet);
 
 let respectivelyWordSet = new Set();
         respectivelyWordSet.add("oauth");
@@ -1840,17 +1880,18 @@ let tupleWordSet = new Set();
 
 let topWordSet = new Set();
         topWordSet.add("mongo_db");
+        topWordSet.add("oauth");
         topWordSet.add("programming");
         topWordSet.add("sql_commands");
     searchMap.set("top", topWordSet);
 
-let acquiringWordSet = new Set();
-        acquiringWordSet.add("antifragility");
-    searchMap.set("acquiring", acquiringWordSet);
-
 let honestyWordSet = new Set();
         honestyWordSet.add("leadership");
     searchMap.set("honesty", honestyWordSet);
+
+let acquiringWordSet = new Set();
+        acquiringWordSet.add("antifragility");
+    searchMap.set("acquiring", acquiringWordSet);
 
 let tooWordSet = new Set();
         tooWordSet.add("kafka_in_action_summary");
@@ -1872,6 +1913,7 @@ let haveWordSet = new Set();
         haveWordSet.add("java_concurrency");
         haveWordSet.add("day_dreams");
         haveWordSet.add("jwt");
+        haveWordSet.add("spring_jpa");
         haveWordSet.add("antifragility");
         haveWordSet.add("cryptography");
         haveWordSet.add("ca_and_ssl_handshake");
@@ -2113,6 +2155,7 @@ let lessWordSet = new Set();
         lessWordSet.add("relational_dbs_performance");
         lessWordSet.add("antifragility");
         lessWordSet.add("password_hash_in_db");
+        lessWordSet.add("oauth");
         lessWordSet.add("sql_commands");
         lessWordSet.add("kafka_very_short_summary");
     searchMap.set("less", lessWordSet);
@@ -2358,6 +2401,7 @@ let whereinWordSet = new Set();
 
 let definesWordSet = new Set();
         definesWordSet.add("jwt");
+        definesWordSet.add("spring_jpa");
     searchMap.set("defines", definesWordSet);
 
 let concernWordSet = new Set();
@@ -2378,13 +2422,13 @@ let eventualWordSet = new Set();
         eventualWordSet.add("mongo_db");
     searchMap.set("eventual", eventualWordSet);
 
-let mountainWordSet = new Set();
-        mountainWordSet.add("antifragility");
-    searchMap.set("mountain", mountainWordSet);
-
 let integrityWordSet = new Set();
         integrityWordSet.add("hmac");
     searchMap.set("integrity", integrityWordSet);
+
+let mountainWordSet = new Set();
+        mountainWordSet.add("antifragility");
+    searchMap.set("mountain", mountainWordSet);
 
 let requareWordSet = new Set();
         requareWordSet.add("rxjava");
@@ -2398,14 +2442,14 @@ let statsWordSet = new Set();
         statsWordSet.add("mongo_db");
     searchMap.set("stats", statsWordSet);
 
-let leoWordSet = new Set();
-        leoWordSet.add("antifragility");
-    searchMap.set("leo", leoWordSet);
-
 let mergeWordSet = new Set();
         mergeWordSet.add("java_concurrency");
         mergeWordSet.add("relational_dbs_performance");
     searchMap.set("merge", mergeWordSet);
+
+let leoWordSet = new Set();
+        leoWordSet.add("antifragility");
+    searchMap.set("leo", leoWordSet);
 
 let destroysWordSet = new Set();
         destroysWordSet.add("antifragility");
@@ -2444,6 +2488,7 @@ let stateWordSet = new Set();
         stateWordSet.add("kafka_in_action_summary");
         stateWordSet.add("java_concurrency");
         stateWordSet.add("jwt");
+        stateWordSet.add("spring_jpa");
         stateWordSet.add("antifragility");
         stateWordSet.add("comparing_different_queues");
         stateWordSet.add("terraform");
@@ -2513,6 +2558,7 @@ let eachWordSet = new Set();
         eachWordSet.add("java_concurrency");
         eachWordSet.add("day_dreams");
         eachWordSet.add("jwt");
+        eachWordSet.add("spring_jpa");
         eachWordSet.add("antifragility");
         eachWordSet.add("cryptography");
         eachWordSet.add("about_the_digital_garden");
@@ -2525,9 +2571,14 @@ let eachWordSet = new Set();
         eachWordSet.add("terraform");
         eachWordSet.add("rxjava");
         eachWordSet.add("password_hash_in_db");
+        eachWordSet.add("oauth");
         eachWordSet.add("acid_internally");
         eachWordSet.add("kafka_very_short_summary");
     searchMap.set("each", eachWordSet);
+
+let tvsWordSet = new Set();
+        tvsWordSet.add("oauth");
+    searchMap.set("tvs", tvsWordSet);
 
 let creatingWordSet = new Set();
         creatingWordSet.add("mongo_db");
@@ -2551,6 +2602,7 @@ let perfectlyWordSet = new Set();
 
 let probablyWordSet = new Set();
         probablyWordSet.add("kafka_in_action_summary");
+        probablyWordSet.add("spring_jpa");
     searchMap.set("probably", probablyWordSet);
 
 let documentWordSet = new Set();
@@ -2587,6 +2639,7 @@ let twoWordSet = new Set();
         twoWordSet.add("mongo_db");
         twoWordSet.add("java_concurrency");
         twoWordSet.add("jwt");
+        twoWordSet.add("spring_jpa");
         twoWordSet.add("antifragility");
         twoWordSet.add("cryptography");
         twoWordSet.add("sql_commands");
@@ -2616,13 +2669,13 @@ let promoteWordSet = new Set();
         promoteWordSet.add("mysql_vs_postgres");
     searchMap.set("promote", promoteWordSet);
 
-let tearWordSet = new Set();
-        tearWordSet.add("antifragility");
-    searchMap.set("tear", tearWordSet);
-
 let desiredWordSet = new Set();
         desiredWordSet.add("terraform");
     searchMap.set("desired", desiredWordSet);
+
+let tearWordSet = new Set();
+        tearWordSet.add("antifragility");
+    searchMap.set("tear", tearWordSet);
 
 let scenarioWordSet = new Set();
         scenarioWordSet.add("kafka_in_action_summary");
@@ -2639,12 +2692,13 @@ let attackWordSet = new Set();
 
 let doesWordSet = new Set();
         doesWordSet.add("mongo_db");
-        doesWordSet.add("kafka_in_action_summary");
         doesWordSet.add("java_concurrency");
         doesWordSet.add("jwt");
+        doesWordSet.add("spring_jpa");
+        doesWordSet.add("antifragility");
+        doesWordSet.add("kafka_in_action_summary");
         doesWordSet.add("hmac");
         doesWordSet.add("relational_dbs_performance");
-        doesWordSet.add("antifragility");
         doesWordSet.add("mysql_vs_postgres");
         doesWordSet.add("rxjava");
         doesWordSet.add("password_hash_in_db");
@@ -2682,6 +2736,7 @@ let situationWordSet = new Set();
     searchMap.set("situation", situationWordSet);
 
 let modifyingWordSet = new Set();
+        modifyingWordSet.add("spring_jpa");
         modifyingWordSet.add("relational_dbs_performance");
     searchMap.set("modifying", modifyingWordSet);
 
@@ -2720,13 +2775,13 @@ let replacesWordSet = new Set();
         replacesWordSet.add("password_hash_in_db");
     searchMap.set("replaces", replacesWordSet);
 
-let replacedWordSet = new Set();
-        replacedWordSet.add("antifragility");
-    searchMap.set("replaced", replacedWordSet);
-
 let thinsWordSet = new Set();
         thinsWordSet.add("cryptography");
     searchMap.set("thins", thinsWordSet);
+
+let replacedWordSet = new Set();
+        replacedWordSet.add("antifragility");
+    searchMap.set("replaced", replacedWordSet);
 
 let reporterWordSet = new Set();
         reporterWordSet.add("leadership");
@@ -2772,6 +2827,7 @@ let decryptWordSet = new Set();
 
 let thingWordSet = new Set();
         thingWordSet.add("jwt");
+        thingWordSet.add("spring_jpa");
         thingWordSet.add("relational_dbs_performance");
         thingWordSet.add("antifragility");
         thingWordSet.add("terraform");
@@ -2917,6 +2973,10 @@ let developWordSet = new Set();
         developWordSet.add("kafka_in_action_summary");
     searchMap.set("develop", developWordSet);
 
+let cumulateWordSet = new Set();
+        cumulateWordSet.add("java_concurrency");
+    searchMap.set("cumulate", cumulateWordSet);
+
 let huntsWordSet = new Set();
         huntsWordSet.add("antifragility");
     searchMap.set("hunts", huntsWordSet);
@@ -2924,10 +2984,6 @@ let huntsWordSet = new Set();
 let technologiesWordSet = new Set();
         technologiesWordSet.add("antifragility");
     searchMap.set("technologies", technologiesWordSet);
-
-let cumulateWordSet = new Set();
-        cumulateWordSet.add("java_concurrency");
-    searchMap.set("cumulate", cumulateWordSet);
 
 let involvedWordSet = new Set();
         involvedWordSet.add("kafka_in_action_summary");
@@ -2979,13 +3035,13 @@ let pepperWordSet = new Set();
         pepperWordSet.add("password_hash_in_db");
     searchMap.set("pepper", pepperWordSet);
 
-let awayWordSet = new Set();
-        awayWordSet.add("antifragility");
-    searchMap.set("away", awayWordSet);
-
 let cardsWordSet = new Set();
         cardsWordSet.add("thinking_fast_and_slow");
     searchMap.set("cards", cardsWordSet);
+
+let awayWordSet = new Set();
+        awayWordSet.add("antifragility");
+    searchMap.set("away", awayWordSet);
 
 let memoryWordSet = new Set();
         memoryWordSet.add("thinking_fast_and_slow");
@@ -3060,6 +3116,7 @@ let centerWordSet = new Set();
 
 let librariesWordSet = new Set();
         librariesWordSet.add("kafka_in_action_summary");
+        librariesWordSet.add("oauth");
     searchMap.set("libraries", librariesWordSet);
 
 let startWordSet = new Set();
@@ -3192,8 +3249,10 @@ let redisWordSet = new Set();
 let requiredWordSet = new Set();
         requiredWordSet.add("kafka_in_action_summary");
         requiredWordSet.add("jwt");
+        requiredWordSet.add("spring_jpa");
         requiredWordSet.add("antifragility");
         requiredWordSet.add("password_hash_in_db");
+        requiredWordSet.add("oauth");
     searchMap.set("required", requiredWordSet);
 
 let elenaWordSet = new Set();
@@ -3251,6 +3310,7 @@ let someadminusernameWordSet = new Set();
 
 let playersWordSet = new Set();
         playersWordSet.add("leadership");
+        playersWordSet.add("oauth");
     searchMap.set("players", playersWordSet);
 
 let destroyWordSet = new Set();
@@ -3289,6 +3349,7 @@ let provideWordSet = new Set();
         provideWordSet.add("hmac");
         provideWordSet.add("leadership");
         provideWordSet.add("rxjava");
+        provideWordSet.add("oauth");
     searchMap.set("provide", provideWordSet);
 
 let keyfileWordSet = new Set();
@@ -3300,6 +3361,7 @@ let countdownlatchWordSet = new Set();
     searchMap.set("countdownlatch", countdownlatchWordSet);
 
 let requiresWordSet = new Set();
+        requiresWordSet.add("spring_jpa");
         requiresWordSet.add("relational_dbs_performance");
         requiresWordSet.add("antifragility");
         requiresWordSet.add("password_hash_in_db");
@@ -3469,27 +3531,27 @@ let fetchWordSet = new Set();
         fetchWordSet.add("kafka_very_short_summary");
     searchMap.set("fetch", fetchWordSet);
 
-let interestsWordSet = new Set();
-        interestsWordSet.add("antifragility");
-    searchMap.set("interests", interestsWordSet);
-
 let randomlyWordSet = new Set();
         randomlyWordSet.add("password_hash_in_db");
     searchMap.set("randomly", randomlyWordSet);
 
+let interestsWordSet = new Set();
+        interestsWordSet.add("antifragility");
+    searchMap.set("interests", interestsWordSet);
+
 let doorWordSet = new Set();
         doorWordSet.add("sha-256");
     searchMap.set("door", doorWordSet);
-
-let dodgedWordSet = new Set();
-        dodgedWordSet.add("antifragility");
-    searchMap.set("dodged", dodgedWordSet);
 
 let quickWordSet = new Set();
         quickWordSet.add("thinking_fast_and_slow");
         quickWordSet.add("terraform");
         quickWordSet.add("how_to_create_a_python_project");
     searchMap.set("quick", quickWordSet);
+
+let dodgedWordSet = new Set();
+        dodgedWordSet.add("antifragility");
+    searchMap.set("dodged", dodgedWordSet);
 
 let interruptedexceptionWordSet = new Set();
         interruptedexceptionWordSet.add("java_concurrency");
@@ -3598,6 +3660,7 @@ let keepsWordSet = new Set();
         keepsWordSet.add("mongo_db");
         keepsWordSet.add("kafka_in_action_summary");
         keepsWordSet.add("java_concurrency");
+        keepsWordSet.add("spring_jpa");
         keepsWordSet.add("antifragility");
     searchMap.set("keeps", keepsWordSet);
 
@@ -3717,6 +3780,7 @@ let createsWordSet = new Set();
         createsWordSet.add("mongo_db");
         createsWordSet.add("kafka_in_action_summary");
         createsWordSet.add("java_concurrency");
+        createsWordSet.add("spring_jpa");
         createsWordSet.add("antifragility");
         createsWordSet.add("comparing_different_queues");
         createsWordSet.add("terraform");
@@ -3771,6 +3835,7 @@ let partWordSet = new Set();
 
 let behavesWordSet = new Set();
         behavesWordSet.add("antifragility");
+        behavesWordSet.add("oauth");
     searchMap.set("behaves", behavesWordSet);
 
 let constructsWordSet = new Set();
@@ -3818,13 +3883,13 @@ let mostrecentquestionsaboutWordSet = new Set();
         mostrecentquestionsaboutWordSet.add("java_concurrency");
     searchMap.set("mostrecentquestionsabout", mostrecentquestionsaboutWordSet);
 
-let editorsWordSet = new Set();
-        editorsWordSet.add("antifragility");
-    searchMap.set("editors", editorsWordSet);
-
 let parkWordSet = new Set();
         parkWordSet.add("thinking_fast_and_slow");
     searchMap.set("park", parkWordSet);
+
+let editorsWordSet = new Set();
+        editorsWordSet.add("antifragility");
+    searchMap.set("editors", editorsWordSet);
 
 let introductionWordSet = new Set();
         introductionWordSet.add("kafka_in_action_summary");
@@ -3914,6 +3979,10 @@ let connectorsWordSet = new Set();
         connectorsWordSet.add("kafka_very_short_summary");
     searchMap.set("connectors", connectorsWordSet);
 
+let defWordSet = new Set();
+        defWordSet.add("spring_jpa");
+    searchMap.set("def", defWordSet);
+
 let mutuallyWordSet = new Set();
         mutuallyWordSet.add("jwt");
     searchMap.set("mutually", mutuallyWordSet);
@@ -3930,6 +3999,7 @@ let areasWordSet = new Set();
 let flushedWordSet = new Set();
         flushedWordSet.add("kafka_in_action_summary");
         flushedWordSet.add("java_concurrency");
+        flushedWordSet.add("spring_jpa");
     searchMap.set("flushed", flushedWordSet);
 
 let pathWordSet = new Set();
@@ -4074,13 +4144,13 @@ let compareWordSet = new Set();
         compareWordSet.add("oauth");
     searchMap.set("compare", compareWordSet);
 
-let investmentsWordSet = new Set();
-        investmentsWordSet.add("antifragility");
-    searchMap.set("investments", investmentsWordSet);
-
 let choosingWordSet = new Set();
         choosingWordSet.add("choice");
     searchMap.set("choosing", choosingWordSet);
+
+let investmentsWordSet = new Set();
+        investmentsWordSet.add("antifragility");
+    searchMap.set("investments", investmentsWordSet);
 
 let existedWordSet = new Set();
         existedWordSet.add("persuasion");
@@ -4217,6 +4287,7 @@ let resendWordSet = new Set();
 
 let complicatedWordSet = new Set();
         complicatedWordSet.add("mysql_vs_postgres");
+        complicatedWordSet.add("oauth");
     searchMap.set("complicated", complicatedWordSet);
 
 let maximumWordSet = new Set();
@@ -4367,6 +4438,10 @@ let regardingWordSet = new Set();
         regardingWordSet.add("dynamo_db");
     searchMap.set("regarding", regardingWordSet);
 
+let propagationWordSet = new Set();
+        propagationWordSet.add("spring_jpa");
+    searchMap.set("propagation", propagationWordSet);
+
 let monthWordSet = new Set();
         monthWordSet.add("relational_dbs_performance");
     searchMap.set("month", monthWordSet);
@@ -4384,6 +4459,10 @@ let finalWordSet = new Set();
 let expirationWordSet = new Set();
         expirationWordSet.add("jwt");
     searchMap.set("expiration", expirationWordSet);
+
+let ietfWordSet = new Set();
+        ietfWordSet.add("oauth");
+    searchMap.set("ietf", ietfWordSet);
 
 let virtualWordSet = new Set();
         virtualWordSet.add("how_to_create_a_python_project");
@@ -4405,13 +4484,13 @@ let ratherWordSet = new Set();
         ratherWordSet.add("antifragility");
     searchMap.set("rather", ratherWordSet);
 
-let importanceWordSet = new Set();
-        importanceWordSet.add("antifragility");
-    searchMap.set("importance", importanceWordSet);
-
 let optimizedWordSet = new Set();
         optimizedWordSet.add("password_hash_in_db");
     searchMap.set("optimized", optimizedWordSet);
+
+let importanceWordSet = new Set();
+        importanceWordSet.add("antifragility");
+    searchMap.set("importance", importanceWordSet);
 
 let overwhelmedWordSet = new Set();
         overwhelmedWordSet.add("antifragility");
@@ -4426,6 +4505,7 @@ let backWordSet = new Set();
         backWordSet.add("kafka_in_action_summary");
         backWordSet.add("java_concurrency");
         backWordSet.add("jwt");
+        backWordSet.add("spring_jpa");
         backWordSet.add("antifragility");
         backWordSet.add("mysql_vs_postgres");
         backWordSet.add("ca_and_ssl_handshake");
@@ -4533,6 +4613,10 @@ let checkpointsWordSet = new Set();
         checkpointsWordSet.add("mongo_db");
     searchMap.set("checkpoints", checkpointsWordSet);
 
+let permissionWordSet = new Set();
+        permissionWordSet.add("oauth");
+    searchMap.set("permission", permissionWordSet);
+
 let concernsWordSet = new Set();
         concernsWordSet.add("mongo_db");
     searchMap.set("concerns", concernsWordSet);
@@ -4616,6 +4700,7 @@ let navigationWordSet = new Set();
 let balanceWordSet = new Set();
         balanceWordSet.add("mongo_db");
         balanceWordSet.add("kafka_in_action_summary");
+        balanceWordSet.add("spring_jpa");
         balanceWordSet.add("antifragility");
     searchMap.set("balance", balanceWordSet);
 
@@ -4696,6 +4781,7 @@ let madeWordSet = new Set();
         madeWordSet.add("mongo_db");
         madeWordSet.add("java_concurrency");
         madeWordSet.add("jwt");
+        madeWordSet.add("spring_jpa");
         madeWordSet.add("leadership");
         madeWordSet.add("antifragility");
         madeWordSet.add("mysql_vs_postgres");
@@ -4807,10 +4893,6 @@ let fewestWordSet = new Set();
         fewestWordSet.add("kafka_in_action_summary");
     searchMap.set("fewest", fewestWordSet);
 
-let dogWordSet = new Set();
-        dogWordSet.add("antifragility");
-    searchMap.set("dog", dogWordSet);
-
 let evaluateWordSet = new Set();
         evaluateWordSet.add("leadership");
         evaluateWordSet.add("relational_dbs_performance");
@@ -4819,6 +4901,10 @@ let evaluateWordSet = new Set();
 let scryptWordSet = new Set();
         scryptWordSet.add("password_hash_in_db");
     searchMap.set("scrypt", scryptWordSet);
+
+let dogWordSet = new Set();
+        dogWordSet.add("antifragility");
+    searchMap.set("dog", dogWordSet);
 
 let snapshotWordSet = new Set();
         snapshotWordSet.add("mongo_db");
@@ -4829,6 +4915,7 @@ let snapshotWordSet = new Set();
 
 let transactionalWordSet = new Set();
         transactionalWordSet.add("kafka_in_action_summary");
+        transactionalWordSet.add("spring_jpa");
     searchMap.set("transactional", transactionalWordSet);
 
 let statusWordSet = new Set();
@@ -4875,6 +4962,7 @@ let donWordSet = new Set();
         donWordSet.add("career_crises");
         donWordSet.add("mongo_db");
         donWordSet.add("java_concurrency");
+        donWordSet.add("spring_jpa");
         donWordSet.add("antifragility");
         donWordSet.add("sql_commands");
         donWordSet.add("persuasion");
@@ -4919,24 +5007,24 @@ let targetsWordSet = new Set();
         targetsWordSet.add("kafka_in_action_summary");
     searchMap.set("targets", targetsWordSet);
 
-let scatteredWordSet = new Set();
-        scatteredWordSet.add("antifragility");
-    searchMap.set("scattered", scatteredWordSet);
-
 let macWordSet = new Set();
         macWordSet.add("hmac");
         macWordSet.add("password_hash_in_db");
     searchMap.set("mac", macWordSet);
 
-let governmentWordSet = new Set();
-        governmentWordSet.add("antifragility");
-    searchMap.set("government", governmentWordSet);
+let scatteredWordSet = new Set();
+        scatteredWordSet.add("antifragility");
+    searchMap.set("scattered", scatteredWordSet);
 
 let insertedWordSet = new Set();
         insertedWordSet.add("mongo_db");
         insertedWordSet.add("acid_internally");
         insertedWordSet.add("sql_commands");
     searchMap.set("inserted", insertedWordSet);
+
+let governmentWordSet = new Set();
+        governmentWordSet.add("antifragility");
+    searchMap.set("government", governmentWordSet);
 
 let knownWordSet = new Set();
         knownWordSet.add("rsa");
@@ -4974,6 +5062,7 @@ let mapWordSet = new Set();
 let knowsWordSet = new Set();
         knowsWordSet.add("mongo_db");
         knowsWordSet.add("kafka_in_action_summary");
+        knowsWordSet.add("spring_jpa");
         knowsWordSet.add("relational_dbs_performance");
         knowsWordSet.add("cryptography");
         knowsWordSet.add("ca_and_ssl_handshake");
@@ -5050,8 +5139,17 @@ let computationWordSet = new Set();
         computationWordSet.add("password_hash_in_db");
     searchMap.set("computation", computationWordSet);
 
+let urnWordSet = new Set();
+        urnWordSet.add("oauth");
+    searchMap.set("urn", urnWordSet);
+
+let scopedWordSet = new Set();
+        scopedWordSet.add("spring_jpa");
+    searchMap.set("scoped", scopedWordSet);
+
 let entitiesWordSet = new Set();
         entitiesWordSet.add("mongo_db");
+        entitiesWordSet.add("spring_jpa");
     searchMap.set("entities", entitiesWordSet);
 
 let feetWordSet = new Set();
@@ -5280,13 +5378,13 @@ let suppressedWordSet = new Set();
         suppressedWordSet.add("antifragility");
     searchMap.set("suppressed", suppressedWordSet);
 
-let bozhuanaWordSet = new Set();
-        bozhuanaWordSet.add("antifragility");
-    searchMap.set("bozhuana", bozhuanaWordSet);
-
 let methronomWordSet = new Set();
         methronomWordSet.add("thinking_fast_and_slow");
     searchMap.set("methronom", methronomWordSet);
+
+let bozhuanaWordSet = new Set();
+        bozhuanaWordSet.add("antifragility");
+    searchMap.set("bozhuana", bozhuanaWordSet);
 
 let physicalWordSet = new Set();
         physicalWordSet.add("kafka_in_action_summary");
@@ -5312,6 +5410,7 @@ let makeWordSet = new Set();
         makeWordSet.add("mongo_db");
         makeWordSet.add("java_concurrency");
         makeWordSet.add("jwt");
+        makeWordSet.add("spring_jpa");
         makeWordSet.add("antifragility");
         makeWordSet.add("cryptography");
         makeWordSet.add("about_the_digital_garden");
@@ -5373,13 +5472,13 @@ let structureWordSet = new Set();
         structureWordSet.add("mysql_vs_postgres");
     searchMap.set("structure", structureWordSet);
 
-let intensityWordSet = new Set();
-        intensityWordSet.add("antifragility");
-    searchMap.set("intensity", intensityWordSet);
-
 let opadWordSet = new Set();
         opadWordSet.add("hmac");
     searchMap.set("opad", opadWordSet);
+
+let intensityWordSet = new Set();
+        intensityWordSet.add("antifragility");
+    searchMap.set("intensity", intensityWordSet);
 
 let acknolegmentWordSet = new Set();
         acknolegmentWordSet.add("mongo_db");
@@ -5480,6 +5579,7 @@ let aboutWordSet = new Set();
 let commitWordSet = new Set();
         commitWordSet.add("mongo_db");
         commitWordSet.add("kafka_in_action_summary");
+        commitWordSet.add("spring_jpa");
         commitWordSet.add("comparing_different_queues");
         commitWordSet.add("mysql_vs_postgres");
         commitWordSet.add("acid_internally");
@@ -5578,6 +5678,7 @@ let meaningWordSet = new Set();
 let aboveWordSet = new Set();
         aboveWordSet.add("mongo_db");
         aboveWordSet.add("kafka_in_action_summary");
+        aboveWordSet.add("spring_jpa");
         aboveWordSet.add("ca_and_ssl_handshake");
         aboveWordSet.add("password_hash_in_db");
     searchMap.set("above", aboveWordSet);
@@ -5665,13 +5766,13 @@ let qualityWordSet = new Set();
         qualityWordSet.add("antifragility");
     searchMap.set("quality", qualityWordSet);
 
-let avoidedWordSet = new Set();
-        avoidedWordSet.add("antifragility");
-    searchMap.set("avoided", avoidedWordSet);
-
 let vastlyWordSet = new Set();
         vastlyWordSet.add("password_hash_in_db");
     searchMap.set("vastly", vastlyWordSet);
+
+let avoidedWordSet = new Set();
+        avoidedWordSet.add("antifragility");
+    searchMap.set("avoided", avoidedWordSet);
 
 let certificatesWordSet = new Set();
         certificatesWordSet.add("ca_and_ssl_handshake");
@@ -5714,6 +5815,10 @@ let investedWordSet = new Set();
         investedWordSet.add("antifragility");
     searchMap.set("invested", investedWordSet);
 
+let suspendsWordSet = new Set();
+        suspendsWordSet.add("spring_jpa");
+    searchMap.set("suspends", suspendsWordSet);
+
 let switchingWordSet = new Set();
         switchingWordSet.add("password_hash_in_db");
     searchMap.set("switching", switchingWordSet);
@@ -5748,14 +5853,14 @@ let loneWordSet = new Set();
         loneWordSet.add("password_hash_in_db");
     searchMap.set("lone", loneWordSet);
 
+let readwritelockWordSet = new Set();
+        readwritelockWordSet.add("java_concurrency");
+    searchMap.set("readwritelock", readwritelockWordSet);
+
 let believeWordSet = new Set();
         believeWordSet.add("persuasion");
         believeWordSet.add("antifragility");
     searchMap.set("believe", believeWordSet);
-
-let readwritelockWordSet = new Set();
-        readwritelockWordSet.add("java_concurrency");
-    searchMap.set("readwritelock", readwritelockWordSet);
 
 let permutationsWordSet = new Set();
         permutationsWordSet.add("relational_dbs_performance");
@@ -5794,6 +5899,7 @@ let intoWordSet = new Set();
         intoWordSet.add("sha-256");
         intoWordSet.add("java_concurrency");
         intoWordSet.add("jwt");
+        intoWordSet.add("spring_jpa");
         intoWordSet.add("antifragility");
         intoWordSet.add("sql_commands");
         intoWordSet.add("kafka_in_action_summary");
@@ -5822,12 +5928,17 @@ let partitionWordSet = new Set();
         partitionWordSet.add("kafka_very_short_summary");
     searchMap.set("partition", partitionWordSet);
 
+let persistencecontexttypeWordSet = new Set();
+        persistencecontexttypeWordSet.add("spring_jpa");
+    searchMap.set("persistencecontexttype", persistencecontexttypeWordSet);
+
 let supportsWordSet = new Set();
         supportsWordSet.add("kafka_in_action_summary");
         supportsWordSet.add("antifragility");
         supportsWordSet.add("mysql_vs_postgres");
         supportsWordSet.add("ca_and_ssl_handshake");
         supportsWordSet.add("rxjava");
+        supportsWordSet.add("oauth");
     searchMap.set("supports", supportsWordSet);
 
 let examinedWordSet = new Set();
@@ -5865,6 +5976,7 @@ let redirectWordSet = new Set();
 let dirtyWordSet = new Set();
         dirtyWordSet.add("kafka_in_action_summary");
         dirtyWordSet.add("jwt");
+        dirtyWordSet.add("spring_jpa");
         dirtyWordSet.add("acid_internally");
     searchMap.set("dirty", dirtyWordSet);
 
@@ -5994,6 +6106,7 @@ let openWordSet = new Set();
         openWordSet.add("jwt");
         openWordSet.add("mysql_vs_postgres");
         openWordSet.add("ca_and_ssl_handshake");
+        openWordSet.add("oauth");
         openWordSet.add("kafka_very_short_summary");
     searchMap.set("open", openWordSet);
 
@@ -6113,6 +6226,10 @@ let countdownWordSet = new Set();
         countdownWordSet.add("java_concurrency");
     searchMap.set("countdown", countdownWordSet);
 
+let modificationWordSet = new Set();
+        modificationWordSet.add("spring_jpa");
+    searchMap.set("modification", modificationWordSet);
+
 let crushedWordSet = new Set();
         crushedWordSet.add("antifragility");
     searchMap.set("crushed", crushedWordSet);
@@ -6144,13 +6261,13 @@ let allofWordSet = new Set();
         allofWordSet.add("java_concurrency");
     searchMap.set("allof", allofWordSet);
 
-let koreaWordSet = new Set();
-        koreaWordSet.add("antifragility");
-    searchMap.set("korea", koreaWordSet);
-
 let immutableWordSet = new Set();
         immutableWordSet.add("mysql_vs_postgres");
     searchMap.set("immutable", immutableWordSet);
+
+let koreaWordSet = new Set();
+        koreaWordSet.add("antifragility");
+    searchMap.set("korea", koreaWordSet);
 
 let multikeysWordSet = new Set();
         multikeysWordSet.add("mongo_db");
@@ -6191,6 +6308,7 @@ let allowWordSet = new Set();
         allowWordSet.add("kafka_in_action_summary");
         allowWordSet.add("java_concurrency");
         allowWordSet.add("jwt");
+        allowWordSet.add("spring_jpa");
         allowWordSet.add("antifragility");
         allowWordSet.add("rxjava");
         allowWordSet.add("acid_internally");
@@ -6209,6 +6327,7 @@ let onerrorWordSet = new Set();
 let neededWordSet = new Set();
         neededWordSet.add("thinking_fast_and_slow");
         neededWordSet.add("kafka_in_action_summary");
+        neededWordSet.add("spring_jpa");
         neededWordSet.add("hmac");
         neededWordSet.add("antifragility");
         neededWordSet.add("terraform");
@@ -6263,6 +6382,7 @@ let locactionWordSet = new Set();
 let commonWordSet = new Set();
         commonWordSet.add("kafka_in_action_summary");
         commonWordSet.add("jwt");
+        commonWordSet.add("spring_jpa");
         commonWordSet.add("hmac");
         commonWordSet.add("leadership");
         commonWordSet.add("relational_dbs_performance");
@@ -6386,12 +6506,6 @@ let backpressurestrategyWordSet = new Set();
         backpressurestrategyWordSet.add("rxjava");
     searchMap.set("backpressurestrategy", backpressurestrategyWordSet);
 
-let stepWordSet = new Set();
-        stepWordSet.add("antifragility");
-        stepWordSet.add("password_hash_in_db");
-        stepWordSet.add("oauth");
-    searchMap.set("step", stepWordSet);
-
 let relationalWordSet = new Set();
         relationalWordSet.add("relational_dbs");
         relationalWordSet.add("relational_dbs_performance");
@@ -6400,6 +6514,12 @@ let relationalWordSet = new Set();
         relationalWordSet.add("programming");
         relationalWordSet.add("sql_commands");
     searchMap.set("relational", relationalWordSet);
+
+let stepWordSet = new Set();
+        stepWordSet.add("antifragility");
+        stepWordSet.add("password_hash_in_db");
+        stepWordSet.add("oauth");
+    searchMap.set("step", stepWordSet);
 
 let bashWordSet = new Set();
         bashWordSet.add("mongo_db");
@@ -6486,6 +6606,10 @@ let lossWordSet = new Set();
         lossWordSet.add("antifragility");
     searchMap.set("loss", lossWordSet);
 
+let relateWordSet = new Set();
+        relateWordSet.add("spring_jpa");
+    searchMap.set("relate", relateWordSet);
+
 let lostWordSet = new Set();
         lostWordSet.add("mongo_db");
         lostWordSet.add("kafka_in_action_summary");
@@ -6538,6 +6662,7 @@ let workWordSet = new Set();
         workWordSet.add("dynamo_db");
         workWordSet.add("java_concurrency");
         workWordSet.add("jwt");
+        workWordSet.add("spring_jpa");
         workWordSet.add("antifragility");
         workWordSet.add("sql_commands");
         workWordSet.add("kafka_in_action_summary");
@@ -6647,6 +6772,7 @@ let internalWordSet = new Set();
         internalWordSet.add("interest");
         internalWordSet.add("hmac");
         internalWordSet.add("password_hash_in_db");
+        internalWordSet.add("oauth");
     searchMap.set("internal", internalWordSet);
 
 let signatureWordSet = new Set();
@@ -6691,12 +6817,14 @@ let acrossWordSet = new Set();
         acrossWordSet.add("mongo_db");
         acrossWordSet.add("kafka_in_action_summary");
         acrossWordSet.add("jwt");
+        acrossWordSet.add("spring_jpa");
     searchMap.set("across", acrossWordSet);
 
 let identityWordSet = new Set();
         identityWordSet.add("jwt");
         identityWordSet.add("hmac");
         identityWordSet.add("cryptography");
+        identityWordSet.add("oauth");
     searchMap.set("identity", identityWordSet);
 
 let writingWordSet = new Set();
@@ -6725,13 +6853,13 @@ let europeWordSet = new Set();
         europeWordSet.add("antifragility");
     searchMap.set("europe", europeWordSet);
 
-let rewardWordSet = new Set();
-        rewardWordSet.add("antifragility");
-    searchMap.set("reward", rewardWordSet);
-
 let loudWordSet = new Set();
         loudWordSet.add("thinking_fast_and_slow");
     searchMap.set("loud", loudWordSet);
+
+let rewardWordSet = new Set();
+        rewardWordSet.add("antifragility");
+    searchMap.set("reward", rewardWordSet);
 
 let subscribeonsWordSet = new Set();
         subscribeonsWordSet.add("rxjava");
@@ -6801,6 +6929,7 @@ let alexanderWordSet = new Set();
         alexanderWordSet.add("career_crises");
         alexanderWordSet.add("day_dreams");
         alexanderWordSet.add("jwt");
+        alexanderWordSet.add("spring_jpa");
         alexanderWordSet.add("toc");
         alexanderWordSet.add("nosql_dbs");
         alexanderWordSet.add("ca_and_ssl_handshake");
@@ -6849,8 +6978,10 @@ let atomiclongWordSet = new Set();
 
 let existsWordSet = new Set();
         existsWordSet.add("kafka_in_action_summary");
+        existsWordSet.add("spring_jpa");
         existsWordSet.add("antifragility");
         existsWordSet.add("rxjava");
+        existsWordSet.add("oauth");
         existsWordSet.add("sql_commands");
         existsWordSet.add("kafka_very_short_summary");
     searchMap.set("exists", existsWordSet);
@@ -6859,13 +6990,13 @@ let sharderWordSet = new Set();
         sharderWordSet.add("mongo_db");
     searchMap.set("sharder", sharderWordSet);
 
-let specificsWordSet = new Set();
-        specificsWordSet.add("antifragility");
-    searchMap.set("specifics", specificsWordSet);
-
 let defenderWordSet = new Set();
         defenderWordSet.add("password_hash_in_db");
     searchMap.set("defender", defenderWordSet);
+
+let specificsWordSet = new Set();
+        specificsWordSet.add("antifragility");
+    searchMap.set("specifics", specificsWordSet);
 
 let msgWordSet = new Set();
         msgWordSet.add("comparing_different_queues");
@@ -6875,13 +7006,13 @@ let formulasWordSet = new Set();
         formulasWordSet.add("antifragility");
     searchMap.set("formulas", formulasWordSet);
 
-let craftWordSet = new Set();
-        craftWordSet.add("antifragility");
-    searchMap.set("craft", craftWordSet);
-
 let existenceWordSet = new Set();
         existenceWordSet.add("hmac");
     searchMap.set("existence", existenceWordSet);
+
+let craftWordSet = new Set();
+        craftWordSet.add("antifragility");
+    searchMap.set("craft", craftWordSet);
 
 let thresholdWordSet = new Set();
         thresholdWordSet.add("java_concurrency");
@@ -6965,6 +7096,7 @@ let histogramWordSet = new Set();
 
 let sequenceWordSet = new Set();
         sequenceWordSet.add("kafka_in_action_summary");
+        sequenceWordSet.add("spring_jpa");
         sequenceWordSet.add("antifragility");
         sequenceWordSet.add("rxjava");
         sequenceWordSet.add("password_hash_in_db");
@@ -7009,10 +7141,6 @@ let walkingWordSet = new Set();
         walkingWordSet.add("antifragility");
     searchMap.set("walking", walkingWordSet);
 
-let talksWordSet = new Set();
-        talksWordSet.add("antifragility");
-    searchMap.set("talks", talksWordSet);
-
 let spendWordSet = new Set();
         spendWordSet.add("thinking_fast_and_slow");
         spendWordSet.add("interest");
@@ -7020,6 +7148,10 @@ let spendWordSet = new Set();
         spendWordSet.add("antifragility");
         spendWordSet.add("password_hash_in_db");
     searchMap.set("spend", spendWordSet);
+
+let talksWordSet = new Set();
+        talksWordSet.add("antifragility");
+    searchMap.set("talks", talksWordSet);
 
 let parameterWordSet = new Set();
         parameterWordSet.add("kafka_in_action_summary");
@@ -7054,6 +7186,7 @@ let monolithicWordSet = new Set();
 let opaqueWordSet = new Set();
         opaqueWordSet.add("kafka_in_action_summary");
         opaqueWordSet.add("jwt");
+        opaqueWordSet.add("oauth");
     searchMap.set("opaque", opaqueWordSet);
 
 let computationsWordSet = new Set();
@@ -7143,6 +7276,7 @@ let exceptionWordSet = new Set();
 
 let temporaryWordSet = new Set();
         temporaryWordSet.add("kafka_in_action_summary");
+        temporaryWordSet.add("oauth");
     searchMap.set("temporary", temporaryWordSet);
 
 let smartphoneWordSet = new Set();
@@ -7161,18 +7295,19 @@ let optimalWordSet = new Set();
         optimalWordSet.add("password_hash_in_db");
     searchMap.set("optimal", optimalWordSet);
 
+let sufficientlyWordSet = new Set();
+        sufficientlyWordSet.add("password_hash_in_db");
+    searchMap.set("sufficiently", sufficientlyWordSet);
+
 let yearWordSet = new Set();
         yearWordSet.add("antifragility");
         yearWordSet.add("mysql_vs_postgres");
         yearWordSet.add("acid_internally");
     searchMap.set("year", yearWordSet);
 
-let sufficientlyWordSet = new Set();
-        sufficientlyWordSet.add("password_hash_in_db");
-    searchMap.set("sufficiently", sufficientlyWordSet);
-
 let savedWordSet = new Set();
         savedWordSet.add("jwt");
+        savedWordSet.add("spring_jpa");
     searchMap.set("saved", savedWordSet);
 
 let datastoreWordSet = new Set();
@@ -7187,6 +7322,7 @@ let allowedWordSet = new Set();
         allowedWordSet.add("kafka_in_action_summary");
         allowedWordSet.add("java_concurrency");
         allowedWordSet.add("jwt");
+        allowedWordSet.add("oauth");
         allowedWordSet.add("acid_internally");
         allowedWordSet.add("kafka_very_short_summary");
     searchMap.set("allowed", allowedWordSet);
@@ -7249,6 +7385,7 @@ let becauseWordSet = new Set();
         becauseWordSet.add("mongo_db");
         becauseWordSet.add("java_concurrency");
         becauseWordSet.add("jwt");
+        becauseWordSet.add("spring_jpa");
         becauseWordSet.add("antifragility");
         becauseWordSet.add("persuasion");
         becauseWordSet.add("kafka_in_action_summary");
@@ -7290,6 +7427,10 @@ let zookeeperWordSet = new Set();
         zookeeperWordSet.add("kafka_in_action_summary");
         zookeeperWordSet.add("comparing_different_queues");
     searchMap.set("zookeeper", zookeeperWordSet);
+
+let googleWordSet = new Set();
+        googleWordSet.add("oauth");
+    searchMap.set("google", googleWordSet);
 
 let economyWordSet = new Set();
         economyWordSet.add("antifragility");
@@ -7381,6 +7522,7 @@ let forestWordSet = new Set();
 let leastWordSet = new Set();
         leastWordSet.add("mongo_db");
         leastWordSet.add("kafka_in_action_summary");
+        leastWordSet.add("spring_jpa");
         leastWordSet.add("hmac");
         leastWordSet.add("mysql_vs_postgres");
         leastWordSet.add("rxjava");
@@ -7448,6 +7590,10 @@ let behaviorWordSet = new Set();
         behaviorWordSet.add("antifragility");
         behaviorWordSet.add("mysql_vs_postgres");
     searchMap.set("behavior", behaviorWordSet);
+
+let annotationWordSet = new Set();
+        annotationWordSet.add("spring_jpa");
+    searchMap.set("annotation", annotationWordSet);
 
 let minimizeWordSet = new Set();
         minimizeWordSet.add("kafka_in_action_summary");
@@ -7538,10 +7684,6 @@ let notesWordSet = new Set();
         notesWordSet.add("about_the_digital_garden");
     searchMap.set("notes", notesWordSet);
 
-let evidenceWordSet = new Set();
-        evidenceWordSet.add("antifragility");
-    searchMap.set("evidence", evidenceWordSet);
-
 let generatesWordSet = new Set();
         generatesWordSet.add("mongo_db");
         generatesWordSet.add("relational_dbs_performance");
@@ -7549,6 +7691,10 @@ let generatesWordSet = new Set();
         generatesWordSet.add("password_hash_in_db");
         generatesWordSet.add("oauth");
     searchMap.set("generates", generatesWordSet);
+
+let evidenceWordSet = new Set();
+        evidenceWordSet.add("antifragility");
+    searchMap.set("evidence", evidenceWordSet);
 
 let sprintWordSet = new Set();
         sprintWordSet.add("thinking_fast_and_slow");
@@ -7568,7 +7714,9 @@ let refcountWordSet = new Set();
 
 let springWordSet = new Set();
         springWordSet.add("jwt");
+        springWordSet.add("spring_jpa");
         springWordSet.add("rxjava");
+        springWordSet.add("oauth");
     searchMap.set("spring", springWordSet);
 
 let riakWordSet = new Set();
@@ -7579,6 +7727,7 @@ let generatedWordSet = new Set();
         generatedWordSet.add("mongo_db");
         generatedWordSet.add("antifragility");
         generatedWordSet.add("password_hash_in_db");
+        generatedWordSet.add("oauth");
     searchMap.set("generated", generatedWordSet);
 
 let leaveWordSet = new Set();
@@ -7616,6 +7765,7 @@ let doesnWordSet = new Set();
         doesnWordSet.add("dynamo_db");
         doesnWordSet.add("java_concurrency");
         doesnWordSet.add("jwt");
+        doesnWordSet.add("spring_jpa");
         doesnWordSet.add("antifragility");
         doesnWordSet.add("cryptography");
         doesnWordSet.add("sql_commands");
@@ -7648,6 +7798,7 @@ let needWordSet = new Set();
         needWordSet.add("dynamo_db");
         needWordSet.add("java_concurrency");
         needWordSet.add("jwt");
+        needWordSet.add("spring_jpa");
         needWordSet.add("antifragility");
         needWordSet.add("cryptography");
         needWordSet.add("persuasion");
@@ -7680,6 +7831,7 @@ let oftenWordSet = new Set();
         oftenWordSet.add("rsa");
         oftenWordSet.add("kafka_in_action_summary");
         oftenWordSet.add("dynamo_db");
+        oftenWordSet.add("spring_jpa");
         oftenWordSet.add("leadership");
         oftenWordSet.add("antifragility");
         oftenWordSet.add("cryptography");
@@ -7712,6 +7864,7 @@ let usersWordSet = new Set();
         usersWordSet.add("kafka_in_action_summary");
         usersWordSet.add("comparing_different_queues");
         usersWordSet.add("mysql_vs_postgres");
+        usersWordSet.add("oauth");
         usersWordSet.add("acid_internally");
     searchMap.set("users", usersWordSet);
 
@@ -7774,10 +7927,12 @@ let privateWordSet = new Set();
         privateWordSet.add("rsa");
         privateWordSet.add("java_concurrency");
         privateWordSet.add("jwt");
+        privateWordSet.add("spring_jpa");
         privateWordSet.add("antifragility");
         privateWordSet.add("cryptography");
         privateWordSet.add("comparing_different_queues");
         privateWordSet.add("ca_and_ssl_handshake");
+        privateWordSet.add("oauth");
     searchMap.set("private", privateWordSet);
 
 let inboundWordSet = new Set();
@@ -7793,13 +7948,13 @@ let rideWordSet = new Set();
         rideWordSet.add("antifragility");
     searchMap.set("ride", rideWordSet);
 
-let finelyWordSet = new Set();
-        finelyWordSet.add("antifragility");
-    searchMap.set("finely", finelyWordSet);
-
 let sleepingWordSet = new Set();
         sleepingWordSet.add("java_concurrency");
     searchMap.set("sleeping", sleepingWordSet);
+
+let finelyWordSet = new Set();
+        finelyWordSet.add("antifragility");
+    searchMap.set("finely", finelyWordSet);
 
 let inconsistenciesWordSet = new Set();
         inconsistenciesWordSet.add("kafka_in_action_summary");
@@ -7824,6 +7979,7 @@ let responsibleWordSet = new Set();
         responsibleWordSet.add("kafka_in_action_summary");
         responsibleWordSet.add("leadership");
         responsibleWordSet.add("antifragility");
+        responsibleWordSet.add("oauth");
         responsibleWordSet.add("kafka_very_short_summary");
     searchMap.set("responsible", responsibleWordSet);
 
@@ -7870,26 +8026,26 @@ let engWordSet = new Set();
         engWordSet.add("mysql_vs_postgres");
     searchMap.set("eng", engWordSet);
 
-let mistakeWordSet = new Set();
-        mistakeWordSet.add("antifragility");
-        mistakeWordSet.add("choice");
-    searchMap.set("mistake", mistakeWordSet);
-
 let cipherWordSet = new Set();
         cipherWordSet.add("cryptography");
         cipherWordSet.add("ca_and_ssl_handshake");
         cipherWordSet.add("password_hash_in_db");
     searchMap.set("cipher", cipherWordSet);
 
-let richWordSet = new Set();
-        richWordSet.add("antifragility");
-    searchMap.set("rich", richWordSet);
+let mistakeWordSet = new Set();
+        mistakeWordSet.add("antifragility");
+        mistakeWordSet.add("choice");
+    searchMap.set("mistake", mistakeWordSet);
 
 let attackerWordSet = new Set();
         attackerWordSet.add("hmac");
         attackerWordSet.add("password_hash_in_db");
         attackerWordSet.add("oauth");
     searchMap.set("attacker", attackerWordSet);
+
+let richWordSet = new Set();
+        richWordSet.add("antifragility");
+    searchMap.set("rich", richWordSet);
 
 let envWordSet = new Set();
         envWordSet.add("terraform");
@@ -7953,6 +8109,7 @@ let referredWordSet = new Set();
 
 let triesWordSet = new Set();
         triesWordSet.add("java_concurrency");
+        triesWordSet.add("antifragility");
         triesWordSet.add("acid_internally");
         triesWordSet.add("kafka_very_short_summary");
     searchMap.set("tries", triesWordSet);
@@ -7989,6 +8146,7 @@ let calledWordSet = new Set();
         calledWordSet.add("mysql_vs_postgres");
         calledWordSet.add("rxjava");
         calledWordSet.add("password_hash_in_db");
+        calledWordSet.add("oauth");
         calledWordSet.add("acid_internally");
         calledWordSet.add("kafka_very_short_summary");
     searchMap.set("called", calledWordSet);
@@ -8012,6 +8170,7 @@ let callbacksWordSet = new Set();
 
 let rolledWordSet = new Set();
         rolledWordSet.add("mongo_db");
+        rolledWordSet.add("spring_jpa");
     searchMap.set("rolled", rolledWordSet);
 
 let occursWordSet = new Set();
@@ -8042,6 +8201,7 @@ let splittingWordSet = new Set();
 let similarWordSet = new Set();
         similarWordSet.add("kafka_in_action_summary");
         similarWordSet.add("mysql_vs_postgres");
+        similarWordSet.add("oauth");
     searchMap.set("similar", similarWordSet);
 
 let mappingWordSet = new Set();
@@ -8073,13 +8233,13 @@ let forthWordSet = new Set();
         forthWordSet.add("relational_dbs_performance");
     searchMap.set("forth", forthWordSet);
 
-let crossingWordSet = new Set();
-        crossingWordSet.add("antifragility");
-    searchMap.set("crossing", crossingWordSet);
-
 let keyedWordSet = new Set();
         keyedWordSet.add("hmac");
     searchMap.set("keyed", keyedWordSet);
+
+let crossingWordSet = new Set();
+        crossingWordSet.add("antifragility");
+    searchMap.set("crossing", crossingWordSet);
 
 let driverWordSet = new Set();
         driverWordSet.add("thinking_fast_and_slow");
@@ -8146,6 +8306,7 @@ let cellWordSet = new Set();
 
 let loginWordSet = new Set();
         loginWordSet.add("jwt");
+        loginWordSet.add("oauth");
     searchMap.set("login", loginWordSet);
 
 let validWordSet = new Set();
@@ -8176,14 +8337,14 @@ let shareWordSet = new Set();
         shareWordSet.add("terraform");
     searchMap.set("share", shareWordSet);
 
-let punishedWordSet = new Set();
-        punishedWordSet.add("antifragility");
-    searchMap.set("punished", punishedWordSet);
-
 let shardWordSet = new Set();
         shardWordSet.add("mongo_db");
         shardWordSet.add("comparing_different_queues");
     searchMap.set("shard", shardWordSet);
+
+let punishedWordSet = new Set();
+        punishedWordSet.add("antifragility");
+    searchMap.set("punished", punishedWordSet);
 
 let deficitWordSet = new Set();
         deficitWordSet.add("antifragility");
@@ -8238,6 +8399,7 @@ let storedWordSet = new Set();
         storedWordSet.add("relational_dbs_performance");
         storedWordSet.add("rxjava");
         storedWordSet.add("password_hash_in_db");
+        storedWordSet.add("oauth");
         storedWordSet.add("kafka_very_short_summary");
     searchMap.set("stored", storedWordSet);
 
@@ -8403,6 +8565,7 @@ let newWordSet = new Set();
         newWordSet.add("java_concurrency");
         newWordSet.add("day_dreams");
         newWordSet.add("jwt");
+        newWordSet.add("spring_jpa");
         newWordSet.add("antifragility");
         newWordSet.add("cryptography");
         newWordSet.add("kafka_in_action_summary");
@@ -8426,6 +8589,7 @@ let belowWordSet = new Set();
         belowWordSet.add("kafka_in_action_summary");
         belowWordSet.add("antifragility");
         belowWordSet.add("rxjava");
+        belowWordSet.add("oauth");
         belowWordSet.add("acid_internally");
     searchMap.set("below", belowWordSet);
 
@@ -8556,6 +8720,7 @@ let defineWordSet = new Set();
 
 let tokensWordSet = new Set();
         tokensWordSet.add("jwt");
+        tokensWordSet.add("oauth");
     searchMap.set("tokens", tokensWordSet);
 
 let harderWordSet = new Set();
@@ -8627,10 +8792,12 @@ let specificWordSet = new Set();
         specificWordSet.add("relational_dbs_performance");
         specificWordSet.add("antifragility");
         specificWordSet.add("rxjava");
+        specificWordSet.add("oauth");
     searchMap.set("specific", specificWordSet);
 
 let obtainsWordSet = new Set();
         obtainsWordSet.add("jwt");
+        obtainsWordSet.add("oauth");
     searchMap.set("obtains", obtainsWordSet);
 
 let superWordSet = new Set();
@@ -8691,14 +8858,14 @@ let cryptographersWordSet = new Set();
         cryptographersWordSet.add("password_hash_in_db");
     searchMap.set("cryptographers", cryptographersWordSet);
 
-let securitiesWordSet = new Set();
-        securitiesWordSet.add("antifragility");
-    searchMap.set("securities", securitiesWordSet);
-
 let professionalWordSet = new Set();
         professionalWordSet.add("antifragility");
         professionalWordSet.add("password_hash_in_db");
     searchMap.set("professional", professionalWordSet);
+
+let securitiesWordSet = new Set();
+        securitiesWordSet.add("antifragility");
+    searchMap.set("securities", securitiesWordSet);
 
 let skillsWordSet = new Set();
         skillsWordSet.add("persuasion");
@@ -8759,6 +8926,7 @@ let fullyWordSet = new Set();
 let cacheWordSet = new Set();
         cacheWordSet.add("kafka_in_action_summary");
         cacheWordSet.add("java_concurrency");
+        cacheWordSet.add("spring_jpa");
         cacheWordSet.add("mysql_vs_postgres");
         cacheWordSet.add("password_hash_in_db");
         cacheWordSet.add("oauth");
@@ -8770,13 +8938,13 @@ let remainWordSet = new Set();
         remainWordSet.add("antifragility");
     searchMap.set("remain", remainWordSet);
 
-let relaxationWordSet = new Set();
-        relaxationWordSet.add("antifragility");
-    searchMap.set("relaxation", relaxationWordSet);
-
 let expectedWordSet = new Set();
         expectedWordSet.add("oauth");
     searchMap.set("expected", expectedWordSet);
+
+let relaxationWordSet = new Set();
+        relaxationWordSet.add("antifragility");
+    searchMap.set("relaxation", relaxationWordSet);
 
 let importnatnWordSet = new Set();
         importnatnWordSet.add("mongo_db");
@@ -8839,14 +9007,14 @@ let exchangedWordSet = new Set();
         exchangedWordSet.add("oauth");
     searchMap.set("exchanged", exchangedWordSet);
 
-let deservedWordSet = new Set();
-        deservedWordSet.add("antifragility");
-    searchMap.set("deserved", deservedWordSet);
-
 let mixesWordSet = new Set();
         mixesWordSet.add("mysql_vs_postgres");
         mixesWordSet.add("password_hash_in_db");
     searchMap.set("mixes", mixesWordSet);
+
+let deservedWordSet = new Set();
+        deservedWordSet.add("antifragility");
+    searchMap.set("deserved", deservedWordSet);
 
 let rottenWordSet = new Set();
         rottenWordSet.add("antifragility");
@@ -8856,11 +9024,6 @@ let referencingWordSet = new Set();
         referencingWordSet.add("mongo_db");
     searchMap.set("referencing", referencingWordSet);
 
-let complexityWordSet = new Set();
-        complexityWordSet.add("thinking_fast_and_slow");
-        complexityWordSet.add("antifragility");
-    searchMap.set("complexity", complexityWordSet);
-
 let serializablyWordSet = new Set();
         serializablyWordSet.add("acid_internally");
     searchMap.set("serializably", serializablyWordSet);
@@ -8868,6 +9031,11 @@ let serializablyWordSet = new Set();
 let feelsWordSet = new Set();
         feelsWordSet.add("leadership");
     searchMap.set("feels", feelsWordSet);
+
+let complexityWordSet = new Set();
+        complexityWordSet.add("thinking_fast_and_slow");
+        complexityWordSet.add("antifragility");
+    searchMap.set("complexity", complexityWordSet);
 
 let maybeWordSet = new Set();
         maybeWordSet.add("kafka_in_action_summary");
@@ -8890,6 +9058,7 @@ let anotherWordSet = new Set();
         anotherWordSet.add("mongo_db");
         anotherWordSet.add("java_concurrency");
         anotherWordSet.add("jwt");
+        anotherWordSet.add("spring_jpa");
         anotherWordSet.add("antifragility");
         anotherWordSet.add("cryptography");
         anotherWordSet.add("sql_commands");
@@ -8899,6 +9068,7 @@ let anotherWordSet = new Set();
         anotherWordSet.add("terraform");
         anotherWordSet.add("rxjava");
         anotherWordSet.add("password_hash_in_db");
+        anotherWordSet.add("oauth");
         anotherWordSet.add("acid_internally");
         anotherWordSet.add("kafka_very_short_summary");
     searchMap.set("another", anotherWordSet);
@@ -8926,6 +9096,7 @@ let defaultWordSet = new Set();
         defaultWordSet.add("kafka_in_action_summary");
         defaultWordSet.add("java_concurrency");
         defaultWordSet.add("jwt");
+        defaultWordSet.add("spring_jpa");
         defaultWordSet.add("relational_dbs_performance");
         defaultWordSet.add("comparing_different_queues");
         defaultWordSet.add("terraform");
@@ -9070,6 +9241,7 @@ let understoodWordSet = new Set();
 
 let fetchedWordSet = new Set();
         fetchedWordSet.add("kafka_in_action_summary");
+        fetchedWordSet.add("spring_jpa");
         fetchedWordSet.add("oauth");
     searchMap.set("fetched", fetchedWordSet);
 
@@ -9210,13 +9382,13 @@ let destroyingWordSet = new Set();
         destroyingWordSet.add("antifragility");
     searchMap.set("destroying", destroyingWordSet);
 
-let servantsWordSet = new Set();
-        servantsWordSet.add("antifragility");
-    searchMap.set("servants", servantsWordSet);
-
 let wrtiesWordSet = new Set();
         wrtiesWordSet.add("acid_internally");
     searchMap.set("wrties", wrtiesWordSet);
+
+let servantsWordSet = new Set();
+        servantsWordSet.add("antifragility");
+    searchMap.set("servants", servantsWordSet);
 
 let leadsWordSet = new Set();
         leadsWordSet.add("kafka_in_action_summary");
@@ -9260,6 +9432,7 @@ let nextWordSet = new Set();
         nextWordSet.add("thinking_fast_and_slow");
         nextWordSet.add("kafka_in_action_summary");
         nextWordSet.add("java_concurrency");
+        nextWordSet.add("spring_jpa");
         nextWordSet.add("leadership");
         nextWordSet.add("relational_dbs_performance");
         nextWordSet.add("antifragility");
@@ -9282,13 +9455,6 @@ let submitWordSet = new Set();
         submitWordSet.add("java_concurrency");
     searchMap.set("submit", submitWordSet);
 
-let hiddenWordSet = new Set();
-        hiddenWordSet.add("mongo_db");
-        hiddenWordSet.add("leadership");
-        hiddenWordSet.add("antifragility");
-        hiddenWordSet.add("ca_and_ssl_handshake");
-    searchMap.set("hidden", hiddenWordSet);
-
 let stringWordSet = new Set();
         stringWordSet.add("mongo_db");
         stringWordSet.add("java_concurrency");
@@ -9296,6 +9462,13 @@ let stringWordSet = new Set();
         stringWordSet.add("comparing_different_queues");
         stringWordSet.add("password_hash_in_db");
     searchMap.set("string", stringWordSet);
+
+let hiddenWordSet = new Set();
+        hiddenWordSet.add("mongo_db");
+        hiddenWordSet.add("leadership");
+        hiddenWordSet.add("antifragility");
+        hiddenWordSet.add("ca_and_ssl_handshake");
+    searchMap.set("hidden", hiddenWordSet);
 
 let valueofWordSet = new Set();
         valueofWordSet.add("rxjava");
@@ -9339,6 +9512,7 @@ let notWordSet = new Set();
         notWordSet.add("career_crises");
         notWordSet.add("day_dreams");
         notWordSet.add("jwt");
+        notWordSet.add("spring_jpa");
         notWordSet.add("ca_and_ssl_handshake");
         notWordSet.add("kafka_in_action_summary");
         notWordSet.add("interest");
@@ -9400,6 +9574,7 @@ let livedWordSet = new Set();
 
 let supportingWordSet = new Set();
         supportingWordSet.add("rxjava");
+        supportingWordSet.add("oauth");
     searchMap.set("supporting", supportingWordSet);
 
 let factorWordSet = new Set();
@@ -9493,6 +9668,7 @@ let wayWordSet = new Set();
         wayWordSet.add("sha-256");
         wayWordSet.add("java_concurrency");
         wayWordSet.add("jwt");
+        wayWordSet.add("spring_jpa");
         wayWordSet.add("antifragility");
         wayWordSet.add("cryptography");
         wayWordSet.add("about_the_digital_garden");
@@ -9505,6 +9681,7 @@ let wayWordSet = new Set();
         wayWordSet.add("choice");
         wayWordSet.add("gaining_wisdom");
         wayWordSet.add("password_hash_in_db");
+        wayWordSet.add("oauth");
     searchMap.set("way", wayWordSet);
 
 let greyWordSet = new Set();
@@ -9522,6 +9699,7 @@ let whatWordSet = new Set();
         whatWordSet.add("java_concurrency");
         whatWordSet.add("day_dreams");
         whatWordSet.add("jwt");
+        whatWordSet.add("spring_jpa");
         whatWordSet.add("antifragility");
         whatWordSet.add("persuasion");
         whatWordSet.add("kafka_in_action_summary");
@@ -9534,6 +9712,7 @@ let whatWordSet = new Set();
         whatWordSet.add("choice");
         whatWordSet.add("rxjava");
         whatWordSet.add("password_hash_in_db");
+        whatWordSet.add("oauth");
         whatWordSet.add("acid_internally");
         whatWordSet.add("kafka_very_short_summary");
     searchMap.set("what", whatWordSet);
@@ -9618,6 +9797,7 @@ let whenWordSet = new Set();
         whenWordSet.add("mongo_db");
         whenWordSet.add("java_concurrency");
         whenWordSet.add("jwt");
+        whenWordSet.add("spring_jpa");
         whenWordSet.add("antifragility");
         whenWordSet.add("ca_and_ssl_handshake");
         whenWordSet.add("sql_commands");
@@ -9703,6 +9883,7 @@ let giveWordSet = new Set();
         giveWordSet.add("antifragility");
         giveWordSet.add("cryptography");
         giveWordSet.add("password_hash_in_db");
+        giveWordSet.add("oauth");
     searchMap.set("give", giveWordSet);
 
 let livesWordSet = new Set();
@@ -9731,13 +9912,13 @@ let probabilityWordSet = new Set();
         probabilityWordSet.add("password_hash_in_db");
     searchMap.set("probability", probabilityWordSet);
 
-let survivedWordSet = new Set();
-        survivedWordSet.add("antifragility");
-    searchMap.set("survived", survivedWordSet);
-
 let contentionWordSet = new Set();
         contentionWordSet.add("acid_internally");
     searchMap.set("contention", contentionWordSet);
+
+let survivedWordSet = new Set();
+        survivedWordSet.add("antifragility");
+    searchMap.set("survived", survivedWordSet);
 
 let probedWordSet = new Set();
         probedWordSet.add("relational_dbs_performance");
@@ -9762,6 +9943,7 @@ let qeueuWordSet = new Set();
 
 let completelyWordSet = new Set();
         completelyWordSet.add("kafka_in_action_summary");
+        completelyWordSet.add("spring_jpa");
         completelyWordSet.add("antifragility");
         completelyWordSet.add("kafka_very_short_summary");
     searchMap.set("completely", completelyWordSet);
@@ -9776,6 +9958,7 @@ let implicitWordSet = new Set();
 
 let explicitlyWordSet = new Set();
         explicitlyWordSet.add("kafka_in_action_summary");
+        explicitlyWordSet.add("spring_jpa");
     searchMap.set("explicitly", explicitlyWordSet);
 
 let brokersWordSet = new Set();
@@ -9912,13 +10095,13 @@ let wrongWordSet = new Set();
         wrongWordSet.add("acid_internally");
     searchMap.set("wrong", wrongWordSet);
 
-let discoveriesWordSet = new Set();
-        discoveriesWordSet.add("antifragility");
-    searchMap.set("discoveries", discoveriesWordSet);
-
 let answerfutureWordSet = new Set();
         answerfutureWordSet.add("java_concurrency");
     searchMap.set("answerfuture", answerfutureWordSet);
+
+let discoveriesWordSet = new Set();
+        discoveriesWordSet.add("antifragility");
+    searchMap.set("discoveries", discoveriesWordSet);
 
 let sidesWordSet = new Set();
         sidesWordSet.add("antifragility");
@@ -9942,24 +10125,25 @@ let certainWordSet = new Set();
         certainWordSet.add("acid_internally");
     searchMap.set("certain", certainWordSet);
 
-let economicWordSet = new Set();
-        economicWordSet.add("antifragility");
-    searchMap.set("economic", economicWordSet);
-
 let cyclicWordSet = new Set();
         cyclicWordSet.add("java_concurrency");
     searchMap.set("cyclic", cyclicWordSet);
-
-let levelsWordSet = new Set();
-        levelsWordSet.add("mongo_db");
-        levelsWordSet.add("antifragility");
-        levelsWordSet.add("acid_internally");
-    searchMap.set("levels", levelsWordSet);
 
 let boardWordSet = new Set();
         boardWordSet.add("antifragility");
         boardWordSet.add("password_hash_in_db");
     searchMap.set("board", boardWordSet);
+
+let levelsWordSet = new Set();
+        levelsWordSet.add("mongo_db");
+        levelsWordSet.add("spring_jpa");
+        levelsWordSet.add("antifragility");
+        levelsWordSet.add("acid_internally");
+    searchMap.set("levels", levelsWordSet);
+
+let economicWordSet = new Set();
+        economicWordSet.add("antifragility");
+    searchMap.set("economic", economicWordSet);
 
 let distortsWordSet = new Set();
         distortsWordSet.add("antifragility");
@@ -10010,6 +10194,7 @@ let usedWordSet = new Set();
         usedWordSet.add("mongo_db");
         usedWordSet.add("java_concurrency");
         usedWordSet.add("jwt");
+        usedWordSet.add("spring_jpa");
         usedWordSet.add("antifragility");
         usedWordSet.add("cryptography");
         usedWordSet.add("ca_and_ssl_handshake");
@@ -10082,6 +10267,7 @@ let fewWordSet = new Set();
     searchMap.set("few", fewWordSet);
 
 let markedWordSet = new Set();
+        markedWordSet.add("spring_jpa");
         markedWordSet.add("acid_internally");
         markedWordSet.add("kafka_very_short_summary");
     searchMap.set("marked", markedWordSet);
@@ -10127,6 +10313,7 @@ let readwriteanydatabaseWordSet = new Set();
     searchMap.set("readwriteanydatabase", readwriteanydatabaseWordSet);
 
 let serializableWordSet = new Set();
+        serializableWordSet.add("spring_jpa");
         serializableWordSet.add("acid_internally");
     searchMap.set("serializable", serializableWordSet);
 
@@ -10169,13 +10356,13 @@ let keepWordSet = new Set();
         keepWordSet.add("kafka_very_short_summary");
     searchMap.set("keep", keepWordSet);
 
-let unfavorableWordSet = new Set();
-        unfavorableWordSet.add("antifragility");
-    searchMap.set("unfavorable", unfavorableWordSet);
-
 let explainingWordSet = new Set();
         explainingWordSet.add("persuasion");
     searchMap.set("explaining", explainingWordSet);
+
+let unfavorableWordSet = new Set();
+        unfavorableWordSet.add("antifragility");
+    searchMap.set("unfavorable", unfavorableWordSet);
 
 let producesWordSet = new Set();
         producesWordSet.add("kafka_in_action_summary");
@@ -10204,18 +10391,19 @@ let perceiveWordSet = new Set();
         perceiveWordSet.add("antifragility");
     searchMap.set("perceive", perceiveWordSet);
 
-let forecastsWordSet = new Set();
-        forecastsWordSet.add("antifragility");
-    searchMap.set("forecasts", forecastsWordSet);
-
 let raidWordSet = new Set();
         raidWordSet.add("password_hash_in_db");
     searchMap.set("raid", raidWordSet);
+
+let forecastsWordSet = new Set();
+        forecastsWordSet.add("antifragility");
+    searchMap.set("forecasts", forecastsWordSet);
 
 let optionWordSet = new Set();
         optionWordSet.add("kafka_in_action_summary");
         optionWordSet.add("relational_dbs_performance");
         optionWordSet.add("antifragility");
+        optionWordSet.add("oauth");
         optionWordSet.add("acid_internally");
     searchMap.set("option", optionWordSet);
 
@@ -10233,6 +10421,7 @@ let whoWordSet = new Set();
         whoWordSet.add("comparing_different_queues");
         whoWordSet.add("choice");
         whoWordSet.add("password_hash_in_db");
+        whoWordSet.add("oauth");
     searchMap.set("who", whoWordSet);
 
 let politicsWordSet = new Set();
@@ -10245,6 +10434,7 @@ let determinesWordSet = new Set();
     searchMap.set("determines", determinesWordSet);
 
 let postgressWordSet = new Set();
+        postgressWordSet.add("spring_jpa");
         postgressWordSet.add("relational_dbs_performance");
         postgressWordSet.add("mysql_vs_postgres");
         postgressWordSet.add("acid_internally");
@@ -10533,6 +10723,10 @@ let analiseWordSet = new Set();
         analiseWordSet.add("interest");
     searchMap.set("analise", analiseWordSet);
 
+let flushautomaticallyWordSet = new Set();
+        flushautomaticallyWordSet.add("spring_jpa");
+    searchMap.set("flushautomatically", flushautomaticallyWordSet);
+
 let mirroringWordSet = new Set();
         mirroringWordSet.add("kafka_in_action_summary");
     searchMap.set("mirroring", mirroringWordSet);
@@ -10606,6 +10800,7 @@ let anWordSet = new Set();
         anWordSet.add("sha-256");
         anWordSet.add("java_concurrency");
         anWordSet.add("jwt");
+        anWordSet.add("spring_jpa");
         anWordSet.add("antifragility");
         anWordSet.add("cryptography");
         anWordSet.add("sql_commands");
@@ -10638,12 +10833,17 @@ let extendWordSet = new Set();
         extendWordSet.add("password_hash_in_db");
     searchMap.set("extend", extendWordSet);
 
+let proxyWordSet = new Set();
+        proxyWordSet.add("spring_jpa");
+    searchMap.set("proxy", proxyWordSet);
+
 let asWordSet = new Set();
         asWordSet.add("rsa");
         asWordSet.add("career_crises");
         asWordSet.add("mongo_db");
         asWordSet.add("java_concurrency");
         asWordSet.add("jwt");
+        asWordSet.add("spring_jpa");
         asWordSet.add("antifragility");
         asWordSet.add("cryptography");
         asWordSet.add("ca_and_ssl_handshake");
@@ -10670,6 +10870,7 @@ let atWordSet = new Set();
         atWordSet.add("mongo_db");
         atWordSet.add("java_concurrency");
         atWordSet.add("jwt");
+        atWordSet.add("spring_jpa");
         atWordSet.add("antifragility");
         atWordSet.add("ca_and_ssl_handshake");
         atWordSet.add("about_the_digital_garden");
@@ -10768,6 +10969,7 @@ let beWordSet = new Set();
         beWordSet.add("sha-256");
         beWordSet.add("java_concurrency");
         beWordSet.add("jwt");
+        beWordSet.add("spring_jpa");
         beWordSet.add("antifragility");
         beWordSet.add("cryptography");
         beWordSet.add("ca_and_ssl_handshake");
@@ -10873,6 +11075,11 @@ let timoutWordSet = new Set();
         timoutWordSet.add("mongo_db");
     searchMap.set("timout", timoutWordSet);
 
+let caWordSet = new Set();
+        caWordSet.add("security");
+        caWordSet.add("ca_and_ssl_handshake");
+    searchMap.set("ca", caWordSet);
+
 let footWordSet = new Set();
         footWordSet.add("antifragility");
     searchMap.set("foot", footWordSet);
@@ -10881,18 +11088,13 @@ let developsWordSet = new Set();
         developsWordSet.add("antifragility");
     searchMap.set("develops", developsWordSet);
 
-let caWordSet = new Set();
-        caWordSet.add("security");
-        caWordSet.add("ca_and_ssl_handshake");
-    searchMap.set("ca", caWordSet);
+let saltsWordSet = new Set();
+        saltsWordSet.add("password_hash_in_db");
+    searchMap.set("salts", saltsWordSet);
 
 let humanityWordSet = new Set();
         humanityWordSet.add("antifragility");
     searchMap.set("humanity", humanityWordSet);
-
-let saltsWordSet = new Set();
-        saltsWordSet.add("password_hash_in_db");
-    searchMap.set("salts", saltsWordSet);
 
 let cbWordSet = new Set();
         cbWordSet.add("antifragility");
@@ -10935,13 +11137,13 @@ let familiarWordSet = new Set();
         familiarWordSet.add("java_concurrency");
     searchMap.set("familiar", familiarWordSet);
 
-let coWordSet = new Set();
-        coWordSet.add("antifragility");
-    searchMap.set("co", coWordSet);
-
 let executorserviceWordSet = new Set();
         executorserviceWordSet.add("java_concurrency");
     searchMap.set("executorservice", executorserviceWordSet);
+
+let coWordSet = new Set();
+        coWordSet.add("antifragility");
+    searchMap.set("co", coWordSet);
 
 let gapsWordSet = new Set();
         gapsWordSet.add("kafka_in_action_summary");
@@ -10992,13 +11194,13 @@ let runnablesWordSet = new Set();
         runnablesWordSet.add("java_concurrency");
     searchMap.set("runnables", runnablesWordSet);
 
-let acquisitionsWordSet = new Set();
-        acquisitionsWordSet.add("antifragility");
-    searchMap.set("acquisitions", acquisitionsWordSet);
-
 let interviewWordSet = new Set();
         interviewWordSet.add("leadership");
     searchMap.set("interview", interviewWordSet);
+
+let acquisitionsWordSet = new Set();
+        acquisitionsWordSet.add("antifragility");
+    searchMap.set("acquisitions", acquisitionsWordSet);
 
 let configWordSet = new Set();
         configWordSet.add("mongo_db");
@@ -11030,6 +11232,7 @@ let dbWordSet = new Set();
         dbWordSet.add("dynamo_db");
         dbWordSet.add("security");
         dbWordSet.add("cassandra");
+        dbWordSet.add("spring_jpa");
         dbWordSet.add("comparing_different_queues");
         dbWordSet.add("nosql_dbs");
         dbWordSet.add("rxjava");
@@ -11093,6 +11296,7 @@ let doWordSet = new Set();
         doWordSet.add("mongo_db");
         doWordSet.add("java_concurrency");
         doWordSet.add("jwt");
+        doWordSet.add("spring_jpa");
         doWordSet.add("antifragility");
         doWordSet.add("sql_commands");
         doWordSet.add("persuasion");
@@ -11105,6 +11309,7 @@ let doWordSet = new Set();
         doWordSet.add("gaining_wisdom");
         doWordSet.add("rxjava");
         doWordSet.add("password_hash_in_db");
+        doWordSet.add("oauth");
         doWordSet.add("acid_internally");
         doWordSet.add("kafka_very_short_summary");
     searchMap.set("do", doWordSet);
@@ -11261,6 +11466,7 @@ let neverWordSet = new Set();
         neverWordSet.add("mongo_db");
         neverWordSet.add("kafka_in_action_summary");
         neverWordSet.add("jwt");
+        neverWordSet.add("spring_jpa");
         neverWordSet.add("relational_dbs_performance");
         neverWordSet.add("antifragility");
         neverWordSet.add("mysql_vs_postgres");
@@ -11328,6 +11534,7 @@ let fgWordSet = new Set();
 
 let identifyingWordSet = new Set();
         identifyingWordSet.add("jwt");
+        identifyingWordSet.add("oauth");
     searchMap.set("identifying", identifyingWordSet);
 
 let fkWordSet = new Set();
@@ -11350,6 +11557,7 @@ let forWordSet = new Set();
         forWordSet.add("career_crises");
         forWordSet.add("day_dreams");
         forWordSet.add("jwt");
+        forWordSet.add("spring_jpa");
         forWordSet.add("nosql_dbs");
         forWordSet.add("ca_and_ssl_handshake");
         forWordSet.add("kafka_in_action_summary");
@@ -11539,10 +11747,6 @@ let restorWordSet = new Set();
         restorWordSet.add("mongo_db");
     searchMap.set("restor", restorWordSet);
 
-let unverfiedWordSet = new Set();
-        unverfiedWordSet.add("oauth");
-    searchMap.set("unverfied", unverfiedWordSet);
-
 let significantlyWordSet = new Set();
         significantlyWordSet.add("relational_dbs_performance");
         significantlyWordSet.add("antifragility");
@@ -11641,10 +11845,15 @@ let elseWordSet = new Set();
 
 let contextWordSet = new Set();
         contextWordSet.add("kafka_in_action_summary");
+        contextWordSet.add("spring_jpa");
         contextWordSet.add("antifragility");
         contextWordSet.add("mysql_vs_postgres");
         contextWordSet.add("acid_internally");
     searchMap.set("context", contextWordSet);
+
+let unawareWordSet = new Set();
+        unawareWordSet.add("spring_jpa");
+    searchMap.set("unaware", unawareWordSet);
 
 let easilyWordSet = new Set();
         easilyWordSet.add("kafka_in_action_summary");
@@ -11666,6 +11875,7 @@ let idWordSet = new Set();
         idWordSet.add("mongo_db");
         idWordSet.add("kafka_in_action_summary");
         idWordSet.add("jwt");
+        idWordSet.add("spring_jpa");
         idWordSet.add("relational_dbs_performance");
         idWordSet.add("mysql_vs_postgres");
         idWordSet.add("oauth");
@@ -11695,6 +11905,7 @@ let ifWordSet = new Set();
         ifWordSet.add("rsa");
         ifWordSet.add("day_dreams");
         ifWordSet.add("jwt");
+        ifWordSet.add("spring_jpa");
         ifWordSet.add("ca_and_ssl_handshake");
         ifWordSet.add("kafka_in_action_summary");
         ifWordSet.add("interest");
@@ -11745,6 +11956,7 @@ let inWordSet = new Set();
         inWordSet.add("rsa");
         inWordSet.add("career_crises");
         inWordSet.add("jwt");
+        inWordSet.add("spring_jpa");
         inWordSet.add("ca_and_ssl_handshake");
         inWordSet.add("kafka_in_action_summary");
         inWordSet.add("security");
@@ -11774,13 +11986,13 @@ let inWordSet = new Set();
         inWordSet.add("kafka_very_short_summary");
     searchMap.set("in", inWordSet);
 
-let nonlinearityWordSet = new Set();
-        nonlinearityWordSet.add("antifragility");
-    searchMap.set("nonlinearity", nonlinearityWordSet);
-
 let literallyWordSet = new Set();
         literallyWordSet.add("mysql_vs_postgres");
     searchMap.set("literally", literallyWordSet);
+
+let nonlinearityWordSet = new Set();
+        nonlinearityWordSet.add("antifragility");
+    searchMap.set("nonlinearity", nonlinearityWordSet);
 
 let ioWordSet = new Set();
         ioWordSet.add("kafka_in_action_summary");
@@ -11817,6 +12029,7 @@ let isWordSet = new Set();
         isWordSet.add("career_crises");
         isWordSet.add("day_dreams");
         isWordSet.add("jwt");
+        isWordSet.add("spring_jpa");
         isWordSet.add("toc");
         isWordSet.add("ca_and_ssl_handshake");
         isWordSet.add("about_the_digital_garden");
@@ -11851,6 +12064,7 @@ let itWordSet = new Set();
         itWordSet.add("career_crises");
         itWordSet.add("day_dreams");
         itWordSet.add("jwt");
+        itWordSet.add("spring_jpa");
         itWordSet.add("ca_and_ssl_handshake");
         itWordSet.add("kafka_in_action_summary");
         itWordSet.add("interest");
@@ -11898,13 +12112,13 @@ let contrastWordSet = new Set();
         contrastWordSet.add("mysql_vs_postgres");
     searchMap.set("contrast", contrastWordSet);
 
-let gaveWordSet = new Set();
-        gaveWordSet.add("antifragility");
-    searchMap.set("gave", gaveWordSet);
-
 let singlethreadexecutorWordSet = new Set();
         singlethreadexecutorWordSet.add("java_concurrency");
     searchMap.set("singlethreadexecutor", singlethreadexecutorWordSet);
+
+let gaveWordSet = new Set();
+        gaveWordSet.add("antifragility");
+    searchMap.set("gave", gaveWordSet);
 
 let continuingWordSet = new Set();
         continuingWordSet.add("rxjava");
@@ -12023,6 +12237,7 @@ let implementationsWordSet = new Set();
 let modificationsWordSet = new Set();
         modificationsWordSet.add("kafka_in_action_summary");
         modificationsWordSet.add("java_concurrency");
+        modificationsWordSet.add("spring_jpa");
     searchMap.set("modifications", modificationsWordSet);
 
 let kmWordSet = new Set();
@@ -12047,14 +12262,14 @@ let offWordSet = new Set();
         offWordSet.add("antifragility");
     searchMap.set("off", offWordSet);
 
+let verboseWordSet = new Set();
+        verboseWordSet.add("mysql_vs_postgres");
+    searchMap.set("verbose", verboseWordSet);
+
 let generallyWordSet = new Set();
         generallyWordSet.add("mongo_db");
         generallyWordSet.add("antifragility");
     searchMap.set("generally", generallyWordSet);
-
-let verboseWordSet = new Set();
-        verboseWordSet.add("mysql_vs_postgres");
-    searchMap.set("verbose", verboseWordSet);
 
 let placesWordSet = new Set();
         placesWordSet.add("mongo_db");
@@ -12085,6 +12300,7 @@ let consciousWordSet = new Set();
 
 let transactionWordSet = new Set();
         transactionWordSet.add("mongo_db");
+        transactionWordSet.add("spring_jpa");
         transactionWordSet.add("antifragility");
         transactionWordSet.add("mysql_vs_postgres");
         transactionWordSet.add("acid_internally");
@@ -12164,6 +12380,7 @@ let thatWordSet = new Set();
         thatWordSet.add("career_crises");
         thatWordSet.add("day_dreams");
         thatWordSet.add("jwt");
+        thatWordSet.add("spring_jpa");
         thatWordSet.add("ca_and_ssl_handshake");
         thatWordSet.add("kafka_in_action_summary");
         thatWordSet.add("interest");
@@ -12191,10 +12408,6 @@ let thatWordSet = new Set();
         thatWordSet.add("kafka_very_short_summary");
     searchMap.set("that", thatWordSet);
 
-let rulingWordSet = new Set();
-        rulingWordSet.add("antifragility");
-    searchMap.set("ruling", rulingWordSet);
-
 let fasterWordSet = new Set();
         fasterWordSet.add("thinking_fast_and_slow");
         fasterWordSet.add("mongo_db");
@@ -12205,6 +12418,10 @@ let fasterWordSet = new Set();
 let edgeWordSet = new Set();
         edgeWordSet.add("password_hash_in_db");
     searchMap.set("edge", edgeWordSet);
+
+let rulingWordSet = new Set();
+        rulingWordSet.add("antifragility");
+    searchMap.set("ruling", rulingWordSet);
 
 let mbWordSet = new Set();
         mbWordSet.add("mongo_db");
@@ -12392,6 +12609,10 @@ let predictionWordSet = new Set();
         predictionWordSet.add("antifragility");
     searchMap.set("prediction", predictionWordSet);
 
+let retrieveWordSet = new Set();
+        retrieveWordSet.add("oauth");
+    searchMap.set("retrieve", retrieveWordSet);
+
 let plugWordSet = new Set();
         plugWordSet.add("jwt");
     searchMap.set("plug", plugWordSet);
@@ -12402,10 +12623,6 @@ let discWordSet = new Set();
         discWordSet.add("rxjava");
     searchMap.set("disc", discWordSet);
 
-let tabletsWordSet = new Set();
-        tabletsWordSet.add("antifragility");
-    searchMap.set("tablets", tabletsWordSet);
-
 let postponeWordSet = new Set();
         postponeWordSet.add("choice");
     searchMap.set("postpone", postponeWordSet);
@@ -12413,6 +12630,10 @@ let postponeWordSet = new Set();
 let termedWordSet = new Set();
         termedWordSet.add("hmac");
     searchMap.set("termed", termedWordSet);
+
+let tabletsWordSet = new Set();
+        tabletsWordSet.add("antifragility");
+    searchMap.set("tablets", tabletsWordSet);
 
 let noWordSet = new Set();
         noWordSet.add("thinking_fast_and_slow");
@@ -12441,6 +12662,7 @@ let legacyWordSet = new Set();
 let codeWordSet = new Set();
         codeWordSet.add("kafka_in_action_summary");
         codeWordSet.add("java_concurrency");
+        codeWordSet.add("spring_jpa");
         codeWordSet.add("hmac");
         codeWordSet.add("relational_dbs_performance");
         codeWordSet.add("rxjava");
@@ -12472,21 +12694,22 @@ let carefulWordSet = new Set();
         carefulWordSet.add("kafka_in_action_summary");
     searchMap.set("careful", carefulWordSet);
 
-let fastingWordSet = new Set();
-        fastingWordSet.add("antifragility");
-    searchMap.set("fasting", fastingWordSet);
-
 let mixedWordSet = new Set();
         mixedWordSet.add("java_concurrency");
         mixedWordSet.add("mysql_vs_postgres");
         mixedWordSet.add("kafka_very_short_summary");
     searchMap.set("mixed", mixedWordSet);
 
+let fastingWordSet = new Set();
+        fastingWordSet.add("antifragility");
+    searchMap.set("fasting", fastingWordSet);
+
 let storageWordSet = new Set();
         storageWordSet.add("mongo_db");
         storageWordSet.add("kafka_in_action_summary");
         storageWordSet.add("dynamo_db");
         storageWordSet.add("jwt");
+        storageWordSet.add("spring_jpa");
         storageWordSet.add("relational_dbs_performance");
         storageWordSet.add("mysql_vs_postgres");
         storageWordSet.add("terraform");
@@ -12522,6 +12745,7 @@ let ofWordSet = new Set();
         ofWordSet.add("career_crises");
         ofWordSet.add("day_dreams");
         ofWordSet.add("jwt");
+        ofWordSet.add("spring_jpa");
         ofWordSet.add("toc");
         ofWordSet.add("ca_and_ssl_handshake");
         ofWordSet.add("about_the_digital_garden");
@@ -12560,13 +12784,13 @@ let reserveWordSet = new Set();
         reserveWordSet.add("antifragility");
     searchMap.set("reserve", reserveWordSet);
 
-let capacitiesWordSet = new Set();
-        capacitiesWordSet.add("antifragility");
-    searchMap.set("capacities", capacitiesWordSet);
-
 let backendWordSet = new Set();
         backendWordSet.add("terraform");
     searchMap.set("backend", backendWordSet);
+
+let capacitiesWordSet = new Set();
+        capacitiesWordSet.add("antifragility");
+    searchMap.set("capacities", capacitiesWordSet);
 
 let somehowWordSet = new Set();
         somehowWordSet.add("kafka_in_action_summary");
@@ -12582,13 +12806,13 @@ let okWordSet = new Set();
         okWordSet.add("oauth");
     searchMap.set("ok", okWordSet);
 
-let fightWordSet = new Set();
-        fightWordSet.add("antifragility");
-    searchMap.set("fight", fightWordSet);
-
 let hearWordSet = new Set();
         hearWordSet.add("career_crises");
     searchMap.set("hear", hearWordSet);
+
+let fightWordSet = new Set();
+        fightWordSet.add("antifragility");
+    searchMap.set("fight", fightWordSet);
 
 let allocatedWordSet = new Set();
         allocatedWordSet.add("kafka_in_action_summary");
@@ -12600,6 +12824,7 @@ let onWordSet = new Set();
         onWordSet.add("mongo_db");
         onWordSet.add("java_concurrency");
         onWordSet.add("jwt");
+        onWordSet.add("spring_jpa");
         onWordSet.add("antifragility");
         onWordSet.add("cryptography");
         onWordSet.add("ca_and_ssl_handshake");
@@ -12624,6 +12849,7 @@ let allowsWordSet = new Set();
         allowsWordSet.add("kafka_in_action_summary");
         allowsWordSet.add("java_concurrency");
         allowsWordSet.add("jwt");
+        allowsWordSet.add("spring_jpa");
         allowsWordSet.add("relational_dbs_performance");
         allowsWordSet.add("antifragility");
         allowsWordSet.add("ca_and_ssl_handshake");
@@ -12655,6 +12881,7 @@ let orWordSet = new Set();
         orWordSet.add("java_concurrency");
         orWordSet.add("day_dreams");
         orWordSet.add("jwt");
+        orWordSet.add("spring_jpa");
         orWordSet.add("antifragility");
         orWordSet.add("cryptography");
         orWordSet.add("sql_commands");
@@ -12687,6 +12914,10 @@ let determineWordSet = new Set();
         determineWordSet.add("rxjava");
         determineWordSet.add("kafka_very_short_summary");
     searchMap.set("determine", determineWordSet);
+
+let bigdecimalWordSet = new Set();
+        bigdecimalWordSet.add("spring_jpa");
+    searchMap.set("bigdecimal", bigdecimalWordSet);
 
 let problematicWordSet = new Set();
         problematicWordSet.add("mysql_vs_postgres");
@@ -12731,6 +12962,7 @@ let easierWordSet = new Set();
         easierWordSet.add("kafka_in_action_summary");
         easierWordSet.add("leadership");
         easierWordSet.add("antifragility");
+        easierWordSet.add("oauth");
     searchMap.set("easier", easierWordSet);
 
 let communicatingWordSet = new Set();
@@ -12776,6 +13008,7 @@ let adaptationWordSet = new Set();
 
 let registeredWordSet = new Set();
         registeredWordSet.add("kafka_in_action_summary");
+        registeredWordSet.add("oauth");
     searchMap.set("registered", registeredWordSet);
 
 let intensivlyWordSet = new Set();
@@ -12877,6 +13110,7 @@ let oldWordSet = new Set();
         oldWordSet.add("comparing_different_queues");
         oldWordSet.add("mysql_vs_postgres");
         oldWordSet.add("password_hash_in_db");
+        oldWordSet.add("oauth");
         oldWordSet.add("acid_internally");
         oldWordSet.add("kafka_very_short_summary");
     searchMap.set("old", oldWordSet);
@@ -12908,6 +13142,7 @@ let thenWordSet = new Set();
         thenWordSet.add("mongo_db");
         thenWordSet.add("java_concurrency");
         thenWordSet.add("jwt");
+        thenWordSet.add("spring_jpa");
         thenWordSet.add("antifragility");
         thenWordSet.add("cryptography");
         thenWordSet.add("sql_commands");
@@ -12924,6 +13159,7 @@ let thenWordSet = new Set();
     searchMap.set("then", thenWordSet);
 
 let uncommittedWordSet = new Set();
+        uncommittedWordSet.add("spring_jpa");
         uncommittedWordSet.add("acid_internally");
     searchMap.set("uncommitted", uncommittedWordSet);
 
@@ -12956,6 +13192,7 @@ let reWordSet = new Set();
 
 let conceptsWordSet = new Set();
         conceptsWordSet.add("jwt");
+        conceptsWordSet.add("oauth");
     searchMap.set("concepts", conceptsWordSet);
 
 let snapshottingWordSet = new Set();
@@ -13021,6 +13258,7 @@ let activityWordSet = new Set();
 
 let executedWordSet = new Set();
         executedWordSet.add("java_concurrency");
+        executedWordSet.add("spring_jpa");
         executedWordSet.add("acid_internally");
     searchMap.set("executed", executedWordSet);
 
@@ -13057,6 +13295,7 @@ let myisamWordSet = new Set();
     searchMap.set("myisam", myisamWordSet);
 
 let persistWordSet = new Set();
+        persistWordSet.add("spring_jpa");
         persistWordSet.add("comparing_different_queues");
     searchMap.set("persist", persistWordSet);
 
@@ -13068,6 +13307,7 @@ let soWordSet = new Set();
         soWordSet.add("rsa");
         soWordSet.add("career_crises");
         soWordSet.add("jwt");
+        soWordSet.add("spring_jpa");
         soWordSet.add("ca_and_ssl_handshake");
         soWordSet.add("kafka_in_action_summary");
         soWordSet.add("interest");
@@ -13128,6 +13368,7 @@ let necessaryWordSet = new Set();
 
 let decisionWordSet = new Set();
         decisionWordSet.add("kafka_in_action_summary");
+        decisionWordSet.add("spring_jpa");
         decisionWordSet.add("leadership");
         decisionWordSet.add("antifragility");
         decisionWordSet.add("ca_and_ssl_handshake");
@@ -13146,6 +13387,7 @@ let oneWordSet = new Set();
         oneWordSet.add("sha-256");
         oneWordSet.add("java_concurrency");
         oneWordSet.add("jwt");
+        oneWordSet.add("spring_jpa");
         oneWordSet.add("antifragility");
         oneWordSet.add("cryptography");
         oneWordSet.add("ca_and_ssl_handshake");
@@ -13203,6 +13445,7 @@ let singleWordSet = new Set();
         singleWordSet.add("comparing_different_queues");
         singleWordSet.add("rxjava");
         singleWordSet.add("password_hash_in_db");
+        singleWordSet.add("oauth");
         singleWordSet.add("sql_commands");
     searchMap.set("single", singleWordSet);
 
@@ -13251,6 +13494,7 @@ let toWordSet = new Set();
         toWordSet.add("career_crises");
         toWordSet.add("day_dreams");
         toWordSet.add("jwt");
+        toWordSet.add("spring_jpa");
         toWordSet.add("toc");
         toWordSet.add("ca_and_ssl_handshake");
         toWordSet.add("about_the_digital_garden");
@@ -13303,6 +13547,10 @@ let countryWordSet = new Set();
         countryWordSet.add("antifragility");
         countryWordSet.add("sql_commands");
     searchMap.set("country", countryWordSet);
+
+let tvWordSet = new Set();
+        tvWordSet.add("oauth");
+    searchMap.set("tv", tvWordSet);
 
 let separateWordSet = new Set();
         separateWordSet.add("mongo_db");
@@ -13368,9 +13616,15 @@ let detailsWordSet = new Set();
         detailsWordSet.add("mongo_db");
         detailsWordSet.add("java_concurrency");
         detailsWordSet.add("jwt");
+        detailsWordSet.add("spring_jpa");
         detailsWordSet.add("relational_dbs_performance");
         detailsWordSet.add("password_hash_in_db");
+        detailsWordSet.add("oauth");
     searchMap.set("details", detailsWordSet);
+
+let hidesWordSet = new Set();
+        hidesWordSet.add("spring_jpa");
+    searchMap.set("hides", hidesWordSet);
 
 let upWordSet = new Set();
         upWordSet.add("mongo_db");
@@ -13398,11 +13652,13 @@ let usWordSet = new Set();
         usWordSet.add("relational_dbs_performance");
         usWordSet.add("antifragility");
         usWordSet.add("rxjava");
+        usWordSet.add("oauth");
         usWordSet.add("kafka_very_short_summary");
     searchMap.set("us", usWordSet);
 
 let ensureWordSet = new Set();
         ensureWordSet.add("kafka_in_action_summary");
+        ensureWordSet.add("oauth");
     searchMap.set("ensure", ensureWordSet);
 
 let organismWordSet = new Set();
@@ -13418,6 +13674,7 @@ let thisWordSet = new Set();
         thisWordSet.add("rsa");
         thisWordSet.add("career_crises");
         thisWordSet.add("jwt");
+        thisWordSet.add("spring_jpa");
         thisWordSet.add("toc");
         thisWordSet.add("ca_and_ssl_handshake");
         thisWordSet.add("about_the_digital_garden");
@@ -13474,6 +13731,7 @@ let extractWordSet = new Set();
     searchMap.set("extract", extractWordSet);
 
 let seesWordSet = new Set();
+        seesWordSet.add("spring_jpa");
         seesWordSet.add("acid_internally");
     searchMap.set("sees", seesWordSet);
 
@@ -13578,6 +13836,7 @@ let changesWordSet = new Set();
         changesWordSet.add("kafka_in_action_summary");
         changesWordSet.add("java_concurrency");
         changesWordSet.add("jwt");
+        changesWordSet.add("spring_jpa");
         changesWordSet.add("antifragility");
         changesWordSet.add("mysql_vs_postgres");
         changesWordSet.add("terraform");
@@ -13617,6 +13876,7 @@ let weWordSet = new Set();
         weWordSet.add("sha-256");
         weWordSet.add("java_concurrency");
         weWordSet.add("jwt");
+        weWordSet.add("spring_jpa");
         weWordSet.add("antifragility");
         weWordSet.add("sql_commands");
         weWordSet.add("persuasion");
@@ -13627,6 +13887,7 @@ let weWordSet = new Set();
         weWordSet.add("mysql_vs_postgres");
         weWordSet.add("rxjava");
         weWordSet.add("password_hash_in_db");
+        weWordSet.add("oauth");
         weWordSet.add("acid_internally");
         weWordSet.add("kafka_very_short_summary");
     searchMap.set("we", weWordSet);
@@ -13693,6 +13954,7 @@ let doonnextWordSet = new Set();
 let readingWordSet = new Set();
         readingWordSet.add("kafka_in_action_summary");
         readingWordSet.add("java_concurrency");
+        readingWordSet.add("spring_jpa");
         readingWordSet.add("antifragility");
         readingWordSet.add("terraform");
         readingWordSet.add("acid_internally");
@@ -13736,13 +13998,13 @@ let succeedWordSet = new Set();
         succeedWordSet.add("kafka_in_action_summary");
     searchMap.set("succeed", succeedWordSet);
 
-let dittoWordSet = new Set();
-        dittoWordSet.add("antifragility");
-    searchMap.set("ditto", dittoWordSet);
-
 let javaquestionsWordSet = new Set();
         javaquestionsWordSet.add("java_concurrency");
     searchMap.set("javaquestions", javaquestionsWordSet);
+
+let dittoWordSet = new Set();
+        dittoWordSet.add("antifragility");
+    searchMap.set("ditto", dittoWordSet);
 
 let locationWordSet = new Set();
         locationWordSet.add("mongo_db");
@@ -13791,12 +14053,14 @@ let confWordSet = new Set();
 
 let repositoryWordSet = new Set();
         repositoryWordSet.add("kafka_in_action_summary");
+        repositoryWordSet.add("spring_jpa");
     searchMap.set("repository", repositoryWordSet);
 
 let typeWordSet = new Set();
         typeWordSet.add("mongo_db");
         typeWordSet.add("kafka_in_action_summary");
         typeWordSet.add("jwt");
+        typeWordSet.add("spring_jpa");
         typeWordSet.add("hmac");
         typeWordSet.add("leadership");
         typeWordSet.add("relational_dbs_performance");
@@ -13865,6 +14129,10 @@ let optimizationWordSet = new Set();
         optimizationWordSet.add("password_hash_in_db");
     searchMap.set("optimization", optimizationWordSet);
 
+let clearautomaticallyWordSet = new Set();
+        clearautomaticallyWordSet.add("spring_jpa");
+    searchMap.set("clearautomatically", clearautomaticallyWordSet);
+
 let encriptionWordSet = new Set();
         encriptionWordSet.add("cryptography");
     searchMap.set("encription", encriptionWordSet);
@@ -13907,12 +14175,17 @@ let methodWordSet = new Set();
         methodWordSet.add("mongo_db");
         methodWordSet.add("kafka_in_action_summary");
         methodWordSet.add("java_concurrency");
+        methodWordSet.add("spring_jpa");
         methodWordSet.add("hmac");
         methodWordSet.add("antifragility");
         methodWordSet.add("rxjava");
         methodWordSet.add("oauth");
         methodWordSet.add("kafka_very_short_summary");
     searchMap.set("method", methodWordSet);
+
+let contractWordSet = new Set();
+        contractWordSet.add("spring_jpa");
+    searchMap.set("contract", contractWordSet);
 
 let mediocristanWordSet = new Set();
         mediocristanWordSet.add("antifragility");
@@ -14043,6 +14316,7 @@ let ourWordSet = new Set();
         ourWordSet.add("persuasion");
         ourWordSet.add("kafka_in_action_summary");
         ourWordSet.add("jwt");
+        ourWordSet.add("spring_jpa");
         ourWordSet.add("leadership");
         ourWordSet.add("antifragility");
     searchMap.set("our", ourWordSet);
@@ -14101,6 +14375,7 @@ let getWordSet = new Set();
         getWordSet.add("sha-256");
         getWordSet.add("java_concurrency");
         getWordSet.add("jwt");
+        getWordSet.add("spring_jpa");
         getWordSet.add("antifragility");
         getWordSet.add("cryptography");
         getWordSet.add("persuasion");
@@ -14119,6 +14394,7 @@ let continuesWordSet = new Set();
 let courseWordSet = new Set();
         courseWordSet.add("antifragility");
         courseWordSet.add("password_hash_in_db");
+        courseWordSet.add("oauth");
     searchMap.set("course", courseWordSet);
 
 let initializedWordSet = new Set();
@@ -14255,6 +14531,7 @@ let dataWordSet = new Set();
         dataWordSet.add("mongo_db");
         dataWordSet.add("java_concurrency");
         dataWordSet.add("jwt");
+        dataWordSet.add("spring_jpa");
         dataWordSet.add("antifragility");
         dataWordSet.add("cryptography");
         dataWordSet.add("ca_and_ssl_handshake");
@@ -14309,13 +14586,13 @@ let barrierWordSet = new Set();
         barrierWordSet.add("java_concurrency");
     searchMap.set("barrier", barrierWordSet);
 
-let argentinaWordSet = new Set();
-        argentinaWordSet.add("antifragility");
-    searchMap.set("argentina", argentinaWordSet);
-
 let readlockWordSet = new Set();
         readlockWordSet.add("java_concurrency");
     searchMap.set("readlock", readlockWordSet);
+
+let argentinaWordSet = new Set();
+        argentinaWordSet.add("antifragility");
+    searchMap.set("argentina", argentinaWordSet);
 
 let singleelementWordSet = new Set();
         singleelementWordSet.add("rxjava");
@@ -14335,6 +14612,7 @@ let createWordSet = new Set();
         createWordSet.add("mongo_db");
         createWordSet.add("java_concurrency");
         createWordSet.add("jwt");
+        createWordSet.add("spring_jpa");
         createWordSet.add("antifragility");
         createWordSet.add("cryptography");
         createWordSet.add("how_to_create_a_python_project");
@@ -14398,6 +14676,7 @@ let likeWordSet = new Set();
         likeWordSet.add("choice");
         likeWordSet.add("rxjava");
         likeWordSet.add("password_hash_in_db");
+        likeWordSet.add("oauth");
         likeWordSet.add("acid_internally");
     searchMap.set("like", likeWordSet);
 
@@ -14446,14 +14725,14 @@ let protoWordSet = new Set();
         protoWordSet.add("antifragility");
     searchMap.set("proto", protoWordSet);
 
-let groundWordSet = new Set();
-        groundWordSet.add("antifragility");
-    searchMap.set("ground", groundWordSet);
-
 let terraformWordSet = new Set();
         terraformWordSet.add("devops");
         terraformWordSet.add("terraform");
     searchMap.set("terraform", terraformWordSet);
+
+let groundWordSet = new Set();
+        groundWordSet.add("antifragility");
+    searchMap.set("ground", groundWordSet);
 
 let sendWordSet = new Set();
         sendWordSet.add("mongo_db");
@@ -14597,6 +14876,7 @@ let willWordSet = new Set();
         willWordSet.add("mongo_db");
         willWordSet.add("java_concurrency");
         willWordSet.add("jwt");
+        willWordSet.add("spring_jpa");
         willWordSet.add("antifragility");
         willWordSet.add("ca_and_ssl_handshake");
         willWordSet.add("sql_commands");
@@ -14637,6 +14917,7 @@ let allowingWordSet = new Set();
         allowingWordSet.add("mongo_db");
         allowingWordSet.add("kafka_in_action_summary");
         allowingWordSet.add("jwt");
+        allowingWordSet.add("oauth");
     searchMap.set("allowing", allowingWordSet);
 
 let followWordSet = new Set();
@@ -14693,13 +14974,13 @@ let wildWordSet = new Set();
         wildWordSet.add("relational_dbs_performance");
     searchMap.set("wild", wildWordSet);
 
-let authoritarianismWordSet = new Set();
-        authoritarianismWordSet.add("antifragility");
-    searchMap.set("authoritarianism", authoritarianismWordSet);
-
 let executionexceptionWordSet = new Set();
         executionexceptionWordSet.add("java_concurrency");
     searchMap.set("executionexception", executionexceptionWordSet);
+
+let authoritarianismWordSet = new Set();
+        authoritarianismWordSet.add("antifragility");
+    searchMap.set("authoritarianism", authoritarianismWordSet);
 
 let introducesWordSet = new Set();
         introducesWordSet.add("antifragility");
@@ -14708,10 +14989,6 @@ let introducesWordSet = new Set();
 let slowedWordSet = new Set();
         slowedWordSet.add("rxjava");
     searchMap.set("slowed", slowedWordSet);
-
-let wastesWordSet = new Set();
-        wastesWordSet.add("antifragility");
-    searchMap.set("wastes", wastesWordSet);
 
 let chipsWordSet = new Set();
         chipsWordSet.add("password_hash_in_db");
@@ -14724,6 +15001,14 @@ let functionsWordSet = new Set();
         functionsWordSet.add("password_hash_in_db");
         functionsWordSet.add("sql_commands");
     searchMap.set("functions", functionsWordSet);
+
+let wastesWordSet = new Set();
+        wastesWordSet.add("antifragility");
+    searchMap.set("wastes", wastesWordSet);
+
+let numerousWordSet = new Set();
+        numerousWordSet.add("oauth");
+    searchMap.set("numerous", numerousWordSet);
 
 let governWordSet = new Set();
         governWordSet.add("antifragility");
@@ -14740,6 +15025,7 @@ let yourWordSet = new Set();
         yourWordSet.add("java_concurrency");
         yourWordSet.add("day_dreams");
         yourWordSet.add("jwt");
+        yourWordSet.add("spring_jpa");
         yourWordSet.add("antifragility");
         yourWordSet.add("cryptography");
         yourWordSet.add("persuasion");
@@ -14777,13 +15063,14 @@ let shamirWordSet = new Set();
 
 let withoutWordSet = new Set();
         withoutWordSet.add("rsa");
-        withoutWordSet.add("kafka_in_action_summary");
         withoutWordSet.add("java_concurrency");
+        withoutWordSet.add("spring_jpa");
+        withoutWordSet.add("antifragility");
+        withoutWordSet.add("ca_and_ssl_handshake");
+        withoutWordSet.add("kafka_in_action_summary");
         withoutWordSet.add("hmac");
         withoutWordSet.add("leadership");
         withoutWordSet.add("relational_dbs_performance");
-        withoutWordSet.add("antifragility");
-        withoutWordSet.add("ca_and_ssl_handshake");
         withoutWordSet.add("rxjava");
         withoutWordSet.add("password_hash_in_db");
         withoutWordSet.add("acid_internally");
@@ -14800,6 +15087,7 @@ let theseWordSet = new Set();
         theseWordSet.add("mongo_db");
         theseWordSet.add("kafka_in_action_summary");
         theseWordSet.add("jwt");
+        theseWordSet.add("spring_jpa");
         theseWordSet.add("antifragility");
         theseWordSet.add("mysql_vs_postgres");
         theseWordSet.add("rxjava");
@@ -14834,6 +15122,7 @@ let calculateWordSet = new Set();
     searchMap.set("calculate", calculateWordSet);
 
 let persistentWordSet = new Set();
+        persistentWordSet.add("spring_jpa");
         persistentWordSet.add("antifragility");
         persistentWordSet.add("comparing_different_queues");
     searchMap.set("persistent", persistentWordSet);
@@ -14868,13 +15157,22 @@ let thusWordSet = new Set();
         thusWordSet.add("password_hash_in_db");
     searchMap.set("thus", thusWordSet);
 
+let devicesWordSet = new Set();
+        devicesWordSet.add("oauth");
+    searchMap.set("devices", devicesWordSet);
+
 let newconditionWordSet = new Set();
         newconditionWordSet.add("java_concurrency");
     searchMap.set("newcondition", newconditionWordSet);
 
 let optionalWordSet = new Set();
         optionalWordSet.add("kafka_in_action_summary");
+        optionalWordSet.add("oauth");
     searchMap.set("optional", optionalWordSet);
+
+let deviseWordSet = new Set();
+        deviseWordSet.add("oauth");
+    searchMap.set("devise", deviseWordSet);
 
 let exposureWordSet = new Set();
         exposureWordSet.add("password_hash_in_db");
@@ -14990,6 +15288,7 @@ let xorWordSet = new Set();
 
 let committedWordSet = new Set();
         committedWordSet.add("kafka_in_action_summary");
+        committedWordSet.add("spring_jpa");
         committedWordSet.add("mysql_vs_postgres");
         committedWordSet.add("acid_internally");
     searchMap.set("committed", committedWordSet);
@@ -15015,12 +15314,9 @@ let unionWordSet = new Set();
         unionWordSet.add("sql_commands");
     searchMap.set("union", unionWordSet);
 
-let forestsWordSet = new Set();
-        forestsWordSet.add("antifragility");
-    searchMap.set("forests", forestsWordSet);
-
 let queriesWordSet = new Set();
         queriesWordSet.add("mongo_db");
+        queriesWordSet.add("spring_jpa");
         queriesWordSet.add("relational_dbs_performance");
         queriesWordSet.add("comparing_different_queues");
         queriesWordSet.add("mysql_vs_postgres");
@@ -15030,19 +15326,24 @@ let facedWordSet = new Set();
         facedWordSet.add("leadership");
     searchMap.set("faced", facedWordSet);
 
+let forestsWordSet = new Set();
+        forestsWordSet.add("antifragility");
+    searchMap.set("forests", forestsWordSet);
+
 let wipeWordSet = new Set();
         wipeWordSet.add("password_hash_in_db");
     searchMap.set("wipe", wipeWordSet);
-
-let subtleWordSet = new Set();
-        subtleWordSet.add("antifragility");
-    searchMap.set("subtle", subtleWordSet);
 
 let syncronioslyWordSet = new Set();
         syncronioslyWordSet.add("java_concurrency");
     searchMap.set("syncroniosly", syncronioslyWordSet);
 
+let subtleWordSet = new Set();
+        subtleWordSet.add("antifragility");
+    searchMap.set("subtle", subtleWordSet);
+
 let componentWordSet = new Set();
+        componentWordSet.add("spring_jpa");
         componentWordSet.add("relational_dbs_performance");
         componentWordSet.add("oauth");
     searchMap.set("component", componentWordSet);
@@ -15060,6 +15361,7 @@ let speaksWordSet = new Set();
     searchMap.set("speaks", speaksWordSet);
 
 let persistenceWordSet = new Set();
+        persistenceWordSet.add("spring_jpa");
         persistenceWordSet.add("comparing_different_queues");
     searchMap.set("persistence", persistenceWordSet);
 
@@ -15076,6 +15378,10 @@ let returnedWordSet = new Set();
         returnedWordSet.add("oauth");
     searchMap.set("returned", returnedWordSet);
 
+let wrapWordSet = new Set();
+        wrapWordSet.add("spring_jpa");
+    searchMap.set("wrap", wrapWordSet);
+
 let replicatedWordSet = new Set();
         replicatedWordSet.add("mongo_db");
         replicatedWordSet.add("kafka_in_action_summary");
@@ -15086,6 +15392,7 @@ let standardWordSet = new Set();
         standardWordSet.add("kafka_in_action_summary");
         standardWordSet.add("jwt");
         standardWordSet.add("password_hash_in_db");
+        standardWordSet.add("oauth");
         standardWordSet.add("sql_commands");
     searchMap.set("standard", standardWordSet);
 
@@ -15322,10 +15629,12 @@ let respondedWordSet = new Set();
 
 let performWordSet = new Set();
         performWordSet.add("rsa");
+        performWordSet.add("spring_jpa");
         performWordSet.add("leadership");
         performWordSet.add("relational_dbs_performance");
         performWordSet.add("mysql_vs_postgres");
         performWordSet.add("password_hash_in_db");
+        performWordSet.add("oauth");
         performWordSet.add("acid_internally");
     searchMap.set("perform", performWordSet);
 
@@ -15365,6 +15674,7 @@ let withWordSet = new Set();
         withWordSet.add("java_concurrency");
         withWordSet.add("day_dreams");
         withWordSet.add("jwt");
+        withWordSet.add("spring_jpa");
         withWordSet.add("antifragility");
         withWordSet.add("cryptography");
         withWordSet.add("ca_and_ssl_handshake");
@@ -15398,6 +15708,7 @@ let thereWordSet = new Set();
         thereWordSet.add("mongo_db");
         thereWordSet.add("java_concurrency");
         thereWordSet.add("jwt");
+        thereWordSet.add("spring_jpa");
         thereWordSet.add("antifragility");
         thereWordSet.add("cryptography");
         thereWordSet.add("ca_and_ssl_handshake");
@@ -15417,6 +15728,10 @@ let thereWordSet = new Set();
 let wadeWordSet = new Set();
         wadeWordSet.add("antifragility");
     searchMap.set("wade", wadeWordSet);
+
+let injectWordSet = new Set();
+        injectWordSet.add("spring_jpa");
+    searchMap.set("inject", injectWordSet);
 
 let localsWordSet = new Set();
         localsWordSet.add("terraform");
@@ -15449,19 +15764,20 @@ let channelWordSet = new Set();
         channelWordSet.add("rsa");
         channelWordSet.add("kafka_in_action_summary");
         channelWordSet.add("comparing_different_queues");
+        channelWordSet.add("oauth");
     searchMap.set("channel", channelWordSet);
 
 let focusWordSet = new Set();
         focusWordSet.add("antifragility");
     searchMap.set("focus", focusWordSet);
 
-let americanWordSet = new Set();
-        americanWordSet.add("antifragility");
-    searchMap.set("american", americanWordSet);
-
 let deliveredWordSet = new Set();
         deliveredWordSet.add("comparing_different_queues");
     searchMap.set("delivered", deliveredWordSet);
+
+let americanWordSet = new Set();
+        americanWordSet.add("antifragility");
+    searchMap.set("american", americanWordSet);
 
 let favorableWordSet = new Set();
         favorableWordSet.add("antifragility");
@@ -15489,6 +15805,7 @@ let approachWordSet = new Set();
         approachWordSet.add("relational_dbs_performance");
         approachWordSet.add("antifragility");
         approachWordSet.add("password_hash_in_db");
+        approachWordSet.add("oauth");
         approachWordSet.add("acid_internally");
     searchMap.set("approach", approachWordSet);
 
@@ -15518,6 +15835,7 @@ let perWordSet = new Set();
         perWordSet.add("comparing_different_queues");
         perWordSet.add("mysql_vs_postgres");
         perWordSet.add("rxjava");
+        perWordSet.add("oauth");
         perWordSet.add("kafka_very_short_summary");
     searchMap.set("per", perWordSet);
 
@@ -15611,6 +15929,7 @@ let evenWordSet = new Set();
         evenWordSet.add("mongo_db");
         evenWordSet.add("day_dreams");
         evenWordSet.add("jwt");
+        evenWordSet.add("spring_jpa");
         evenWordSet.add("antifragility");
         evenWordSet.add("cryptography");
         evenWordSet.add("persuasion");
@@ -15767,6 +16086,7 @@ let attributesWordSet = new Set();
 
 let entityWordSet = new Set();
         entityWordSet.add("jwt");
+        entityWordSet.add("spring_jpa");
     searchMap.set("entity", entityWordSet);
 
 let imposedWordSet = new Set();
@@ -15826,13 +16146,13 @@ let overloadedWordSet = new Set();
         overloadedWordSet.add("mongo_db");
     searchMap.set("overloaded", overloadedWordSet);
 
-let harmfulWordSet = new Set();
-        harmfulWordSet.add("antifragility");
-    searchMap.set("harmful", harmfulWordSet);
-
 let associateWordSet = new Set();
         associateWordSet.add("thinking_fast_and_slow");
     searchMap.set("associate", associateWordSet);
+
+let harmfulWordSet = new Set();
+        harmfulWordSet.add("antifragility");
+    searchMap.set("harmful", harmfulWordSet);
 
 let kidneyWordSet = new Set();
         kidneyWordSet.add("antifragility");
@@ -15852,6 +16172,7 @@ let whetherWordSet = new Set();
         whetherWordSet.add("rsa");
         whetherWordSet.add("antifragility");
         whetherWordSet.add("password_hash_in_db");
+        whetherWordSet.add("oauth");
         whetherWordSet.add("acid_internally");
     searchMap.set("whether", whetherWordSet);
 
@@ -15898,6 +16219,7 @@ let countingWordSet = new Set();
 
 let voidWordSet = new Set();
         voidWordSet.add("java_concurrency");
+        voidWordSet.add("spring_jpa");
         voidWordSet.add("comparing_different_queues");
         voidWordSet.add("rxjava");
     searchMap.set("void", voidWordSet);
@@ -15965,6 +16287,7 @@ let basicWordSet = new Set();
         basicWordSet.add("jwt");
         basicWordSet.add("antifragility");
         basicWordSet.add("password_hash_in_db");
+        basicWordSet.add("oauth");
     searchMap.set("basic", basicWordSet);
 
 let lakeWordSet = new Set();
@@ -16142,13 +16465,13 @@ let schedullingWordSet = new Set();
         schedullingWordSet.add("java_concurrency");
     searchMap.set("schedulling", schedullingWordSet);
 
-let advertisingWordSet = new Set();
-        advertisingWordSet.add("antifragility");
-    searchMap.set("advertising", advertisingWordSet);
-
 let discussionWordSet = new Set();
         discussionWordSet.add("password_hash_in_db");
     searchMap.set("discussion", discussionWordSet);
+
+let advertisingWordSet = new Set();
+        advertisingWordSet.add("antifragility");
+    searchMap.set("advertising", advertisingWordSet);
 
 let passwordWordSet = new Set();
         passwordWordSet.add("mongo_db");
@@ -16159,13 +16482,13 @@ let passwordWordSet = new Set();
         passwordWordSet.add("oauth");
     searchMap.set("password", passwordWordSet);
 
-let lesserWordSet = new Set();
-        lesserWordSet.add("antifragility");
-    searchMap.set("lesser", lesserWordSet);
-
 let hazelcastWordSet = new Set();
         hazelcastWordSet.add("comparing_different_queues");
     searchMap.set("hazelcast", hazelcastWordSet);
+
+let lesserWordSet = new Set();
+        lesserWordSet.add("antifragility");
+    searchMap.set("lesser", lesserWordSet);
 
 let thinksWordSet = new Set();
         thinksWordSet.add("thinking_fast_and_slow");
@@ -16219,6 +16542,7 @@ let wantWordSet = new Set();
         wantWordSet.add("mongo_db");
         wantWordSet.add("kafka_in_action_summary");
         wantWordSet.add("jwt");
+        wantWordSet.add("spring_jpa");
         wantWordSet.add("antifragility");
         wantWordSet.add("rxjava");
         wantWordSet.add("password_hash_in_db");
@@ -16257,6 +16581,7 @@ let inputWordSet = new Set();
         inputWordSet.add("sha-256");
         inputWordSet.add("java_concurrency");
         inputWordSet.add("password_hash_in_db");
+        inputWordSet.add("oauth");
     searchMap.set("input", inputWordSet);
 
 let groovyWordSet = new Set();
@@ -16308,6 +16633,10 @@ let numberofrowsinrighttableWordSet = new Set();
 let scanningWordSet = new Set();
         scanningWordSet.add("relational_dbs_performance");
     searchMap.set("scanning", scanningWordSet);
+
+let hibernateWordSet = new Set();
+        hibernateWordSet.add("spring_jpa");
+    searchMap.set("hibernate", hibernateWordSet);
 
 let givingWordSet = new Set();
         givingWordSet.add("kafka_in_action_summary");
@@ -16413,10 +16742,6 @@ let refreshWordSet = new Set();
         refreshWordSet.add("oauth");
     searchMap.set("refresh", refreshWordSet);
 
-let simplificationWordSet = new Set();
-        simplificationWordSet.add("antifragility");
-    searchMap.set("simplification", simplificationWordSet);
-
 let summarizedWordSet = new Set();
         summarizedWordSet.add("password_hash_in_db");
     searchMap.set("summarized", summarizedWordSet);
@@ -16425,6 +16750,10 @@ let combiningWordSet = new Set();
         combiningWordSet.add("hmac");
         combiningWordSet.add("password_hash_in_db");
     searchMap.set("combining", combiningWordSet);
+
+let simplificationWordSet = new Set();
+        simplificationWordSet.add("antifragility");
+    searchMap.set("simplification", simplificationWordSet);
 
 let entirelyWordSet = new Set();
         entirelyWordSet.add("relational_dbs_performance");
@@ -16532,6 +16861,7 @@ let hasWordSet = new Set();
         hasWordSet.add("mongo_db");
         hasWordSet.add("java_concurrency");
         hasWordSet.add("day_dreams");
+        hasWordSet.add("spring_jpa");
         hasWordSet.add("antifragility");
         hasWordSet.add("cryptography");
         hasWordSet.add("ca_and_ssl_handshake");
@@ -16716,6 +17046,7 @@ let mirroredWordSet = new Set();
 let anythingWordSet = new Set();
         anythingWordSet.add("kafka_in_action_summary");
         anythingWordSet.add("java_concurrency");
+        anythingWordSet.add("spring_jpa");
         anythingWordSet.add("antifragility");
         anythingWordSet.add("rxjava");
         anythingWordSet.add("acid_internally");
@@ -16743,6 +17074,7 @@ let yesWordSet = new Set();
         yesWordSet.add("mongo_db");
         yesWordSet.add("antifragility");
         yesWordSet.add("comparing_different_queues");
+        yesWordSet.add("oauth");
     searchMap.set("yes", yesWordSet);
 
 let yetWordSet = new Set();
@@ -16818,6 +17150,7 @@ let timeWordSet = new Set();
         timeWordSet.add("mongo_db");
         timeWordSet.add("java_concurrency");
         timeWordSet.add("jwt");
+        timeWordSet.add("spring_jpa");
         timeWordSet.add("antifragility");
         timeWordSet.add("persuasion");
         timeWordSet.add("kafka_in_action_summary");
@@ -16846,6 +17179,7 @@ let configurableWordSet = new Set();
 
 let applicationsWordSet = new Set();
         applicationsWordSet.add("kafka_in_action_summary");
+        applicationsWordSet.add("oauth");
     searchMap.set("applications", applicationsWordSet);
 
 let xmlsWordSet = new Set();
@@ -16908,19 +17242,24 @@ let herWordSet = new Set();
         herWordSet.add("password_hash_in_db");
     searchMap.set("her", herWordSet);
 
+let deletionWordSet = new Set();
+        deletionWordSet.add("acid_internally");
+    searchMap.set("deletion", deletionWordSet);
+
 let fluctuationsWordSet = new Set();
         fluctuationsWordSet.add("antifragility");
     searchMap.set("fluctuations", fluctuationsWordSet);
 
-let deletionWordSet = new Set();
-        deletionWordSet.add("acid_internally");
-    searchMap.set("deletion", deletionWordSet);
+let authorizedWordSet = new Set();
+        authorizedWordSet.add("oauth");
+    searchMap.set("authorized", authorizedWordSet);
 
 let optionsWordSet = new Set();
         optionsWordSet.add("mongo_db");
         optionsWordSet.add("kafka_in_action_summary");
         optionsWordSet.add("java_concurrency");
         optionsWordSet.add("jwt");
+        optionsWordSet.add("spring_jpa");
         optionsWordSet.add("leadership");
         optionsWordSet.add("test_all");
     searchMap.set("options", optionsWordSet);
@@ -17028,13 +17367,13 @@ let tamperedWordSet = new Set();
         tamperedWordSet.add("jwt");
     searchMap.set("tampered", tamperedWordSet);
 
-let artistWordSet = new Set();
-        artistWordSet.add("antifragility");
-    searchMap.set("artist", artistWordSet);
-
 let syncronisationWordSet = new Set();
         syncronisationWordSet.add("java_concurrency");
     searchMap.set("syncronisation", syncronisationWordSet);
+
+let artistWordSet = new Set();
+        artistWordSet.add("antifragility");
+    searchMap.set("artist", artistWordSet);
 
 let methodsWordSet = new Set();
         methodsWordSet.add("rsa");
@@ -17169,6 +17508,7 @@ let beforeWordSet = new Set();
         beforeWordSet.add("thinking_fast_and_slow");
         beforeWordSet.add("career_crises");
         beforeWordSet.add("java_concurrency");
+        beforeWordSet.add("spring_jpa");
         beforeWordSet.add("antifragility");
         beforeWordSet.add("cryptography");
         beforeWordSet.add("ca_and_ssl_handshake");
@@ -17215,13 +17555,13 @@ let hisWordSet = new Set();
         hisWordSet.add("password_hash_in_db");
     searchMap.set("his", hisWordSet);
 
-let majorWordSet = new Set();
-        majorWordSet.add("antifragility");
-    searchMap.set("major", majorWordSet);
-
 let ymnmmdfkntvkWordSet = new Set();
         ymnmmdfkntvkWordSet.add("oauth");
     searchMap.set("ymnmmdfkntvk", ymnmmdfkntvkWordSet);
+
+let majorWordSet = new Set();
+        majorWordSet.add("antifragility");
+    searchMap.set("major", majorWordSet);
 
 let interruptWordSet = new Set();
         interruptWordSet.add("java_concurrency");
@@ -17247,6 +17587,10 @@ let potentialWordSet = new Set();
         potentialWordSet.add("oauth");
         potentialWordSet.add("acid_internally");
     searchMap.set("potential", potentialWordSet);
+
+let beanWordSet = new Set();
+        beanWordSet.add("spring_jpa");
+    searchMap.set("bean", beanWordSet);
 
 let optimizersWordSet = new Set();
         optimizersWordSet.add("relational_dbs_performance");
@@ -17295,13 +17639,13 @@ let historyWordSet = new Set();
         historyWordSet.add("antifragility");
     searchMap.set("history", historyWordSet);
 
-let squareWordSet = new Set();
-        squareWordSet.add("antifragility");
-    searchMap.set("square", squareWordSet);
-
 let opositeWordSet = new Set();
         opositeWordSet.add("choice");
     searchMap.set("oposite", opositeWordSet);
+
+let squareWordSet = new Set();
+        squareWordSet.add("antifragility");
+    searchMap.set("square", squareWordSet);
 
 let overloadingWordSet = new Set();
         overloadingWordSet.add("kafka_in_action_summary");
@@ -17309,6 +17653,7 @@ let overloadingWordSet = new Set();
 
 let twiceWordSet = new Set();
         twiceWordSet.add("kafka_in_action_summary");
+        twiceWordSet.add("spring_jpa");
         twiceWordSet.add("antifragility");
         twiceWordSet.add("kafka_very_short_summary");
     searchMap.set("twice", twiceWordSet);
@@ -17323,6 +17668,7 @@ let absolutelyWordSet = new Set();
 
 let managingWordSet = new Set();
         managingWordSet.add("kafka_in_action_summary");
+        managingWordSet.add("spring_jpa");
         managingWordSet.add("kafka_very_short_summary");
     searchMap.set("managing", managingWordSet);
 
@@ -17469,17 +17815,18 @@ let processWordSet = new Set();
         processWordSet.add("mysql_vs_postgres");
         processWordSet.add("rxjava");
         processWordSet.add("password_hash_in_db");
+        processWordSet.add("oauth");
         processWordSet.add("acid_internally");
         processWordSet.add("kafka_very_short_summary");
     searchMap.set("process", processWordSet);
 
-let philosopherWordSet = new Set();
-        philosopherWordSet.add("antifragility");
-    searchMap.set("philosopher", philosopherWordSet);
-
 let debugWordSet = new Set();
         debugWordSet.add("java_concurrency");
     searchMap.set("debug", debugWordSet);
+
+let philosopherWordSet = new Set();
+        philosopherWordSet.add("antifragility");
+    searchMap.set("philosopher", philosopherWordSet);
 
 let restoreWordSet = new Set();
         restoreWordSet.add("mongo_db");
@@ -17495,6 +17842,7 @@ let alternativeWordSet = new Set();
     searchMap.set("alternative", alternativeWordSet);
 
 let clearWordSet = new Set();
+        clearWordSet.add("spring_jpa");
         clearWordSet.add("leadership");
         clearWordSet.add("rxjava");
     searchMap.set("clear", clearWordSet);
@@ -17521,16 +17869,16 @@ let listedWordSet = new Set();
         listedWordSet.add("ca_and_ssl_handshake");
     searchMap.set("listed", listedWordSet);
 
+let valuedWordSet = new Set();
+        valuedWordSet.add("hmac");
+    searchMap.set("valued", valuedWordSet);
+
 let meanWordSet = new Set();
         meanWordSet.add("mongo_db");
         meanWordSet.add("antifragility");
         meanWordSet.add("password_hash_in_db");
         meanWordSet.add("sql_commands");
     searchMap.set("mean", meanWordSet);
-
-let valuedWordSet = new Set();
-        valuedWordSet.add("hmac");
-    searchMap.set("valued", valuedWordSet);
 
 let mvccWordSet = new Set();
         mvccWordSet.add("mysql_vs_postgres");
@@ -17575,6 +17923,7 @@ let beenWordSet = new Set();
         beenWordSet.add("mongo_db");
         beenWordSet.add("java_concurrency");
         beenWordSet.add("jwt");
+        beenWordSet.add("spring_jpa");
         beenWordSet.add("hmac");
         beenWordSet.add("antifragility");
         beenWordSet.add("mysql_vs_postgres");
@@ -17609,6 +17958,7 @@ let jumpsWordSet = new Set();
     searchMap.set("jumps", jumpsWordSet);
 
 let executingWordSet = new Set();
+        executingWordSet.add("spring_jpa");
         executingWordSet.add("acid_internally");
     searchMap.set("executing", executingWordSet);
 
@@ -17652,6 +18002,7 @@ let youWordSet = new Set();
         youWordSet.add("career_crises");
         youWordSet.add("day_dreams");
         youWordSet.add("jwt");
+        youWordSet.add("spring_jpa");
         youWordSet.add("ca_and_ssl_handshake");
         youWordSet.add("kafka_in_action_summary");
         youWordSet.add("interest");
@@ -17678,14 +18029,14 @@ let youWordSet = new Set();
         youWordSet.add("kafka_very_short_summary");
     searchMap.set("you", youWordSet);
 
-let jumpWordSet = new Set();
-        jumpWordSet.add("antifragility");
-    searchMap.set("jump", jumpWordSet);
-
 let softWordSet = new Set();
         softWordSet.add("persuasion");
         softWordSet.add("leadership");
     searchMap.set("soft", softWordSet);
+
+let jumpWordSet = new Set();
+        jumpWordSet.add("antifragility");
+    searchMap.set("jump", jumpWordSet);
 
 let knowledgeWordSet = new Set();
         knowledgeWordSet.add("rsa");
@@ -17746,6 +18097,7 @@ let tagsWordSet = new Set();
         tagsWordSet.add("career_crises");
         tagsWordSet.add("day_dreams");
         tagsWordSet.add("jwt");
+        tagsWordSet.add("spring_jpa");
         tagsWordSet.add("nosql_dbs");
         tagsWordSet.add("kafka_in_action_summary");
         tagsWordSet.add("security");
@@ -17872,6 +18224,7 @@ let howWordSet = new Set();
         howWordSet.add("java_concurrency");
         howWordSet.add("day_dreams");
         howWordSet.add("jwt");
+        howWordSet.add("spring_jpa");
         howWordSet.add("antifragility");
         howWordSet.add("about_the_digital_garden");
         howWordSet.add("how_to_create_a_python_project");
@@ -17891,6 +18244,7 @@ let howWordSet = new Set();
 
 let capabilityWordSet = new Set();
         capabilityWordSet.add("kafka_in_action_summary");
+        capabilityWordSet.add("oauth");
     searchMap.set("capability", capabilityWordSet);
 
 let blockingWordSet = new Set();
@@ -17908,10 +18262,6 @@ let embeddedWordSet = new Set();
         embeddedWordSet.add("kafka_in_action_summary");
         embeddedWordSet.add("password_hash_in_db");
     searchMap.set("embedded", embeddedWordSet);
-
-let plaersWordSet = new Set();
-        plaersWordSet.add("oauth");
-    searchMap.set("plaers", plaersWordSet);
 
 let chipWordSet = new Set();
         chipWordSet.add("kafka_in_action_summary");
@@ -17958,17 +18308,21 @@ let rsyncWordSet = new Set();
         rsyncWordSet.add("mysql_vs_postgres");
     searchMap.set("rsync", rsyncWordSet);
 
+let leggedWordSet = new Set();
+        leggedWordSet.add("oauth");
+    searchMap.set("legged", leggedWordSet);
+
 let advantagesWordSet = new Set();
         advantagesWordSet.add("password_hash_in_db");
     searchMap.set("advantages", advantagesWordSet);
 
-let meetWordSet = new Set();
-        meetWordSet.add("antifragility");
-    searchMap.set("meet", meetWordSet);
-
 let exampleuserWordSet = new Set();
         exampleuserWordSet.add("oauth");
     searchMap.set("exampleuser", exampleuserWordSet);
+
+let meetWordSet = new Set();
+        meetWordSet.add("antifragility");
+    searchMap.set("meet", meetWordSet);
 
 let answerWordSet = new Set();
         answerWordSet.add("thinking_fast_and_slow");
@@ -18136,16 +18490,17 @@ let workstealingpoolWordSet = new Set();
 let takeWordSet = new Set();
         takeWordSet.add("thinking_fast_and_slow");
         takeWordSet.add("mongo_db");
-        takeWordSet.add("kafka_in_action_summary");
         takeWordSet.add("java_concurrency");
         takeWordSet.add("day_dreams");
         takeWordSet.add("jwt");
+        takeWordSet.add("antifragility");
+        takeWordSet.add("kafka_in_action_summary");
         takeWordSet.add("leadership");
         takeWordSet.add("relational_dbs_performance");
-        takeWordSet.add("antifragility");
         takeWordSet.add("comparing_different_queues");
         takeWordSet.add("rxjava");
         takeWordSet.add("password_hash_in_db");
+        takeWordSet.add("oauth");
     searchMap.set("take", takeWordSet);
 
 let reshuffleWordSet = new Set();
@@ -18185,6 +18540,7 @@ let someWordSet = new Set();
         someWordSet.add("java_concurrency");
         someWordSet.add("day_dreams");
         someWordSet.add("jwt");
+        someWordSet.add("spring_jpa");
         someWordSet.add("antifragility");
         someWordSet.add("cryptography");
         someWordSet.add("about_the_digital_garden");
@@ -18227,6 +18583,7 @@ let beginningWordSet = new Set();
 let sessionWordSet = new Set();
         sessionWordSet.add("kafka_in_action_summary");
         sessionWordSet.add("jwt");
+        sessionWordSet.add("spring_jpa");
         sessionWordSet.add("ca_and_ssl_handshake");
         sessionWordSet.add("acid_internally");
     searchMap.set("session", sessionWordSet);
@@ -18309,6 +18666,7 @@ let noticeWordSet = new Set();
 
 let ownerWordSet = new Set();
         ownerWordSet.add("ca_and_ssl_handshake");
+        ownerWordSet.add("oauth");
     searchMap.set("owner", ownerWordSet);
 
 let soleWordSet = new Set();
@@ -18357,11 +18715,6 @@ let nodesWordSet = new Set();
         nodesWordSet.add("relational_dbs_performance");
     searchMap.set("nodes", nodesWordSet);
 
-let materialWordSet = new Set();
-        materialWordSet.add("antifragility");
-        materialWordSet.add("ca_and_ssl_handshake");
-    searchMap.set("material", materialWordSet);
-
 let approximatelyWordSet = new Set();
         approximatelyWordSet.add("java_concurrency");
     searchMap.set("approximately", approximatelyWordSet);
@@ -18370,6 +18723,11 @@ let althoughWordSet = new Set();
         althoughWordSet.add("password_hash_in_db");
         althoughWordSet.add("acid_internally");
     searchMap.set("although", althoughWordSet);
+
+let materialWordSet = new Set();
+        materialWordSet.add("antifragility");
+        materialWordSet.add("ca_and_ssl_handshake");
+    searchMap.set("material", materialWordSet);
 
 let hubWordSet = new Set();
         hubWordSet.add("kafka_in_action_summary");
@@ -18409,13 +18767,13 @@ let variantsWordSet = new Set();
         variantsWordSet.add("rxjava");
     searchMap.set("variants", variantsWordSet);
 
-let nonlinearWordSet = new Set();
-        nonlinearWordSet.add("antifragility");
-    searchMap.set("nonlinear", nonlinearWordSet);
-
 let hopeWordSet = new Set();
         hopeWordSet.add("acid_internally");
     searchMap.set("hope", hopeWordSet);
+
+let nonlinearWordSet = new Set();
+        nonlinearWordSet.add("antifragility");
+    searchMap.set("nonlinear", nonlinearWordSet);
 
 let collaborateWordSet = new Set();
         collaborateWordSet.add("persuasion");
@@ -18428,6 +18786,7 @@ let trackingWordSet = new Set();
 let soonWordSet = new Set();
         soonWordSet.add("java_concurrency");
         soonWordSet.add("jwt");
+        soonWordSet.add("spring_jpa");
         soonWordSet.add("antifragility");
         soonWordSet.add("rxjava");
     searchMap.set("soon", soonWordSet);
@@ -18517,6 +18876,10 @@ let hashesWordSet = new Set();
         hashesWordSet.add("password_hash_in_db");
     searchMap.set("hashes", hashesWordSet);
 
+let latrogenesisWordSet = new Set();
+        latrogenesisWordSet.add("antifragility");
+    searchMap.set("latrogenesis", latrogenesisWordSet);
+
 let arraysWordSet = new Set();
         arraysWordSet.add("kafka_in_action_summary");
     searchMap.set("arrays", arraysWordSet);
@@ -18587,14 +18950,14 @@ let fileWordSet = new Set();
         fileWordSet.add("kafka_very_short_summary");
     searchMap.set("file", fileWordSet);
 
-let gathererWordSet = new Set();
-        gathererWordSet.add("antifragility");
-    searchMap.set("gatherer", gathererWordSet);
-
 let ciphersWordSet = new Set();
         ciphersWordSet.add("cryptography");
         ciphersWordSet.add("ca_and_ssl_handshake");
     searchMap.set("ciphers", ciphersWordSet);
+
+let gathererWordSet = new Set();
+        gathererWordSet.add("antifragility");
+    searchMap.set("gatherer", gathererWordSet);
 
 let memberWordSet = new Set();
         memberWordSet.add("mongo_db");
@@ -18635,6 +18998,7 @@ let couldWordSet = new Set();
         couldWordSet.add("java_concurrency");
         couldWordSet.add("day_dreams");
         couldWordSet.add("jwt");
+        couldWordSet.add("spring_jpa");
         couldWordSet.add("antifragility");
         couldWordSet.add("cryptography");
         couldWordSet.add("ca_and_ssl_handshake");
@@ -18689,6 +19053,7 @@ let trustedWordSet = new Set();
         trustedWordSet.add("mongo_db");
         trustedWordSet.add("jwt");
         trustedWordSet.add("ca_and_ssl_handshake");
+        trustedWordSet.add("oauth");
     searchMap.set("trusted", trustedWordSet);
 
 let machineWordSet = new Set();
@@ -18739,12 +19104,17 @@ let cheaperWordSet = new Set();
         cheaperWordSet.add("antifragility");
     searchMap.set("cheaper", cheaperWordSet);
 
+let reauthenticateWordSet = new Set();
+        reauthenticateWordSet.add("oauth");
+    searchMap.set("reauthenticate", reauthenticateWordSet);
+
 let instanceWordSet = new Set();
         instanceWordSet.add("kafka_in_action_summary");
         instanceWordSet.add("sha-256");
         instanceWordSet.add("comparing_different_queues");
         instanceWordSet.add("mysql_vs_postgres");
         instanceWordSet.add("rxjava");
+        instanceWordSet.add("oauth");
     searchMap.set("instance", instanceWordSet);
 
 let concernedWordSet = new Set();
@@ -18780,6 +19150,7 @@ let solutionWordSet = new Set();
         solutionWordSet.add("kafka_in_action_summary");
         solutionWordSet.add("leadership");
         solutionWordSet.add("password_hash_in_db");
+        solutionWordSet.add("oauth");
         solutionWordSet.add("acid_internally");
     searchMap.set("solution", solutionWordSet);
 
@@ -18874,6 +19245,10 @@ let stepsWordSet = new Set();
         stepsWordSet.add("oauth");
     searchMap.set("steps", stepsWordSet);
 
+let friendsWordSet = new Set();
+        friendsWordSet.add("oauth");
+    searchMap.set("friends", friendsWordSet);
+
 let heartWordSet = new Set();
         heartWordSet.add("antifragility");
     searchMap.set("heart", heartWordSet);
@@ -18916,13 +19291,13 @@ let taskWordSet = new Set();
         taskWordSet.add("comparing_different_queues");
     searchMap.set("task", taskWordSet);
 
-let scientistsWordSet = new Set();
-        scientistsWordSet.add("antifragility");
-    searchMap.set("scientists", scientistsWordSet);
-
 let inferWordSet = new Set();
         inferWordSet.add("mysql_vs_postgres");
     searchMap.set("infer", inferWordSet);
+
+let scientistsWordSet = new Set();
+        scientistsWordSet.add("antifragility");
+    searchMap.set("scientists", scientistsWordSet);
 
 let principlesWordSet = new Set();
         principlesWordSet.add("leadership");
@@ -18933,6 +19308,7 @@ let trueWordSet = new Set();
         trueWordSet.add("kafka_in_action_summary");
         trueWordSet.add("java_concurrency");
         trueWordSet.add("jwt");
+        trueWordSet.add("spring_jpa");
         trueWordSet.add("relational_dbs_performance");
         trueWordSet.add("antifragility");
         trueWordSet.add("comparing_different_queues");
@@ -18960,6 +19336,7 @@ let presentWordSet = new Set();
         presentWordSet.add("mongo_db");
         presentWordSet.add("java_concurrency");
         presentWordSet.add("jwt");
+        presentWordSet.add("spring_jpa");
         presentWordSet.add("antifragility");
         presentWordSet.add("oauth");
     searchMap.set("present", presentWordSet);
@@ -19025,6 +19402,7 @@ let messWordSet = new Set();
 let deleteWordSet = new Set();
         deleteWordSet.add("mongo_db");
         deleteWordSet.add("kafka_in_action_summary");
+        deleteWordSet.add("spring_jpa");
         deleteWordSet.add("relational_dbs_performance");
         deleteWordSet.add("oauth");
         deleteWordSet.add("sql_commands");
@@ -19060,14 +19438,14 @@ let heardWordSet = new Set();
         heardWordSet.add("antifragility");
     searchMap.set("heard", heardWordSet);
 
-let fallingWordSet = new Set();
-        fallingWordSet.add("antifragility");
-    searchMap.set("falling", fallingWordSet);
-
 let executionWordSet = new Set();
         executionWordSet.add("java_concurrency");
         executionWordSet.add("relational_dbs_performance");
     searchMap.set("execution", executionWordSet);
+
+let fallingWordSet = new Set();
+        fallingWordSet.add("antifragility");
+    searchMap.set("falling", fallingWordSet);
 
 let certainlyWordSet = new Set();
         certainlyWordSet.add("kafka_in_action_summary");
@@ -19174,11 +19552,16 @@ let racksWordSet = new Set();
         racksWordSet.add("kafka_very_short_summary");
     searchMap.set("racks", racksWordSet);
 
+let balanceentityWordSet = new Set();
+        balanceentityWordSet.add("spring_jpa");
+    searchMap.set("balanceentity", balanceentityWordSet);
+
 let accessingWordSet = new Set();
         accessingWordSet.add("oauth");
     searchMap.set("accessing", accessingWordSet);
 
 let reflectWordSet = new Set();
+        reflectWordSet.add("spring_jpa");
         reflectWordSet.add("mysql_vs_postgres");
         reflectWordSet.add("gaining_wisdom");
     searchMap.set("reflect", reflectWordSet);
@@ -19193,21 +19576,24 @@ let fireWordSet = new Set();
 
 let statelessWordSet = new Set();
         statelessWordSet.add("jwt");
+        statelessWordSet.add("spring_jpa");
     searchMap.set("stateless", statelessWordSet);
 
 let basedWordSet = new Set();
         basedWordSet.add("rsa");
         basedWordSet.add("mongo_db");
-        basedWordSet.add("kafka_in_action_summary");
         basedWordSet.add("jwt");
+        basedWordSet.add("spring_jpa");
+        basedWordSet.add("antifragility");
+        basedWordSet.add("sql_commands");
+        basedWordSet.add("kafka_in_action_summary");
         basedWordSet.add("hmac");
         basedWordSet.add("relational_dbs_performance");
-        basedWordSet.add("antifragility");
         basedWordSet.add("mysql_vs_postgres");
         basedWordSet.add("rxjava");
         basedWordSet.add("password_hash_in_db");
+        basedWordSet.add("oauth");
         basedWordSet.add("acid_internally");
-        basedWordSet.add("sql_commands");
     searchMap.set("based", basedWordSet);
 
 let pointerWordSet = new Set();
@@ -19363,6 +19749,10 @@ let measurementsWordSet = new Set();
 let rebellionWordSet = new Set();
         rebellionWordSet.add("antifragility");
     searchMap.set("rebellion", rebellionWordSet);
+
+let reactionWordSet = new Set();
+        reactionWordSet.add("antifragility");
+    searchMap.set("reaction", reactionWordSet);
 
 let thenacceptWordSet = new Set();
         thenacceptWordSet.add("java_concurrency");
@@ -19605,6 +19995,7 @@ let ruleWordSet = new Set();
 let updateWordSet = new Set();
         updateWordSet.add("mongo_db");
         updateWordSet.add("kafka_in_action_summary");
+        updateWordSet.add("spring_jpa");
         updateWordSet.add("relational_dbs_performance");
         updateWordSet.add("mysql_vs_postgres");
         updateWordSet.add("acid_internally");
@@ -19748,6 +20139,7 @@ let duringWordSet = new Set();
         duringWordSet.add("kafka_in_action_summary");
         duringWordSet.add("interest");
         duringWordSet.add("jwt");
+        duringWordSet.add("spring_jpa");
         duringWordSet.add("leadership");
         duringWordSet.add("ca_and_ssl_handshake");
         duringWordSet.add("rxjava");
@@ -19956,6 +20348,7 @@ let causesWordSet = new Set();
     searchMap.set("causes", causesWordSet);
 
 let finishesWordSet = new Set();
+        finishesWordSet.add("spring_jpa");
         finishesWordSet.add("mysql_vs_postgres");
     searchMap.set("finishes", finishesWordSet);
 
@@ -20018,6 +20411,7 @@ let cannotWordSet = new Set();
         cannotWordSet.add("mongo_db");
         cannotWordSet.add("kafka_in_action_summary");
         cannotWordSet.add("java_concurrency");
+        cannotWordSet.add("spring_jpa");
         cannotWordSet.add("relational_dbs_performance");
         cannotWordSet.add("antifragility");
         cannotWordSet.add("comparing_different_queues");
@@ -20048,6 +20442,7 @@ let firstWordSet = new Set();
         firstWordSet.add("mongo_db");
         firstWordSet.add("java_concurrency");
         firstWordSet.add("jwt");
+        firstWordSet.add("spring_jpa");
         firstWordSet.add("antifragility");
         firstWordSet.add("sql_commands");
         firstWordSet.add("kafka_in_action_summary");
@@ -20062,6 +20457,10 @@ let firstWordSet = new Set();
         firstWordSet.add("acid_internally");
         firstWordSet.add("kafka_very_short_summary");
     searchMap.set("first", firstWordSet);
+
+let spanWordSet = new Set();
+        spanWordSet.add("spring_jpa");
+    searchMap.set("span", spanWordSet);
 
 let checkpointWordSet = new Set();
         checkpointWordSet.add("mongo_db");
@@ -20079,6 +20478,7 @@ let fewerWordSet = new Set();
         fewerWordSet.add("kafka_in_action_summary");
         fewerWordSet.add("hmac");
         fewerWordSet.add("relational_dbs_performance");
+        fewerWordSet.add("antifragility");
         fewerWordSet.add("mysql_vs_postgres");
     searchMap.set("fewer", fewerWordSet);
 
@@ -20142,6 +20542,7 @@ let fromWordSet = new Set();
         fromWordSet.add("career_crises");
         fromWordSet.add("day_dreams");
         fromWordSet.add("jwt");
+        fromWordSet.add("spring_jpa");
         fromWordSet.add("ca_and_ssl_handshake");
         fromWordSet.add("kafka_in_action_summary");
         fromWordSet.add("interest");
@@ -20211,6 +20612,10 @@ let rejectionWordSet = new Set();
 let replsetWordSet = new Set();
         replsetWordSet.add("mongo_db");
     searchMap.set("replset", replsetWordSet);
+
+let pojoWordSet = new Set();
+        pojoWordSet.add("spring_jpa");
+    searchMap.set("pojo", pojoWordSet);
 
 let collisionWordSet = new Set();
         collisionWordSet.add("jwt");
@@ -20283,16 +20688,16 @@ let normalizedWordSet = new Set();
         normalizedWordSet.add("mysql_vs_postgres");
     searchMap.set("normalized", normalizedWordSet);
 
-let frequentWordSet = new Set();
-        frequentWordSet.add("thinking_fast_and_slow");
-        frequentWordSet.add("antifragility");
-    searchMap.set("frequent", frequentWordSet);
-
 let accordingWordSet = new Set();
         accordingWordSet.add("relational_dbs_performance");
         accordingWordSet.add("comparing_different_queues");
         accordingWordSet.add("kafka_very_short_summary");
     searchMap.set("according", accordingWordSet);
+
+let frequentWordSet = new Set();
+        frequentWordSet.add("thinking_fast_and_slow");
+        frequentWordSet.add("antifragility");
+    searchMap.set("frequent", frequentWordSet);
 
 let statementsWordSet = new Set();
         statementsWordSet.add("jwt");
@@ -20315,6 +20720,10 @@ let errorWordSet = new Set();
         errorWordSet.add("rxjava");
         errorWordSet.add("kafka_very_short_summary");
     searchMap.set("error", errorWordSet);
+
+let terroristWordSet = new Set();
+        terroristWordSet.add("antifragility");
+    searchMap.set("terrorist", terroristWordSet);
 
 let networkWordSet = new Set();
         networkWordSet.add("mongo_db");
@@ -20382,6 +20791,7 @@ let steamWordSet = new Set();
 let trackWordSet = new Set();
         trackWordSet.add("mongo_db");
         trackWordSet.add("kafka_in_action_summary");
+        trackWordSet.add("spring_jpa");
         trackWordSet.add("acid_internally");
     searchMap.set("track", trackWordSet);
 
@@ -20394,6 +20804,7 @@ let valueWordSet = new Set();
         valueWordSet.add("mongo_db");
         valueWordSet.add("java_concurrency");
         valueWordSet.add("jwt");
+        valueWordSet.add("spring_jpa");
         valueWordSet.add("antifragility");
         valueWordSet.add("ca_and_ssl_handshake");
         valueWordSet.add("sql_commands");
@@ -20443,6 +20854,7 @@ let resourcesWordSet = new Set();
         resourcesWordSet.add("jwt");
         resourcesWordSet.add("antifragility");
         resourcesWordSet.add("terraform");
+        resourcesWordSet.add("oauth");
     searchMap.set("resources", resourcesWordSet);
 
 let goldengateWordSet = new Set();
@@ -20527,14 +20939,14 @@ let polyWordSet = new Set();
         polyWordSet.add("leadership");
     searchMap.set("poly", polyWordSet);
 
+let derivationWordSet = new Set();
+        derivationWordSet.add("password_hash_in_db");
+    searchMap.set("derivation", derivationWordSet);
+
 let growthWordSet = new Set();
         growthWordSet.add("relational_dbs_performance");
         growthWordSet.add("antifragility");
     searchMap.set("growth", growthWordSet);
-
-let derivationWordSet = new Set();
-        derivationWordSet.add("password_hash_in_db");
-    searchMap.set("derivation", derivationWordSet);
 
 let threadedWordSet = new Set();
         threadedWordSet.add("rxjava");
@@ -20574,13 +20986,13 @@ let objectsWordSet = new Set();
         objectsWordSet.add("acid_internally");
     searchMap.set("objects", objectsWordSet);
 
-let shakesWordSet = new Set();
-        shakesWordSet.add("antifragility");
-    searchMap.set("shakes", shakesWordSet);
-
 let accuracyWordSet = new Set();
         accuracyWordSet.add("hmac");
     searchMap.set("accuracy", accuracyWordSet);
+
+let shakesWordSet = new Set();
+        shakesWordSet.add("antifragility");
+    searchMap.set("shakes", shakesWordSet);
 
 let ephemeralWordSet = new Set();
         ephemeralWordSet.add("kafka_in_action_summary");
@@ -20749,6 +21161,10 @@ let hobbyWordSet = new Set();
         hobbyWordSet.add("antifragility");
     searchMap.set("hobby", hobbyWordSet);
 
+let balancerepositoryWordSet = new Set();
+        balancerepositoryWordSet.add("spring_jpa");
+    searchMap.set("balancerepository", balancerepositoryWordSet);
+
 let leaderandisrWordSet = new Set();
         leaderandisrWordSet.add("kafka_in_action_summary");
     searchMap.set("leaderandisr", leaderandisrWordSet);
@@ -20757,10 +21173,6 @@ let providingWordSet = new Set();
         providingWordSet.add("jwt");
     searchMap.set("providing", providingWordSet);
 
-let fateWordSet = new Set();
-        fateWordSet.add("antifragility");
-    searchMap.set("fate", fateWordSet);
-
 let weeksWordSet = new Set();
         weeksWordSet.add("interest");
     searchMap.set("weeks", weeksWordSet);
@@ -20768,6 +21180,10 @@ let weeksWordSet = new Set();
 let criterionWordSet = new Set();
         criterionWordSet.add("interest");
     searchMap.set("criterion", criterionWordSet);
+
+let fateWordSet = new Set();
+        fateWordSet.add("antifragility");
+    searchMap.set("fate", fateWordSet);
 
 let essenceWordSet = new Set();
         essenceWordSet.add("antifragility");
@@ -20793,11 +21209,16 @@ let postanswerWordSet = new Set();
         postanswerWordSet.add("java_concurrency");
     searchMap.set("postanswer", postanswerWordSet);
 
+let postedWordSet = new Set();
+        postedWordSet.add("oauth");
+    searchMap.set("posted", postedWordSet);
+
 let rollingWordSet = new Set();
         rollingWordSet.add("kafka_in_action_summary");
     searchMap.set("rolling", rollingWordSet);
 
 let repeatableWordSet = new Set();
+        repeatableWordSet.add("spring_jpa");
         repeatableWordSet.add("acid_internally");
     searchMap.set("repeatable", repeatableWordSet);
 
@@ -20976,6 +21397,7 @@ let addWordSet = new Set();
         addWordSet.add("kafka_in_action_summary");
         addWordSet.add("sha-256");
         addWordSet.add("java_concurrency");
+        addWordSet.add("spring_jpa");
         addWordSet.add("relational_dbs_performance");
         addWordSet.add("cryptography");
         addWordSet.add("mysql_vs_postgres");
@@ -21040,13 +21462,13 @@ let shelfWordSet = new Set();
         shelfWordSet.add("antifragility");
     searchMap.set("shelf", shelfWordSet);
 
-let ragesWordSet = new Set();
-        ragesWordSet.add("antifragility");
-    searchMap.set("rages", ragesWordSet);
-
 let curatorWordSet = new Set();
         curatorWordSet.add("comparing_different_queues");
     searchMap.set("curator", curatorWordSet);
+
+let ragesWordSet = new Set();
+        ragesWordSet.add("antifragility");
+    searchMap.set("rages", ragesWordSet);
 
 let prevcountWordSet = new Set();
         prevcountWordSet.add("java_concurrency");
@@ -21084,14 +21506,14 @@ let collectionnameWordSet = new Set();
         collectionnameWordSet.add("mongo_db");
     searchMap.set("collectionname", collectionnameWordSet);
 
-let incomeWordSet = new Set();
-        incomeWordSet.add("antifragility");
-    searchMap.set("income", incomeWordSet);
-
 let trustWordSet = new Set();
         trustWordSet.add("leadership");
         trustWordSet.add("antifragility");
     searchMap.set("trust", trustWordSet);
+
+let incomeWordSet = new Set();
+        incomeWordSet.add("antifragility");
+    searchMap.set("income", incomeWordSet);
 
 let joiningWordSet = new Set();
         joiningWordSet.add("relational_dbs_performance");
@@ -21233,6 +21655,7 @@ let filesystemWordSet = new Set();
 let modifyWordSet = new Set();
         modifyWordSet.add("mongo_db");
         modifyWordSet.add("kafka_in_action_summary");
+        modifyWordSet.add("spring_jpa");
         modifyWordSet.add("acid_internally");
     searchMap.set("modify", modifyWordSet);
 
@@ -21346,6 +21769,7 @@ let uniquifyWordSet = new Set();
 
 let accessesWordSet = new Set();
         accessesWordSet.add("password_hash_in_db");
+        accessesWordSet.add("oauth");
     searchMap.set("accesses", accessesWordSet);
 
 let shorterWordSet = new Set();
@@ -21396,6 +21820,7 @@ let snappyWordSet = new Set();
 
 let isolationWordSet = new Set();
         isolationWordSet.add("kafka_in_action_summary");
+        isolationWordSet.add("spring_jpa");
         isolationWordSet.add("rxjava");
         isolationWordSet.add("acid_internally");
     searchMap.set("isolation", isolationWordSet);
@@ -21442,6 +21867,10 @@ let likelihoodWordSet = new Set();
         likelihoodWordSet.add("antifragility");
     searchMap.set("likelihood", likelihoodWordSet);
 
+let expirebleWordSet = new Set();
+        expirebleWordSet.add("oauth");
+    searchMap.set("expireble", expirebleWordSet);
+
 let partialWordSet = new Set();
         partialWordSet.add("kafka_in_action_summary");
         partialWordSet.add("relational_dbs_performance");
@@ -21460,6 +21889,7 @@ let otherWordSet = new Set();
         otherWordSet.add("mongo_db");
         otherWordSet.add("sha-256");
         otherWordSet.add("java_concurrency");
+        otherWordSet.add("spring_jpa");
         otherWordSet.add("antifragility");
         otherWordSet.add("about_the_digital_garden");
         otherWordSet.add("persuasion");
@@ -21549,15 +21979,19 @@ let vacationWordSet = new Set();
         vacationWordSet.add("day_dreams");
     searchMap.set("vacation", vacationWordSet);
 
-let speakWordSet = new Set();
-        speakWordSet.add("persuasion");
-        speakWordSet.add("antifragility");
-    searchMap.set("speak", speakWordSet);
+let assertionWordSet = new Set();
+        assertionWordSet.add("oauth");
+    searchMap.set("assertion", assertionWordSet);
 
 let decisionsWordSet = new Set();
         decisionsWordSet.add("leadership");
         decisionsWordSet.add("antifragility");
     searchMap.set("decisions", decisionsWordSet);
+
+let speakWordSet = new Set();
+        speakWordSet.add("persuasion");
+        speakWordSet.add("antifragility");
+    searchMap.set("speak", speakWordSet);
 
 let outcomeWordSet = new Set();
         outcomeWordSet.add("antifragility");
@@ -21648,6 +22082,7 @@ let modeWordSet = new Set();
         modeWordSet.add("kafka_in_action_summary");
         modeWordSet.add("java_concurrency");
         modeWordSet.add("mysql_vs_postgres");
+        modeWordSet.add("oauth");
         modeWordSet.add("acid_internally");
         modeWordSet.add("kafka_very_short_summary");
     searchMap.set("mode", modeWordSet);
@@ -21680,6 +22115,7 @@ let withingWordSet = new Set();
 
 let modifiedWordSet = new Set();
         modifiedWordSet.add("java_concurrency");
+        modifiedWordSet.add("spring_jpa");
         modifiedWordSet.add("password_hash_in_db");
         modifiedWordSet.add("acid_internally");
     searchMap.set("modified", modifiedWordSet);
@@ -21703,6 +22139,7 @@ let allWordSet = new Set();
         allWordSet.add("mongo_db");
         allWordSet.add("java_concurrency");
         allWordSet.add("jwt");
+        allWordSet.add("spring_jpa");
         allWordSet.add("antifragility");
         allWordSet.add("ca_and_ssl_handshake");
         allWordSet.add("sql_commands");
@@ -21722,6 +22159,7 @@ let alwaysWordSet = new Set();
         alwaysWordSet.add("mongo_db");
         alwaysWordSet.add("kafka_in_action_summary");
         alwaysWordSet.add("java_concurrency");
+        alwaysWordSet.add("spring_jpa");
         alwaysWordSet.add("relational_dbs_performance");
         alwaysWordSet.add("antifragility");
         alwaysWordSet.add("terraform");
@@ -21741,6 +22179,7 @@ let readWordSet = new Set();
         readWordSet.add("mongo_db");
         readWordSet.add("kafka_in_action_summary");
         readWordSet.add("java_concurrency");
+        readWordSet.add("spring_jpa");
         readWordSet.add("antifragility");
         readWordSet.add("cryptography");
         readWordSet.add("mysql_vs_postgres");
@@ -21818,6 +22257,10 @@ let writelockWordSet = new Set();
 let unitWordSet = new Set();
         unitWordSet.add("kafka_in_action_summary");
     searchMap.set("unit", unitWordSet);
+
+let hybridWordSet = new Set();
+        hybridWordSet.add("oauth");
+    searchMap.set("hybrid", hybridWordSet);
 
 let getqueueWordSet = new Set();
         getqueueWordSet.add("comparing_different_queues");
@@ -21906,6 +22349,7 @@ let andWordSet = new Set();
         andWordSet.add("career_crises");
         andWordSet.add("day_dreams");
         andWordSet.add("jwt");
+        andWordSet.add("spring_jpa");
         andWordSet.add("ca_and_ssl_handshake");
         andWordSet.add("about_the_digital_garden");
         andWordSet.add("kafka_in_action_summary");
@@ -21946,14 +22390,14 @@ let epimitheusWordSet = new Set();
         epimitheusWordSet.add("antifragility");
     searchMap.set("epimitheus", epimitheusWordSet);
 
-let predictWordSet = new Set();
-        predictWordSet.add("antifragility");
-    searchMap.set("predict", predictWordSet);
-
 let constructionWordSet = new Set();
         constructionWordSet.add("antifragility");
         constructionWordSet.add("password_hash_in_db");
     searchMap.set("construction", constructionWordSet);
+
+let predictWordSet = new Set();
+        predictWordSet.add("antifragility");
+    searchMap.set("predict", predictWordSet);
 
 let dumpWordSet = new Set();
         dumpWordSet.add("mongo_db");
@@ -21967,6 +22411,7 @@ let sayingWordSet = new Set();
 
 let rowWordSet = new Set();
         rowWordSet.add("kafka_in_action_summary");
+        rowWordSet.add("spring_jpa");
         rowWordSet.add("relational_dbs_performance");
         rowWordSet.add("mysql_vs_postgres");
         rowWordSet.add("acid_internally");
@@ -22006,6 +22451,7 @@ let anyWordSet = new Set();
         anyWordSet.add("mongo_db");
         anyWordSet.add("java_concurrency");
         anyWordSet.add("jwt");
+        anyWordSet.add("spring_jpa");
         anyWordSet.add("antifragility");
         anyWordSet.add("cryptography");
         anyWordSet.add("sql_commands");
@@ -22050,6 +22496,7 @@ let applicationWordSet = new Set();
         applicationWordSet.add("mongo_db");
         applicationWordSet.add("kafka_in_action_summary");
         applicationWordSet.add("jwt");
+        applicationWordSet.add("spring_jpa");
         applicationWordSet.add("hmac");
         applicationWordSet.add("relational_dbs_performance");
         applicationWordSet.add("mysql_vs_postgres");
@@ -22275,6 +22722,7 @@ let alternativesWordSet = new Set();
 
 let completesWordSet = new Set();
         completesWordSet.add("java_concurrency");
+        completesWordSet.add("spring_jpa");
         completesWordSet.add("rxjava");
     searchMap.set("completes", completesWordSet);
 
@@ -22362,6 +22810,7 @@ let areWordSet = new Set();
         areWordSet.add("career_crises");
         areWordSet.add("day_dreams");
         areWordSet.add("jwt");
+        areWordSet.add("spring_jpa");
         areWordSet.add("ca_and_ssl_handshake");
         areWordSet.add("about_the_digital_garden");
         areWordSet.add("kafka_in_action_summary");
@@ -22394,17 +22843,19 @@ let takenWordSet = new Set();
 
 let whereWordSet = new Set();
         whereWordSet.add("mongo_db");
-        whereWordSet.add("kafka_in_action_summary");
         whereWordSet.add("java_concurrency");
-        whereWordSet.add("cassandra");
         whereWordSet.add("jwt");
+        whereWordSet.add("spring_jpa");
+        whereWordSet.add("antifragility");
+        whereWordSet.add("sql_commands");
+        whereWordSet.add("kafka_in_action_summary");
+        whereWordSet.add("cassandra");
         whereWordSet.add("hmac");
         whereWordSet.add("relational_dbs_performance");
-        whereWordSet.add("antifragility");
         whereWordSet.add("mysql_vs_postgres");
         whereWordSet.add("password_hash_in_db");
+        whereWordSet.add("oauth");
         whereWordSet.add("acid_internally");
-        whereWordSet.add("sql_commands");
     searchMap.set("where", whereWordSet);
 
 let arnWordSet = new Set();
@@ -22449,6 +22900,10 @@ let viceWordSet = new Set();
         viceWordSet.add("sql_commands");
     searchMap.set("vice", viceWordSet);
 
+let entitymanagerWordSet = new Set();
+        entitymanagerWordSet.add("spring_jpa");
+    searchMap.set("entitymanager", entitymanagerWordSet);
+
 let brokerWordSet = new Set();
         brokerWordSet.add("kafka_in_action_summary");
         brokerWordSet.add("antifragility");
@@ -22490,13 +22945,13 @@ let unsubscribedWordSet = new Set();
         unsubscribedWordSet.add("rxjava");
     searchMap.set("unsubscribed", unsubscribedWordSet);
 
-let kickWordSet = new Set();
-        kickWordSet.add("antifragility");
-    searchMap.set("kick", kickWordSet);
-
 let ownershipWordSet = new Set();
         ownershipWordSet.add("leadership");
     searchMap.set("ownership", ownershipWordSet);
+
+let kickWordSet = new Set();
+        kickWordSet.add("antifragility");
+    searchMap.set("kick", kickWordSet);
 
 let theoriesWordSet = new Set();
         theoriesWordSet.add("antifragility");
@@ -22555,6 +23010,7 @@ let runWordSet = new Set();
         runWordSet.add("mongo_db");
         runWordSet.add("kafka_in_action_summary");
         runWordSet.add("java_concurrency");
+        runWordSet.add("spring_jpa");
         runWordSet.add("antifragility");
         runWordSet.add("how_to_create_a_python_project");
         runWordSet.add("rxjava");
@@ -22580,6 +23036,7 @@ let viewWordSet = new Set();
         viewWordSet.add("mongo_db");
         viewWordSet.add("java_concurrency");
         viewWordSet.add("antifragility");
+        viewWordSet.add("oauth");
     searchMap.set("view", viewWordSet);
 
 let vulnerableWordSet = new Set();
@@ -22759,15 +23216,15 @@ let autWordSet = new Set();
         autWordSet.add("antihrupkost");
     searchMap.set("aut", autWordSet);
 
-let noveltyWordSet = new Set();
-        noveltyWordSet.add("persuasion");
-        noveltyWordSet.add("antifragility");
-    searchMap.set("novelty", noveltyWordSet);
-
 let distanceWordSet = new Set();
         distanceWordSet.add("thinking_fast_and_slow");
         distanceWordSet.add("hmac");
     searchMap.set("distance", distanceWordSet);
+
+let noveltyWordSet = new Set();
+        noveltyWordSet.add("persuasion");
+        noveltyWordSet.add("antifragility");
+    searchMap.set("novelty", noveltyWordSet);
 
 let absenceWordSet = new Set();
         absenceWordSet.add("antifragility");
@@ -22804,6 +23261,7 @@ let descriptionWordSet = new Set();
 let generatingWordSet = new Set();
         generatingWordSet.add("cryptography");
         generatingWordSet.add("password_hash_in_db");
+        generatingWordSet.add("oauth");
     searchMap.set("generating", generatingWordSet);
 
 let disappearWordSet = new Set();
@@ -23009,10 +23467,6 @@ let severelyWordSet = new Set();
         severelyWordSet.add("mysql_vs_postgres");
     searchMap.set("severely", severelyWordSet);
 
-let cashWordSet = new Set();
-        cashWordSet.add("antifragility");
-    searchMap.set("cash", cashWordSet);
-
 let greaterWordSet = new Set();
         greaterWordSet.add("thinking_fast_and_slow");
         greaterWordSet.add("relational_dbs_performance");
@@ -23020,10 +23474,15 @@ let greaterWordSet = new Set();
         greaterWordSet.add("sql_commands");
     searchMap.set("greater", greaterWordSet);
 
+let cashWordSet = new Set();
+        cashWordSet.add("antifragility");
+    searchMap.set("cash", cashWordSet);
+
 let caseWordSet = new Set();
         caseWordSet.add("mongo_db");
         caseWordSet.add("java_concurrency");
         caseWordSet.add("jwt");
+        caseWordSet.add("spring_jpa");
         caseWordSet.add("antifragility");
         caseWordSet.add("sql_commands");
         caseWordSet.add("kafka_in_action_summary");
@@ -23144,13 +23603,13 @@ let careWordSet = new Set();
         careWordSet.add("rxjava");
     searchMap.set("care", careWordSet);
 
-let participationWordSet = new Set();
-        participationWordSet.add("antifragility");
-    searchMap.set("participation", participationWordSet);
-
 let checksumsWordSet = new Set();
         checksumsWordSet.add("hmac");
     searchMap.set("checksums", checksumsWordSet);
+
+let participationWordSet = new Set();
+        participationWordSet.add("antifragility");
+    searchMap.set("participation", participationWordSet);
 
 let damageWordSet = new Set();
         damageWordSet.add("antifragility");
@@ -23165,6 +23624,10 @@ let titletextWordSet = new Set();
         titletextWordSet.add("java_concurrency");
     searchMap.set("titletext", titletextWordSet);
 
+let repoWordSet = new Set();
+        repoWordSet.add("spring_jpa");
+    searchMap.set("repo", repoWordSet);
+
 let localizedWordSet = new Set();
         localizedWordSet.add("antifragility");
     searchMap.set("localized", localizedWordSet);
@@ -23176,13 +23639,13 @@ let patternWordSet = new Set();
         patternWordSet.add("sql_commands");
     searchMap.set("pattern", patternWordSet);
 
-let exerciseWordSet = new Set();
-        exerciseWordSet.add("antifragility");
-    searchMap.set("exercise", exerciseWordSet);
-
 let ofthenWordSet = new Set();
         ofthenWordSet.add("java_concurrency");
     searchMap.set("ofthen", ofthenWordSet);
+
+let exerciseWordSet = new Set();
+        exerciseWordSet.add("antifragility");
+    searchMap.set("exercise", exerciseWordSet);
 
 let incrementWordSet = new Set();
         incrementWordSet.add("kafka_in_action_summary");
@@ -23192,6 +23655,10 @@ let incrementWordSet = new Set();
 let criticizesWordSet = new Set();
         criticizesWordSet.add("antifragility");
     searchMap.set("criticizes", criticizesWordSet);
+
+let persistencecontextWordSet = new Set();
+        persistencecontextWordSet.add("spring_jpa");
+    searchMap.set("persistencecontext", persistencecontextWordSet);
 
 let vehicleWordSet = new Set();
         vehicleWordSet.add("antifragility");
@@ -23263,13 +23730,13 @@ let moreWordSet = new Set();
         moreWordSet.add("password_hash_in_db");
     searchMap.set("more", moreWordSet);
 
-let bornWordSet = new Set();
-        bornWordSet.add("antifragility");
-    searchMap.set("born", bornWordSet);
-
 let displayWordSet = new Set();
         displayWordSet.add("thinking_fast_and_slow");
     searchMap.set("display", displayWordSet);
+
+let bornWordSet = new Set();
+        bornWordSet.add("antifragility");
+    searchMap.set("born", bornWordSet);
 
 let killWordSet = new Set();
         killWordSet.add("kafka_in_action_summary");
@@ -23351,6 +23818,10 @@ let totallyWordSet = new Set();
         totallyWordSet.add("kafka_in_action_summary");
     searchMap.set("totally", totallyWordSet);
 
+let hyperWordSet = new Set();
+        hyperWordSet.add("antifragility");
+    searchMap.set("hyper", hyperWordSet);
+
 let connectionsWordSet = new Set();
         connectionsWordSet.add("mongo_db");
         connectionsWordSet.add("kafka_in_action_summary");
@@ -23362,6 +23833,7 @@ let connectionsWordSet = new Set();
     searchMap.set("connections", connectionsWordSet);
 
 let describedWordSet = new Set();
+        describedWordSet.add("spring_jpa");
         describedWordSet.add("antifragility");
         describedWordSet.add("mysql_vs_postgres");
     searchMap.set("described", describedWordSet);
@@ -23413,6 +23885,7 @@ let qeueueWordSet = new Set();
 let bothWordSet = new Set();
         bothWordSet.add("mongo_db");
         bothWordSet.add("java_concurrency");
+        bothWordSet.add("spring_jpa");
         bothWordSet.add("antifragility");
         bothWordSet.add("ca_and_ssl_handshake");
         bothWordSet.add("sql_commands");
@@ -23423,6 +23896,7 @@ let bothWordSet = new Set();
         bothWordSet.add("comparing_different_queues");
         bothWordSet.add("rxjava");
         bothWordSet.add("password_hash_in_db");
+        bothWordSet.add("oauth");
         bothWordSet.add("acid_internally");
         bothWordSet.add("kafka_very_short_summary");
     searchMap.set("both", bothWordSet);
@@ -23436,6 +23910,7 @@ let mostWordSet = new Set();
         mostWordSet.add("mongo_db");
         mostWordSet.add("java_concurrency");
         mostWordSet.add("jwt");
+        mostWordSet.add("spring_jpa");
         mostWordSet.add("antifragility");
         mostWordSet.add("persuasion");
         mostWordSet.add("kafka_in_action_summary");
@@ -23499,6 +23974,7 @@ let awakenWordSet = new Set();
 let insertWordSet = new Set();
         insertWordSet.add("mongo_db");
         insertWordSet.add("kafka_in_action_summary");
+        insertWordSet.add("spring_jpa");
         insertWordSet.add("relational_dbs_performance");
         insertWordSet.add("mysql_vs_postgres");
         insertWordSet.add("sql_commands");
@@ -23516,10 +23992,12 @@ let databaseWordSet = new Set();
         databaseWordSet.add("mongo_db");
         databaseWordSet.add("kafka_in_action_summary");
         databaseWordSet.add("jwt");
+        databaseWordSet.add("spring_jpa");
         databaseWordSet.add("relational_dbs_performance");
         databaseWordSet.add("cryptography");
         databaseWordSet.add("mysql_vs_postgres");
         databaseWordSet.add("password_hash_in_db");
+        databaseWordSet.add("oauth");
         databaseWordSet.add("acid_internally");
     searchMap.set("database", databaseWordSet);
 
@@ -23535,6 +24013,10 @@ let discardsWordSet = new Set();
         discardsWordSet.add("password_hash_in_db");
     searchMap.set("discards", discardsWordSet);
 
+let jpaWordSet = new Set();
+        jpaWordSet.add("spring_jpa");
+    searchMap.set("jpa", jpaWordSet);
+
 let profitWordSet = new Set();
         profitWordSet.add("antifragility");
     searchMap.set("profit", profitWordSet);
@@ -23546,6 +24028,7 @@ let authenticationWordSet = new Set();
         authenticationWordSet.add("cryptography");
         authenticationWordSet.add("ca_and_ssl_handshake");
         authenticationWordSet.add("password_hash_in_db");
+        authenticationWordSet.add("oauth");
     searchMap.set("authentication", authenticationWordSet);
 
 let addsWordSet = new Set();
@@ -23574,6 +24057,7 @@ let amountWordSet = new Set();
         amountWordSet.add("kafka_in_action_summary");
         amountWordSet.add("java_concurrency");
         amountWordSet.add("jwt");
+        amountWordSet.add("spring_jpa");
         amountWordSet.add("mysql_vs_postgres");
         amountWordSet.add("kafka_very_short_summary");
     searchMap.set("amount", amountWordSet);
@@ -23616,6 +24100,7 @@ let alsoWordSet = new Set();
         alsoWordSet.add("mysql_vs_postgres");
         alsoWordSet.add("rxjava");
         alsoWordSet.add("password_hash_in_db");
+        alsoWordSet.add("oauth");
         alsoWordSet.add("acid_internally");
         alsoWordSet.add("kafka_very_short_summary");
     searchMap.set("also", alsoWordSet);
@@ -23692,6 +24177,7 @@ let simplyWordSet = new Set();
         simplyWordSet.add("hmac");
         simplyWordSet.add("antifragility");
         simplyWordSet.add("rxjava");
+        simplyWordSet.add("oauth");
         simplyWordSet.add("acid_internally");
         simplyWordSet.add("kafka_very_short_summary");
     searchMap.set("simply", simplyWordSet);
@@ -23776,14 +24262,14 @@ let complexWordSet = new Set();
         complexWordSet.add("relational_dbs_performance");
     searchMap.set("complex", complexWordSet);
 
+let violatedWordSet = new Set();
+        violatedWordSet.add("acid_internally");
+    searchMap.set("violated", violatedWordSet);
+
 let gainingWordSet = new Set();
         gainingWordSet.add("antifragility");
         gainingWordSet.add("gaining_wisdom");
     searchMap.set("gaining", gainingWordSet);
-
-let violatedWordSet = new Set();
-        violatedWordSet.add("acid_internally");
-    searchMap.set("violated", violatedWordSet);
 
 let watingWordSet = new Set();
         watingWordSet.add("rxjava");
@@ -23899,10 +24385,12 @@ let seeWordSet = new Set();
         seeWordSet.add("mongo_db");
         seeWordSet.add("kafka_in_action_summary");
         seeWordSet.add("jwt");
+        seeWordSet.add("spring_jpa");
         seeWordSet.add("leadership");
         seeWordSet.add("relational_dbs_performance");
         seeWordSet.add("antifragility");
         seeWordSet.add("password_hash_in_db");
+        seeWordSet.add("oauth");
         seeWordSet.add("acid_internally");
         seeWordSet.add("kafka_very_short_summary");
     searchMap.set("see", seeWordSet);
@@ -23952,6 +24440,7 @@ let setWordSet = new Set();
         setWordSet.add("mongo_db");
         setWordSet.add("java_concurrency");
         setWordSet.add("jwt");
+        setWordSet.add("spring_jpa");
         setWordSet.add("sql_commands");
         setWordSet.add("kafka_in_action_summary");
         setWordSet.add("leadership");
@@ -23973,13 +24462,13 @@ let containWordSet = new Set();
         containWordSet.add("terraform");
     searchMap.set("contain", containWordSet);
 
-let incorrectWordSet = new Set();
-        incorrectWordSet.add("antifragility");
-    searchMap.set("incorrect", incorrectWordSet);
-
 let academicalWordSet = new Set();
         academicalWordSet.add("java_concurrency");
     searchMap.set("academical", academicalWordSet);
+
+let incorrectWordSet = new Set();
+        incorrectWordSet.add("antifragility");
+    searchMap.set("incorrect", incorrectWordSet);
 
 let fastestWordSet = new Set();
         fastestWordSet.add("java_concurrency");
@@ -23989,14 +24478,14 @@ let joinedWordSet = new Set();
         joinedWordSet.add("kafka_in_action_summary");
     searchMap.set("joined", joinedWordSet);
 
-let jobsWordSet = new Set();
-        jobsWordSet.add("antifragility");
-    searchMap.set("jobs", jobsWordSet);
-
 let sexWordSet = new Set();
         sexWordSet.add("persuasion");
         sexWordSet.add("sql_commands");
     searchMap.set("sex", sexWordSet);
+
+let jobsWordSet = new Set();
+        jobsWordSet.add("antifragility");
+    searchMap.set("jobs", jobsWordSet);
 
 let wordsWordSet = new Set();
         wordsWordSet.add("thinking_fast_and_slow");
@@ -24010,6 +24499,7 @@ let wordsWordSet = new Set();
 let columnWordSet = new Set();
         columnWordSet.add("kafka_in_action_summary");
         columnWordSet.add("relational_dbs_performance");
+        columnWordSet.add("oauth");
         columnWordSet.add("test_all");
         columnWordSet.add("sql_commands");
     searchMap.set("column", columnWordSet);
@@ -24040,10 +24530,6 @@ let comparesWordSet = new Set();
         comparesWordSet.add("mysql_vs_postgres");
     searchMap.set("compares", comparesWordSet);
 
-let easeirWordSet = new Set();
-        easeirWordSet.add("oauth");
-    searchMap.set("easeir", easeirWordSet);
-
 let neomaniaWordSet = new Set();
         neomaniaWordSet.add("antifragility");
     searchMap.set("neomania", neomaniaWordSet);
@@ -24056,13 +24542,13 @@ let digitsWordSet = new Set();
         digitsWordSet.add("thinking_fast_and_slow");
     searchMap.set("digits", digitsWordSet);
 
-let riverWordSet = new Set();
-        riverWordSet.add("antifragility");
-    searchMap.set("river", riverWordSet);
-
 let validityWordSet = new Set();
         validityWordSet.add("thinking_fast_and_slow");
     searchMap.set("validity", validityWordSet);
+
+let riverWordSet = new Set();
+        riverWordSet.add("antifragility");
+    searchMap.set("river", riverWordSet);
 
 let correspondsWordSet = new Set();
         correspondsWordSet.add("relational_dbs_performance");
@@ -24070,6 +24556,7 @@ let correspondsWordSet = new Set();
 
 let performsWordSet = new Set();
         performsWordSet.add("kafka_in_action_summary");
+        performsWordSet.add("spring_jpa");
         performsWordSet.add("acid_internally");
     searchMap.set("performs", performsWordSet);
 
@@ -24204,6 +24691,7 @@ let searchedWordSet = new Set();
 
 let sheWordSet = new Set();
         sheWordSet.add("leadership");
+        sheWordSet.add("antifragility");
         sheWordSet.add("password_hash_in_db");
     searchMap.set("she", sheWordSet);
 
@@ -24374,6 +24862,7 @@ let assuringWordSet = new Set();
     searchMap.set("assuring", assuringWordSet);
 
 let boundWordSet = new Set();
+        boundWordSet.add("spring_jpa");
         boundWordSet.add("rxjava");
     searchMap.set("bound", boundWordSet);
 
@@ -24435,6 +24924,10 @@ let avoidWordSet = new Set();
         avoidWordSet.add("acid_internally");
     searchMap.set("avoid", avoidWordSet);
 
+let freshWordSet = new Set();
+        freshWordSet.add("spring_jpa");
+    searchMap.set("fresh", freshWordSet);
+
 let humansWordSet = new Set();
         humansWordSet.add("antifragility");
     searchMap.set("humans", humansWordSet);
@@ -24474,13 +24967,13 @@ let selectWordSet = new Set();
         selectWordSet.add("sql_commands");
     searchMap.set("select", selectWordSet);
 
-let convincesWordSet = new Set();
-        convincesWordSet.add("antifragility");
-    searchMap.set("convinces", convincesWordSet);
-
 let advancedWordSet = new Set();
         advancedWordSet.add("oauth");
     searchMap.set("advanced", advancedWordSet);
+
+let convincesWordSet = new Set();
+        convincesWordSet.add("antifragility");
+    searchMap.set("convinces", convincesWordSet);
 
 let urlencodeWordSet = new Set();
         urlencodeWordSet.add("jwt");
@@ -24655,6 +25148,10 @@ let ordinaryWordSet = new Set();
         ordinaryWordSet.add("antifragility");
     searchMap.set("ordinary", ordinaryWordSet);
 
+let paramsWordSet = new Set();
+        paramsWordSet.add("oauth");
+    searchMap.set("params", paramsWordSet);
+
 let foolishWordSet = new Set();
         foolishWordSet.add("antifragility");
     searchMap.set("foolish", foolishWordSet);
@@ -24662,6 +25159,7 @@ let foolishWordSet = new Set();
 let transactionsWordSet = new Set();
         transactionsWordSet.add("mongo_db");
         transactionsWordSet.add("kafka_in_action_summary");
+        transactionsWordSet.add("spring_jpa");
         transactionsWordSet.add("comparing_different_queues");
         transactionsWordSet.add("mysql_vs_postgres");
         transactionsWordSet.add("acid_internally");
@@ -24701,6 +25199,7 @@ let tuplesWordSet = new Set();
 
 let beginWordSet = new Set();
         beginWordSet.add("mongo_db");
+        beginWordSet.add("spring_jpa");
         beginWordSet.add("acid_internally");
     searchMap.set("begin", beginWordSet);
 
@@ -24739,19 +25238,13 @@ let drawbacksWordSet = new Set();
         drawbacksWordSet.add("password_hash_in_db");
     searchMap.set("drawbacks", drawbacksWordSet);
 
-let bankruptcyWordSet = new Set();
-        bankruptcyWordSet.add("antifragility");
-    searchMap.set("bankruptcy", bankruptcyWordSet);
-
 let minimizedWordSet = new Set();
         minimizedWordSet.add("mysql_vs_postgres");
     searchMap.set("minimized", minimizedWordSet);
 
-let cycleWordSet = new Set();
-        cycleWordSet.add("hmac");
-        cycleWordSet.add("antifragility");
-        cycleWordSet.add("acid_internally");
-    searchMap.set("cycle", cycleWordSet);
+let bankruptcyWordSet = new Set();
+        bankruptcyWordSet.add("antifragility");
+    searchMap.set("bankruptcy", bankruptcyWordSet);
 
 let thinkingWordSet = new Set();
         thinkingWordSet.add("thinking_fast_and_slow");
@@ -24759,6 +25252,12 @@ let thinkingWordSet = new Set();
         thinkingWordSet.add("antifragility");
         thinkingWordSet.add("non-fiction_books");
     searchMap.set("thinking", thinkingWordSet);
+
+let cycleWordSet = new Set();
+        cycleWordSet.add("hmac");
+        cycleWordSet.add("antifragility");
+        cycleWordSet.add("acid_internally");
+    searchMap.set("cycle", cycleWordSet);
 
 let worldWordSet = new Set();
         worldWordSet.add("kafka_in_action_summary");
@@ -24874,6 +25373,10 @@ let printableWordSet = new Set();
         printableWordSet.add("password_hash_in_db");
     searchMap.set("printable", printableWordSet);
 
+let dictatorshipWordSet = new Set();
+        dictatorshipWordSet.add("leadership");
+    searchMap.set("dictatorship", dictatorshipWordSet);
+
 let combustibleWordSet = new Set();
         combustibleWordSet.add("antifragility");
     searchMap.set("combustible", combustibleWordSet);
@@ -24881,10 +25384,6 @@ let combustibleWordSet = new Set();
 let comfortWordSet = new Set();
         comfortWordSet.add("antifragility");
     searchMap.set("comfort", comfortWordSet);
-
-let dictatorshipWordSet = new Set();
-        dictatorshipWordSet.add("leadership");
-    searchMap.set("dictatorship", dictatorshipWordSet);
 
 let hideWordSet = new Set();
         hideWordSet.add("mongo_db");
@@ -24894,13 +25393,13 @@ let centuryWordSet = new Set();
         centuryWordSet.add("antifragility");
     searchMap.set("century", centuryWordSet);
 
-let discoveryWordSet = new Set();
-        discoveryWordSet.add("antifragility");
-    searchMap.set("discovery", discoveryWordSet);
-
 let instructionWordSet = new Set();
         instructionWordSet.add("java_concurrency");
     searchMap.set("instruction", instructionWordSet);
+
+let discoveryWordSet = new Set();
+        discoveryWordSet.add("antifragility");
+    searchMap.set("discovery", discoveryWordSet);
 
 let roundrobinassignorWordSet = new Set();
         roundrobinassignorWordSet.add("kafka_in_action_summary");
@@ -24943,6 +25442,7 @@ let signWordSet = new Set();
         signWordSet.add("jwt");
         signWordSet.add("antifragility");
         signWordSet.add("cryptography");
+        signWordSet.add("oauth");
         signWordSet.add("sql_commands");
     searchMap.set("sign", signWordSet);
 
@@ -24968,6 +25468,10 @@ let trullyWordSet = new Set();
         trullyWordSet.add("mongo_db");
     searchMap.set("trully", trullyWordSet);
 
+let lmdbWordSet = new Set();
+        lmdbWordSet.add("acid_internally");
+    searchMap.set("lmdb", lmdbWordSet);
+
 let phoenicianWordSet = new Set();
         phoenicianWordSet.add("antifragility");
     searchMap.set("phoenician", phoenicianWordSet);
@@ -24975,10 +25479,6 @@ let phoenicianWordSet = new Set();
 let angerWordSet = new Set();
         angerWordSet.add("antifragility");
     searchMap.set("anger", angerWordSet);
-
-let lmdbWordSet = new Set();
-        lmdbWordSet.add("acid_internally");
-    searchMap.set("lmdb", lmdbWordSet);
 
 let standsWordSet = new Set();
         standsWordSet.add("kafka_in_action_summary");
@@ -25034,6 +25534,7 @@ let directlyWordSet = new Set();
         directlyWordSet.add("relational_dbs_performance");
         directlyWordSet.add("mysql_vs_postgres");
         directlyWordSet.add("password_hash_in_db");
+        directlyWordSet.add("oauth");
         directlyWordSet.add("acid_internally");
     searchMap.set("directly", directlyWordSet);
 
@@ -25055,6 +25556,7 @@ let differentWordSet = new Set();
         differentWordSet.add("terraform");
         differentWordSet.add("rxjava");
         differentWordSet.add("password_hash_in_db");
+        differentWordSet.add("oauth");
         differentWordSet.add("acid_internally");
         differentWordSet.add("kafka_very_short_summary");
     searchMap.set("different", differentWordSet);
@@ -25067,6 +25569,7 @@ let levelWordSet = new Set();
         levelWordSet.add("mongo_db");
         levelWordSet.add("kafka_in_action_summary");
         levelWordSet.add("java_concurrency");
+        levelWordSet.add("spring_jpa");
         levelWordSet.add("leadership");
         levelWordSet.add("relational_dbs_performance");
         levelWordSet.add("antifragility");
@@ -25199,6 +25702,7 @@ let switchWordSet = new Set();
 let sqlWordSet = new Set();
         sqlWordSet.add("relational_dbs");
         sqlWordSet.add("cassandra");
+        sqlWordSet.add("spring_jpa");
         sqlWordSet.add("relational_dbs_performance");
         sqlWordSet.add("mysql_vs_postgres");
         sqlWordSet.add("acid_internally");
@@ -25269,22 +25773,22 @@ let consumesWordSet = new Set();
         consumesWordSet.add("kafka_in_action_summary");
     searchMap.set("consumes", consumesWordSet);
 
-let chanceWordSet = new Set();
-        chanceWordSet.add("antifragility");
-    searchMap.set("chance", chanceWordSet);
-
 let thenapplyWordSet = new Set();
         thenapplyWordSet.add("java_concurrency");
     searchMap.set("thenapply", thenapplyWordSet);
 
-let natureWordSet = new Set();
-        natureWordSet.add("antifragility");
-    searchMap.set("nature", natureWordSet);
+let chanceWordSet = new Set();
+        chanceWordSet.add("antifragility");
+    searchMap.set("chance", chanceWordSet);
 
 let socialWordSet = new Set();
         socialWordSet.add("thinking_fast_and_slow");
         socialWordSet.add("leadership");
     searchMap.set("social", socialWordSet);
+
+let natureWordSet = new Set();
+        natureWordSet.add("antifragility");
+    searchMap.set("nature", natureWordSet);
 
 let interestingWordSet = new Set();
         interestingWordSet.add("kafka_in_action_summary");
@@ -25380,16 +25884,16 @@ let behalfWordSet = new Set();
         behalfWordSet.add("jwt");
     searchMap.set("behalf", behalfWordSet);
 
-let somewhereWordSet = new Set();
-        somewhereWordSet.add("antifragility");
-        somewhereWordSet.add("choice");
-    searchMap.set("somewhere", somewhereWordSet);
-
 let sslWordSet = new Set();
         sslWordSet.add("mongo_db");
         sslWordSet.add("security");
         sslWordSet.add("ca_and_ssl_handshake");
     searchMap.set("ssl", sslWordSet);
+
+let somewhereWordSet = new Set();
+        somewhereWordSet.add("antifragility");
+        somewhereWordSet.add("choice");
+    searchMap.set("somewhere", somewhereWordSet);
 
 let kchWordSet = new Set();
         kchWordSet.add("oauth");
@@ -25445,6 +25949,7 @@ let secondaryWordSet = new Set();
 
 let actorsWordSet = new Set();
         actorsWordSet.add("rxjava");
+        actorsWordSet.add("oauth");
     searchMap.set("actors", actorsWordSet);
 
 let requestedWordSet = new Set();
@@ -25536,6 +26041,10 @@ let portsWordSet = new Set();
         portsWordSet.add("mongo_db");
     searchMap.set("ports", portsWordSet);
 
+let extendedWordSet = new Set();
+        extendedWordSet.add("spring_jpa");
+    searchMap.set("extended", extendedWordSet);
+
 let hotobservableWordSet = new Set();
         hotobservableWordSet.add("rxjava");
     searchMap.set("hotobservable", hotobservableWordSet);
@@ -25553,6 +26062,7 @@ let currentWordSet = new Set();
         currentWordSet.add("mongo_db");
         currentWordSet.add("kafka_in_action_summary");
         currentWordSet.add("java_concurrency");
+        currentWordSet.add("spring_jpa");
         currentWordSet.add("hmac");
         currentWordSet.add("rxjava");
         currentWordSet.add("acid_internally");
@@ -25564,6 +26074,7 @@ let concatenatedWordSet = new Set();
     searchMap.set("concatenated", concatenatedWordSet);
 
 let managedWordSet = new Set();
+        managedWordSet.add("spring_jpa");
         managedWordSet.add("comparing_different_queues");
     searchMap.set("managed", managedWordSet);
 
@@ -25575,15 +26086,15 @@ let precomputationWordSet = new Set();
         precomputationWordSet.add("password_hash_in_db");
     searchMap.set("precomputation", precomputationWordSet);
 
-let conferencesWordSet = new Set();
-        conferencesWordSet.add("antifragility");
-    searchMap.set("conferences", conferencesWordSet);
-
 let postgresWordSet = new Set();
         postgresWordSet.add("relational_dbs");
         postgresWordSet.add("mysql_vs_postgres");
         postgresWordSet.add("acid_internally");
     searchMap.set("postgres", postgresWordSet);
+
+let conferencesWordSet = new Set();
+        conferencesWordSet.add("antifragility");
+    searchMap.set("conferences", conferencesWordSet);
 
 let lastelementWordSet = new Set();
         lastelementWordSet.add("rxjava");
@@ -25625,6 +26136,7 @@ let stoppedWordSet = new Set();
 
 let managerWordSet = new Set();
         managerWordSet.add("kafka_in_action_summary");
+        managerWordSet.add("spring_jpa");
         managerWordSet.add("leadership");
         managerWordSet.add("antifragility");
     searchMap.set("manager", managerWordSet);
@@ -25708,6 +26220,7 @@ let butWordSet = new Set();
         butWordSet.add("career_crises");
         butWordSet.add("day_dreams");
         butWordSet.add("jwt");
+        butWordSet.add("spring_jpa");
         butWordSet.add("ca_and_ssl_handshake");
         butWordSet.add("kafka_in_action_summary");
         butWordSet.add("hmac");
@@ -25762,6 +26275,7 @@ let buyWordSet = new Set();
 let availableWordSet = new Set();
         availableWordSet.add("kafka_in_action_summary");
         availableWordSet.add("java_concurrency");
+        availableWordSet.add("spring_jpa");
         availableWordSet.add("antifragility");
         availableWordSet.add("mysql_vs_postgres");
         availableWordSet.add("password_hash_in_db");
@@ -25819,6 +26333,10 @@ let apacheWordSet = new Set();
 let luggageWordSet = new Set();
         luggageWordSet.add("oauth");
     searchMap.set("luggage", luggageWordSet);
+
+let updatebalanceWordSet = new Set();
+        updatebalanceWordSet.add("spring_jpa");
+    searchMap.set("updatebalance", updatebalanceWordSet);
 
 let drawbackWordSet = new Set();
         drawbackWordSet.add("kafka_in_action_summary");
@@ -25884,6 +26402,7 @@ let responisibilityWordSet = new Set();
 let queryWordSet = new Set();
         queryWordSet.add("mongo_db");
         queryWordSet.add("jwt");
+        queryWordSet.add("spring_jpa");
         queryWordSet.add("relational_dbs_performance");
         queryWordSet.add("comparing_different_queues");
         queryWordSet.add("rxjava");
@@ -25974,6 +26493,7 @@ let ideaWordSet = new Set();
         ideaWordSet.add("kafka_in_action_summary");
         ideaWordSet.add("java_concurrency");
         ideaWordSet.add("day_dreams");
+        ideaWordSet.add("spring_jpa");
         ideaWordSet.add("antifragility");
         ideaWordSet.add("terraform");
         ideaWordSet.add("oauth");
@@ -25997,10 +26517,12 @@ let getlasterrorWordSet = new Set();
     searchMap.set("getlasterror", getlasterrorWordSet);
 
 let flushWordSet = new Set();
+        flushWordSet.add("spring_jpa");
         flushWordSet.add("comparing_different_queues");
     searchMap.set("flush", flushWordSet);
 
 let paramWordSet = new Set();
+        paramWordSet.add("spring_jpa");
         paramWordSet.add("rxjava");
     searchMap.set("param", paramWordSet);
 
@@ -26073,13 +26595,13 @@ let antifragilityWordSet = new Set();
         antifragilityWordSet.add("antifragility");
     searchMap.set("antifragility", antifragilityWordSet);
 
-let consumptionWordSet = new Set();
-        consumptionWordSet.add("antifragility");
-    searchMap.set("consumption", consumptionWordSet);
-
 let advicesWordSet = new Set();
         advicesWordSet.add("eto_norm");
     searchMap.set("advices", advicesWordSet);
+
+let consumptionWordSet = new Set();
+        consumptionWordSet.add("antifragility");
+    searchMap.set("consumption", consumptionWordSet);
 
 let technologyWordSet = new Set();
         technologyWordSet.add("kafka_in_action_summary");
@@ -26097,14 +26619,14 @@ let migrationWordSet = new Set();
         migrationWordSet.add("mysql_vs_postgres");
     searchMap.set("migration", migrationWordSet);
 
-let onesWordSet = new Set();
-        onesWordSet.add("antifragility");
-    searchMap.set("ones", onesWordSet);
-
 let initiatingWordSet = new Set();
         initiatingWordSet.add("mongo_db");
         initiatingWordSet.add("java_concurrency");
     searchMap.set("initiating", initiatingWordSet);
+
+let onesWordSet = new Set();
+        onesWordSet.add("antifragility");
+    searchMap.set("ones", onesWordSet);
 
 let passingWordSet = new Set();
         passingWordSet.add("kafka_in_action_summary");
@@ -26186,6 +26708,7 @@ let betweenWordSet = new Set();
         betweenWordSet.add("kafka_in_action_summary");
         betweenWordSet.add("java_concurrency");
         betweenWordSet.add("jwt");
+        betweenWordSet.add("spring_jpa");
         betweenWordSet.add("antifragility");
         betweenWordSet.add("mysql_vs_postgres");
         betweenWordSet.add("gaining_wisdom");
@@ -26211,6 +26734,7 @@ let goalWordSet = new Set();
         goalWordSet.add("kafka_in_action_summary");
         goalWordSet.add("leadership");
         goalWordSet.add("choice");
+        goalWordSet.add("oauth");
     searchMap.set("goal", goalWordSet);
 
 let naturalWordSet = new Set();
@@ -26367,6 +26891,10 @@ let regularWordSet = new Set();
         regularWordSet.add("mongo_db");
     searchMap.set("regular", regularWordSet);
 
+let sitsWordSet = new Set();
+        sitsWordSet.add("spring_jpa");
+    searchMap.set("sits", sitsWordSet);
+
 let occupyingWordSet = new Set();
         occupyingWordSet.add("mysql_vs_postgres");
     searchMap.set("occupying", occupyingWordSet);
@@ -26395,6 +26923,7 @@ let leafWordSet = new Set();
 let leadWordSet = new Set();
         leadWordSet.add("kafka_in_action_summary");
         leadWordSet.add("java_concurrency");
+        leadWordSet.add("spring_jpa");
         leadWordSet.add("antifragility");
         leadWordSet.add("acid_internally");
         leadWordSet.add("kafka_very_short_summary");
@@ -26543,6 +27072,7 @@ let onlyWordSet = new Set();
         onlyWordSet.add("sha-256");
         onlyWordSet.add("java_concurrency");
         onlyWordSet.add("jwt");
+        onlyWordSet.add("spring_jpa");
         onlyWordSet.add("antifragility");
         onlyWordSet.add("cryptography");
         onlyWordSet.add("ca_and_ssl_handshake");
@@ -26605,6 +27135,7 @@ let konoplevWordSet = new Set();
         konoplevWordSet.add("career_crises");
         konoplevWordSet.add("day_dreams");
         konoplevWordSet.add("jwt");
+        konoplevWordSet.add("spring_jpa");
         konoplevWordSet.add("toc");
         konoplevWordSet.add("nosql_dbs");
         konoplevWordSet.add("ca_and_ssl_handshake");
@@ -26792,6 +27323,7 @@ let canWordSet = new Set();
         canWordSet.add("career_crises");
         canWordSet.add("day_dreams");
         canWordSet.add("jwt");
+        canWordSet.add("spring_jpa");
         canWordSet.add("ca_and_ssl_handshake");
         canWordSet.add("kafka_in_action_summary");
         canWordSet.add("interest");
@@ -26868,13 +27400,13 @@ let stampsWordSet = new Set();
         stampsWordSet.add("kafka_very_short_summary");
     searchMap.set("stamps", stampsWordSet);
 
-let unevenlyWordSet = new Set();
-        unevenlyWordSet.add("antifragility");
-    searchMap.set("unevenly", unevenlyWordSet);
-
 let terminatedWordSet = new Set();
         terminatedWordSet.add("java_concurrency");
     searchMap.set("terminated", terminatedWordSet);
+
+let unevenlyWordSet = new Set();
+        unevenlyWordSet.add("antifragility");
+    searchMap.set("unevenly", unevenlyWordSet);
 
 let playerWordSet = new Set();
         playerWordSet.add("antifragility");
@@ -26908,6 +27440,7 @@ let limitedWordSet = new Set();
         limitedWordSet.add("dynamo_db");
         limitedWordSet.add("antifragility");
         limitedWordSet.add("password_hash_in_db");
+        limitedWordSet.add("oauth");
     searchMap.set("limited", limitedWordSet);
 
 let satisfyWordSet = new Set();
@@ -26930,6 +27463,7 @@ let readsWordSet = new Set();
         readsWordSet.add("mongo_db");
         readsWordSet.add("kafka_in_action_summary");
         readsWordSet.add("java_concurrency");
+        readsWordSet.add("spring_jpa");
         readsWordSet.add("terraform");
         readsWordSet.add("password_hash_in_db");
         readsWordSet.add("acid_internally");

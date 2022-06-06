@@ -70,7 +70,7 @@
                             <h1 class="entry-title">oAuth</h1>
                             <div class="entry-meta">
                             <span class="post-date"><a href="#"><time class="entry-date"
-                                                                      datetime="2021-09-20T22:00:00Z">Sep 21, 2021</time></a></span>
+                                                                      datetime="2021-09-20T22:00:00Z">Sept 21, 2021</time></a></span>
 
                                 <span class="post-category">
                                                                     </span>
@@ -89,10 +89,10 @@
 <h2 id="_idea">Idea</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>There are two plaers: client and protected server. Protected server needs authenticate and authorize client.</p>
+<p>There are two players: client and protected server. Protected server needs authenticate and authorize client.</p>
 </div>
 <div class="paragraph">
-<p>client app always has access_token, not user credentials. Access token can be unverfied, so app will not be able to make any requests. It&#8217;s easeir to unverify access token, then password (because resource server doesn&#8217;t know the password).</p>
+<p>client app always has access_token, not user credentials. Access token can be unverified, so app will not be able to make any requests. It&#8217;s easier to unverify access token, then password (because resource server doesn&#8217;t know the password).</p>
 </div>
 <div class="paragraph">
 <p>Access token could have very short life. Access token can be refreshed (exchange existing token into the new one). So refresh can verify is it ok to prolong access token or not.</p>
@@ -100,7 +100,80 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="_concepts">Concepts</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Authentication - Who are you?</p>
+</li>
+<li>
+<p>Authorization - What are you allowed to do</p>
+</li>
+<li>
+<p>Resource owner - The owner of the protected data</p>
+</li>
+<li>
+<p>Resource server - Where the protected data is stored</p>
+</li>
+<li>
+<p>Authorization server - The server responsible for authorization</p>
+</li>
+<li>
+<p>Client/Application - Something that accesses the data stored on resource server on behaves of resource owner and authorized by the auth server</p>
+</li>
+<li>
+<p>Access token - An expireble token provided by client to access the data</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Bearer token</p>
+</li>
+<li>
+<p>JWT token</p>
+</li>
+<li>
+<p>opaque token</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Refresh token - a token allowing to get a new access token when the old one is expired</p>
+</li>
+<li>
+<p>Scope - same as a Spring Security role or a permission</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_grant_types">Grant types</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Client credentials - server to server communication (there are no users) (it&#8217;s also called 2-legged OAuth). Client is registered and trusted. Each client has id and secret which are used to retrieve access token</p>
+</li>
+<li>
+<p>Authorization code - Browser-based user login. There are 3 actors: user, client and resource server. Redirects user to auth server to login and redirect back with authorization code. Then client gets access token via back channel using the authorization code. (see details below). When client is not trusted, PKCE can be used (see details below)</p>
+</li>
+<li>
+<p>Device code - TVs and limited input capability devices. Login via browser (using Auth code) to get a temporary code that can be provided on TV to login.</p>
+</li>
+<li>
+<p>Refresh - obtains a new access token when old is expired</p>
+</li>
+<li>
+<p>Password and implicit - less secure option. There are 3 actors: user, client and resource server. User provides password to client, client uses password to get a token, client uses token to access the resource server.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_flows_for_specific_grant_types">Flows for specific Grant types</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_password">Password</h3>
@@ -137,6 +210,52 @@ grant_type=password
 </div>
 </div>
 <div class="sect2">
+<h3 id="_client_credentials">Client credentials</h3>
+<div class="paragraph">
+<p>In this approach, we do not need to perform any authentication.</p>
+</div>
+<div class="paragraph">
+<p>We simply POST to /oauth/token with the following form data:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> grant_type=client_credentials&amp;scope=view_friends</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that scope is optional. The endpoint then directly returns an access token for us to use (no refresh token is provided). Since no refresh token is provided, when the token expires, you will need to reauthenticate and ask for a new one.</p>
+</div>
+<div class="paragraph">
+<p>Use this only for (very very) trusted applications such as internal applications.</p>
+</div>
+<div class="paragraph">
+<p>You need to devise your own way to authenticate. For instance, the RFC&#8217;s example uses basic auth.</p>
+</div>
+<div class="paragraph">
+<p>Another solution is to use JWT (JSON web tokens) like the google OAuth API. It is a very complicated process, but there exists numerous libraries for generating your JWT. You then post the following form data (url encoded of course):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&amp;assertion=generated_jwt</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is posted to /oauth/token to get your token.</p>
+</div>
+<div class="sect3">
+<h4 id="_whether_you_can_create_an_api_that_supports_2_legged_and_3_legged_oauth_2_0_yes_it_is_possible">Whether you can create an API that supports 2-legged and 3-legged OAuth 2.0, Yes, it is possible.</h4>
+<div class="paragraph">
+<p>Then /auth endpoint is only used when users need to authenticate against the service.</p>
+</div>
+<div class="paragraph">
+<p>In the /token endpoint, simply check the value of grant_type in the GET parameters for urn:ietf:params:oauth:grant-type:jwt-bearer if using JWT or client_credentials for client_credentials.</p>
+</div>
+<div class="paragraph">
+<p>Note that when generating the client_id and client_secret to give to the user, if you are supporting multiple grant_types, ensure that you have a database column to store what type of grant type the id and secret was generated for. If required to have multiple grant types per user, generate a different set of credentials for each grant type.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_authorization_code_grant">Authorization Code Grant</h3>
 <div class="paragraph">
 <p>For third party clients. Third party client has client id and secret. It uses client id to redirect user to protected resource.</p>
@@ -160,31 +279,38 @@ grant_type=password
  &amp;client_id=29352915982374239857
  &amp;redirect_uri=https%3A%2F%2Fexample-app.com%2Fcallback
  &amp;scope=create+delete
- &amp;state=xcoiv98y2kd22vusuye3kch
---------------------
-
-After user is authenticated, Server redirects back:
-
-------------------------
-https://example-app.com/redirect
+ &amp;state=xcoiv98y2kd22vusuye3kch</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After user is authenticated, Server redirects back:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>https://example-app.com/redirect
  ?code=g0ZGZmNjVmOWIjNTk2NTk4ZTYyZGI3
- &amp;state=xcoiv98y2kd22vusuye3kch
-------------------------
-
-The state value will be the same value that the application initially set in the request. The application is expected to check that the state in the redirect matches the state it originally set. This protects against CSRF and other related attacks.
-
-The application makes a POST request to the service’s token endpoint with the following parameters:
-
-grant_type=authorization_code - This tells the token endpoint that the application is using the Authorization Code grant type.
+ &amp;state=xcoiv98y2kd22vusuye3kch</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The state value will be the same value that the application initially set in the request. The application is expected to check that the state in the redirect matches the state it originally set. This protects against CSRF and other related attacks.</p>
+</div>
+<div class="paragraph">
+<p>The application makes a POST request to the service’s token endpoint with the following parameters:</p>
+</div>
+<div class="paragraph">
+<p>grant_type=authorization_code - This tells the token endpoint that the application is using the Authorization Code grant type.
 code - The application includes the authorization code it was given in the redirect.
 redirect_uri - The same redirect URI that was used when requesting the code. Some APIs don’t require this parameter, so you’ll need to double check the documentation of the particular API you’re accessing.
 client_id - The application’s client ID.
-client_secret - The application’s client secret. This ensures that the request to get the access token is made only from the application, and not from a potential attacker that may have intercepted the authorization code.
-
-The token endpoint will verify all the parameters in the request, ensuring the code hasn’t expired and that the client ID and secret match. If everything checks out, it will generate an access token and return it in the response!
-
--------------------------
-HTTP/1.1 200 OK
+client_secret - The application’s client secret. This ensures that the request to get the access token is made only from the application, and not from a potential attacker that may have intercepted the authorization code.</p>
+</div>
+<div class="paragraph">
+<p>The token endpoint will verify all the parameters in the request, ensuring the code hasn’t expired and that the client ID and secret match. If everything checks out, it will generate an access token and return it in the response!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>HTTP/1.1 200 OK
 Content-Type: application/json
 Cache-Control: no-store
 Pragma: no-cache
@@ -195,20 +321,26 @@ Pragma: no-cache
   "expires_in":3600,
   "refresh_token":"IwOGYzYTlmM2YxOTQ5MGE3YmNmMDFkNTVk",
   "scope":"create delete"
-}
--------------------------
-
-The Authorization Code flow is best used in web and mobile apps. Since the Authorization Code grant has the extra step of exchanging the authorization code for the access token, it provides an additional layer of security not present in the Implicit grant type.
-
-Client security code can be invalidated at any time. So if application does something wrong, server can block it.
-
-=== Authorization code flow with the PKCE extension
-
-PKCE (RFC 7636) is a technique to secure public clients that don't use a client secret.
-
-It is primarily used by native and mobile apps, but the technique can be applied to any public client as well. It requires additional support by the authorization server, so it is only supported on certain providers.
-
-In step (1), the native application running on the end device, such as a smartphone, issues
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Authorization Code flow is best used in web and mobile apps. Since the Authorization Code grant has the extra step of exchanging the authorization code for the access token, it provides an additional layer of security not present in the Implicit grant type.</p>
+</div>
+<div class="paragraph">
+<p>Client security code can be invalidated at any time. So if application does something wrong, server can block it.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authorization_code_flow_with_the_pkce_extension">Authorization code flow with the PKCE extension</h3>
+<div class="paragraph">
+<p>PKCE (RFC 7636) is a technique to secure public clients that don&#8217;t use a client secret.</p>
+</div>
+<div class="paragraph">
+<p>It is primarily used by native and mobile apps, but the technique can be applied to any public client as well. It requires additional support by the authorization server, so it is only supported on certain providers.</p>
+</div>
+<div class="paragraph">
+<p>In step (1), the native application running on the end device, such as a smartphone, issues
 an OAuth 2.0 Authorization Request via the browser/operating system.
 The Redirection Endpoint URI in this case typically uses a custom URI
 scheme.  Step (1) happens through a secure API that cannot be
@@ -219,16 +351,18 @@ TLS, this communication is protected by TLS and cannot be
 intercepted.  The authorization server returns the authorization code
 in step (3).  In step (4), the Authorization Code is returned to the
 requester via the Redirection Endpoint URI that was provided in step
-(1).
-
-Note that it is possible for a malicious app to register itself as a
+(1).</p>
+</div>
+<div class="paragraph">
+<p>Note that it is possible for a malicious app to register itself as a
 handler for the custom scheme in addition to the legitimate OAuth 2.0
 app.  Once it does so, the malicious app is now able to intercept the
 authorization code in step (4).  This allows the attacker to request
-and obtain an access token in steps (5) and (6), respectively.
-
---------------------------------
- +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+and obtain an access token in steps (5) and (6), respectively.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
     | End Device (e.g., Smartphone)  |
     |                                |
     | +-------------+   +----------+ | (6) Access Token  +----------+
@@ -250,24 +384,42 @@ and obtain an access token in steps (5) and (6), respectively.
     | |         Browser            |--------------------&gt;|          |
     | |                            | | (2) Authz Request |          |
     | +----------------------------+ |                   +----------+
-    +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
-
---------------------------------
-
-To prevent it Legitimate app generates some random value and encode it. The encoded values is passed with (2) Authz Request with encoding method. At step 5 the value (original) is passed, so Authz Server can encode origianl value and compare with the value received on step 2.
-
-
-== JWT as an access token
-
-Has 3 parts: HEADER (which hashing algorithm is being used to create the JWT signature component), PAYLOAD (usefull information to check permissions, scope, user, when token expired, etc.) and SIGNATURE
-
-Signature:
-
-data = base64urlEncode( header ) + “.” + base64urlEncode( payload )
+    +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To prevent it Legitimate app generates some random value and encode it. The encoded values is passed with (2) Authz Request with encoding method. At step 5 the value (original) is passed, so Authz Server can encode origianl value and compare with the value received on step 2.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jwt_as_an_access_token">JWT as an access token</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Has 3 parts: HEADER (which hashing algorithm is being used to create the JWT signature component), PAYLOAD (usefull information to check permissions, scope, user, when token expired, etc.) and SIGNATURE</p>
+</div>
+<div class="paragraph">
+<p>Signature:</p>
+</div>
+<div class="paragraph">
+<p>data = base64urlEncode( header ) + “.” + base64urlEncode( payload )
 hashedData = hash( data, secret )
-signature = base64urlEncode( hashedData )</pre>
+signature = base64urlEncode( hashedData )</p>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_open_id">Open ID</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Standard to provide authentication (i.e. identity) on top of OAuth 2 (authorization).</p>
+</div>
+<div class="paragraph">
+<p>Uses JWT token as an ID token with private information identifying a user (not access token, not used to access resources).</p>
+</div>
+<div class="paragraph">
+<p>The flow is very similar to Authorization Code. But the goal is to authenticate (single sign-on) not access a resource, so you get back an id token not access token. There is a hybrid mode where you can take both.</p>
 </div>
 </div>
 </div>
